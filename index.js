@@ -31,8 +31,8 @@ app.use(cookiesParser());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-// const CONNECTION_URL = process.env.MONGODB_URL;
-const CONNECTION_URL = process.env.MONGODB_LOCAL_URL;
+const CONNECTION_URL = process.env.MONGODB_URL;
+// const CONNECTION_URL = process.env.MONGODB_LOCAL_URL;
 
 const PORT = process.env.PORT || 9000;
 //MONGODB CLOUD DATABASE CONNECTION________________________
