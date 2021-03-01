@@ -126,6 +126,8 @@ export const getAccessToken = async (req, res) => {
     const access_token = createAccessToken({ id: userId });
     res.status(200).json(access_token);
   } catch (error) {
+    console.log(error);
+
     return res.status(400).json({ msg: error });
   }
 };
@@ -143,6 +145,8 @@ export const forgotPassword = async (req, res) => {
     sendMail(email, url, "Reset your password. Click the below link");
     res.json({ msg: "Please check your email for reset link" });
   } catch (error) {
+    console.log(error);
+
     return res.status(404).send(error);
   }
 };
@@ -158,6 +162,8 @@ export const resetPassword = async (req, res) => {
     );
     res.json({ msg: "Password successfully changed !" });
   } catch (error) {
+    console.log(error);
+
     return res.status(404).send(error);
   }
 };
@@ -181,6 +187,8 @@ export const changePassword = async (req, res) => {
     );
     res.json({ msg: "Password successfully changed !" });
   } catch (error) {
+    console.log(error);
+
     return res.status(404).send(error);
   }
 };
@@ -250,6 +258,8 @@ export const getUser = async (req, res) => {
     const user = await UserDatabase.findById(req.user.id).select("-password");
     res.status(200).send(user);
   } catch (error) {
+    console.log(error);
+
     res.status(404).json({ message: error.message });
   }
 };
