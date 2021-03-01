@@ -8,7 +8,7 @@ import cors from "cors";
 import UserDatabase from "./models/userData.js";
 import routesIndex from "./routes/index.js";
 import cookiesParser from "cookie-parser";
-import path from "path";
+import * as path from "path";
 
 //MIDDLEWARE
 dotenv.config();
