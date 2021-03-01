@@ -1,17 +1,29 @@
 //IMPORTS
-import "./loadEnv.js";
-import dotenv from "dotenv";
-import express from "express";
-import bodyParser from "body-parser";
-import mongoose from "mongoose";
-import cors from "cors";
-import UserDatabase from "./models/userData.js";
-import routesIndex from "./routes/index.js";
-import cookiesParser from "cookie-parser";
-import * as path from "path";
+
+require("dotenv").config();
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const cookiesParser = require("cookie-parser");
+const path = require("path");
+
+// import "./loadEnv.js";
+
+// import dotenv from "dotenv";
+// import express from "express";
+// import bodyParser from "body-parser";
+// import mongoose from "mongoose";
+// import cors from "cors";
+
+// import UserDatabase from "./models/userData.js";
+// import routesIndex from "./routes/index.js";
+
+// import cookiesParser from "cookie-parser";
+// import path from 'path';
 
 //MIDDLEWARE
-dotenv.config();
+// dotenv.config();
 const app = express();
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
@@ -19,8 +31,8 @@ app.use(cookiesParser());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 
-const CONNECTION_URL = process.env.MONGODB_URL;
-// const CONNECTION_URL = process.env.MONGODB_LOCAL_URL;
+// const CONNECTION_URL = process.env.MONGODB_URL;
+const CONNECTION_URL = process.env.MONGODB_LOCAL_URL;
 
 const PORT = process.env.PORT || 9000;
 //MONGODB CLOUD DATABASE CONNECTION________________________
@@ -34,7 +46,8 @@ mongoose
   .then(() => console.log("Connected to Database :: MongoDB Cloud"))
   .catch((err) => console.log(err.message));
 
-app.use("/", routesIndex);
+// app.use("/", routesIndex);
+app.use("/", require("./routes/index"));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));

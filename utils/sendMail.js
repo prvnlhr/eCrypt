@@ -1,6 +1,10 @@
-import nodemailer from "nodemailer";
-import googleapis from "googleapis";
-const { google } = googleapis;
+// import nodemailer from "nodemailer";
+// import googleapis from "googleapis";
+// const { google } = googleapis;
+
+const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const { OAuth2 } = google.auth;
 const OAUTH_PLAYGROUND = "https://developers.google.com/oauthplayground";
 
 const {
@@ -11,13 +15,21 @@ const {
   GMAIL_PASS,
 } = process.env;
 
-const oauth2Client = new google.auth.OAuth2(
+const oauth2Client = new OAuth2(
   MAILING_SERVICE_CLIENT_ID,
   MAILING_SERVICE_CLIENT_SECRET,
   MAILING_SERVICE_REFRESH_TOKEN,
   SENDER_EMAIL_ADDRESS,
   OAUTH_PLAYGROUND
 );
+
+// const oauth2Client = new google.auth.OAuth2(
+//   MAILING_SERVICE_CLIENT_ID,
+//   MAILING_SERVICE_CLIENT_SECRET,
+//   MAILING_SERVICE_REFRESH_TOKEN,
+//   SENDER_EMAIL_ADDRESS,
+//   OAUTH_PLAYGROUND
+// );
 
 //send mail
 const sendEmail = (to, url, txt) => {
@@ -55,4 +67,5 @@ const sendEmail = (to, url, txt) => {
   });
 };
 
-export default sendEmail;
+// export default sendEmail;
+module.exports = sendEmail;

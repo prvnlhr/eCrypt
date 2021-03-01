@@ -1,6 +1,7 @@
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 
-const authNew = async (req, res, next) => {
+const auth = async (req, res, next) => {
   // console.log("Header cookies::", req.headers);
   try {
     const token = req.header("Authorization");
@@ -20,4 +21,5 @@ const authNew = async (req, res, next) => {
     return res.status(404).send(error);
   }
 };
-export default authNew;
+// export default authNew;
+module.exports = auth;

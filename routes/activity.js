@@ -1,10 +1,13 @@
-import express from "express";
-
+// import express from "express";
+const express = require("express");
 const router = express.Router();
 
-import { addActivity, getActivities } from "../controllers/activity.js";
+// import { addActivity, getActivities } from "../controllers/activity.js";
 
-router.post("/addActivity", addActivity);
-router.get("/getActivities", getActivities);
+const activityController = require("../controllers/activity");
 
-export default router;
+router.post("/addActivity", activityController.addActivity);
+router.get("/getActivities", activityController.getActivities);
+
+// export default router;
+module.exports = router;
