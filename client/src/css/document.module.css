@@ -1,0 +1,243 @@
+.documentCard {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid white; */
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+  margin: 20px 15px 20px 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.021);
+  background-color: white;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 9px;
+  /* background: linear-gradient(145deg, #faf9f9, #ffffff); */
+  /* box-shadow: 6px 6px 16px #d6d6d6, -2px -2px 16px #ffffff; */
+}
+
+.buttonContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  border-bottom: 1px solid #b3bac36b;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bookmarkDiv {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+  margin: 0px 10px 0px 10px;
+}
+
+.imageContainer {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid cyan; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-shrink: 0; */
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+}
+
+.imageContainer img {
+  height: 99%;
+  width: 90%;
+  object-fit: contain;
+  /* object-fit: fill; */
+  cursor: pointer;
+}
+
+/* max-width: 90%; */
+/* max-height: 90%; */
+
+.imageTitleContainer {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  border-top: 1px solid #b3bac36b;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  /* grid-template-rows: 80% 20; */
+  grid-template-columns: 1fr 30%;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.titleDiv {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  /* grid-row-start: 1; */
+  /* grid-row-end: 2; */
+  /* border: 1px solid red; */
+  width: 100%;
+  /* height: 10px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  font-family: "Nunito", sans-serif;
+  color: slategray;
+  font-size: 14px;
+  font-weight: 650;
+  /* overflow-wrap: normal; */
+}
+.titleDiv::-webkit-scrollbar {
+  display: none;
+}
+.titleBtnDiv {
+  /* grid-row-start: 2; */
+  /* grid-row-end: 3; */
+  grid-column-start: 2;
+  grid-column-end: 3;
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  /* font-size: 10px; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.titleInput {
+  width: 98%;
+  height: 80%;
+  overflow-x: scroll;
+  outline: none;
+  border-bottom: 1px solid rgb(151, 151, 151);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: skyblue;
+  margin: 0px 0px 0px 3%;
+  font-size: 15px;
+}
+
+.titleText {
+  margin: 0px 0px 0px 10px;
+  padding: 0px;
+  font-size: 13px;
+  height: 20px;
+  /* width: 200px; */
+  word-wrap: normal;
+}
+.maximize {
+  position: absolute;
+  /* width: 25px; */
+  /* height: 500px; */
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 95%;
+  height: 95%;
+  /* border: 1px solid rgb(107, 107, 107); */
+  display: grid;
+  grid-template-rows: 8% 80% 10%;
+  margin: 10px 10px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.993);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  z-index: 11;
+}
+.minimizeBtn {
+  z-index: 10;
+  color: gray;
+  font-size: 15px;
+}
+.cancelBtnDiv {
+  color: gray;
+
+  /* border: 1px solid red; */
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancelBtnDiv :hover {
+  color: red;
+}
+.editBtnDiv {
+  color: gray;
+  color: #9c9c9c;
+
+  /* border: 1px solid red; */
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.editBtnDiv :hover {
+  color: orange;
+}
+.saveBtnDiv {
+  color: gray;
+  width: 50%;
+  height: 100%;
+
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.saveBtnDiv :hover {
+  color: green;
+}
+.imageDeleteDiv {
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+  margin: 0px 10px 0px 10px;
+  color: gray;
+  color: #b3bac3;
+}
+.imageDeleteDiv:hover {
+  color: #d11a2a;
+  transform: scale(1.05);
+  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+
+  /* transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1); */
+}
+.favIcon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+  margin: 0px 0px 0px 0px;
+  color: gray;
+  color: #b3bac3;
+}
+.favIcon:hover {
+  color: #2f89fc;
+}

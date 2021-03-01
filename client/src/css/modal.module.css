@@ -1,0 +1,93 @@
+.modalContainer {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  width: 300px;
+  height: 120px;
+  border-radius: 10px;
+  /* border: 1px solid black; */
+  background-color: white;
+  z-index: 10;
+  display: grid;
+  grid-template-rows: 1fr 30%;
+  /* justify-content: center; */
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.dialogDiv {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* padding: 5%; */
+}
+.dialogDiv p {
+  margin: 0px 0px 0px 0px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 650;
+  color: black;
+  font-size: 13px;
+}
+.modalBtnDiv {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modalCancelBtn {
+  width: 40%;
+  height: 25px;
+  /* border: 1px solid black; */
+
+  /* background-color: transparent; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+.modalCancelBtn p {
+  font-family: "Nunito", sans-serif;
+  font-weight: 650;
+  color: black;
+  font-size: 14px;
+}
+.modalCancelBtn:hover {
+  background-color: rgba(255, 166, 0, 0.411);
+  cursor: pointer;
+}
+.modalConfirmBtn {
+  width: 40%;
+  height: 25px;
+  background-color: #ebebee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border-radius: 5px;
+  /* border: 1px solid black; */
+
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+}
+.modalConfirmBtn:hover {
+  background-color: rgba(255, 0, 0, 0.486);
+  cursor: pointer;
+}
+
+.modalConfirmBtn p {
+  font-family: "Nunito", sans-serif;
+  font-weight: 650;
+  color: black;
+  font-size: 14px;
+  /* width: 100%; */
+}

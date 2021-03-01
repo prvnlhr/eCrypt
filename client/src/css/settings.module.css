@@ -1,0 +1,418 @@
+.settingsComponent {
+  /* border: 1px solid rgb(192, 189, 189); */
+  width: 99%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  align-content: center;
+  /* overflow: hidden; */
+  margin: 1% 0px 0px 0px;
+  overflow-y: scroll;
+  background-color: #dae5eb;
+  border-radius: 10px 10px 0px 0px;
+}
+.settingsComponent::-webkit-scrollbar {
+  display: none;
+}
+
+.headerDiv {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #0177fb;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+  /* margin: 0px 0px 10% 0px; */
+}
+.headingText {
+  margin: 0px 0px 0px 10px;
+  font-family: "Nunito", sans-serif;
+  color: black;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  font-size: 15px;
+}
+.notificationDiv {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.notificationErrorDiv {
+  /* width: 200px; */
+  height: 20px;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  background-color: #d7232373;
+  border: 1px solid #d72323;
+  color: #d72323;
+  border-radius: 5px;
+  color: white;
+  margin: 10px 0px 0px 10px;
+}
+.notificationSuccessDiv {
+  /* width: 60%; */
+  height: 20px;
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 12px;
+  background-color: #41d7236b;
+  border: 1px solid #38d723;
+  border-radius: 5px;
+  color: rgb(44, 44, 44);
+  margin: 10px 0px 0px 10px;
+}
+
+.bodyDiv {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid pink; */
+  /* background-color: #dae5eb; */
+  border-radius: 5px;
+  z-index: 9;
+  font-family: "Nunito", sans-serif;
+}
+/* __PROFILE_____________________________________________________________________ */
+.profileContainer {
+  /* border: 1px solid red; */
+  width: 90%;
+  height: 300px;
+  min-height: 300px;
+  margin: 10px 0px 10px 0px;
+  display: grid;
+  grid-template-rows: 30px 40px 160px 70px;
+}
+
+.formContainer {
+  display: grid;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  margin: 0px 0px 0px 10px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 25% 25% 25% 25%;
+  /* grid-gap: 2px; */
+  /* border: 1px solid red; */
+
+  grid-template-areas:
+    " firstNameLabel lastNameLabel"
+    " firstNameInput lastNameInput"
+    " emailLabel emailLabel"
+    " emailInput emailInput";
+}
+
+.firstNameLabel {
+  grid-area: firstNameLabel;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 650;
+  color: gray;
+}
+.lastNameLabel {
+  grid-area: lastNameLabel;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 650;
+  color: gray;
+
+  /* margin: 0px 0px 0px 2px; */
+}
+.firstNameInput {
+  grid-area: firstNameInput;
+  width: 88%;
+  height: 90%;
+  /* border: 1px solid black; */
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  padding-left: 2%;
+  font-family: "Nunito", sans-serif;
+  color: slategray;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  /* border: 1px solid rgb(241, 241, 241); */
+  border-radius: 5px;
+  border: none;
+}
+.lastNameInput {
+  grid-area: lastNameInput;
+  width: 88%;
+  height: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 2%;
+  font-family: "Nunito", sans-serif;
+  color: slategray;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  border: 1px solid rgb(201, 200, 200);
+  border-radius: 5px;
+
+  border: none;
+}
+.emailLabel {
+  grid-area: emailLabel;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 650;
+  color: gray;
+}
+.emailInput {
+  grid-area: emailInput;
+  width: 93%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2%;
+  font-family: "Nunito", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  border: 1px solid rgb(201, 200, 200);
+  border-radius: 5px;
+
+  border: none;
+}
+
+.activeInput {
+  border: 1px solid #0177fb;
+  color: black;
+}
+.inactiveInput {
+  background-color: rgba(245, 245, 245, 0.404);
+  color: slategray;
+}
+.profileButtonContainer {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+button {
+  margin: 0px 0px 0px 10px;
+}
+.editProfileBtn {
+  width: 100px;
+  height: 20px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #0177fb;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+}
+
+/*_______CHANGE PASSWORD______________________________________________________________ */
+
+.changePasswordContainer {
+  /* border: 1px solid blue; */
+  width: 90%;
+  height: 200px;
+  min-height: 200px;
+  margin: 10px 0px 10px 0px;
+  display: grid;
+  grid-template-rows: 30px 30px 140px;
+  /* grid-gap: 10%; */
+}
+
+.changePasswordDiv {
+  width: 100%;
+  max-width: 500px;
+  height: 75%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.changePasswordDiv input {
+  width: 200px;
+  height: 30px;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid #0177fb;
+  border-radius: 5px;
+  padding-left: 2%;
+}
+.passwordChangeButtonDiv {
+  width: 100%;
+  max-width: 500px;
+  height: 20%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.changePassBtn {
+  width: 120px;
+  height: 20px;
+  background: none;
+  border: 1px solid black;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0177fb;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+  margin: 10px 10px 10px 10px;
+}
+
+/* ____DELETE ACCOUNT________________________________________________________________ */
+.deleteAccountContainer {
+  /* border: 1px solid green; */
+  width: 90%;
+  height: 250px;
+  min-height: 250px;
+  margin: 0px 0px 30px 0px;
+  display: grid;
+  grid-template-rows: 30px 30px 190px;
+  /* grid-gap: 10px; */
+}
+
+.deleteInputDiv {
+  width: 100%;
+  max-width: 500px;
+  height: 50%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+.deleteInputDiv input {
+  width: 200px;
+  height: 30px;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid #0177fb;
+  border-radius: 5px;
+  padding-left: 2%;
+}
+.deleteInputDiv p {
+  margin: 10px 0px 0px 10px;
+}
+.deleteBtnDiv {
+  width: 100%;
+  max-width: 500px;
+  height: 50%;
+  /* border: 1px solid black; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-start;
+}
+.deleteBtnDiv button {
+  /* width: 80px; */
+  height: 20px;
+  margin: 10px 10px 10px 10px;
+}
+
+.deleteAccountBtn {
+  width: 120px;
+  height: 20px;
+  background: none;
+  border: 1px solid black;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0177fb;
+  border-radius: 10px;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+}
+.confirmBtn {
+  width: 100px;
+  height: 20px;
+  background: none;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #0177fb;
+  border: none;
+  color: white;
+}
+.cancelBtn {
+  width: 100px;
+  height: 20px;
+  background: none;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: #afafaf;
+  color: white;
+  border: none;
+}
+::placeholder {
+  font-family: "Nunito", sans-serif;
+  color: rgb(175, 175, 175);
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+}
+.disclaimer {
+  font-family: "Nunito", sans-serif;
+  color: rgb(139, 139, 139);
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+}

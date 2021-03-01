@@ -1,0 +1,177 @@
+.docFormContainer {
+  position: absolute;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* left: 0; */
+  right: 2%;
+  /* text-align: center; */
+  height: 250px;
+  width: 250px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  /* border-left: 1px solid rgb(224, 224, 224); */
+  background-color: white;
+  /* display: grid; */
+  /* grid-template-rows: 10% 1fr 25%; */
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 10px 10px 10px 10px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 30;
+  /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.docFormContainerCollapse {
+  position: absolute;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* left: 0; */
+  right: 2%;
+  /* text-align: center; */
+  height: 0px;
+  width: 0px;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  /* border-left: 1px solid rgb(224, 224, 224); */
+  background-color: white;
+  /* display: grid; */
+  /* grid-template-rows: 10% 1fr 25%; */
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 20px 20px 20px 20px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+form {
+  position: relative;
+  /* bottom: 0; */
+  display: grid;
+  grid-template-rows: 20% 20% 20% 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  width: 99%;
+  height: 99%;
+}
+
+.titleInputDiv {
+  position: relative;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  border: 1px solid rgb(202, 200, 200);
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 30px;
+  border-radius: 2px;
+  font-family: "Nunito", sans-serif;
+  color: #2f89fc;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  font-size: 15px;
+}
+.titleInput {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid gray;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  outline: none;
+}
+.btnDiv {
+  position: absolute;
+  bottom: 0px;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  /* border: 1px solid black; */
+  width: 97%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fileInputDiv {
+  position: relative;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border: 1px solid rgb(192, 191, 191);
+  width: 80%;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 30px;
+  border-radius: 2px;
+  /* background-color: gray; */
+  color: black;
+  font-family: "Nunito", sans-serif;
+  color: slategray;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  font-size: 15px;
+  /* text-decoration: underline; */
+}
+.fileInputDiv p {
+  color: black;
+  font-family: "Nunito", sans-serif;
+  color: slategray;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  color: #2f89fc;
+}
+
+.fileInput {
+  border: none;
+  outline: none;
+  background: none;
+  /* width:30px; */
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  /* height: 30px !important; */
+  margin: 0px 0px 0px 10px;
+}
+
+.fileInput::-webkit-file-upload-button {
+  visibility: hidden;
+  border: none;
+  background: #071a52;
+  font-family: "Nunito", sans-serif;
+  color: black;
+  font-weight: 650;
+  /* letter-spacing: 0.2px; */
+  font-size: 13px;
+  border-radius: 5px;
+  background-color: #dae5eb;
+}
+.fileInput:hover {
+  cursor: pointer;
+}
+/* .fileInput:hover::before {
+  border-color: black;
+}
+.fileInput:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+} */

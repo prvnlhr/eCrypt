@@ -1,0 +1,57 @@
+body {
+  /* border: 1px solid red; */
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #e5edf2; */
+  /* background: url(../img/Appearance.png); */
+
+  /* background-color: slategray; */
+  /* background: #f0f2f5;
+    /* background-color: #e5edf2; */
+
+  /* background-color: #fafafa; */
+  /* background-color: #ffffff; */
+  /* background-color: #f6f7ff ; */
+
+  /* background-color: #e5edf2; */
+  /* background-color: #d6e1e7; */
+ 
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.app {
+  position: relative;
+  width: 100vw !important;
+  height: 100vh !important;
+  /* width: 95vw; */
+  /* height: 95vh !important; */
+  /* margin-top:2vh; */
+  /* border: 1px solid black; */
+  display: flex;
+  /* grid-template-rows: 10% 90%; */
+  /* grid-template-rows: 70px 1fr; */
+  border-radius: 0px 0px 0px 0px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #d6e1e7;
+  background-color: #dae5eb;
+  background: url(../img/loginForm.svg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color:#505690;
+
+}
+
+.app::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,13 @@
+.icon {
+  width: 50%;
+  height: 50%;
+}
+.snapchatIcon {
+  width: 80%;
+  height: 80%;
+  background-color: yellow;
+  border-radius: 10px;
+  color: rgb(167, 164, 164);
+  overflow: hidden;
+}
+/* RiSnapchatLine */

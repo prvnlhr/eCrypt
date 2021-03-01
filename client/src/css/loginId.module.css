@@ -1,0 +1,438 @@
+.cardContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  justify-content: center;
+  align-items: center;
+  width: 280px;
+  max-width: 280px;
+  height: 75px;
+  border-radius: 8px;
+  /* border: 1px solid rgba(105, 105, 105, 0.116); */
+  margin: 15px 10px 10px 15px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #ffffff;
+
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px; */
+
+  /* box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px; */
+
+  /* box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px; */
+  /* box-shadow: 20px 20px 30px 0 rgba(0,0,0,0.1); */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  /* border: 1px solid red; */
+
+  /* overflow: hidden; */
+}
+
+.cardContainer:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.logoDiv {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  width: 85%;
+  height: 85%;
+  border: 1px solid rgba(19, 18, 18, 0.103);
+  border-radius: 10px;
+  margin: 0px 0px 0px 5px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.infoDiv {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  width: 100%;
+  height: 90%;
+  /* border: 1px solid black; */
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  /* grid-gap: 2px; */
+}
+
+.saveCancelDiv {
+  position: absolute;
+  top: 5px;
+  right: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  width: 45px;
+  height: 20px;
+}
+.editDeleteDiv {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  width: 40px;
+  height: 18px;
+}
+
+.cancelIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: gray;
+  border-radius: 50%;
+  /* border: 1px solid rgb(214, 214, 214); */
+
+  /* border: 1px solid black; */
+  background: white;
+}
+.cancelIcon:hover {
+  color: #d11a2a;
+}
+
+.saveIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: gray;
+  border-radius: 50%;
+  /* border: 1px solid rgb(214, 214, 214); */
+  background: none;
+  /*  */
+}
+.saveIcon:hover {
+  color: #51cb02;
+}
+
+.editIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b3bac3;
+  font-size: 14px;
+
+  /* border: 1px solid black; */
+}
+.deleteIcon {
+  /* width: 20px; */
+  /* height: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  color: #b3bac3;
+
+  /* border: 1px solid black; */
+}
+.deleteIcon:hover {
+  color: #d11a2a;
+  transform: scale(1.05);
+  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+
+  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.editIcon :hover {
+  color: orange;
+  transform: scale(1.05);
+  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+
+  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.editInput {
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid slategray;
+  background: none;
+  font-family: "Nunito", sans-serif;
+  color: skyblue;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  padding-left: 10px;
+}
+
+.websiteDiv {
+  width: 65%;
+  height: 100%;
+  border-bottom: 1px solid lightgray;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  /* justify-content: center; */
+  /* border: 1px solid black; */
+  overflow-x: scroll;
+
+  align-items: center;
+  color: gray !important;
+  margin: 0px 0px 2px 0px;
+}
+.websiteDiv::-webkit-scrollbar {
+  display: none;
+}
+.usernameDiv {
+  width: 95%;
+  height: 100%;
+  /* border: 1px solid black; */
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding-left: 2%;
+  overflow: scroll;
+
+  margin: 2px 0px 0px 0px;
+
+  color: rgb(53, 52, 52) !important;
+}
+.usernameDiv::-webkit-scrollbar {
+  display: none;
+}
+.passwordDiv {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  grid-row-start: 3;
+  grid-row-end: 4;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  padding-left: 2%;
+  margin: 2px 0px 0px 0px;
+
+  align-items: center;
+  color: rgb(53, 52, 52) !important;
+}
+
+.websiteText {
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
+
+  margin: 0px 0px 0px 10px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: black;
+  font-size: 13px;
+}
+
+.usernameText {
+  font-family: "Nunito", sans-serif;
+
+  margin: 0px 0px 0px 10px;
+  font-weight: 650;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  /* color: rgb(112, 112, 112); */
+  color: slategray;
+}
+
+.passwordText {
+  font-family: "Nunito", sans-serif;
+  margin: 0px 0px 0px 10px;
+  font-weight: 650;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  /* color: rgb(112, 112, 112); */
+  color: slategray;
+}
+
+.editButton {
+  position: absolute;
+  display: flex;
+  /* justify-content: centre; */
+  /* align-items: centre; */
+  top: 2px;
+  right: 25px;
+  /* border: 1px solid black; */
+  /* width: 50%; */
+  border-radius: 50%;
+  cursor: pointer;
+}
+.editButton :hover {
+  background-color: rgba(128, 128, 128, 0.514);
+  border-radius: 50%;
+}
+.favBtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  outline: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  /* border: 1px solid black; */
+  color: gray;
+  color: #b3bac3;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.favIcon:hover {
+  color: #2f89fc;
+}
+.favBtn:hover {
+  cursor: pointer;
+  /* transform: scale(1.05); */
+  color: #2f89fc;
+  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+
+  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dotMenuContainer {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 90px;
+  height: 60px;
+  /* border: 1px solid #2f89fc; */
+  background-color: rgba(255, 255, 255, 0.993);
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  border-radius: 5px;
+  overflow: hidden;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
+
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.editDiv {
+  width: 100%;
+  height: 100%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  /* color: gray; */
+  font-size: 14px;
+  font-weight: 650;
+
+  padding-left: 5%;
+}
+.editDiv span {
+  margin: 0px 0px 0px 10%;
+}
+.editDiv:hover {
+  background-color: #2f89fc;
+}
+
+.deleteDiv {
+  width: 100%;
+  height: 100%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  /* color: gray; */
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+  padding-left: 5%;
+}
+.deleteDiv span {
+  margin: 0px 0px 0px 5%;
+}
+.deleteDiv:hover {
+  background-color: #2f89fc;
+}
+
+/* 
+.editButton {
+  position: absolute;
+  display: flex;
+  top: 2px;
+  right: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.editButton :hover {
+  background-color: rgba(128, 128, 128, 0.514);
+  border-radius: 50%;
+}
+
+.editMenuContainer {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 80px;
+  height: 50px;
+  border: 1px solid rgba(128, 128, 128, 0.199);
+  background-color: white;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.042), 0 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    0 100px 80px rgba(0, 0, 0, 0.07);
+}
+.editDiv {
+  width: 95%;
+  height: 100%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  justify-content: center;
+  align-items: center;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.editLogoDiv {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  width: 65%;
+  height: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 8px;
+  padding-left: 2px;
+}
+
+.editTextDiv {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.deleteDiv {
+  width: 100%;
+  height: 100%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+} */

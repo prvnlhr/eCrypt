@@ -1,0 +1,102 @@
+.amexLogo {
+  /* margin-top: 5px; */
+  /* border: 1px solid red; */
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+
+  /* width: 50%; */
+  /* height: 100%; */
+}
+.visaLogo {
+  /* margin-top: 5px; */
+  /* border: 1px solid red; */
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+
+  /* width: 35%; */
+  /* height: 70%; */
+}
+.jcbLogo {
+  /* margin-top: 5px; */
+  /* margin-left: 5px; */
+  /* border: 1px solid red; */
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+
+  /* width: 60%; */
+  /* height: 70%; */
+}
+.masterLogo {
+  /* margin-top: 5px; */
+  /* margin-left: 5px; */
+  /* border: 1px solid red; */
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+
+}
+.maestroLogo {
+  /* margin-top: 5px; */
+  /* border: 1px solid red; */
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+
+
+  /* width: 35%; */
+  /* height: 70%; */
+}
+.discoverLogo {
+  /* margin-top: 5px; */
+  /* border: 1px solid red; */
+  object-fit: contain;
+
+  width: 35px;
+  height: 35px;
+  /* height: 70%; */
+}
+.hiperLogo {
+  /* margin-top: 8px; */
+  /* width: 50%; */
+  /* border: 1px solid red; */
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+
+  /* height: 50%; */
+}
+.rupayLogo {
+  /* margin-top: 5px; */
+  /* border: 1px solid red; */
+  object-fit: contain;
+
+  width: 35px;
+  height: 35px;
+  /* height: 70%; */
+}
+.unionLogo {
+  /* margin-top: 5px; */
+  /* margin: 15px 0px 0px 0px; */
+  object-fit: contain;
+
+  /* border: 1px solid red; */
+  width: 35px;
+  height: 35px;
+
+  /* width: 60%; */
+  /* height: 70%; */
+}
+.dinersLogo {
+  /* margin-top: 5px; */
+  /* border: 1px solid red; */
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+
+
+  /* width: 60%; */
+  /* height: 70%; */
+}

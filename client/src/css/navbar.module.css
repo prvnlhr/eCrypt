@@ -1,0 +1,229 @@
+.navbar {
+  /* position: absolute; */
+  position: relative;
+  /* top: 0px; */
+  border-bottom: 1px solid rgb(212, 210, 210);
+
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  width: 100% !important;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  background-color: white;
+}
+
+.usernameDiv {
+  /* position: absolute; */
+  /* top: 20px; */
+  /* right: 0px; */
+  margin: 0px;
+
+  width: 120px;
+  height: 20px;
+  background-color: #dae5eb;
+  /* border: 1px solid rgb(207, 207, 207); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  padding: 2px;
+  margin: 0px 5px 0px 10px;
+}
+.usernameDiv p {
+  font-weight: 650;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
+  color: slategray;
+  color: #0177fb;
+
+  margin: 0px 5px 0px 5px;
+}
+.downBtn:hover {
+  cursor: pointer;
+}
+.userPopupDiv {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  width: 100px;
+  height: 25px;
+  border: 1px solid rgba(197, 197, 197, 0.411);
+  background-color: white;
+  z-index: 20;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .userPopupDiv:hover {
+  border: 1px solid blue;
+} */
+.logOutBtn {
+  outline: none;
+  border: none;
+
+  background: none;
+  letter-spacing: 0.8px;
+  /* border-radius: 50%; */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* margin: 10px 10px 10px 10px; */
+}
+.logOutBtn p {
+  margin: 0px 0px 0px 5px;
+  font-family: "Nunito", sans-serif;
+  color: #b3bac3;
+  font-size: 14px;
+  font-weight: 650;
+}
+.logOutBtn:hover {
+  cursor: pointer;
+}
+.avatarContainer {
+  grid-column-start: 2;
+  width: 50px;
+  height: 50px;
+  /* border: 1px solid white; */
+  margin: 5px 0px 0px 0px;
+  /* border-radius: 50%; */
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoContainer {
+  position: absolute;
+  top: 15px;
+  left: -30px;
+  /* margin: 5px 0px 0px 5px; */
+  width: 90px;
+  height: 40px;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: white; */
+}
+.logoText {
+  /* margin: 0px 0px 0px 20px; */
+  /* color: rgb(150, 150, 150); */
+
+  font-size: 25px;
+  font-weight: 650;
+  font-family: "Nunito", sans-serif;
+  color: slategray;
+  font-weight: 650;
+}
+.logoText span {
+  color: #0177fb;
+}
+
+.leftPortion {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.rightPortion {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.inputContainer {
+  width: 20%;
+  min-width: 100px;
+  height: 25px;
+  border: 1px solid rgb(189, 188, 188);
+  /* border: 1.5px solid black; */
+  margin: 5px 5px 5px 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-radius: 8px;
+  /* transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+  background-color: white;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+
+  /* border: 1px solid red; */
+}
+.inputContainerSmall {
+  width: 30px;
+  height: 30px;
+  /* border: 1px solid rgb(189, 188, 188); */
+  margin: 5px 5px 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+
+  /* transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+  background-color: white;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+}
+
+.inputDiv {
+  position: relative;
+  /* width: 100%; */
+  height: 90%;
+  /* border: 1px solid red; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputDiv input {
+  width: 90%;
+  height: 70%;
+  margin: 0px 0px 0px 0px;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  /* border-bottom: 1px solid black; */
+  border-bottom: none;
+  font-family: "Nunito", sans-serif;
+  color: slategray;
+  letter-spacing: 0.3px;
+  font-size: 15px;
+  font-weight: 650;
+}
+.searchIconDiv {
+  /* width: 20%; */
+  /* height: 90%; */
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 3% 0px 0px;
+}
+.searchIconDiv :hover {
+  cursor: pointer;
+}
+::placeholder {
+  font-family: "Nunito", sans-serif;
+  color: rgb(175, 175, 175);
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 15px;
+}
+
+/* @media all and (min-width: 500px) {
+} */
+/*  */

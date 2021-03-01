@@ -1,0 +1,321 @@
+.dashboardComponent {
+  width: 99%;
+  height: 100%;
+  /* border: 1px solid red; */
+  background-color: #dae5eb;
+  display: flex;
+  flex-direction: column;
+  /* flex-wrap: wrap; */
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* overflow-y: scroll; */
+  border-radius: 10px 10px 10px 10px;
+
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.dashboardComponent::-webkit-scrollbar {
+  display: none;
+}
+
+.countContainer {
+  width: 95%;
+  height: 40%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  margin: 25px 0px 0px 0px;
+  border-radius: 10px 10px 10px 10px;
+
+  background-color: white;
+}
+.countDiv {
+  width: 100px;
+  height: 40px;
+  /* border: 1px solid black; */
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 5px; */
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+  /* background-color: white; */
+  margin: 20px 10px 10px 20px;
+}
+.count {
+  width: 100%;
+  height: 99%;
+  /* border: 1px solid black; */
+  grid-area: count;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  /* margin: 10px 0px 10px 10px; */
+
+  font-family: "Nunito", sans-serif;
+  color: rgb(53, 52, 52);
+  font-weight: 650;
+  color: black;
+  font-size: 18px;
+}
+.footer {
+  width: 100%;
+  height: 99%;
+  border-bottom: 1px solid #2f89fc;
+  grid-area: footer;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  /* margin: 10px 0px 10px 10px; */
+  font-family: "Nunito", sans-serif;
+  color: rgb(53, 52, 52);
+  font-weight: 600;
+  color: slategray;
+  font-size: 13px;
+}
+.recentActivityListHeadingDiv {
+  width: 99%;
+  height: 10%;
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.recentActivityListHeadingDiv p {
+  margin: 20px 0px 0px 20px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 650;
+  font-size: 15px;
+  color: black;
+}
+.recentActivityList {
+  width: 100%;
+  height: 50%;
+  /* border: 1px solid black; */
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+}
+
+.recentActivityList::-webkit-scrollbar {
+  background-color: #fff;
+  height: 4px;
+  width: 5px;
+}
+.recentActivityList::-webkit-scrollbar-track {
+  background-color: rgb(231, 228, 228);
+  width: 2px;
+}
+.recentActivityList::-webkit-scrollbar-thumb {
+  background-color: #2f89fc;
+  border-radius: 4px;
+}
+.recentItemContainer {
+  width: 70%;
+  min-width: 280px;
+  max-width: 500px;
+  height: 90px;
+  /* min-height: 50px; */
+  /* border: 1px solid black; */
+  background-color: #ffffff;
+
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  margin: 10px 20px 10px 20px;
+  display: grid;
+  grid-template-columns: 50px 80px 65px 1fr;
+  grid-template-rows: 30px 30px 30px;
+  border-radius: 10px;
+  grid-template-areas:
+    " logo task type date  date"
+    " logo name  name name  name"
+    " logo item  item item  item";
+}
+/* */
+.logo {
+  grid-area: logo;
+  width: 100%;
+  width: 100%;
+  /* border: 1px solid lightgray; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.logo div {
+  width: 90%;
+  height: 90%;
+  border: 1px solid rgba(211, 211, 211, 0.39);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  background: transparent;
+}
+.task {
+  grid-area: task;
+  width: 100%;
+  width: 100%;
+  /* border: 1px solid black; */
+  border-bottom: 1px solid lightgray;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.task div {
+  width: 99%;
+  width: 90%;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #2f89fc; */
+  margin: 0px 0px 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+.taskAdded {
+  font-family: "Nunito", sans-serif;
+  margin: 0px 0px 0px 0px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: #34c759;
+  letter-spacing: 0.2px !important;
+
+
+}
+.taskDeleted {
+  font-family: "Nunito", sans-serif;
+  margin: 0px 0px 0px 0px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: red;
+}
+.taskEdited {
+  font-family: "Nunito", sans-serif;
+  margin: 0px 0px 0px 0px;
+  font-size: 12.5px;
+  font-weight: 650;
+  color: blue;
+}
+.task p {
+  font-family: "Nunito", sans-serif;
+  margin: 0px 0px 0px 0px;
+  font-size: 12.5px;
+  font-weight: 650;
+  /* color: white; */
+}
+.type {
+  grid-area: type;
+  width: 100%;
+  width: 100%;
+  /* border: 1px solid yellow; */
+  /* border: 1px solid black; */
+  border-bottom: 1px solid lightgray;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.type div {
+  /* width: 100%; */
+  width: 100%;
+  border: 1px solid rgb(179, 179, 179);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #2f89fc; */
+  font-size: 12.5px;
+
+  margin: 0px 0px 0px 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+}
+.type p {
+  font-family: "Nunito", sans-serif;
+  margin: 0px 0px 0px 0px;
+  /* text-decoration: underline; */
+  font-weight: 600;
+  /* color: slategray; */
+  font-size: 13px;
+}
+.date {
+  grid-area: date;
+  width: 100%;
+  width: 100%;
+  /* min-width: 200px; */
+  /* border: 1px solid blue; */
+  border-bottom: 1px solid black;
+  border-bottom: 1px solid lightgray;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.date p {
+  margin: 0px 8px 0px 0px;
+  font-size: 12px;
+  font-family: "Nunito", sans-serif;
+  color: #2f89fc;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+}
+.name {
+  grid-area: name;
+  width: 100%;
+  width: 100%;
+  /* border: 1px solid gray; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+}
+.name::-webkit-scrollbar {
+  display: none;
+}
+.name p {
+  margin: 10px 0px 0px 10px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 650;
+  font-size: 14px;
+}
+
+.item {
+  grid-area: item;
+  width: 100%;
+  width: 100%;
+  /* border: 1px solid cyan; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: scroll;
+}
+.item::-webkit-scrollbar {
+  display: none;
+}
+.item p {
+  margin: 0px 0px 0px 10px;
+  font-family: "Nunito", sans-serif;
+  color: rgb(53, 52, 52);
+  font-weight: 600;
+  color: slategray;
+  font-size: 13px;
+}

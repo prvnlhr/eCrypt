@@ -1,0 +1,99 @@
+.cardList {
+  width: 99%;
+  height: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+  /* background: #fff; */
+  overflow: hidden;
+  /* border: 1px solid rgba(175, 173, 173, 0.377); */
+
+  align-content: center;
+
+  background-color: #f6f6f6;
+  background-color: #dae5eb;
+
+
+  /* overflow: hidden; */
+  border-radius: 10px 10px 0px 0px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* background-color: #d6e1e7; */
+
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+}
+.opacity {
+  opacity: 0;
+}
+
+.contentContainer {
+  height: 100%;
+  /* border: 1px solid green; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* background-color: white; */
+  overflow-y: scroll;
+  border-radius: 10px 10px 10px 10px;
+  /* background-color: #e5edf2; */
+
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+
+  /* overflow: scroll !important; */
+  /* border-radius: 0px 0px 20px 0px; */
+}
+
+.contentContainerCollapse {
+  border-radius: 0px 0px 0px 0px;
+  border-radius: 20px 20px 20px 20px;
+
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow-y: scroll !important;
+  /* overflow: scroll !important; */
+  /* background-color: rgb(255, 255, 255); */
+  /* background-color: #e5edf2; */
+
+  /* background-color: #482ff7; */
+  border-radius: 0px 0px 0px 0px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.contentContainer::-webkit-scrollbar {
+  background-color: #fff;
+  height: 4px;
+  width: 5px;
+}
+.contentContainer::-webkit-scrollbar-track {
+  background-color: rgb(231, 228, 228);
+  width: 2px;
+}
+.contentContainer::-webkit-scrollbar-thumb {
+  background-color: #2f89fc;
+  border-radius: 4px;
+}
+
+.contentContainerCollapse::-webkit-scrollbar {
+  background-color: #fff;
+  height: 4px;
+  width: 5px;
+  /* display: none; */
+}
+.contentContainerCollapse::-webkit-scrollbar-track {
+  background-color: rgb(231, 228, 228);
+}
+.contentContainerCollapse::-webkit-scrollbar-thumb {
+  background-color: #2f89fc;
+  border-radius: 4px;
+}

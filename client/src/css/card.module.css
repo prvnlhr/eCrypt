@@ -1,0 +1,425 @@
+.cardContainer {
+  position: relative;
+  width: 250px !important;
+  height: 150px !important;
+  /* border: 1px solid red; */
+  border-radius: 8px;
+  margin: 15px 15px 15px 15px;
+  padding-left: 5px;
+  padding-top: 5px;
+  display: grid;
+  /* grid-gap: 1px; */
+  object-fit: contain;
+  /* background-color: rgb(253, 249, 249); */
+
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: 50px 40px 50px;
+  grid-template-areas:
+    "bankName bankName cardLogo "
+    "cardNo cardNo cvv"
+    "user user cardExpiry";
+  /* border: 1px solid rgba(177, 177, 177, 0.116); */
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-color: #ffffff;
+  /* border: 1px solid red; */
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
+
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+  /* box-shadow: 20px 20px 30px 0 rgba(0,0,0,0.1); */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+
+
+  padding-right: 5px;
+}
+.cardContainer:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.cvv {
+  grid-area: cvv;
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px 0px 0px 0px;
+  padding-right: 2px;
+}
+.cvvLabel {
+  font-weight: 550;
+  font-size: 10px;
+  color: gray;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 8px 0px 0px 0px;
+}
+.cvvText {
+  color: black;
+  font-size: 13px;
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 600;
+  color: rgb(66, 66, 66);
+
+  margin: 8px 0px 0px 0px;
+}
+
+.bankName {
+  grid-area: bankName;
+  /* border: 1px solid black; */
+  width: 99%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  margin: 10px 0px 0px 0px;
+}
+.cardNo {
+  grid-area: cardNo;
+  /* border: 1px solid green; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  align-items: center;
+  margin: 10px 0px 0px 0px;
+}
+.cardLogo {
+  position: relative;
+  grid-area: cardLogo;
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: 15px 0px 0px 0px;
+  flex-direction: row;
+  /* margin: 10px 0px 0px 0px; */
+
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+
+  /* padding-left: 10px; */
+}
+
+/* .logo {
+  width: 45%;
+  height:20px;
+  margin: 10px 10px 0px 0px;
+} */
+.cardUser {
+  grid-area: user;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 10px 0px 0px 0px;
+}
+.cardExpiry {
+  grid-area: cardExpiry;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 90%;
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* grid-template-rows: 20px 20px; */
+  /* margin: 5px 0px 0px 0px; */
+}
+.expiryLabel {
+  /* grid-row-start: 1; */
+  /* grid-row-end: 2; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* font-family: "Nunito", sans-serif; */
+  font-weight: 550;
+  font-size: 10px;
+  color: gray;
+  /* border: 1px solid green; */
+  margin: 0px 0px 0px 0px;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.expiryText {
+  width: 100%;
+  height: 100%;
+  /* grid-row-start: 2; */
+  /* grid-row-end: 3; */
+  width: 100%;
+  height: 50%;
+  /* border: 1px solid purple; */
+  margin: 0px 0px 0px 0px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Share Tech Mono", monospace;
+  font-weight: 600;
+  color: rgb(66, 66, 66);
+  font-size: 13px;
+}
+
+.saveCancelDiv {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  right: 28px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  width: 40px;
+  width: 45px;
+
+  height: 20px;
+}
+.editDeleteDiv {
+  position: absolute;
+  top: 5px;
+  right: 25px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  width: 40px;
+  height: 18px;
+}
+
+.cancelIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: gray;
+  color: #b3bac3;
+
+
+  /* border: 1px solid black; */
+  background: none;
+}
+.cancelIcon:hover {
+  color: #d11a2a;
+}
+
+.saveIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: gray;
+  color: #b3bac3;
+
+  /* border: 1px solid black; */
+  background: none;
+  /*  */
+}
+.saveIcon:hover {
+  color: #51cb02;
+}
+
+.editIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  color: #b3bac3;
+
+  font-size: 14px;
+  /* width: 20px; */
+  /* height: 20px; */
+
+  /* border: 1px solid black; */
+  /* border-radius: 50%; */
+}
+
+.deleteIcon {
+  /* width: 20px; */
+  /* height: 20px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+  color: #b3bac3;
+
+
+  /* border: 1px solid black; */
+}
+.deleteIcon:hover {
+  color: #d11a2a;
+  transform: scale(1.05);
+  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+
+  /* transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1); */
+}
+.editIcon :hover {
+  color: orange;
+  transform: scale(1.05);
+  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+
+  /* transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1); */
+}
+
+.editInput {
+  outline: none;
+  width: 80%;
+  /* height: 15px; */
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid slategray;
+  background: none;
+  font-family: "Nunito", sans-serif;
+  color: skyblue;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  /* padding-top: 10px; */
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 0px 0px 0px;
+}
+
+.favBtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  outline: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  /* border: 1px solid black; */
+  color: #b3bac3;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.favBtn:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.editButton {
+  position: absolute;
+  display: flex;
+  /* justify-content: centre; */
+  /* align-items: centre; */
+  top: 2px;
+  right: 26px;
+  /* border: 1px solid black; */
+  /* width: 50%; */
+  border-radius: 50%;
+  cursor: pointer;
+}
+.editButton :hover {
+  background-color: rgba(128, 128, 128, 0.514);
+  border-radius: 50%;
+}
+.cardText {
+  font-family: "Nunito", sans-serif;
+  margin: 10px 0px 0px 5px;
+  font-weight: 650;
+  letter-spacing: 0.3px;
+
+  font-size: 13px;
+}
+.dotMenuContainer {
+  position: absolute;
+  top: 30px;
+  right: 10px;
+  width: 90px;
+  height: 60px;
+  /* border: 1px solid rgba(211, 210, 210, 0.199); */
+  background-color: white;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  /* border: 1px solid black; */
+  /* justify-content: center; */
+  align-items: center;
+
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.editDiv {
+  width: 100%;
+  height: 100%;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Nunito", sans-serif;
+  /* color: gray; */
+  font-size: 14px;
+  font-weight: 650;
+
+  padding-left: 8%;
+}
+.editDiv span {
+  margin: 0px 0px 0px 10%;
+}
+.editDiv:hover {
+  background-color: #2f89fc;
+}
+
+.deleteDiv {
+  width: 100%;
+  height: 100%;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  /* color: gray; */
+
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+  padding-left: 8%;
+}
+.deleteDiv span {
+  margin: 0px 0px 0px 5%;
+}
+.deleteDiv:hover {
+  background-color: #2f89fc;
+}
+
+.cardNo {
+  letter-spacing: 1px;
+  font-family: "Share Tech Mono", monospace;
+  font-weight: bold !important;
+  font-size: 15px !important;
+  color: rgb(65, 63, 63);
+}
