@@ -1,7 +1,9 @@
 import axios from "axios";
 
-// const API = axios.create({ baseURL: "https://ecrypt-trail-deploy.herokuapp.com" });
-const API = axios.create({ baseURL: "http://localhost:9000" });
+const API = axios.create({
+  baseURL: "https://ecrypt-trail-deploy.herokuapp.com",
+});
+// const API = axios.create({ baseURL: "http://localhost:9000" });
 
 const cloudinaryAPI = axios.create({
   baseURL: "https://api.cloudinary.com/v1_1/ecryptimgdb",
