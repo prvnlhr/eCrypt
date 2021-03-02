@@ -159,12 +159,12 @@ const SignUpPage = () => {
               <HiArrowNarrowRight fontSize="20px" />
             )}
           </button>
+          <div className={formStyles.AlreadyHaveAccountDiv}>
+            <Link to="/login" className={formStyles.linkText}>
+              Already have an account? Sign in
+            </Link>
+          </div>
         </form>
-        <div className={formStyles.AlreadyHaveAccountDiv}>
-          <Link to="/login" className={formStyles.linkText}>
-            Already have an account? Sign in
-          </Link>
-        </div>
       </div>
     </div>
   );

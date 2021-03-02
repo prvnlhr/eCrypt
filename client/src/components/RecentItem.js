@@ -10,52 +10,54 @@ const RecentItem = (activity) => {
   const day = dateString[1];
   const time = dateString[3];
   return (
-    <div className={styles.recentItemContainer}>
-      <div className={styles.logo}>
-        <div>
-          {activity.activity.type === "Card" ? (
-            <IoCard fontSize="24px" color="slategray" />
-          ) : activity.activity.type === "Login" ? (
-            <IoMdKey fontSize="24px" color="slategray" />
-          ) : activity.activity.type === "Doc" ? (
-            <IoMdDocument fontSize="24px" color="slategray" />
-          ) : activity.activity.type === "Settings" ? (
-            <RiSettings3Fill fontSize="24px" color="slategray" />
-          ) : null}
+    <div className={styles.recentItemWrapper}>
+      <div className={styles.recentItemContainer}>
+        <div className={styles.logo}>
+          <div>
+            {activity.activity.type === "Card" ? (
+              <IoCard fontSize="24px" color="slategray" />
+            ) : activity.activity.type === "Login" ? (
+              <IoMdKey fontSize="24px" color="slategray" />
+            ) : activity.activity.type === "Doc" ? (
+              <IoMdDocument fontSize="24px" color="slategray" />
+            ) : activity.activity.type === "Settings" ? (
+              <RiSettings3Fill fontSize="24px" color="slategray" />
+            ) : null}
+          </div>
         </div>
-      </div>
-      <div className={styles.task}>
-        <div>
-          <p
-            className={
-              activity.activity.task === "Added"
-                ? styles.taskAdded
-                : activity.activity.task === "Edited"
-                ? styles.taskEdited
-                : activity.activity.task === "Deleted"
-                ? styles.taskDeleted
-                : null
-            }
-          >
-            {activity.activity.task}
+        <div className={styles.task}>
+          <div>
+            <p
+              className={
+                activity.activity.task === "Added"
+                  ? styles.taskAdded
+                  : activity.activity.task === "Edited"
+                  ? styles.taskEdited
+                  : activity.activity.task === "Deleted"
+                  ? styles.taskDeleted
+                  : null
+              }
+            >
+              {activity.activity.task}
+            </p>
+          </div>
+        </div>
+        <div className={styles.type}>
+          <div>
+            <p>{activity.activity.type}</p>
+          </div>
+        </div>
+        <div className={styles.date}>
+          <p>
+            {month} {day} {time}
           </p>
         </div>
-      </div>
-      <div className={styles.type}>
-        <div>
-          <p>{activity.activity.type}</p>
+        <div className={styles.name}>
+          <p> {activity.activity.name}</p>
         </div>
-      </div>
-      <div className={styles.date}>
-        <p>
-          {month} {day} {time}
-        </p>
-      </div>
-      <div className={styles.name}>
-        <p> {activity.activity.name}</p>
-      </div>
-      <div className={styles.item}>
-        <p>{activity.activity.item}</p>
+        <div className={styles.item}>
+          <p>{activity.activity.item}</p>
+        </div>
       </div>
     </div>
   );

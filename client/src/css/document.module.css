@@ -3,8 +3,8 @@
   width: 200px;
   height: 300px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; */
+  /* align-items: center; */
   /* border: 1px solid white; */
   display: grid;
   grid-template-rows: 10% 80% 10%;
@@ -15,8 +15,7 @@
   background-color: white;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   border-radius: 9px;
-  /* background: linear-gradient(145deg, #faf9f9, #ffffff); */
-  /* box-shadow: 6px 6px 16px #d6d6d6, -2px -2px 16px #ffffff; */
+
 }
 
 .buttonContainer {
@@ -29,6 +28,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
 }
 
 .bookmarkDiv {
@@ -54,8 +54,8 @@
 }
 
 .imageContainer img {
-  height: 99%;
-  width: 90%;
+  height: 98%;
+  width: 100%;
   object-fit: contain;
   /* object-fit: fill; */
   cursor: pointer;
@@ -83,16 +83,22 @@
   /* grid-row-end: 2; */
   /* border: 1px solid red; */
   width: 100%;
-  /* height: 10px; */
+  height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  text-align: center;
   align-items: center;
   overflow-x: scroll;
+
+  /* overflow-wrap: normal; */
+}
+.titleDiv p {
   font-family: "Nunito", sans-serif;
   color: slategray;
   font-size: 14px;
   font-weight: 650;
-  /* overflow-wrap: normal; */
+  white-space: nowrap;
+  margin: 0px 10px 0px 10px;
 }
 .titleDiv::-webkit-scrollbar {
   display: none;
@@ -112,31 +118,24 @@
 }
 
 .titleInput {
-  width: 98%;
-  height: 80%;
+  width: 90%;
+  /* height: 80%; */
   overflow-x: scroll;
   outline: none;
   border-bottom: 1px solid rgb(151, 151, 151);
   border-top: none;
   border-left: none;
   border-right: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  /* align-items: center; */
+  /* border: 1px solid rgb(151, 151, 151); */
   text-align: center;
-  color: skyblue;
-  margin: 0px 0px 0px 3%;
+  color: black;
+  margin: 0px 0px 0px 3px;
   font-size: 15px;
 }
 
-.titleText {
-  margin: 0px 0px 0px 10px;
-  padding: 0px;
-  font-size: 13px;
-  height: 20px;
-  /* width: 200px; */
-  word-wrap: normal;
-}
 .maximize {
   position: absolute;
   /* width: 25px; */
@@ -146,16 +145,30 @@
   top: 0;
   left: 0;
   right: 0;
-  width: 95%;
-  height: 95%;
+  width: 100%;
+  height: 98%;
   /* border: 1px solid rgb(107, 107, 107); */
-  display: grid;
+  /* display: grid;
   grid-template-rows: 8% 80% 10%;
-  margin: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px; */
+  display: flex;
+  /* grid-template-rows: 8% 80% 10%; */
+  /* margin: 10px 10px 10px 10px; */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.993);
+  /* background-color: rgba(255, 255, 255, 0.993); */
+  background-color: black;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  background: rgba(28, 27, 27, 0.65);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
 
   z-index: 11;
 }
@@ -214,7 +227,7 @@
   justify-content: center;
   align-items: center;
   /* border: 1px solid blue; */
-  margin: 0px 10px 0px 10px;
+  margin: 0px 20px 0px 0px;
   color: gray;
   color: #b3bac3;
 }
@@ -240,4 +253,123 @@
 }
 .favIcon:hover {
   color: #2f89fc;
+}
+
+@media screen and (max-width: 550px) {
+  .documentCard {
+    position: relative;
+    width: 95%;
+    height: 400px;
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* border: 1px solid white; */
+    display: grid;
+    grid-template-rows: 10% 80% 10%;
+    margin: 20px 2.5% 20px 2.5%;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.021);
+    background-color: white;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 9px;
+    /* background: linear-gradient(145deg, #faf9f9, #ffffff); */
+    /* box-shadow: 6px 6px 16px #d6d6d6, -2px -2px 16px #ffffff; */
+  }
+  .maximize {
+    position: absolute;
+    /* width: 25px; */
+    /* height: 500px; */
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: -40px;
+    right: 0;
+    width: 99%;
+    width: 98vw;
+    height: 95%;
+    /* border: 1px solid rgb(107, 107, 107); */
+    /* display: grid;
+    grid-template-rows: 8% 80% 10%;
+    margin: 10px 10px 10px 10px; */
+    display: flex;
+    /* grid-template-rows: 8% 80% 10%; */
+    /* margin: 10px 10px 10px 10px; */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.993); */
+    background-color: black;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+
+    background: rgba(28, 27, 27, 0.65);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    z-index: 11;
+  }
+  .cancelIcon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: gray;
+    border-radius: 50%;
+    /* border: 1px solid rgb(214, 214, 214); */
+  
+    /* border: 1px solid black; */
+    background: white;
+  }
+  .imageDeleteDiv{
+    font-size: 20px;
+  }
+  
+  .saveBtnDiv {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: gray;
+    border-radius: 50%;
+    /* border: 1px solid rgb(214, 214, 214); */
+    background: none;
+    /*  */
+  }
+  .saveIcon:hover {
+    color: #51cb02;
+  }
+  
+  .editBtnDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b3bac3;
+    font-size: 20px;
+  
+    /* border: 1px solid black; */
+  }
+  .cancelBtnDiv {
+    /* width: 20px; */
+    /* height: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* color: gray; */
+    /* color: #b3bac3; */
+    font-size: 20px;
+  
+    /* border: 1px solid black; */
+  }
+  .favIcon {
+    font-size: 20px;
+  }
 }

@@ -11,7 +11,7 @@
   margin: 1% 0px 0px 0px;
   overflow-y: scroll;
   background-color: #dae5eb;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 0px 0px 0px 0px;
 }
 .settingsComponent::-webkit-scrollbar {
   display: none;
@@ -236,14 +236,14 @@ button {
 }
 .editProfileBtn {
   width: 100px;
-  height: 20px;
+  height: 25px;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
 
   background: #0177fb;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: "Nunito", sans-serif;
   color: white;
   font-weight: 550;
@@ -294,7 +294,7 @@ button {
 
 .changePassBtn {
   width: 120px;
-  height: 20px;
+  height: 25px;
   background: none;
   border: 1px solid black;
   border: none;
@@ -303,7 +303,7 @@ button {
   justify-content: center;
   align-items: center;
   background: #0177fb;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: "Nunito", sans-serif;
   color: white;
   font-weight: 550;
@@ -361,7 +361,7 @@ button {
 
 .deleteAccountBtn {
   width: 120px;
-  height: 20px;
+  height: 25px;
   background: none;
   border: 1px solid black;
   border: none;
@@ -369,7 +369,7 @@ button {
   justify-content: center;
   align-items: center;
   background: #0177fb;
-  border-radius: 10px;
+  border-radius: 5px;
   font-family: "Nunito", sans-serif;
   color: white;
   font-weight: 550;
@@ -378,26 +378,26 @@ button {
 }
 .confirmBtn {
   width: 100px;
-  height: 20px;
+  height: 25px;
   background: none;
   border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 5px;
   background: #0177fb;
   border: none;
   color: white;
 }
 .cancelBtn {
   width: 100px;
-  height: 20px;
+  height: 25px;
   background: none;
   border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
+  border-radius: 5px;
   background: #afafaf;
   color: white;
   border: none;

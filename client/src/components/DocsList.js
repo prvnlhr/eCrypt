@@ -14,6 +14,7 @@ const DocsList = ({ docs, setHeading }) => {
   const [showEditButton, setEditButton] = useState(true);
 
   const [formMode, setFormMode] = useState(false);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     setHeading("Documents");
@@ -21,6 +22,7 @@ const DocsList = ({ docs, setHeading }) => {
   const formToggle = () => {
     setFormMode(!formMode);
   };
+  
 
   return (
     <div className={styles.docsList}>
@@ -44,9 +46,9 @@ const DocsList = ({ docs, setHeading }) => {
         </div>
       ) : null}
 
-      {isLoading === true  ? (
+      {isLoading === true ? (
         <div className={styles.loadingDiv}>
-          <p>Uploading in Process</p>
+          <p>Uploading in Process ..</p>
           <span>This may take a while</span>
         </div>
       ) : null}

@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   width: 280px;
-  max-width: 280px;
+  min-width: 250px;
   height: 75px;
   border-radius: 8px;
   /* border: 1px solid rgba(105, 105, 105, 0.116); */
@@ -58,24 +58,26 @@
   position: absolute;
   top: 5px;
   right: 28px;
+  right: 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   /* border: 1px solid black; */
-  width: 45px;
+  width: 48px;
   height: 20px;
 }
 .editDeleteDiv {
   position: absolute;
   top: 5px;
   right: 25px;
+  right: 35px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   /* border: 1px solid black; */
-  width: 40px;
+  width: 45px;
   height: 18px;
 }
 
@@ -357,6 +359,88 @@
 }
 .deleteDiv:hover {
   background-color: #2f89fc;
+}
+
+@media screen and (max-width: 650px) {
+  .cardContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    justify-content: center;
+    align-items: center;
+    width: 90% !important;
+    /* min-width: 250px; */
+    /* width: 20px; */
+    height: 80px;
+    border-radius: 8px;
+    /* border: 1px solid red; */
+    margin: 15px 10px 10px 15px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #ffffff;
+
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    /* border: 1px solid red; */
+  }
+  .cancelIcon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: gray;
+    border-radius: 50%;
+    /* border: 1px solid rgb(214, 214, 214); */
+  
+    /* border: 1px solid black; */
+    background: white;
+  }
+  .cancelIcon:hover {
+    color: #d11a2a;
+  }
+  
+  .saveIcon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: gray;
+    border-radius: 50%;
+    /* border: 1px solid rgb(214, 214, 214); */
+    background: none;
+    /*  */
+  }
+  .saveIcon:hover {
+    color: #51cb02;
+  }
+  
+  .editIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #b3bac3;
+    font-size: 17px;
+  
+    /* border: 1px solid black; */
+  }
+  .deleteIcon {
+    /* width: 20px; */
+    /* height: 20px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gray;
+    color: #b3bac3;
+    font-size: 18px;
+  
+    /* border: 1px solid black; */
+  }
+  .favIcon {
+    font-size: 20px;
+  }
+
 }
 
 /* 

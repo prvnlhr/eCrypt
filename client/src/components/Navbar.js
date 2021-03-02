@@ -14,6 +14,10 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
     dispatch(search(val));
   };
 
+  if (user.firstName) {
+    console.log(user.firstName.charAt(0));
+  }
+
   const [searchQuery, setQuery] = useState("");
   const [searchMode, setSearchMode] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
@@ -32,8 +36,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
     setFieldLength(searchQuery.length);
   }, [searchQuery]);
 
-  useEffect(() => {
-  }, [user.firstName]);
+  useEffect(() => {}, [user.firstName]);
 
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
@@ -77,7 +80,12 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
           )}
         </div>
         <div className={styles.usernameDiv}>
-          <p>{user.firstName}</p>
+          <div className={styles.nameLetterDiv}>
+            {user.firstName ? <p>{user.firstName.charAt(0)}</p> : null}
+          </div>
+          <div className={styles.nameDiv}>
+            <p>{user.firstName}</p>
+          </div>
           {showPopup ? (
             <HiChevronUp
               className={styles.downBtn}
@@ -95,7 +103,9 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
           )}
         </div>
         {showPopup ? (
-          <div className={styles.userPopupDiv}>
+          <div
+            className={styles.userPopupDiv}
+          >
             <button className={styles.logOutBtn} onClick={handleLogout}>
               <FiLogOut fontSize="15px" color="b3bac3" />
               <p>Logout</p>

@@ -2,6 +2,8 @@
 .sidebar {
   grid-row-start: 1;
   grid-row-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 4;
   grid-column-start: 1;
   grid-column-end: 2;
   /* width: 300px; */
@@ -24,7 +26,7 @@
 }
 
 .sidebarCollapse {
-  grid-row-start: 1;
+  grid-row-start: 2;
   grid-row-end: 4;
   grid-column-start: 1;
   grid-column-end: 2;
@@ -93,7 +95,7 @@
   transition: all 50ms ease-in-out;
   /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
 
-  /* border: 1px solid white; */
+  /* border: 1px solid black; */
 }
 .NavLink {
   position: relative;

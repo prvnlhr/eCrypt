@@ -10,7 +10,6 @@ const FavDoc = ({ favItem }) => {
   const [maximize, setEnlarge] = useState(false);
   const [editId, setEditId] = useState(null);
   const handleFavToggle = (docId, favValue) => {
-
     let isFav;
     if (favValue === false) {
       isFav = true;
@@ -24,7 +23,6 @@ const FavDoc = ({ favItem }) => {
     setEditId(favItem._id);
     setEnlarge(!maximize);
   };
- 
 
   return (
     <div
@@ -38,29 +36,34 @@ const FavDoc = ({ favItem }) => {
         <img src={favItem.imageUrl} onClick={maximizeImg}></img>
       </div>
 
-      <div className={styles.imageTitleContainer}>
-        <div className={styles.titleDiv}>
-          <p className={styles.titleText}>{favItem.imageName}</p>
+      {editId === favItem._id && maximize === true ? null : (
+        <div className={styles.imageTitleContainer}>
+          <div className={styles.titleDiv}>
+            <p className={styles.titleText}>{favItem.imageName}</p>
+          </div>
         </div>
-      </div>
-      <div className={styles.bookmarkDiv}>
-        <div
-          className={styles.favBtn}
-          onClick={() => {
-            handleFavToggle(favItem._id, favItem.isFavourite);
-          }}
-        >
-          {favItem.isFavourite ? (
-            <HiStar
-              className={styles.favIcon}
-              fontSize="18px"
-              color="#2f89fc"
-            />
-          ) : (
-            <HiOutlineStar className={styles.favIcon} fontSize="16px" />
-          )}
+      )}
+
+      {editId === favItem._id && maximize === true ? null : (
+        <div className={styles.bookmarkDiv}>
+          <div
+            className={styles.favBtn}
+            onClick={() => {
+              handleFavToggle(favItem._id, favItem.isFavourite);
+            }}
+          >
+            {favItem.isFavourite ? (
+              <HiStar
+                className={styles.favIcon}
+                fontSize="18px"
+                color="#2f89fc"
+              />
+            ) : (
+              <HiOutlineStar className={styles.favIcon} fontSize="16px" />
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

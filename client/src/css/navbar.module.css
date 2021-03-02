@@ -3,12 +3,16 @@
   position: relative;
   /* top: 0px; */
   border-bottom: 1px solid rgb(212, 210, 210);
+  /* border: 1px solid blue; */
+
 
   grid-row-start: 1;
   grid-row-end: 2;
-  grid-column-start: 2;
-  grid-column-end: 3;
-  width: 100% !important;
+  /* grid-column-start: 2;
+  grid-column-end: 3; */
+  grid-column-start: 1;
+  grid-column-end: 4;
+  width: 95% !important;
   height: 100%;
   display: grid;
   grid-template-columns: 20% 80%;
@@ -20,7 +24,6 @@
   /* top: 20px; */
   /* right: 0px; */
   margin: 0px;
-
   width: 120px;
   height: 20px;
   background-color: #dae5eb;
@@ -30,23 +33,41 @@
   align-items: center;
   border-radius: 20px;
   padding: 2px;
-  margin: 0px 5px 0px 10px;
+  margin: 0px 5px 0px 2%;
+  /* border: 1px solid blue; */
+
 }
+.nameLetterDiv {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  /* border: 1px solid black; */
+}
+.nameDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95px;
+  height: 25px;
+  /* border: 1px solid black; */
+}
+
 .usernameDiv p {
   font-weight: 650;
   font-family: "Nunito", sans-serif;
   font-size: 15px;
   color: slategray;
   color: #0177fb;
-
-  margin: 0px 5px 0px 5px;
+  /* margin: 0px 5px 0px 5px; */
 }
 .downBtn:hover {
   cursor: pointer;
 }
 .userPopupDiv {
   position: absolute;
-  top: 50px;
+  top: 80%;
   right: 10px;
   width: 100px;
   height: 25px;
@@ -65,7 +86,6 @@
 .logOutBtn {
   outline: none;
   border: none;
-
   background: none;
   letter-spacing: 0.8px;
   /* border-radius: 50%; */
@@ -73,6 +93,7 @@
   justify-content: space-around;
   align-items: center;
   /* margin: 10px 10px 10px 10px; */
+
 }
 .logOutBtn p {
   margin: 0px 0px 0px 5px;
@@ -98,9 +119,11 @@
 }
 
 .logoContainer {
-  position: absolute;
-  top: 15px;
-  left: -30px;
+  /* position: absolute; */
+  /* top: 15px; */
+  /* left: -30px; */
+  /* top: 0px; */
+  /* left: 0px; */
   /* margin: 5px 0px 0px 5px; */
   width: 90px;
   height: 40px;
@@ -109,6 +132,8 @@
   justify-content: center;
   align-items: center;
   /* background-color: white; */
+  margin: 0px 0px 0px 5px;
+
 }
 .logoText {
   /* margin: 0px 0px 0px 20px; */
@@ -146,8 +171,8 @@
 }
 
 .inputContainer {
-  width: 20%;
-  min-width: 100px;
+  width: 200px;
+  /* min-width: 100px; */
   height: 25px;
   border: 1px solid rgb(189, 188, 188);
   /* border: 1.5px solid black; */
@@ -227,3 +252,70 @@
 /* @media all and (min-width: 500px) {
 } */
 /*  */
+@media screen and (max-width: 500px) {
+  .usernameDiv {
+    /* position: absolute; */
+    /* top: 20px; */
+    /* right: 0px; */
+    margin: 0px;
+    width: 50px;
+    height: 25px;
+    background-color: #dae5eb;
+    /* border: 1px solid rgb(207, 207, 207); */
+    /* border: 1px solid black; */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 20px;
+    padding: 2px;
+    margin: 0px 10px 0px 2%;
+  }
+  .nameLetterDiv {
+    /* display: none; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid rgb(168, 168, 168);
+    border-radius: 50%;
+  }
+  .nameDiv {
+    display: flex;
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+    width: 95px;
+    height: 25px;
+    /* border: 1px solid black; */
+  }
+  .inputContainer {
+    width: 65%;
+    /* min-width: 100px; */
+    height: 25px;
+    border: 1px solid rgb(189, 188, 188);
+    /* border: 1.5px solid black; */
+    margin: 5px 5px 5px 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-radius: 8px;
+    /* transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+    background-color: white;
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+
+    /* border: 1px solid red; */
+  }
+
+ 
+}
+
+
+
+
+
+
+

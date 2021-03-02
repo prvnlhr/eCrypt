@@ -1,11 +1,16 @@
 .modalContainer {
   position: absolute;
-  top: 50%;
-  left: 25%;
-  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 10%;
+  left: 0;
+  right: 0;
+  min-width:250px;
+  width: 90%;
+  height: 95%;
   height: 120px;
   border-radius: 10px;
-  /* border: 1px solid black; */
+  border: 1px solid rgb(212, 212, 212);
   background-color: white;
   z-index: 10;
   display: grid;
@@ -18,8 +23,9 @@
   grid-row-start: 1;
   grid-row-end: 2;
   /* border: 1px solid blue; */
-  width: 100%;
+  width: 90%;
   height: 100%;
+  margin: 0px 5% 0px 5%;
 
   display: flex;
   justify-content: center;
@@ -55,6 +61,8 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
+  background-color: rgba(255, 166, 0, 0.411);
+
 }
 .modalCancelBtn p {
   font-family: "Nunito", sans-serif;
@@ -75,6 +83,8 @@
   align-items: center;
   outline: none;
   border-radius: 5px;
+  background-color: rgba(255, 0, 0, 0.486);
+
   /* border: 1px solid black; */
 
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */

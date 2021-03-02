@@ -59,30 +59,47 @@
 }
 .loadingDiv {
   position: absolute;
-  right: 200px;
-  top: -50px;
+  /* right: 200px; */
+  /* top: -50px; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  top: 1%;
+  left: 0;
+  right: 0;
   width: 160px;
-  height: 30px;
-  border: 1px solid rgb(179, 178, 178);
+  height: 38px;
+  /* border: 1px solid gray; */
+  /* border: 1px solid black; */
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  background-color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  background: rgba( 255, 255, 255, 0.90 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 16.5px );
+-webkit-backdrop-filter: blur( 16.5px );
+border-radius: 5px;
+
 }
 .loadingDiv p {
-  margin: 0px 0px 0px 2px;
+  margin: 2px 0px 0px 2px;
   font-family: "Nunito", sans-serif;
-  color: slategray;
+  color:  #2f89fc;
+ 
   font-weight: 550;
   letter-spacing: 0.2px;
-  font-size: 14px;
+  font-size: 13px;
 }
 .loadingDiv span {
-  margin: 0px 0px 0px 2px;
+  margin: 0px 0px 2px 2px;
   font-family: "Nunito", sans-serif;
   color: slategray;
   font-weight: 550;
   letter-spacing: 0.2px;
-  font-size: 12px;
+  font-size: 11.5px;
 }

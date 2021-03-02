@@ -7,8 +7,8 @@
   grid-column-end: 3;
   /* border: 1px solid orangered; */
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
+  justify-content: flex-start;
+  align-items: center;
   /* background: rgba(255, 255, 255, 0.25); */
   /* background-color:transparent; */
 

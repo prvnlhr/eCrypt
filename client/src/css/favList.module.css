@@ -2,7 +2,8 @@
   width: 99%;
   height: 100%;
   display: grid;
-  grid-template-rows: 5% 95%;
+  grid-template-rows: 6% 95%;
+  grid-template-rows: 35px 95%;
 
   /* border: 1px solid red; */
 }
@@ -53,7 +54,7 @@
 .navLink {
   text-decoration: none;
   width: 100px;
-  height: 20px;
+  height: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
