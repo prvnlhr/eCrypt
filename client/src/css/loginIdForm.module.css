@@ -117,7 +117,7 @@
   background-color: red;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
   .formContainer {
     position: absolute;
     /* margin-left: auto; */

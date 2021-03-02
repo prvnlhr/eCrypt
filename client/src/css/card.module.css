@@ -408,7 +408,7 @@
   color: rgb(65, 63, 63);
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 550px) {
   .cardContainer {
     position: relative;
     width: 90%;
