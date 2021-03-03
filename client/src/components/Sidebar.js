@@ -175,7 +175,7 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          activeStyle={{ color: "white" }}
+          activeStyle={{ color: "black" }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
           }
@@ -189,7 +189,9 @@ const Sidebar = () => {
                 fontSize="20px"
                 name="key"
                 color={
-                  window.location.pathname === "/favorites/"
+                  window.location.pathname === "/favorites/favoritesCards" ||
+                  window.location.pathname === "/favorites/favoritesLogins" ||
+                  window.location.pathname === "/favorites/favoritesDocs"
                     ? "#001a38"
                     : "#b3bac3"
                 }
@@ -210,6 +212,7 @@ const Sidebar = () => {
             </div>
           )}
         </NavLink>
+
         <NavLink
           activeStyle={{ color: "white" }}
           className={
