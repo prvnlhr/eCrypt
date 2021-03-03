@@ -166,7 +166,7 @@
 }
 
 .websiteDiv {
-  width: 65%;
+  width: 59%;
   height: 100%;
   border-bottom: 1px solid lightgray;
   grid-row-start: 1;
@@ -391,14 +391,14 @@
     color: gray;
     border-radius: 50%;
     /* border: 1px solid rgb(214, 214, 214); */
-  
+
     /* border: 1px solid black; */
     background: white;
   }
   .cancelIcon:hover {
     color: #d11a2a;
   }
-  
+
   .saveIcon {
     width: 20px;
     height: 20px;
@@ -415,14 +415,13 @@
   .saveIcon:hover {
     color: #51cb02;
   }
-  
+
   .editIcon {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #b3bac3;
     font-size: 17px;
-  
     /* border: 1px solid black; */
   }
   .deleteIcon {
@@ -434,13 +433,12 @@
     color: gray;
     color: #b3bac3;
     font-size: 18px;
-  
+
     /* border: 1px solid black; */
   }
   .favIcon {
     font-size: 20px;
   }
-
 }
 
 /* 

@@ -6,12 +6,14 @@ import Document from "./Document";
 import DocForm from "./DocForm";
 
 import styles from "../css/docsList.module.css";
+import noContentStyles from "../css/noContentMessage.module.css";
 import btnStyles from "../css/buttons.module.css";
 import { FiPlusCircle } from "react-icons/fi";
 
 const DocsList = ({ docs, setHeading }) => {
   const isLoading = useSelector((state) => state.loading.isLoading);
   const [showEditButton, setEditButton] = useState(true);
+  const crud = useSelector((state) => state.crud);
 
   const [formMode, setFormMode] = useState(false);
   const [modalShow, setModalShow] = useState(false);
@@ -22,10 +24,25 @@ const DocsList = ({ docs, setHeading }) => {
   const formToggle = () => {
     setFormMode(!formMode);
   };
-  
 
   return (
     <div className={styles.docsList}>
+      {docs.length < 1 === true && crud.operation === "fetching" ? (
+        <div className={noContentStyles.messageContainer}>
+          <p>Fetching data...</p>
+        </div>
+      ) : docs.length < 1 && crud.operation === "" ? (
+        <div className={noContentStyles.messageContainer}>
+          <p>No Documents Added</p>
+
+          <div className={noContentStyles.footerDIv}>
+            Click
+            <FiPlusCircle className={noContentStyles.icon} fontSize="19px" />
+            to add
+          </div>
+        </div>
+      ) : null}
+
       {docs.map((doc) => (
         <>
           <Document

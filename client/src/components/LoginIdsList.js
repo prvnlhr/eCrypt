@@ -1,25 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 import LoginIdForm from "./LoginIdForm";
 import LoginId from "./LoginId";
 
 import styles from "../css/loginList.module.css";
+import noContentStyles from "../css/noContentMessage.module.css";
 import btnStyles from "../css/buttons.module.css";
-
 
 import { FiPlusCircle } from "react-icons/fi";
 
-
-
-const LoginIdsList = ({
-  loginIds,
-  currentId,
-  setCurrentId,
-  setHeading,
-}) => {
+const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   const [formMode, setFormMode] = useState(false);
   const [showEditButton, setEditButton] = useState(true);
+  const crud = useSelector((state) => state.crud);
 
   useEffect(() => {
     setHeading("LoginIds");
@@ -31,7 +26,6 @@ const LoginIdsList = ({
 
   return (
     <div className={styles.loginsList}>
-     
       <div
         className={
           formMode === false
@@ -39,6 +33,22 @@ const LoginIdsList = ({
             : styles.contentContainerCollapse
         }
       >
+        {loginIds.length === true && crud.operation === "fetching" ? (
+          <div className={noContentStyles.messageContainer}>
+            <p>Fetching data...</p>
+          </div>
+        ) : loginIds.length < 1 && crud.operation === "" ? (
+          <div className={noContentStyles.messageContainer}>
+            <p>No Logins Added</p>
+
+            <div className={noContentStyles.footerDIv}>
+              Click
+              <FiPlusCircle className={noContentStyles.icon} fontSize="19px" />
+              to add
+            </div>
+          </div>
+        ) : null}
+
         {loginIds.map((loginId) => (
           <>
             <LoginId

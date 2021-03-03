@@ -10,19 +10,36 @@ import {
   TOGGLE_CARDS_IS_FAV,
   ADD_TO_FAVOURITE_CARDS,
   ADD_ACTIVITY,
+  OPERATION_START,
+  OPERATION_END,
 } from "./types";
 
 //FETCHING
 export const fetchUserCards = (user_id) => async (dispatch) => {
+  dispatch({
+    type: OPERATION_START,
+    operation: "fetching",
+  });
   try {
     const response = await api.fetchUserCards(user_id);
+
+    dispatch({
+      type: OPERATION_END,
+      message: "",
+    });
 
     const cardsData = response.data.reverse();
     dispatch({
       type: FETCH_CARDS,
       payload: cardsData,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: OPERATION_END,
+      message: "fetchingError",
+    });
+  }
 };
 //ADD NEW
 export const addNewCard = (newCardData, user_id) => async (dispatch) => {
@@ -60,12 +77,22 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
 
 //EDIT CARD
 export const editCard = (card_id, cardData, userId) => async (dispatch) => {
+  dispatch({
+    type: OPERATION_START,
+    message: "",
+    id: card_id,
+    operation: "edit",
+  });
   try {
     const response = await api.editCard(card_id, cardData);
 
     dispatch({
       type: EDIT_CARD,
       payload: cardData,
+    });
+    dispatch({
+      type: OPERATION_END,
+      message: "cardEditSuccess",
     });
 
     const d = moment().format("LLL");
@@ -81,17 +108,34 @@ export const editCard = (card_id, cardData, userId) => async (dispatch) => {
       type: ADD_ACTIVITY,
       payload: activity,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    const failureMsg = error.response.data.msg;
+    dispatch({
+      type: OPERATION_END,
+      message: failureMsg,
+    });
+  }
 };
 //DELETE CARD
 export const deleteCard = (cardData, card_id, user_id) => async (dispatch) => {
   try {
+    dispatch({
+      type: OPERATION_START,
+      message: "",
+      id: card_id,
+      operation: "delete",
+    });
     const response = await api.deleteCard(card_id, user_id);
     const cardsData = response.data.reverse();
 
     dispatch({
       type: DELETE_CARD,
       payload: cardsData,
+    });
+    dispatch({
+      type: OPERATION_END,
+      message: "cardDeleted",
     });
     const d = moment().format("LLL");
     const activity = {
@@ -107,7 +151,14 @@ export const deleteCard = (cardData, card_id, user_id) => async (dispatch) => {
       type: ADD_ACTIVITY,
       payload: activity,
     });
-  } catch (error) {}
+  } catch (error) {
+    const failureMsg = error.response.data.msg;
+
+    dispatch({
+      type: OPERATION_END,
+      message: failureMsg,
+    });
+  }
 };
 
 export const cardFavToggle = (card_id, isFav) => async (dispatch) => {

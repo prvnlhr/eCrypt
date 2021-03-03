@@ -5,6 +5,8 @@ import { deleteLoginId } from "../actions/loginInIdsAction";
 import { loginIdFavToggle } from "../actions/loginInIdsAction";
 
 import { CgTrashEmpty } from "react-icons/cg";
+import { CircleSpinner } from "react-spinners-kit";
+
 import {
   HiOutlinePencil,
   HiCheck,
@@ -46,6 +48,7 @@ const LoginId = ({
 
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.user._id);
+  const crud = useSelector((state) => state.crud);
 
   const handleFavToggle = (loginCardId, favValue) => {
     let isFav;
@@ -64,6 +67,7 @@ const LoginId = ({
   const confirmDelete = (loginCardId) => {
     //NOTE : we are also sending deleteCard data as argument to add to activityAction
     dispatch(deleteLoginId(loginId, loginCardId, userId));
+    setModalShow(!modalShow);
   };
   const handleDeleteClick = () => {
     setModalShow(!modalShow);
@@ -109,22 +113,34 @@ const LoginId = ({
                   setInEditMode(true);
                 }}
               >
-                <HiOutlinePencil />
+                {crud.inProcess &&
+                crud.itemId === loginId._id &&
+                crud.operation === "edit" ? (
+                  <CircleSpinner size={10} color="gray" loading={true} />
+                ) : (
+                  <HiOutlinePencil />
+                )}
               </div>
               <div
                 className={styles.deleteIcon}
                 onClick={() => {
                   handleDeleteClick();
+                  setEditId(loginId._id);
                 }}
               >
-                <CgTrashEmpty />
+                {crud.inProcess &&
+                crud.itemId === loginId._id &&
+                crud.operation === "delete" ? (
+                  <CircleSpinner size={10} color="gray" loading={true} />
+                ) : (
+                  <CgTrashEmpty />
+                )}
               </div>
             </div>
           ) : null}
         </>
       )}
 
-      {/* _________________________________________ */}
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
           <div className={modalStyles.dialogDiv}>
@@ -143,15 +159,17 @@ const LoginId = ({
               className={modalStyles.modalConfirmBtn}
               onClick={() => {
                 confirmDelete(loginId._id);
-                setModalShow(!modalShow);
               }}
             >
-              <p>Sure, Delete ! </p>
+              {crud.inProcess && crud.itemId === loginId._id ? (
+                <CircleSpinner size={12} color="white" loading={true} />
+              ) : (
+                <p>Sure, Delete ! </p>
+              )}
             </div>
           </div>
         </div>
       ) : null}
-    
 
       <div className={styles.logoDiv}>
         <LoginIdLogo website={loginId.website} />
@@ -172,8 +190,6 @@ const LoginId = ({
               {loginId.website}
             </p>
           )}
-
-          
         </div>
 
         <div className={styles.usernameDiv}>
@@ -219,8 +235,6 @@ const LoginId = ({
           <HiOutlineStar className={styles.favIcon} fontSize="16px" />
         )}
       </button>
-
-    
     </div>
   );
 };

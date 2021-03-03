@@ -10,6 +10,8 @@ import tokenReducer from "./tokenReducer";
 import notificationReducer from "./notificationReducer";
 import searchReducer from "./searchReducer";
 import activityReducer from "./activityReducer";
+
+import crudReducer from "./crudReducer";
 export default combineReducers({
   cards: cardsReducer,
   user: userReducer,
@@ -23,4 +25,5 @@ export default combineReducers({
   notification: notificationReducer,
   search: searchReducer,
   activities: activityReducer,
+  crud: crudReducer,
 });

@@ -9,22 +9,39 @@ import {
   FETCH_DOCS,
   LOADING_START,
   LOADING_END,
+  ERROR_MESSAGE,
+  SUCCESS_MESSAGE,
   TOGGLE_DOCS_IS_FAV,
   ADD_TO_FAVOURITE_DOCS,
   ADD_ACTIVITY,
+  OPERATION_START,
+  OPERATION_END,
 } from "./types";
 
 //FETCHING
 export const fetchDocs = (user_id) => async (dispatch) => {
+  dispatch({
+    type: OPERATION_START,
+    operation: "fetching",
+  });
   try {
     const response = await api.fetchDocs(user_id);
-
     const docsData = response.data.reverse();
     dispatch({
       type: FETCH_DOCS,
       payload: docsData,
     });
-  } catch (error) {}
+    dispatch({
+      type: OPERATION_END,
+      message: "docsFetched",
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: OPERATION_END,
+      message: "fetchingError",
+    });
+  }
 };
 
 //ADD NEW
@@ -70,6 +87,8 @@ export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
     dispatch({
       type: EDIT_DOC,
       payload: docData,
+      id: doc_Id,
+      operation: "edit",
     });
 
     const d = moment().format("LLL");
@@ -92,23 +111,39 @@ export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
 export const deleteDoc = (cloud_id, user_id, doc_id, doc_title) => async (
   dispatch
 ) => {
+  dispatch({
+    type: OPERATION_START,
+    message: "",
+    id: doc_id,
+    operation: "delete",
+  });
+  // console.log("deleteDoc Action", cloud_id, user_id, doc_title);
 
   try {
-    const response = await axios.delete(
-      "http://localhost:9000/user/docs/deleteDoc",
-      {
-        data: {
-          cloudId: cloud_id,
-          userId: user_id,
-          docId: doc_id,
-        },
-      }
-    );
-    const docsArray = response.data.reverse();
+    // const response = await axios.delete(
+    //   "http://localhost:9000/user/docs/deleteDoc",
+    //   {
+    //     data: {
+    //       cloudId: cloud_id,
+    //       userId: user_id,
+    //       docId: doc_id,
+    //     },
+    //   }
+    // );
+    const response = await api.deleteDoc(doc_id, user_id, cloud_id);
+    console.log(response.data.msg);
+    const docsArray = response.data.data.reverse();
+    const successMsg = response.data.msg;
     dispatch({
       type: DELETE_DOC,
       payload: docsArray,
     });
+    dispatch({
+      type: OPERATION_END,
+      message: successMsg,
+    });
+
+    // console.log(response.data.data.msg);
 
     const d = moment().format("LLL");
     const activity = {
@@ -123,7 +158,14 @@ export const deleteDoc = (cloud_id, user_id, doc_id, doc_title) => async (
       type: ADD_ACTIVITY,
       payload: activity,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+    const failureMsg = error.response.data.msg;
+    dispatch({
+      type: OPERATION_END,
+      message: failureMsg,
+    });
+  }
 };
 //DOC FAV TOGGLE
 export const docFavToggle = (doc_id, isFav) => async (dispatch) => {

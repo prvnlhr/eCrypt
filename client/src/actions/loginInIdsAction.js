@@ -6,21 +6,35 @@ import {
   ADD_TO_FAVOURITE_LOGINS,
   TOGGLE_LOGINS_IS_FAV,
   ADD_ACTIVITY,
+  OPERATION_START,
+  OPERATION_END,
 } from "./types";
 import * as api from "../api";
 import moment from "moment";
 
 //FETCH LOGINS
 export const fetchLoginIds = (user_id) => async (dispatch) => {
+  dispatch({
+    type: OPERATION_START,
+    operation: "fetching",
+  });
   try {
     const response = await api.fetchUserLoginIds(user_id);
-
     const loginIdsData = response.data.reverse();
     dispatch({
       type: FETCH_LOGIN_IDS,
       payload: loginIdsData,
     });
+    dispatch({
+      type: OPERATION_END,
+      message: "loginIdsFetched",
+    });
   } catch (error) {
+    console.log(error);
+    dispatch({
+      type: OPERATION_END,
+      message: "fetchingError",
+    });
   }
 };
 
@@ -49,14 +63,20 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
       type: ADD_ACTIVITY,
       payload: activity,
     });
-  } catch (error) {
-  }
+  } catch (error) {}
 };
 
 // EDIT LOGIN ID
 export const editLoginId = (loginId_id, loginIdData, userId) => async (
   dispatch
 ) => {
+  dispatch({
+    type: OPERATION_START,
+    message: "",
+    id: loginId_id,
+    operation: "edit",
+  });
+
   try {
     const response = await api.editLoginId(loginId_id, loginIdData);
 
@@ -64,7 +84,12 @@ export const editLoginId = (loginId_id, loginIdData, userId) => async (
       type: EDIT_LOGIN_ID,
       payload: loginIdData,
     });
-    
+
+    dispatch({
+      type: OPERATION_END,
+      message: "loginIdEditSuccess",
+    });
+
     const d = moment().format("LLL");
     const activity = {
       date: d,
@@ -80,6 +105,12 @@ export const editLoginId = (loginId_id, loginIdData, userId) => async (
       payload: activity,
     });
   } catch (error) {
+    console.log(error);
+    const failureMsg = error.response.data.msg;
+    dispatch({
+      type: OPERATION_END,
+      message: failureMsg,
+    });
   }
 };
 
@@ -88,12 +119,23 @@ export const deleteLoginId = (loginData, loginCardId, user_id) => async (
   dispatch
 ) => {
   try {
+    dispatch({
+      type: OPERATION_START,
+      message: "",
+      id: loginCardId,
+      operation: "delete",
+    });
     const response = await api.deleteLoginId(loginCardId, user_id);
     const loginIdsData = response.data.reverse();
 
     dispatch({
       type: DELETE_LOGIN_ID,
       payload: loginIdsData,
+    });
+
+    dispatch({
+      type: OPERATION_END,
+      message: "loginIdDeleted",
     });
     const d = moment().format("LLL");
     const activity = {
@@ -110,6 +152,12 @@ export const deleteLoginId = (loginData, loginCardId, user_id) => async (
       payload: activity,
     });
   } catch (error) {
+    const failureMsg = error.response.data.msg;
+
+    dispatch({
+      type: OPERATION_END,
+      message: failureMsg,
+    });
   }
 };
 
@@ -130,6 +178,5 @@ export const loginIdFavToggle = (loginId_id, isFav) => async (dispatch) => {
         id: loginId_id,
       },
     });
-  } catch (error) {
-  }
+  } catch (error) {}
 };

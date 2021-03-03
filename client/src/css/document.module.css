@@ -98,7 +98,7 @@
   font-size: 14px;
   font-weight: 650;
   white-space: nowrap;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 10px 0px 20px;
 }
 .titleDiv::-webkit-scrollbar {
   display: none;

@@ -28,7 +28,7 @@ router.post(
 
 router.patch("/toggleFavourite/:id", documentsController.toggleFav);
 
-router.delete("/deleteDoc", documentsController.deleteDoc);
+router.delete("/deleteDoc/:id", documentsController.deleteDoc);
 
 // router.delete("/deleteCard/:id", auth, deleteCard);
 router.patch("/editDoc/:id", documentsController.editDoc);

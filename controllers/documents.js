@@ -50,9 +50,11 @@ const documentsController = {
     }
   },
   deleteDoc: async (req, res) => {
+    // console.log("deleteDoc controller", req.body);
     const cloudId = req.body.cloudId;
     const userId = req.body.userId;
-    const docId = req.body.docId;
+    const docId = req.params.id;
+
     try {
       const result = await cloudinary.v2.uploader.destroy(cloudId);
       const response = await UserDatabase.findOneAndUpdate(
@@ -66,7 +68,11 @@ const documentsController = {
         },
         { returnOriginal: false }
       );
-      res.status(200).send(response.docsArray);
+      console.log(response);
+      res.status(200).send({
+        data: response.docsArray,
+        msg: "docDelted",
+      });
     } catch (error) {
       res.status(404).json({ message: error.message });
     }

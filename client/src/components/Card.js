@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteCard, editCard } from "../actions/cardsAction";
 import { cardFavToggle } from "../actions/cardsAction";
 import { CgTrashEmpty } from "react-icons/cg";
+import { CircleSpinner } from "react-spinners-kit";
+
 import {
   HiOutlinePencil,
   HiCheck,
@@ -16,11 +18,7 @@ import CardLogo from "./CardLogo";
 import modalStyles from "../css/modal.module.css";
 import styles from "../css/card.module.css";
 
-const Card = ({
-  card,
-  setEditButton,
-  showEditButton,
-}) => {
+const Card = ({ card, setEditButton, showEditButton }) => {
   const dispatch = useDispatch();
   const [modalShow, setModalShow] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -43,9 +41,9 @@ const Card = ({
   }, [cardDataToEdit]);
 
   const userId = useSelector((state) => state.user.user._id);
+  const crud = useSelector((state) => state.crud);
 
   const handleFavToggle = (cardId, favValue) => {
-
     let isFav;
     if (favValue === false) {
       isFav = true;
@@ -61,17 +59,14 @@ const Card = ({
 
   const confirmDelete = (cardId) => {
     dispatch(deleteCard(card, cardId, userId));
+    setModalShow(!modalShow);
   };
   const handleDeleteClick = () => {
     setModalShow(!modalShow);
   };
 
- 
   return (
-    <div
-      className={styles.cardContainer}
-     
-    >
+    <div className={styles.cardContainer}>
       {inEditMode === true ? (
         <div className={styles.saveCancelDiv}>
           <div
@@ -108,7 +103,13 @@ const Card = ({
                   setInEditMode(true);
                 }}
               >
-                <HiOutlinePencil />
+                {crud.inProcess &&
+                crud.itemId === card._id &&
+                crud.operation === "edit" ? (
+                  <CircleSpinner size={10} color="gray" loading={true} />
+                ) : (
+                  <HiOutlinePencil />
+                )}
               </div>
               <div
                 className={styles.deleteIcon}
@@ -116,7 +117,13 @@ const Card = ({
                   handleDeleteClick();
                 }}
               >
-                <CgTrashEmpty />
+                {crud.inProcess &&
+                crud.itemId === card._id &&
+                crud.operation === "delete" ? (
+                  <CircleSpinner size={10} color="gray" loading={true} />
+                ) : (
+                  <CgTrashEmpty />
+                )}
               </div>
             </div>
           ) : null}
@@ -143,7 +150,11 @@ const Card = ({
                 confirmDelete(card._id);
               }}
             >
-              <p>Sure, Delete ! </p>
+              {crud.inProcess && crud.itemId === card._id ? (
+                <CircleSpinner size={12} color="white" loading={true} />
+              ) : (
+                <p>Sure, Delete ! </p>
+              )}
             </div>
           </div>
         </div>
@@ -188,7 +199,6 @@ const Card = ({
       </div>
       <div className={styles.cvv}>
         <p className={styles.cvvLabel}>CVV </p>
-
 
         {inEditMode && card._id === editId ? (
           <input
@@ -247,12 +257,11 @@ const Card = ({
         }}
       >
         {card.isFavourite ? (
-          <HiStar fontSize="24px" color="#2f89fc" />
+          <HiStar  color="#2f89fc" />
         ) : (
-          <HiOutlineStar fontSize="16px" />
+          <HiOutlineStar  />
         )}
       </button>
-
     </div>
   );
 };

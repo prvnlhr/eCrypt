@@ -168,12 +168,22 @@ export const addNewDoc = (data) => API.post("/user/docs/addDoc", data);
 export const editDoc = (doc_Id, docData) =>
   API.patch(`/user/docs/editDoc/${doc_Id}`, docData);
 //delete doc___
-export const deleteDoc = (doc_id, user_id) =>
+export const deleteDoc = (doc_id, user_id, cloud_id) =>
   API.delete(`/user/docs/deleteDoc/${doc_id}`, {
     data: {
-      user_id: user_id,
+      userId: user_id,
+      cloudId: cloud_id,
     },
   });
+
+// export const deleteUserDoc = (doc_id, user_id, cloud_id) =>
+//   API.delete(`/user/docs/deleteDoc`, {
+//     data: {
+//       userId: user_id,
+//       docId: doc_id,
+//       cloudId: cloud_id,
+//     },
+//   });
 
 //ACTIVITY API___________________________________________________________________________________________
 export const fetchUserActivities = (user_id) =>

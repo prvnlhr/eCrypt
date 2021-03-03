@@ -7,6 +7,7 @@ import modalStyles from "../css/modal.module.css";
 
 import { deleteDoc, editDoc, docFavToggle } from "../actions/documentsAction";
 import { CgTrashEmpty } from "react-icons/cg";
+import { CircleSpinner } from "react-spinners-kit";
 
 import {
   HiOutlinePencil,
@@ -19,6 +20,7 @@ import {
 const Document = ({ doc, showEditButton, setEditButton }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.user._id);
+  const crud = useSelector((state) => state.crud);
 
   const [maximize, setEnlarge] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -63,6 +65,7 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
   };
   const confirmDelete = () => {
     dispatch(deleteDoc(doc.cloudinary_id, userId, doc._id, doc.imageName));
+    setModalShow(!modalShow);
   };
   const handleDeleteClick = () => {
     setModalShow(!modalShow);
@@ -101,7 +104,11 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
                 confirmDelete(doc._id);
               }}
             >
-              <p>Sure, Delete ! </p>
+              {crud.inProcess ? (
+                <CircleSpinner size={12} color="white" loading={true} />
+              ) : (
+                <p>Sure, Delete ! </p>
+              )}
             </div>
           </div>
         </div>
@@ -121,8 +128,15 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
               handleDeleteClick();
             }}
           >
-            <CgTrashEmpty />
+            {crud.inProcess &&
+            crud.itemId === doc._id &&
+            crud.operation === "delete" ? (
+              <CircleSpinner size={10} color="gray" loading={true} />
+            ) : (
+              <CgTrashEmpty />
+            )}
           </div>
+
           <div className={styles.bookmarkDiv}>
             <div
               className={styles.favBtn}
@@ -197,7 +211,6 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
                       className={styles.editBtn}
                       onClick={() => {
                         setEditButton(null);
-
                         setEditId(doc._id);
                         setInEditMode(!inEditMode);
                       }}

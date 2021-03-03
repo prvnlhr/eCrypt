@@ -19,14 +19,14 @@ export default function docs(state = initialState, action) {
       };
     //Deleting
     case DELETE_DOC:
-      console.log(action.payload, "at reducde delete doc");
+      // console.log(action.payload, "at reducer delete doc");
       return {
         ...state,
         docs: action.payload,
       };
 
     case EDIT_DOC:
-      console.log(action.payload, "at reducer edit doc");
+      // console.log(action.payload, "at reducer edit doc");
       const newArray = state.docs.map((doc) => {
         if (doc._id === action.payload._id) {
           return action.payload;

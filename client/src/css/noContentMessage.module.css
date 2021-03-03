@@ -1,0 +1,32 @@
+.messageContainer {
+  width: 200px;
+  height: 50px;
+  background-color: white;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 10%;
+  left: 0;
+  right: 0;
+  font-family: "Nunito", sans-serif;
+  font-weight: 650;
+  color: black;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+}
+.footerDIv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon {
+  margin: 0px 5px 0px 5px;
+  color: #0177fb;
+  font-size: 20px;
+
+}
