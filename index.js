@@ -8,22 +8,6 @@ const cors = require("cors");
 const cookiesParser = require("cookie-parser");
 const path = require("path");
 
-// import "./loadEnv.js";
-
-// import dotenv from "dotenv";
-// import express from "express";
-// import bodyParser from "body-parser";
-// import mongoose from "mongoose";
-// import cors from "cors";
-
-// import UserDatabase from "./models/userData.js";
-// import routesIndex from "./routes/index.js";
-
-// import cookiesParser from "cookie-parser";
-// import path from 'path';
-
-//MIDDLEWARE
-// dotenv.config();
 const app = express();
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
@@ -65,18 +49,3 @@ app.listen(PORT, (err) => {
   }
 });
 
-// MONGODB LOCAL DATABASE CONNECTION___________________________
-// mongoose.connect(process.env.MONGODB_LOCAL_URL, {
-//   useCreateIndex: true,
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false,
-// });
-
-// const db = mongoose.connection;
-
-// db.on("error", console.error.bind(console, "Error connecting to MongoDB"));
-
-// db.once("open", function () {
-//   console.log("Connected to Database :: MongoDB Local");
-// });
