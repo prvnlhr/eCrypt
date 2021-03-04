@@ -55,6 +55,11 @@
 .formHeadingDiv {
   width: 70%;
   height: 50%;
+  width: 70%;
+  height: 50%;
+  max-width: 145px;
+  /* min-width: 120px; */
+  min-height: 23px;
   /* border-bottom: 1px solid gray; */
   /* grid-row-start: 1; */
   grid-row-end: 2;
@@ -62,7 +67,7 @@
   justify-content: center;
   align-items: center;
   margin: 10px 0px 10px 30px;
-  border-radius: 10px;
+  border-radius: 8px;
   margin: 5% auto 0px auto;
   background-color: #2f89fc;
 }
