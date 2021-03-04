@@ -1,16 +1,13 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://ecrypt-deploy.herokuapp.com",
+  baseURL: "https://ecrypt.herokuapp.com",
 });
 // const API = axios.create({ baseURL: "http://localhost:9000" });
-
 
 const cloudinaryAPI = axios.create({
   baseURL: "https://api.cloudinary.com/v1_1/ecryptimgdb",
 });
-
-
 
 //register new user
 export const registerNewUser = (formData) =>
