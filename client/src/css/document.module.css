@@ -10,12 +10,10 @@
   grid-template-rows: 10% 80% 10%;
   margin: 20px 15px 20px 15px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: rgba(255, 255, 255, 0.021);
   background-color: white;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border-radius: 9px;
-
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .buttonContainer {
@@ -28,7 +26,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
 }
 
 .bookmarkDiv {
@@ -142,11 +139,11 @@
   /* height: 500px; */
   margin-left: auto;
   margin-right: auto;
-  top: 0;
-  left: 0;
+  top: -120px;
+  left: -40px;
   right: 0;
-  width: 100%;
-  height: 98%;
+  width: 100vw;
+  height: 101vh;
   /* border: 1px solid rgb(107, 107, 107); */
   /* display: grid;
   grid-template-rows: 8% 80% 10%;
@@ -155,10 +152,9 @@
   /* grid-template-rows: 8% 80% 10%; */
   /* margin: 10px 10px 10px 10px; */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  border-radius: 5px;
   /* background-color: rgba(255, 255, 255, 0.993); */
   background-color: black;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background: rgba(255, 255, 255, 0.25);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -271,8 +267,8 @@
     border-radius: 5px;
     background-color: rgba(255, 255, 255, 0.021);
     background-color: white;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-radius: 9px;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 2px;
     /* background: linear-gradient(145deg, #faf9f9, #ffffff); */
     /* box-shadow: 6px 6px 16px #d6d6d6, -2px -2px 16px #ffffff; */
   }
@@ -286,9 +282,14 @@
     left: -40px;
     right: 0;
     width: 99%;
-    width: 98vw;
-    height: 95%;
-    /* border: 1px solid rgb(107, 107, 107); */
+    /* width: 98vw; */
+    /* height: 95%; */
+    top: -118px;
+    left: -40px;
+    right: 0;
+    width: 100vw;
+    height: 101vh;
+    /* border: 1px solid red !important; */
     /* display: grid;
     grid-template-rows: 8% 80% 10%;
     margin: 10px 10px 10px 10px; */
@@ -296,10 +297,9 @@
     /* grid-template-rows: 8% 80% 10%; */
     /* margin: 10px 10px 10px 10px; */
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-    border-radius: 5px;
     /* background-color: rgba(255, 255, 255, 0.993); */
     background-color: black;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -323,14 +323,14 @@
     color: gray;
     border-radius: 50%;
     /* border: 1px solid rgb(214, 214, 214); */
-  
+
     /* border: 1px solid black; */
     background: white;
   }
-  .imageDeleteDiv{
+  .imageDeleteDiv {
     font-size: 20px;
   }
-  
+
   .saveBtnDiv {
     width: 20px;
     height: 20px;
@@ -347,14 +347,14 @@
   .saveIcon:hover {
     color: #51cb02;
   }
-  
+
   .editBtnDiv {
     display: flex;
     justify-content: center;
     align-items: center;
     color: #b3bac3;
     font-size: 20px;
-  
+
     /* border: 1px solid black; */
   }
   .cancelBtnDiv {
@@ -366,7 +366,7 @@
     /* color: gray; */
     /* color: #b3bac3; */
     font-size: 20px;
-  
+
     /* border: 1px solid black; */
   }
   .favIcon {

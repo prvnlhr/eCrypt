@@ -21,8 +21,9 @@
 
 .countContainer {
   width: 95%;
-  height: 40%;
-  min-height: 250px;
+  height: 250px;
+  /* min-height: 210px; */
+
   /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
@@ -97,7 +98,7 @@
 }
 .recentActivityList {
   width: 100%;
-  height: 50%;
+  height: 60%;
   /* border: 1px solid black; */
   overflow-y: scroll;
   display: flex;
@@ -330,6 +331,16 @@
 }
 
 @media screen and (max-width: 500px) {
+  .recentActivityList {
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid black; */
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+  }
   .recentItemContainer {
     width: 90%;
     /* min-width: 280px; */
@@ -353,9 +364,10 @@
       " logo name  name name  name"
       " logo item  item item  item";
   }
+
   .countContainer {
-    width: 80%;
-    height: 40%;
+    width: 90%;
+    height: 200px;
     /* border: 1px solid black; */
     display: flex;
     flex-direction: column;
@@ -365,6 +377,20 @@
     border-radius: 10px 10px 10px 10px;
 
     background-color: white;
+  }
+  .countDiv {
+    width: 110px;
+    height: 40px;
+    /* border: 1px solid black; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border-radius: 5px; */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+    /* background-color: white; */
+    margin: 5px 10px 5px 20px;
   }
   .dashboardComponent {
     width: 95%;

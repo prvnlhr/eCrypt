@@ -50,6 +50,16 @@ body::-webkit-scrollbar {
   background-size: cover;
   background-color:#505690;
 
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+
+
+
+
+
 }
 
 .app::-webkit-scrollbar {

@@ -16,7 +16,7 @@
   right: 2%;
   grid-column-start: 2;
   grid-column-end: 3;
-  /* border-left: 1px solid rgb(224, 224, 224); */
+  border: 1px solid rgb(224, 224, 224);
   background-color: white;
   /* display: grid; */
   /* grid-template-rows: 10% 1fr 25%; */
@@ -72,7 +72,7 @@ form {
   position: relative;
   grid-row-start: 3;
   grid-row-end: 4;
-  border: 1px solid rgb(202, 200, 200);
+  /* border: 1px solid rgb(202, 200, 200); */
   width: 80%;
   height: 100%;
   display: flex;
@@ -117,7 +117,7 @@ form {
   position: relative;
   grid-row-start: 2;
   grid-row-end: 3;
-  border: 1px solid rgb(192, 191, 191);
+  /* border: 1px solid rgb(192, 191, 191); */
   width: 80%;
   height: 40px;
   display: flex;
@@ -126,11 +126,10 @@ form {
   justify-content: center;
   align-items: center;
   margin: 0px 0px 0px 30px;
-  border-radius: 2px;
-  /* background-color: gray; */
-  color: black;
+  border-radius: 15px;
+  background-color: #2f89fc;
+  color: white;
   font-family: "Nunito", sans-serif;
-  color: slategray;
   font-weight: 650;
   letter-spacing: 0.2px;
   font-size: 15px;
@@ -143,7 +142,7 @@ form {
   font-weight: 650;
   letter-spacing: 0.2px;
   font-size: 13px;
-  color: #2f89fc;
+  color: white;
 }
 
 .fileInput {
