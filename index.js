@@ -1,5 +1,4 @@
 //IMPORTS
-
 require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -10,7 +9,8 @@ const path = require("path");
 
 const app = express();
 
-app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+// app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+app.use(cors({ credentials: true, origin: "https://ecrypt.herokuapp.com" }));
 app.use(cookiesParser());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -39,7 +39,6 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
 }
-
 //SERVER LISTEN
 app.listen(PORT, (err) => {
   if (err) {
@@ -48,4 +47,3 @@ app.listen(PORT, (err) => {
     console.log(`Listening on localhost:${PORT}`);
   }
 });
-
