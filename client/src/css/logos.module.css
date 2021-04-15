@@ -36,7 +36,6 @@
   width: 35px;
   height: 35px;
   object-fit: contain;
-
 }
 .maestroLogo {
   /* margin-top: 5px; */
@@ -44,7 +43,6 @@
   width: 35px;
   height: 35px;
   object-fit: contain;
-
 
   /* width: 35%; */
   /* height: 70%; */
@@ -61,7 +59,7 @@
 .hiperLogo {
   /* margin-top: 8px; */
   /* width: 50%; */
-  /* border: 1px solid red; */
+  /* border: 1px solid blue; */
   width: 35px;
   height: 35px;
   object-fit: contain;
@@ -72,7 +70,6 @@
   /* margin-top: 5px; */
   /* border: 1px solid red; */
   object-fit: contain;
-
   width: 35px;
   height: 35px;
   /* height: 70%; */
@@ -95,7 +92,6 @@
   width: 35px;
   height: 35px;
   object-fit: contain;
-
 
   /* width: 60%; */
   /* height: 70%; */
