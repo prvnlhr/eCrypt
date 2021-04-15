@@ -37,6 +37,7 @@ const sendEmail = (to, url, txt) => {
     refresh_token: MAILING_SERVICE_REFRESH_TOKEN,
   });
 
+
   const accessToken = oauth2Client.getAccessToken();
   const smtpTransport = nodemailer.createTransport({
     service: "gmail",
@@ -50,6 +51,8 @@ const sendEmail = (to, url, txt) => {
       accessToken,
     },
   });
+
+
   const mailOptions = {
     from: SENDER_EMAIL_ADDRESS,
     to: to,
@@ -61,6 +64,7 @@ const sendEmail = (to, url, txt) => {
   };
   smtpTransport.sendMail(mailOptions, (err, info) => {
     if (err) {
+      console.log("error in sending mail",err,info)
       return err;
       return info;
     }

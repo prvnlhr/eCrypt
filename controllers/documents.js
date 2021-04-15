@@ -24,7 +24,7 @@ const documentsController = {
         imageUrl: cloudinaryResponse.url,
         cloudinary_id: cloudinaryResponse.public_id,
       };
-      console.log("cloudinaryResponseAdd", cloudinaryResponse);
+      // console.log("cloudinaryResponseAdd", cloudinaryResponse);
       const dBResponse = await UserDatabase.findOneAndUpdate(
         { _id: id },
         {
@@ -61,10 +61,10 @@ const documentsController = {
         },
         { returnOriginal: false }
       );
-      console.log(response);
+      // console.log(response);
       res.status(200).send({
         data: response.docsArray,
-        msg: "docDelted",
+        msg: "docDeleted",
       });
     } catch (error) {
       res.status(404).json({ message: error.message });

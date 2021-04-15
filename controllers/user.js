@@ -22,6 +22,7 @@ const userController = {
   register: async (req, res) => {
     const { email, password, confirmPassword, firstName, lastName } = req.body;
 
+
     try {
       //checking all field fill or not.
       if (!firstName || !lastName || !email || !password || !confirmPassword) {
@@ -63,7 +64,7 @@ const userController = {
       );
       res.status(200).send({ msg: "Check your email for activation link" });
     } catch (error) {
-      console.log(error);
+      console.log("error in registration", error);
     }
   },
   activateEmail: async (req, res) => {
@@ -268,7 +269,6 @@ const userController = {
     }
   },
 };
-
 
 //_________________________________________________________________________________________________________________-
 //_______________________________________________________________________________________________________

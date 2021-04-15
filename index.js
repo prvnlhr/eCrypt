@@ -12,8 +12,10 @@ const app = express();
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(cors({ credentials: true, origin: "https://ecrypt.herokuapp.com" }));
 app.use(cookiesParser());
-app.use(bodyParser.json({ limit: "30mb", extended: true }));
-app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+// app.use(bodyParser.json({ limit: "30mb", extended: true }));
+// app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 const CONNECTION_URL = process.env.MONGODB_URL;
 // const CONNECTION_URL = process.env.MONGODB_LOCAL_URL;

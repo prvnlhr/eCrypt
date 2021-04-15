@@ -51,7 +51,9 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
               to add
             </div>
           </div>
-        ) : null}
+        ) : null
+        
+        }
 
         {cards.map((card) => (
           <>
