@@ -1,24 +1,26 @@
 body {
   /* border: 1px solid red; */
+  width: 100vw !important;
+  height: 100vh !important;
   margin: 0px;
   padding: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   /* background-color: #e5edf2; */
-  /* background: url(../img/Appearance.png); */
+  /* background: url(../img/bg11.jpg); */
 
-  /* background-color: slategray; */
-  /* background: #f0f2f5;
-    /* background-color: #e5edf2; */
+  /* /*  */
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
+  /* backdrop-filter: blur(20px); */
+  /* -webkit-backdrop-filter: blur(18px); */
+  background: url(../img/bg30.png) #A9C9FF;
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  /* background-color: #A9C9FF; */
+/* background: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%); */
 
-  /* background-color: #fafafa; */
-  /* background-color: #ffffff; */
-  /* background-color: #f6f7ff ; */
-
-  /* background-color: #e5edf2; */
-  /* background-color: #d6e1e7; */
- 
 }
 
 body::-webkit-scrollbar {
@@ -29,11 +31,12 @@ body::-webkit-scrollbar {
   position: relative;
   width: 100vw !important;
   height: 100vh !important;
-  /* width: 95vw; */
-  /* height: 95vh !important; */
-  /* margin-top:2vh; */
+  /* width: 80vw; */
+  /* height: 85vh !important; */
   /* border: 1px solid black; */
   display: flex;
+  /* display: none; */
+
   /* grid-template-rows: 10% 90%; */
   /* grid-template-rows: 70px 1fr; */
   border-radius: 0px 0px 0px 0px;
@@ -41,25 +44,20 @@ body::-webkit-scrollbar {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #d6e1e7;
-  background-color: #dae5eb;
-  background: url(../img/loginForm.svg) no-repeat center center fixed;
+  /* background-color: #d6e1e7; */
+  /* background-color: #dae5eb; */
+  /* background: url(../img/loginForm.svg) no-repeat center center fixed; */
+
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-color:#505690;
-
+  background-color: #50579005;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-
-
-
-
-
 }
 
 .app::-webkit-scrollbar {

@@ -114,6 +114,7 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
         </div>
       ) : null}
 
+
       {editId === doc._id && maximize === true ? null : (
         <div className={styles.buttonContainer}>
           {maximize === true && editId === doc._id ? (

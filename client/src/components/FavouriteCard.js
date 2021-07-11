@@ -2,20 +2,22 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { cardFavToggle } from "../actions/cardsAction";
 
-import {
+import { HiStar, HiOutlineStar } from "react-icons/hi";
 
-  HiStar,
-  HiOutlineStar,
-} from "react-icons/hi";
-
-import CardLogo from "./CardLogo";
+import CardLogo, { getCardType } from "./CardLogo";
 import styles from "../css/card.module.css";
 
 const FavouriteCard = ({ favItem }) => {
   const dispatch = useDispatch();
 
-  const handleFavToggle = (cardId, favValue) => {
+  const cardNumber = favItem.cardNo;
+  const cNo = cardNumber.toString();
+  const cardType = getCardType(cNo);
 
+  const formattedCardNo = cNo.toString().replace(/\d{4}(?=.)/g, "$& ");
+  console.log(formattedCardNo);
+
+  const handleFavToggle = (cardId, favValue) => {
     let isFav;
     if (favValue === false) {
       isFav = true;
@@ -27,7 +29,31 @@ const FavouriteCard = ({ favItem }) => {
   };
 
   return (
-    <div className={styles.cardContainer}>
+    <div className=
+    {`${styles.cardContainer} ${
+      cardType === "MASTER"
+        ? styles.cardMaster
+        : cardType === "VISA"
+        ? styles.cardVisa
+        : cardType === "RUPAY"
+        ? styles.cardRupay
+        : cardType === "MAESTRO"
+        ? styles.cardMaestro
+        : cardType === "AMEX"
+        ? styles.cardAmex
+        : cardType === "JCB"
+        ? styles.cardJcb
+        : cardType === "HIPERCARD"
+        ? styles.cardHiper
+        : cardType === "UNIONPAY"
+        ? styles.cardUnion
+        : cardType === "DISCOVERY"
+        ? styles.cardDiscovery
+        : cardType === "DINERS"
+        ? styles.cardDiners
+        : null
+    }`}
+    >
       <div className={styles.cardLogo}>
         <CardLogo className={styles.logo} cardNo={favItem.cardNo} />
       </div>
@@ -41,7 +67,6 @@ const FavouriteCard = ({ favItem }) => {
 
       <div className={styles.cvv}>
         <p className={styles.cvvLabel}>CVV </p>
-
 
         <p className={styles.cvvText}>{favItem.cvv}</p>
       </div>
@@ -66,6 +91,8 @@ const FavouriteCard = ({ favItem }) => {
           <HiOutlineStar fontSize="16px" color="gray" />
         )}
       </button>
+      <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
+      <div className={styles.overlayDiv}></div>
     </div>
   );
 };

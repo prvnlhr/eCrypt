@@ -65,7 +65,7 @@ const LoginId = ({
   };
 
   const confirmDelete = (loginCardId) => {
-    //NOTE : we are also sending deleteCard data as argument to add to activityAction
+    //NOTE : We are also sending deleteCard data as an argument to add to activityAction
     dispatch(deleteLoginId(loginId, loginCardId, userId));
     setModalShow(!modalShow);
   };

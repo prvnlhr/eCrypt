@@ -61,13 +61,14 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
             />
           </>
         ))}
+
+        <LoginIdForm
+          currentId={currentId}
+          setCurrentId={setCurrentId}
+          formMode={formMode}
+          setFormMode={setFormMode}
+        />
       </div>
-      <LoginIdForm
-        currentId={currentId}
-        setCurrentId={setCurrentId}
-        formMode={formMode}
-        setFormMode={setFormMode}
-      />
 
       {formMode == false ? (
         <div className={btnStyles.addBtnDiv} onClick={formToggle}>

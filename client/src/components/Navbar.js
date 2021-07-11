@@ -75,7 +75,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
             </div>
           ) : (
             <div onClick={switchSearchMode} className={styles.searchIconDiv}>
-              <HiSearch fontSize="20px" color="gray" />
+              <HiSearch fontSize="20px" color="black" />
             </div>
           )}
         </div>
@@ -86,7 +86,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
           <div className={styles.nameDiv}>
             <p>{user.firstName}</p>
           </div>
-          {showPopup ? (
+          {/* {showPopup ? (
             <HiChevronUp
               className={styles.downBtn}
               onClick={handleDownArrowClick}
@@ -100,9 +100,9 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
               fontSize="18px"
               color="slategray"
             />
-          )}
+          )} */}
         </div>
-        {showPopup ? (
+        {/* {showPopup ? (
           <div
             className={styles.userPopupDiv}
           >
@@ -111,7 +111,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
               <p>Logout</p>
             </button>
           </div>
-        ) : null}
+        ) : null} */}
       </div>
     </div>
   );

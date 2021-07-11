@@ -22,6 +22,10 @@
   /* box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px; */
   /* box-shadow: 20px 20px 30px 0 rgba(0,0,0,0.1); */
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  background: rgba(255, 255, 255, 0.452);
+  /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+  backdrop-filter: blur( 20.0px );
+  -webkit-backdrop-filter: blur( 20.0px );
   /* border: 1px solid red; */
 
   /* overflow: hidden; */
@@ -93,7 +97,7 @@
   /* border: 1px solid rgb(214, 214, 214); */
 
   /* border: 1px solid black; */
-  background: white;
+  /* background: white; */
 }
 .cancelIcon:hover {
   color: #d11a2a;
@@ -163,6 +167,9 @@
   font-weight: 550;
   letter-spacing: 0.2px;
   padding-left: 10px;
+  border: 1px dotted rgb(255, 196, 1);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
 }
 
 .websiteDiv {
@@ -368,7 +375,7 @@
     grid-template-columns: 70px 1fr;
     justify-content: center;
     align-items: center;
-    width: 90% !important;
+    width: 100% !important;
     /* min-width: 250px; */
     /* width: 20px; */
     height: 85px;
@@ -377,7 +384,6 @@
     margin: 15px 10px 10px 15px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     background-color: #ffffff;
-
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     /* border: 1px solid red; */
   }
@@ -393,7 +399,7 @@
     /* border: 1px solid rgb(214, 214, 214); */
 
     /* border: 1px solid black; */
-    background: white;
+    /* background: white; */
   }
   .cancelIcon:hover {
     color: #d11a2a;

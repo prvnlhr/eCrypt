@@ -5,16 +5,11 @@ import { deleteCard, editCard } from "../actions/cardsAction";
 import { cardFavToggle } from "../actions/cardsAction";
 import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
+import { CgCloseO } from "react-icons/cg";
+import { IoMdTrash } from "react-icons/io";
 
-import {
-  HiOutlinePencil,
-  HiCheck,
-  HiX,
-  HiStar,
-  HiOutlineStar,
-} from "react-icons/hi";
-
-import CardLogo from "./CardLogo";
+import { HiPencil, HiCheck, HiX, HiStar, HiOutlineStar } from "react-icons/hi";
+import CardLogo, { getCardType } from "./CardLogo";
 import modalStyles from "../css/modal.module.css";
 import styles from "../css/card.module.css";
 
@@ -31,6 +26,16 @@ const Card = ({ card, setEditButton, showEditButton }) => {
     cvv: "",
     pin: "",
   });
+
+  // determining the card type___________
+  const cardNumber = card.cardNo;
+  const cNo = cardNumber.toString();
+  const cardType = getCardType(cNo);
+  console.log("cardType is ", cardType);
+  //________________________________________
+
+  const formattedCardNo = cNo.toString().replace(/\d{4}(?=.)/g, "$& ");
+  console.log(formattedCardNo);
 
   const cardDataToEdit = useSelector((state) =>
     editId ? state.cards.cards.find((c) => c._id === editId) : null
@@ -64,9 +69,33 @@ const Card = ({ card, setEditButton, showEditButton }) => {
   const handleDeleteClick = () => {
     setModalShow(!modalShow);
   };
-
+  console.log("cartype hai", cardType);
   return (
-    <div className={styles.cardContainer}>
+    <div
+      className={`${styles.cardContainer} ${
+        cardType === "MASTER"
+          ? styles.cardMaster
+          : cardType === "VISA"
+          ? styles.cardVisa
+          : cardType === "RUPAY"
+          ? styles.cardRupay
+          : cardType === "MAESTRO"
+          ? styles.cardMaestro
+          : cardType === "AMEX"
+          ? styles.cardAmex
+          : cardType === "JCB"
+          ? styles.cardJcb
+          : cardType === "HIPERCARD"
+          ? styles.cardHiper
+          : cardType === "UNIONPAY"
+          ? styles.cardUnion
+          : cardType === "DISCOVERY"
+          ? styles.cardDiscovery
+          : cardType === "DINERS"
+          ? styles.cardDiners
+          : null
+      }`}
+    >
       {inEditMode === true ? (
         <div className={styles.saveCancelDiv}>
           <div
@@ -77,7 +106,7 @@ const Card = ({ card, setEditButton, showEditButton }) => {
               setEditButton(true);
             }}
           >
-            <HiX />
+            <HiX color="#9baece" />
           </div>
           <div
             className={styles.saveIcon}
@@ -88,7 +117,7 @@ const Card = ({ card, setEditButton, showEditButton }) => {
               setEditButton(true);
             }}
           >
-            <HiCheck />
+            <HiCheck color="#9baece" />
           </div>
         </div>
       ) : (
@@ -106,9 +135,9 @@ const Card = ({ card, setEditButton, showEditButton }) => {
                 {crud.inProcess &&
                 crud.itemId === card._id &&
                 crud.operation === "edit" ? (
-                  <CircleSpinner size={10} color="gray" loading={true} />
+                  <CircleSpinner size={10} color="#9baece" loading={true} />
                 ) : (
-                  <HiOutlinePencil />
+                  <HiPencil color="#9baece" />
                 )}
               </div>
               <div
@@ -120,9 +149,9 @@ const Card = ({ card, setEditButton, showEditButton }) => {
                 {crud.inProcess &&
                 crud.itemId === card._id &&
                 crud.operation === "delete" ? (
-                  <CircleSpinner size={10} color="gray" loading={true} />
+                  <CircleSpinner size={10} color="#9baece" loading={true} />
                 ) : (
-                  <CgTrashEmpty />
+                  <IoMdTrash color="#9baece" />
                 )}
               </div>
             </div>
@@ -194,7 +223,7 @@ const Card = ({ card, setEditButton, showEditButton }) => {
             }
           ></input>
         ) : (
-          <p className={(styles.cardText, styles.cardNo)}>{card.cardNo}</p>
+          <p className={(styles.cardText, styles.cardNo)}>{formattedCardNo}</p>
         )}
       </div>
       <div className={styles.cvv}>
@@ -257,11 +286,14 @@ const Card = ({ card, setEditButton, showEditButton }) => {
         }}
       >
         {card.isFavourite ? (
-          <HiStar  color="#2f89fc" />
+          <HiStar color="#2f89fc" />
         ) : (
-          <HiOutlineStar  />
+          <HiOutlineStar color="#9baece" />
         )}
       </button>
+
+      <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
+      {/* <div className={styles.overlayDiv}></div> */}
     </div>
   );
 };

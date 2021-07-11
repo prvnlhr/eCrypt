@@ -27,32 +27,40 @@ const DocsList = ({ docs, setHeading }) => {
 
   return (
     <div className={styles.docsList}>
-      {docs.length < 1 === true && crud.operation === "fetching" ? (
-        <div className={noContentStyles.messageContainer}>
-          <p>Fetching data...</p>
-        </div>
-      ) : docs.length < 1 && crud.operation === "" ? (
-        <div className={noContentStyles.messageContainer}>
-          <p>No Documents Added</p>
-
-          <div className={noContentStyles.footerDIv}>
-            Click
-            <FiPlusCircle className={noContentStyles.icon} fontSize="19px" />
-            to add
+      <div
+        className={
+          formMode === false
+            ? styles.contentContainer
+            : styles.contentContainerCollapse
+        }
+      >
+        {docs.length < 1 === true && crud.operation === "fetching" ? (
+          <div className={noContentStyles.messageContainer}>
+            <p>Fetching data...</p>
           </div>
-        </div>
-      ) : null}
+        ) : docs.length < 1 && crud.operation === "" ? (
+          <div className={noContentStyles.messageContainer}>
+            <p>No Documents Added</p>
 
-      {docs.map((doc) => (
-        <>
-          <Document
-            key={doc._id}
-            showEditButton={showEditButton}
-            setEditButton={setEditButton}
-            doc={doc}
-          />
-        </>
-      ))}
+            <div className={noContentStyles.footerDIv}>
+              Click
+              <FiPlusCircle className={noContentStyles.icon} fontSize="19px" />
+              to add
+            </div>
+          </div>
+        ) : null}
+
+        {docs.map((doc) => (
+          <>
+            <Document
+              key={doc._id}
+              showEditButton={showEditButton}
+              setEditButton={setEditButton}
+              doc={doc}
+            />
+          </>
+        ))}
+      </div>
 
       <DocForm formMode={formMode} setFormMode={setFormMode} />
 

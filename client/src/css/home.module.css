@@ -14,52 +14,86 @@
   /* border: 1px solid orange; */
   display: grid;
   /* grid-template-rows: 10% 5% 85%; */
-  grid-template-columns: 5% 95%;
+  /* grid-template-columns: 5% 95%; */
+
   grid-template-rows: 80px 35px 100%;
   grid-template-rows: 80px 35px minmax(0, 1fr);
 
-  grid-template-columns: 40px 1fr;
-  background-color: #dae5eb;
+  grid-template-columns: 0px 1fr;
+  align-items: center;
   overflow: hidden;
+  /* grid-template-columns: 0px 1fr; */
+
+  /* background-color: #dae5eb; */
   /* background-color: gray; */
   /* background-color: #071a52; */
   /* grid-gap: 10px; */
-  align-items: center;
   /* justify-content: center; */
   /* background-color: #f6f7ff; */
-  background-color: white;
-  background: rgba(255, 255, 255, 1);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  /* border-radius: 10px; */
+  /* background-color: white; */
+  /* background: rgba(255, 255, 255, 1); */
   /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
+}
 
-  /* background-color: gray; */
-
-  align-items: center;
+.homeComponentExpand {
+  grid-template-columns: 40px 1fr !important;
 }
 .headingDiv {
+  position: relative;
   grid-row-start: 2;
   grid-row-end: 3;
   grid-column-start: 2;
   grid-column-end: 3;
-  width: 95% !important;
-  height: 100%;
+  width: 100% !important;
+  height:100%;
   /* border-bottom: 1px solid rgb(212, 210, 210); */
+  /* border-bottom: 1px solid rgb(37, 37, 37); */
+
+
+  
+
   font-family: "Nunito", sans-serif;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   /* background-color:white; */
   /* background-color: #d6e1e7; */
   /* background-color: #d6e1e7; */
   /* border: 1px solid orange; */
+  margin-left: auto;
+  margin-right: auto;
 
   /* border-top: 1px solid rgb(148, 147, 147); */
-  /* border-bottom: 1px solid rgb(196, 196, 196); */
+  /* border: 1px solid red; */
 
   /* z-index: -1; */
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  
+background: rgba(255, 255, 255, 0.589);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+
+
+backdrop-filter: blur(14px) saturate(200%);
+-webkit-backdrop-filter: blur(14px) saturate(200%);
+background-color: rgba(255, 255, 255, 0.36);
+
+background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+}
+
+.headingTextWrapper {
+  /* width:100px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 85%; */
+  /* border: 1px solid black; */
 }
 .headingText {
   font-family: "Nunito", sans-serif;
@@ -70,9 +104,21 @@
   font-weight: 750;
   /* text-decoration: double; */
 }
+.hamburgerContainer {
+  width: 39px;
+  height: 39px;
+  /* border: 1px solid black; */
+  position: absolute;
+  left: 0px;
+  top: 82px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  z-index: 20;
+}
 
 /* media query */
-
 /* @media screen and (min-height: 700px) {
   .homeComponent {
     border: 1px solid orange;

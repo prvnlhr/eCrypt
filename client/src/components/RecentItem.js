@@ -15,13 +15,13 @@ const RecentItem = (activity) => {
         <div className={styles.logo}>
           <div>
             {activity.activity.type === "Card" ? (
-              <IoCard fontSize="24px" color="slategray" />
+              <IoCard fontSize="24px" color="#9baece" />
             ) : activity.activity.type === "Login" ? (
-              <IoMdKey fontSize="24px" color="slategray" />
+              <IoMdKey fontSize="24px" color="#9baece" />
             ) : activity.activity.type === "Doc" ? (
-              <IoMdDocument fontSize="24px" color="slategray" />
+              <IoMdDocument fontSize="24px" color="#9baece" />
             ) : activity.activity.type === "Settings" ? (
-              <RiSettings3Fill fontSize="24px" color="slategray" />
+              <RiSettings3Fill fontSize="24px" color="#9baece" />
             ) : null}
           </div>
         </div>

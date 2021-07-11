@@ -45,22 +45,24 @@ const FavDoc = ({ favItem }) => {
       )}
 
       {editId === favItem._id && maximize === true ? null : (
-        <div className={styles.bookmarkDiv}>
-          <div
-            className={styles.favBtn}
-            onClick={() => {
-              handleFavToggle(favItem._id, favItem.isFavourite);
-            }}
-          >
-            {favItem.isFavourite ? (
-              <HiStar
-                className={styles.favIcon}
-                fontSize="18px"
-                color="#2f89fc"
-              />
-            ) : (
-              <HiOutlineStar className={styles.favIcon} fontSize="16px" />
-            )}
+        <div className={styles.buttonContainer}>
+          <div className={styles.bookmarkDiv}>
+            <div
+              className={styles.favBtn}
+              onClick={() => {
+                handleFavToggle(favItem._id, favItem.isFavourite);
+              }}
+            >
+              {favItem.isFavourite ? (
+                <HiStar
+                  className={styles.favIcon}
+                  fontSize="18px"
+                  color="#2f89fc"
+                />
+              ) : (
+                <HiOutlineStar className={styles.favIcon} fontSize="16px" />
+              )}
+            </div>
           </div>
         </div>
       )}

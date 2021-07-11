@@ -1,8 +1,8 @@
 .amexLogo {
   /* margin-top: 5px; */
   /* border: 1px solid red; */
-  width: 35px;
-  height: 35px;
+  width: 48px;
+  height: 38px;
   object-fit: contain;
 
   /* width: 50%; */
@@ -40,8 +40,8 @@
 .maestroLogo {
   /* margin-top: 5px; */
   /* border: 1px solid red; */
-  width: 35px;
-  height: 35px;
+  width: 48px;
+  height: 40px;
   object-fit: contain;
 
   /* width: 35%; */
@@ -52,16 +52,16 @@
   /* border: 1px solid red; */
   object-fit: contain;
 
-  width: 35px;
-  height: 35px;
+  width: 48px;
+  height: 40px;
   /* height: 70%; */
 }
 .hiperLogo {
   /* margin-top: 8px; */
   /* width: 50%; */
   /* border: 1px solid blue; */
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 40px;
   object-fit: contain;
 
   /* height: 50%; */
@@ -70,18 +70,17 @@
   /* margin-top: 5px; */
   /* border: 1px solid red; */
   object-fit: contain;
-  width: 35px;
+  width: 45px;
   height: 35px;
   /* height: 70%; */
 }
 .unionLogo {
   /* margin-top: 5px; */
   /* margin: 15px 0px 0px 0px; */
-  object-fit: contain;
-
+  object-fit: cover;
   /* border: 1px solid red; */
-  width: 35px;
-  height: 35px;
+  width: 55px;
+  height: 25px;
 
   /* width: 60%; */
   /* height: 70%; */

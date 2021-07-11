@@ -72,7 +72,9 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
         error: true,
       });
     }
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 //EDIT CARD
@@ -178,5 +180,7 @@ export const cardFavToggle = (card_id, isFav) => async (dispatch) => {
         id: card_id,
       },
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -1,11 +1,26 @@
 import React from "react";
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import { IoCard, IoGrid } from "react-icons/io5";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { logout } from "../actions/auth";
+import {
+  IoCard,
+  IoGrid,
+  IoDocumentTextOutline,
+  IoGridOutline,
+} from "react-icons/io5";
 import { IoMdKey, IoMdDocument } from "react-icons/io";
+import { FiKey } from "react-icons/fi";
+import { CgCreditCard } from "react-icons/cg";
 import { RiSettings3Fill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
-import { HiStar } from "react-icons/hi";
+import {
+  HiStar,
+  HiOutlineDocumentText,
+  HiAdjustments,
+  HiOutlineLogout,
+} from "react-icons/hi";
+import { FiLogOut } from "react-icons/fi";
 
 import styles from "../css/sidebar.module.css";
 
@@ -15,10 +30,17 @@ const Sidebar = () => {
   const toggleActive = () => {
     setActive(!active);
   };
+  const dispatch = useDispatch();
+  const history = useHistory();
   const cardsArray = useSelector((state) => state.cards.cards);
   const loginIdsArray = useSelector((state) => state.logins.loginIds);
   const cardsCount = cardsArray.length;
   const loginIdsCount = loginIdsArray.length;
+  const handleLogout = () => {
+    localStorage.removeItem("isAuthenticated");
+    dispatch(logout());
+    history.push("/login");
+  };
 
   return (
     <div
@@ -35,7 +57,13 @@ const Sidebar = () => {
       ></div>
       <div className={styles.linksContainer}>
         <NavLink
-          activeStyle={{ color: "black" }}
+          activeStyle={{
+            color: "white",
+            // border: "1px solid #0177fb",
+            boxShadow:
+              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+            backgroundColor: "white",
+          }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
           }
@@ -46,15 +74,15 @@ const Sidebar = () => {
           {sidebarShow === false ? (
             <div className={styles.linkDivClose}>
               <IoGrid
-                color={window.location.pathname === "/" ? "#001a38" : "#b3bac3"}
+                color={window.location.pathname === "/" ? "#9baece" : "#9baece"}
                 fontSize="18px"
               />
             </div>
           ) : (
             <div className={styles.linkDivOpen}>
               <IoGrid
-                color={window.location.pathname === "/" ? "#001a38" : "#b3bac3"}
-                fontSize="18px"
+                color={window.location.pathname === "/" ? "#9baece" : "#9baece"}
+                fontSize="20px"
               />
               <span className={styles.text}>Dashboard</span>
             </div>
@@ -62,7 +90,14 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          activeStyle={{ color: "white" }}
+          activeStyle={{
+            color: "white",
+            // border: "1px solid #0177fb",
+            boxShadow:
+              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+            backgroundColor: "white",
+
+          }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
           }
@@ -75,8 +110,8 @@ const Sidebar = () => {
               <IoCard
                 color={
                   window.location.pathname === "/displayCards"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
                 fontSize="20px"
               />
@@ -86,8 +121,8 @@ const Sidebar = () => {
               <IoCard
                 color={
                   window.location.pathname === "/displayCards"
-                    ? "#b3bac3"
-                    : "#001a38"
+                    ? "#9baece"
+                    : "#9baece"
                 }
                 fontSize="20px"
               />
@@ -99,7 +134,13 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          activeStyle={{ color: "white" }}
+          activeStyle={{
+            color: "white",
+            // border: "1px solid #0177fb",
+            boxShadow:
+              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+            backgroundColor: "white",
+          }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
           }
@@ -110,24 +151,24 @@ const Sidebar = () => {
           {sidebarShow === false ? (
             <div className={styles.linkDivClose}>
               <IoMdKey
-                fontSize="20px"
+                fontSize="19px"
                 name="key"
                 color={
                   window.location.pathname === "/displayLogins"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
               />
             </div>
           ) : (
             <div className={styles.linkDivOpen}>
               <IoMdKey
-                fontSize="20px"
+                fontSize="19px"
                 name="key"
                 color={
                   window.location.pathname === "/displayLogins"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
               />
               <span className={styles.text}>
@@ -138,7 +179,13 @@ const Sidebar = () => {
           )}
         </NavLink>
         <NavLink
-          activeStyle={{ color: "white" }}
+          activeStyle={{
+            color: "white",
+            // border: "1px solid #0177fb",
+            boxShadow:
+              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+            backgroundColor: "white",
+          }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
           }
@@ -149,12 +196,13 @@ const Sidebar = () => {
           {sidebarShow === false ? (
             <div className={styles.linkDivClose}>
               <IoMdDocument
-                fontSize="20px"
+                fontSize="24px"
+                fontWeight="750"
                 name="key"
                 color={
                   window.location.pathname === "/documents"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
               />
             </div>
@@ -165,8 +213,8 @@ const Sidebar = () => {
                 name="key"
                 color={
                   window.location.pathname === "/documents"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
               />
               <span className={styles.text}>LoginIds</span>
@@ -175,7 +223,13 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          activeStyle={{ color: "black" }}
+          activeStyle={{
+            color: "black",
+            // border: "1px solid #0177fb",
+            boxShadow:
+              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+            backgroundColor: "white",
+          }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
           }
@@ -192,8 +246,8 @@ const Sidebar = () => {
                   window.location.pathname === "/favorites/favoritesCards" ||
                   window.location.pathname === "/favorites/favoritesLogins" ||
                   window.location.pathname === "/favorites/favoritesDocs"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
               />
             </div>
@@ -204,8 +258,8 @@ const Sidebar = () => {
                 name="key"
                 color={
                   window.location.pathname === "/favorites"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
               />
               <span className={styles.text}>LoginIds</span>
@@ -214,7 +268,13 @@ const Sidebar = () => {
         </NavLink>
 
         <NavLink
-          activeStyle={{ color: "white" }}
+          activeStyle={{
+            color: "white",
+            // border: "1px solid cyan",
+            backgroundColor: "white",
+            boxShadow:
+              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+          }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
           }
@@ -224,32 +284,39 @@ const Sidebar = () => {
         >
           {sidebarShow === false ? (
             <div className={styles.linkDivClose}>
-              <RiSettings3Fill
+              <HiAdjustments
                 fontSize="20px"
                 name="key"
                 color={
                   window.location.pathname === "/settings"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
               />
             </div>
           ) : (
             <div className={styles.linkDivOpen}>
-              <RiSettings3Fill
+              <HiAdjustments
                 fontSize="20px"
                 name="key"
                 color={
                   window.location.pathname === "/settings"
-                    ? "#001a38"
-                    : "#b3bac3"
+                    ? "#9baece"
+                    : "#9baece"
                 }
               />
               <span className={styles.text}>LoginIds</span>
             </div>
           )}
         </NavLink>
+        
       </div>
+      <div className={styles.logoutBtnDiv}>
+          <button className={styles.logOutBtn} onClick={handleLogout}>
+            <HiOutlineLogout fontSize="21px" color="black" />
+          <p className={styles.logoutText}>Log Out</p>
+          </button>
+        </div>
     </div>
   );
 };

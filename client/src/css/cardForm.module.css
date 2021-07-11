@@ -2,8 +2,8 @@
   position: absolute;
   /* margin-left: auto; */
   /* margin-right: auto; */
-  top: 0px;
   right: 2%;
+
   text-align: center;
   display: flex;
   height: 500px;
@@ -27,6 +27,8 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
+ 
   /* border: 1px solid red; */
 }
 .formContainerCollapse {
@@ -153,5 +155,13 @@
     overflow: hidden;
     /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+
+
+
+
+
+
+
   }
 }

@@ -1,8 +1,10 @@
 .dashboardComponent {
-  width: 99%;
+  width: 100%;
   height: 100%;
+  height: 99.8%;
+
   /* border: 1px solid red; */
-  background-color: #dae5eb;
+  /* background-color: #dae5eb; */
   display: flex;
   flex-direction: column;
   /* flex-wrap: wrap; */
@@ -10,9 +12,24 @@
   align-items: center;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   /* overflow-y: scroll; */
-  border-radius: 10px 10px 10px 10px;
-
+  /* border-radius: 10px 10px 10px 10px; */
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  backdrop-filter: blur(14px) saturate(200%);
+  -webkit-backdrop-filter: blur(14px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.36);
+
+  background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  background: rgba(255, 255, 255, 0.589);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .dashboardComponent::-webkit-scrollbar {
@@ -23,7 +40,6 @@
   width: 95%;
   height: 250px;
   /* min-height: 210px; */
-
   /* border: 1px solid black; */
   display: flex;
   flex-direction: column;
@@ -32,13 +48,19 @@
   margin: 25px 0px 0px 0px;
   border-radius: 10px 10px 10px 10px;
 
-  background-color: white;
+  /* background-color: white; */
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .countDiv {
   width: 100px;
   height: 40px;
-  /* border: 1px solid black; */
+  /* border: 1.8px solid rgb(206, 206, 206); */
 
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,17 +69,20 @@
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
   /* background-color: white; */
   margin: 20px 10px 10px 20px;
+  background: rgba(255, 255, 255, 0.747);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .count {
   width: 100%;
   height: 99%;
   /* border: 1px solid black; */
   grid-area: count;
-  /* display: flex; */
+  display: flex;
   /* flex-direction: row; */
-  /* justify-content: flex-start; */
-  /* align-items: center; */
-  /* margin: 10px 0px 10px 10px; */
+  justify-content: center;
+  align-items: center;
+  /* margin: 0px 0px 0px 30px; */
 
   font-family: "Nunito", sans-serif;
   color: rgb(53, 52, 52);
@@ -68,12 +93,12 @@
 .footer {
   width: 100%;
   height: 99%;
-  border-bottom: 1px solid #2f89fc;
+  /* border: 1px solid #2f89fc; */
   grid-area: footer;
-  /* display: flex; */
+  display: flex;
   /* flex-direction: row; */
-  /* justify-content: flex-start; */
-  /* align-items: center; */
+  justify-content: center;
+  align-items: center;
   /* margin: 10px 0px 10px 10px; */
   font-family: "Nunito", sans-serif;
   color: rgb(53, 52, 52);
@@ -84,7 +109,7 @@
 .recentActivityListHeadingDiv {
   width: 99%;
   height: 10%;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #0176fb46;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -105,6 +130,7 @@
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
+  
 }
 
 .recentActivityList::-webkit-scrollbar {
@@ -123,12 +149,17 @@
 .recentItemWrapper {
   height: 100px;
   width: 95%;
-  border-bottom: 1px solid rgb(187, 187, 187);
+  /* border-bottom: 1px solid rgb(58, 165, 228); */
+  /* border-top: 1px solid rgb(58, 165, 228); */
+ 
   margin: 10px 20px 10px 20px;
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  /* border: 1px solid black; */
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(68, 61, 61, 0.24); */
+    
+  /* background: rgba(255, 255, 255, 0); */
+  /* border: 1px solid rgb(184, 183, 183); */
 }
 .recentItemContainer {
   width: 70%;
@@ -137,7 +168,6 @@
   /* min-height: 50px; */
   /* border: 1px solid black; */
   /* background-color: #ffffff; */
-
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
   display: grid;
   grid-template-columns: 50px 80px 65px 100%;
@@ -147,6 +177,10 @@
     " logo task type date  date"
     " logo name  name name  name"
     " logo item  item item  item";
+
+
+  /* backdrop-filter: blur(4px); */
+  /* -webkit-backdrop-filter: blur(4px); */
 }
 /* */
 .logo {
@@ -163,6 +197,8 @@
   width: 90%;
   height: 90%;
   border: 1px solid rgba(211, 211, 211, 0.39);
+  border: 1px solid rgba(133, 133, 133, 0.39);
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -170,6 +206,10 @@
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   background: transparent;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .task {
   grid-area: task;
@@ -177,25 +217,29 @@
   width: 100%;
   /* border: 1px solid black; */
   border-bottom: 1px solid lightgray;
-
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
 .task div {
-  width: 99%;
+  height: 20px;
   width: 90%;
-  border: 1px solid rgb(179, 179, 179);
+  border: 1px solid rgb(185, 182, 182);
   border-radius: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* background-color: #2f89fc; */
+  background-color: white;
   margin: 0px 0px 0px 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
 .taskAdded {
   font-family: "Nunito", sans-serif;
   margin: 0px 0px 0px 0px;
@@ -203,9 +247,8 @@
   font-weight: 650;
   color: #34c759;
   letter-spacing: 0.2px !important;
-
-
 }
+
 .taskDeleted {
   font-family: "Nunito", sans-serif;
   margin: 0px 0px 0px 0px;
@@ -213,6 +256,7 @@
   font-weight: 650;
   color: red;
 }
+
 .taskEdited {
   font-family: "Nunito", sans-serif;
   margin: 0px 0px 0px 0px;
@@ -220,6 +264,7 @@
   font-weight: 650;
   color: blue;
 }
+
 .task p {
   font-family: "Nunito", sans-serif;
   margin: 0px 0px 0px 0px;
@@ -241,9 +286,12 @@
   align-items: center;
 }
 .type div {
-  /* width: 100%; */
+  height: 20px;
+
   width: 100%;
   border: 1px solid rgb(179, 179, 179);
+  border: 1px solid rgb(185, 182, 182);
+
   border-radius: 5px;
   display: flex;
   flex-direction: row;
@@ -251,9 +299,13 @@
   align-items: center;
   /* background-color: #2f89fc; */
   font-size: 12.5px;
-
+  background-color: white;
   margin: 0px 0px 0px 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
 .type p {
   font-family: "Nunito", sans-serif;
@@ -261,11 +313,10 @@
   /* text-decoration: underline; */
   font-weight: 600;
   /* color: slategray; */
-  font-size: 13px;
+  font-size: 12px;
 }
 .date {
   grid-area: date;
-  width: 100%;
   width: 100%;
   /* min-width: 200px; */
   /* border: 1px solid blue; */
@@ -274,15 +325,18 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 }
 
 .date p {
-  margin: 0px 8px 0px 0px;
+  margin: 0px 8px 0px 10px;
   font-size: 12px;
   font-family: "Nunito", sans-serif;
+  /* font-family: "Share Tech Mono", monospace; */
   color: #2f89fc;
+  color: rgb(2, 2, 2);
+
   font-weight: 650;
   letter-spacing: 0.2px;
 }
@@ -344,17 +398,15 @@
     align-items: center;
   }
   .recentItemContainer {
-    width: 90%;
+    width: 100%;
     /* min-width: 280px; */
     /* max-width: 500px; */
     height: 90px;
     min-width: 280px;
-
     /* min-height: 50px; */
-    /* border: 1px solid black; */
+    /* border: 1px solid red; */
     /* background-color: #ffffff; */
     /* border: 1px solid black; */
-
     /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
     margin: 10px 20px 10px 0px;
     display: grid;
@@ -377,14 +429,12 @@
     /* align-items: center; */
     /* margin: 25px 0px 0px 0px; */
     border-radius: 10px 10px 10px 10px;
-
     background-color: white;
   }
   .countDiv {
     width: 110px;
     height: 40px;
     /* border: 1px solid black; */
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -395,10 +445,12 @@
     margin: 5px 10px 5px 20px;
   }
   .dashboardComponent {
-    width: 95%;
+    width: 100%;
     height: 100%;
+  height: 99.8%;
+
     /* border: 1px solid red; */
-    background-color: #dae5eb;
+    /* background-color: #dae5eb; */
     display: flex;
     flex-direction: column;
     /* flex-wrap: wrap; */
@@ -406,8 +458,7 @@
     align-items: center;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     /* overflow-y: scroll; */
-    border-radius: 10px 10px 10px 10px;
-
+    /* border-radius: 10px 10px 10px 10px; */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 }

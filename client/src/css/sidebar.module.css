@@ -1,52 +1,71 @@
 /* ______________________________________________ */
 .sidebar {
+  /* display: none; */
   grid-row-start: 1;
   grid-row-end: 4;
   grid-row-start: 2;
   grid-row-end: 4;
   grid-column-start: 1;
   grid-column-end: 2;
-  /* width: 300px; */
+  width: 98% !important;
   height: 100%;
   display: grid;
-  grid-gap: 5px;
-  grid-template-rows: 20% 1fr;
-  /* background-color: #e5edf2; */
-  background-color: white;
-  background-color: #e5edf2;
+  grid-gap: 1px;
+  grid-template-rows: 10% 1fr 20%;
 
+  /* background-color: #e5edf2; */
+  /* background-color: white; */
+  /* background-color: #e5edf2; */
   /* background-color: white; */
   /* border-radius: 10px; */
   /* border-right: 1px solid rgba(182, 131, 131, 0.18); */
 
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 
+  /* border-radius: 10px; */
+
   /* border-radius: 0px 0px 0px 20px; */
   /* border: 1px solid red; */
+  /* 
+  background: rgba(255, 255, 255, 0.144);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); */
+  overflow: hidden;
 }
 
 .sidebarCollapse {
+  /* display: none; */
+
   grid-row-start: 2;
   grid-row-end: 4;
   grid-column-start: 1;
   grid-column-end: 2;
-  /* width: 50px !important; */
+  width: 98.5% !important;
   height: 100%;
   display: grid;
-  grid-gap: 5px;
-  grid-template-rows: 20% 1fr;
+  /* grid-gap: 1px; */
+  grid-template-rows: 10% 1fr 20%;
   /* background-color: #e5edf2; */
 
   /* border-radius: 10px; */
   /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
   /* border-right: 1px solid rgba(182, 131, 131, 0.18); */
+  /* border-right: 1px solid rgb(190, 190, 190); */
 
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 
+  /* background: rgba( 255, 255, 255, 0.50 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 20.0px );
+  -webkit-backdrop-filter: blur( 20.0px ); */
+  /* border-radius: 10px; */
+
   /* border-radius: 10px 10px 10px 10px; */
   /* border: 1px solid red; */
-  background-color: white;
+  /* background-color: white; */
+
   /* background-color: #e5edf2; */
+  overflow: hidden;
 }
 
 .burgerBtnContainer {
@@ -60,8 +79,13 @@
   align-items: center;
   margin: 0px 0px 0px 0px;
   /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
-
+  background: rgba(255, 255, 255, 0.747);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   /* border: 1px solid red; */
+  backdrop-filter: blur(14px) saturate(200%);
+  -webkit-backdrop-filter: blur(14px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.36);
 }
 .burgerBtnContainerClose {
   position: relative;
@@ -74,8 +98,21 @@
   justify-content: flex-end !important;
   align-items: center;
   margin: 0px 0px 0px 0px;
+  background: rgba(255, 255, 255, 0.747);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+  backdrop-filter: blur(14px) saturate(200%);
+  -webkit-backdrop-filter: blur(14px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.36);
 
+  background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   /* border: 1px solid red; */
 }
 .toggleSideBarBtn {
@@ -84,18 +121,33 @@
 }
 
 .linksContainer {
+  position: relative;
   grid-row-start: 2;
   grid-row-end: 3;
   width: 99%;
-  height: 99%;
+  height: 99.8%;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
   transition: all 50ms ease-in-out;
+  background: rgba(255, 255, 255, 0.747);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+  backdrop-filter: blur(14px) saturate(200%);
+  -webkit-backdrop-filter: blur(14px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.36);
 
-  /* border: 1px solid black; */
+  background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  /* border: 1px solid blue; */
 }
 .NavLink {
   position: relative;
@@ -120,14 +172,15 @@
 
   padding-left: 10px;
   /* border: 1px solid lightgray; */
+  /* border: 1px solid black; */
 }
 .NavLinkClose {
   position: relative;
-  /* border-left: 2px solid lightgray; */
+  /* border: 2px solid lightgray; */
 
   grid-row-start: 2;
   grid-row-end: 3;
-  width: 35px;
+  width: 30px;
   height: 30px;
   text-decoration: none;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -139,7 +192,7 @@
   font-size: 12.5px;
   /* color: white; */
   margin: 10px 0px 10px 0px;
-  /* border-radius: 5px; */
+  border-radius: 5px;
   transition: all 50ms ease-in-out;
   color: black;
 
@@ -149,6 +202,7 @@
   /* border-radius: 15px 0px 0px 15px; */
 
   /* border: 1px solid lightgray; */
+  /* border: 1px solid black; */
 }
 .linkDivOpen {
   width: 100%;
@@ -199,4 +253,50 @@
   justify-content: center;
   align-items: center;
   /* border: 1px solid orange; */
+}
+
+.logoutBtnDiv {
+  position: relative;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  width: 99%;
+  height: 99%;
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.747);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  backdrop-filter: blur(14px) saturate(200%);
+  -webkit-backdrop-filter: blur(14px) saturate(200%);
+  background-color: rgba(255, 255, 255, 0.36);
+
+  background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  background: rgba(255, 255, 255, 0.76);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.logoutBtnDiv button {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+  background: none;
+  border: none;
+}
+.logoutBtnDiv button {
+  cursor: pointer;
+}
+.logoutText {
+  font-size: 9px;
+  font-weight: 700;
+  color: black;
+  font-family: "Nunito", sans-serif !important;
 }

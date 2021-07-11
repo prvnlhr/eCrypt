@@ -1,6 +1,6 @@
 .settingsComponent {
   /* border: 1px solid rgb(192, 189, 189); */
-  width: 99%;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -8,10 +8,13 @@
   /* justify-content: center; */
   align-content: center;
   /* overflow: hidden; */
-  margin: 1% 0px 0px 0px;
+  margin: 1px 0px 0px 0px;
   overflow-y: scroll;
-  background-color: #dae5eb;
+  /* background-color: #dae5eb; */
   border-radius: 0px 0px 0px 0px;
+  background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px);
 }
 .settingsComponent::-webkit-scrollbar {
   display: none;
@@ -93,13 +96,15 @@
 }
 /* __PROFILE_____________________________________________________________________ */
 .profileContainer {
-  /* border: 1px solid red; */
+  /* border: 1px solid rgba(182, 131, 131, 0.18); */
   width: 90%;
   height: 300px;
   min-height: 300px;
   margin: 10px 0px 10px 0px;
   display: grid;
   grid-template-rows: 30px 40px 160px 70px;
+  border-radius: 10px;
+  /* background-color: white; */
 }
 
 .formContainer {
@@ -255,12 +260,16 @@ button {
 
 .changePasswordContainer {
   /* border: 1px solid blue; */
+  /* border: 1px solid rgba(182, 131, 131, 0.18); */
+
   width: 90%;
   height: 200px;
   min-height: 200px;
   margin: 10px 0px 10px 0px;
   display: grid;
   grid-template-rows: 30px 30px 140px;
+  /* background-color: white; */
+  border-radius: 10px;
   /* grid-gap: 10%; */
 }
 
@@ -315,12 +324,16 @@ button {
 /* ____DELETE ACCOUNT________________________________________________________________ */
 .deleteAccountContainer {
   /* border: 1px solid green; */
+  /* border: 1px solid rgba(182, 131, 131, 0.18); */
+
   width: 90%;
   height: 250px;
   min-height: 250px;
   margin: 0px 0px 30px 0px;
   display: grid;
   grid-template-rows: 30px 30px 190px;
+  /* background-color: white; */
+  border-radius: 10px;
   /* grid-gap: 10px; */
 }
 

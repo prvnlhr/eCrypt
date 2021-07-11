@@ -12,7 +12,7 @@
   /* width: inherit; */
   margin-left: auto;
   margin-right: auto;
-  top: 10%;
+  top: 2%;
   /* left: 0; */
   right: 2%;
   border: 1px solid rgb(224, 224, 224);
@@ -27,6 +27,7 @@
   overflow: hidden;
   /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 2;
 }
 .formContainerCollapse {
   position: absolute;
@@ -154,6 +155,6 @@
     align-items: center;
     overflow: hidden;
     /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
   }
 }

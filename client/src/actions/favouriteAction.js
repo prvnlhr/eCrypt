@@ -25,5 +25,6 @@ export const fetchFavorites = (user_id) => async (dispatch) => {
       payload: favDocs,
     });
   } catch (error) {
+    console.log(error);
   }
 };

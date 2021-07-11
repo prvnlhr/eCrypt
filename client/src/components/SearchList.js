@@ -6,7 +6,7 @@ const SearchList = ({ searchResultArray }) => {
     <div className={styles.searchList}>
       {searchResultArray.map((item) => (
         <>
-          <SearchItem item={item} />
+          <SearchItem item={item}  />
         </>
       ))}
     </div>

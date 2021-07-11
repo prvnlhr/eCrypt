@@ -1,6 +1,6 @@
 .addBtnDiv {
   position: absolute;
-  right: 2%;
+  right: 1%;
   top: -30px;
   /* bottom: 30px; */
   width: 80px;
@@ -20,7 +20,7 @@
   /* */
   background-color: #0177fb;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  z-index: 1;
+  z-index: 25;
 
   /*  */
 }

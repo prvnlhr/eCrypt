@@ -1,30 +1,107 @@
+
 .docsList {
-  /* position: relative; */
-  width: 99%;
+  position: relative;
+  width: 100%;
   height: 100%;
+  height: 99.8%;
+
   /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  overflow: hidden;
+  /* overflow: visible; */
   /* border: 1px solid rgba(175, 173, 173, 0.377); */
 
   align-content: flex-start;
   /* align-items: center; */
   /* justify-content: flex-start; */
-  border-radius: 10px 10px 0px 0px;
+  /* border-radius: 10px 10px 0px 0px; */
 
+  /* overflow-y: scroll; */
+  /* background-color: #f6f6f6; */
+  /* background-color: #dae5eb; */
+  /* 
+  background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); */
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+
+  background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.contentContainer {
+  height: 100%;
+  /* border: 1px solid green; */
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* background-color: white; */
   overflow-y: scroll;
-  background-color: #f6f6f6;
-  background-color: #dae5eb;
+  /* border-radius: 10px 10px 10px 10px; */
+  /* background-color: #e5edf2; */
 
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+
+  /* overflow: scroll !important; */
+  /* border-radius: 0px 0px 20px 0px; */
+}
+
+.contentContainerCollapse {
+  border-radius: 0px 0px 0px 0px;
+  border-radius: 20px 20px 20px 20px;
+
+  height: 100%;
+  width: 100%;
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  overflow-y: scroll !important;
+  /* overflow: scroll !important; */
+  /* background-color: rgb(255, 255, 255); */
+  /* background-color: #e5edf2; */
+
+  /* background-color: #482ff7; */
+}
+
+.contentContainer::-webkit-scrollbar {
+  background-color: #fff;
+  height: 4px;
+  width: 5px;
+}
+.contentContainer::-webkit-scrollbar-track {
+  background-color: rgb(231, 228, 228);
+  width: 2px;
+}
+.contentContainer::-webkit-scrollbar-thumb {
+  background-color: #2f89fc;
+  border-radius: 4px;
+}
+
+.contentContainerCollapse::-webkit-scrollbar {
+  background-color: #fff;
+  height: 4px;
+  width: 5px;
+  /* display: none; */
+}
+.contentContainerCollapse::-webkit-scrollbar-track {
+  background-color: rgb(231, 228, 228);
+}
+.contentContainerCollapse::-webkit-scrollbar-thumb {
+  background-color: #2f89fc;
+  border-radius: 4px;
 }
 
 .display {
   width: 100%;
   height: 100%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
@@ -79,18 +156,17 @@
   align-items: center;
   background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-  background: rgba( 255, 255, 255, 0.90 );
-box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-backdrop-filter: blur( 16.5px );
--webkit-backdrop-filter: blur( 16.5px );
-border-radius: 5px;
-
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(16.5px);
+  -webkit-backdrop-filter: blur(16.5px);
+  border-radius: 5px;
 }
 .loadingDiv p {
   margin: 2px 0px 0px 2px;
   font-family: "Nunito", sans-serif;
-  color:  #2f89fc;
- 
+  color: #2f89fc;
+
   font-weight: 550;
   letter-spacing: 0.2px;
   font-size: 13px;

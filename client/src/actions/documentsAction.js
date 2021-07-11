@@ -104,7 +104,9 @@ export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
       type: ADD_ACTIVITY,
       payload: activity,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 //DELETE DOC
@@ -185,5 +187,7 @@ export const docFavToggle = (doc_id, isFav) => async (dispatch) => {
         id: doc_id,
       },
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };

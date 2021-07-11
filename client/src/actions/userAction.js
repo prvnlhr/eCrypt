@@ -28,6 +28,7 @@ export const fetchUser = (token) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
+
     const failureMsg = error.response.data.msg;
     dispatch({
       type: ERROR_MESSAGE,
@@ -35,6 +36,7 @@ export const fetchUser = (token) => async (dispatch) => {
     });
   }
 };
+
 //Update Profile
 export const updateProfile = (token, profileData, userId) => async (
   dispatch

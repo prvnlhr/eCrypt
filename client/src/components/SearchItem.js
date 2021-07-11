@@ -7,7 +7,7 @@ import docStyles from "../css/document.module.css";
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
 import LoginIdLogo from "./LoginIdLogo";
-import CardLogo from "./CardLogo";
+import CardLogo, { getCardType } from "./CardLogo";
 
 const SearchItem = ({ item }) => {
   const [maximize, setEnlarge] = useState(false);
@@ -17,6 +17,14 @@ const SearchItem = ({ item }) => {
     setEditId(item._id);
     setEnlarge(!maximize);
   };
+  let cNo;
+  let cardType;
+  if (item.bank) {
+    let cardNumber = item.cardNo;
+    cNo = cardNumber.toString();
+    cardType = getCardType(cNo);
+  }
+  console.log("number hai", cardType);
 
   return (
     <>
@@ -45,7 +53,31 @@ const SearchItem = ({ item }) => {
         </>
       ) : item.bank ? (
         <>
-          <div className={cardStyles.cardContainer}>
+          <div
+            className={`${cardStyles.cardContainer} ${
+              cardType === "MASTER"
+                ? cardStyles.cardMaster
+                : cardType === "VISA"
+                ? cardStyles.cardVisa
+                : cardType === "RUPAY"
+                ? cardStyles.cardRupay
+                : cardType === "MAESTRO"
+                ? cardStyles.cardMaestro
+                : cardType === "AMEX"
+                ? cardStyles.cardAmex
+                : cardType === "JCB"
+                ? cardStyles.cardJcb
+                : cardType === "HIPERCARD"
+                ? cardStyles.cardHiper
+                : cardType === "UNIONPAY"
+                ? cardStyles.cardUnion
+                : cardType === "DISCOVERY"
+                ? cardStyles.cardDiscovery
+                : cardType === "DINERS"
+                ? cardStyles.cardDiners
+                : null
+            }`}
+          >
             <div className={cardStyles.cardLogo}>
               <CardLogo className={cardStyles.logo} cardNo={item.cardNo} />
             </div>
@@ -70,6 +102,8 @@ const SearchItem = ({ item }) => {
               <p className={cardStyles.expiryLabel}>VALID UPTO</p>
               <p className={cardStyles.expiryText}>{item.expiry}</p>
             </div>
+            <h1 className={cardStyles.overlayFont}>{cardType.toLowerCase()}</h1>
+            <div className={cardStyles.overlayDiv}></div>
           </div>
         </>
       ) : item.imageName ? (
@@ -77,17 +111,19 @@ const SearchItem = ({ item }) => {
           <div
             className={
               editId === item._id && maximize === true
-                ? docStyles.maximize
-                : docStyles.documentCard
+                ? styles.maximize
+                : styles.documentCard
             }
           >
-            <div className={docStyles.imageContainer}>
+            <div className={styles.imageContainer}>
               <img src={item.imageUrl} onClick={maximizeImg}></img>
             </div>
 
-            <div className={docStyles.imageTitleContainer}>
+            <div className={styles.imageTitleContainer}>
               <div className={styles.titleDiv}>
-                <p className={docStyles.titleText}>{item.imageName}</p>
+                {maximize === false ? (
+                  <p className={styles.titleText}>{item.imageName}</p>
+                ) : null}
               </div>
             </div>
           </div>

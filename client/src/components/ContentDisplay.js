@@ -64,7 +64,9 @@ const ContentDisplay = ({
           searchResultArray={searchResultArray}
           setHeading={setHeading}
         />
-      ) : null}
+      ) : null
+      
+      }
 
       <Switch>
         <Route

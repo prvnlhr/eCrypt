@@ -63,7 +63,9 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
       type: ADD_ACTIVITY,
       payload: activity,
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 // EDIT LOGIN ID
@@ -178,5 +180,8 @@ export const loginIdFavToggle = (loginId_id, isFav) => async (dispatch) => {
         id: loginId_id,
       },
     });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+
+  }
 };
