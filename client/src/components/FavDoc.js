@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { docFavToggle } from "../actions/documentsAction";
 import styles from "../css/document.module.css";
+import favStyles from "../css/favouriteItem.module.css";
 import { HiStar, HiOutlineStar } from "react-icons/hi";
 
 const FavDoc = ({ favItem }) => {
@@ -28,12 +29,26 @@ const FavDoc = ({ favItem }) => {
     <div
       className={
         editId === favItem._id && maximize === true
-          ? styles.maximize
+          ? favStyles.maximize
           : styles.documentCard
       }
     >
-      <div className={styles.imageContainer}>
-        <img src={favItem.imageUrl} onClick={maximizeImg}></img>
+      <div
+        className={
+          editId === favItem._id && maximize === true
+            ? styles.imageContainerMaximize
+            : styles.imageContainer
+        }
+      >
+        <img
+          className={
+            editId === favItem._id && maximize === true
+              ? styles.docImgMaximized
+              : styles.docImg
+          }
+          src={favItem.imageUrl}
+          onClick={maximizeImg}
+        ></img>
       </div>
 
       {editId === favItem._id && maximize === true ? null : (
@@ -41,29 +56,25 @@ const FavDoc = ({ favItem }) => {
           <div className={styles.titleDiv}>
             <p className={styles.titleText}>{favItem.imageName}</p>
           </div>
-        </div>
-      )}
 
-      {editId === favItem._id && maximize === true ? null : (
-        <div className={styles.buttonContainer}>
-          <div className={styles.bookmarkDiv}>
-            <div
-              className={styles.favBtn}
-              onClick={() => {
-                handleFavToggle(favItem._id, favItem.isFavourite);
-              }}
-            >
-              {favItem.isFavourite ? (
-                <HiStar
-                  className={styles.favIcon}
-                  fontSize="18px"
-                  color="#2f89fc"
-                />
-              ) : (
-                <HiOutlineStar className={styles.favIcon} fontSize="16px" />
-              )}
+          {editId === favItem._id && maximize === true ? null : (
+            <div className={styles.buttonContainer}>
+              <div className={styles.favBtnDiv}>
+                <div
+                  className={styles.favBtn}
+                  onClick={() => {
+                    handleFavToggle(favItem._id, favItem.isFavourite);
+                  }}
+                >
+                  {favItem.isFavourite ? (
+                    <HiStar className={styles.favIcon} color="#4CD7F6" />
+                  ) : (
+                    <HiOutlineStar className={styles.favIcon} />
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </div>

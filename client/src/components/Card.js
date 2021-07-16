@@ -286,14 +286,14 @@ const Card = ({ card, setEditButton, showEditButton }) => {
         }}
       >
         {card.isFavourite ? (
-          <HiStar color="#2f89fc" />
+          <HiStar color="#4CD7F6" fontSize="20px"/>
         ) : (
           <HiOutlineStar color="#9baece" />
         )}
       </button>
 
       <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
-      {/* <div className={styles.overlayDiv}></div> */}
+      <div className={styles.overlayDiv}></div>
     </div>
   );
 };

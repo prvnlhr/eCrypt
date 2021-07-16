@@ -8,19 +8,12 @@ body {
   justify-content: center;
   align-items: center;
   /* background-color: #e5edf2; */
-  /* background: url(../img/bg11.jpg); */
-
-  /* /*  */
-  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
-  /* backdrop-filter: blur(20px); */
-  /* -webkit-backdrop-filter: blur(18px); */
-  background: url(../img/bg30.png) #A9C9FF;
+  background: url(../img/bg1.jpg);
+  /* object-fit: contain; */
   background-size: cover;
-  background-position: center;
-  /* background-repeat: no-repeat; */
-  /* background-color: #A9C9FF; */
-/* background: linear-gradient(180deg, #A9C9FF 0%, #FFBBEC 100%); */
 
+  /* background-image: linear-gradient(to right top, #e6f3ea, #e1f1e8, #dbefe7, #d6ece6, #d1eae6, #cde8e6, #c9e6e5, #c5e4e5, #c1e2e4, #bde0e3, #b9dee2, #b5dce1); */
+  /* background-image: linear-gradient(to right top, #ced8e5, #bfd2e5, #afcce4, #9dc7e2, #88c2e0); */
 }
 
 body::-webkit-scrollbar {
@@ -40,7 +33,7 @@ body::-webkit-scrollbar {
   /* grid-template-rows: 10% 90%; */
   /* grid-template-rows: 70px 1fr; */
   border-radius: 0px 0px 0px 0px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -48,7 +41,7 @@ body::-webkit-scrollbar {
   /* background-color: #dae5eb; */
   /* background: url(../img/loginForm.svg) no-repeat center center fixed; */
 
-  -webkit-background-size: cover;
+  /* -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
@@ -57,7 +50,10 @@ body::-webkit-scrollbar {
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   -o-transform: rotate(0deg);
-  transform: rotate(0deg);
+  transform: rotate(0deg); */
+  /* background-color: #f4fff9; */
+  border-radius: 10px 10px 10px 10px;
+  overflow: hidden;
 }
 
 .app::-webkit-scrollbar {

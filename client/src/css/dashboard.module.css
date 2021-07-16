@@ -1,7 +1,7 @@
 .dashboardComponent {
   width: 100%;
   height: 100%;
-  height: 99.8%;
+  height: 100%;
 
   /* border: 1px solid red; */
   /* background-color: #dae5eb; */
@@ -13,23 +13,16 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   /* overflow-y: scroll; */
   /* border-radius: 10px 10px 10px 10px; */
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  background: rgba(255, 255, 255, 0.589);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  /* background-color: #f4fff9; */
+  background: rgba( 255, 255, 255, 0.20 );
+  backdrop-filter: blur( 20.0px );
+  -webkit-backdrop-filter: blur( 20.0px );
 
-  backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  background-color: rgba(255, 255, 255, 0.36);
+  background: rgba( 255, 255, 255, 0.25 );
+backdrop-filter: blur( 16.5px );
+-webkit-backdrop-filter: blur( 16.5px );
 
-  background: rgba(255, 255, 255, 0.589);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-
-  background: rgba(255, 255, 255, 0.589);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(4px);
+  
 }
 
 .dashboardComponent::-webkit-scrollbar {
@@ -49,11 +42,11 @@
   border-radius: 10px 10px 10px 10px;
 
   /* background-color: white; */
-
+/* 
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(4px); */
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
 }
 .countDiv {
   width: 100px;
@@ -67,11 +60,16 @@
   align-items: center;
   /* border-radius: 5px; */
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
-  /* background-color: white; */
+  background-color: white;
   margin: 20px 10px 10px 20px;
-  background: rgba(255, 255, 255, 0.747);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  /* background: rgba(255, 255, 255, 0.747); */
+  /* backdrop-filter: blur(4px); */
+  /* -webkit-backdrop-filter: blur(4px); */
+  /* border: 1px solid #4cd7f646; */
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+
+
+
 }
 .count {
   width: 100%;
@@ -85,6 +83,8 @@
   /* margin: 0px 0px 0px 30px; */
 
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: rgb(53, 52, 52);
   font-weight: 650;
   color: black;
@@ -101,6 +101,8 @@
   align-items: center;
   /* margin: 10px 0px 10px 10px; */
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: rgb(53, 52, 52);
   font-weight: 600;
   color: slategray;
@@ -109,7 +111,7 @@
 .recentActivityListHeadingDiv {
   width: 99%;
   height: 10%;
-  border-bottom: 1px solid #0176fb46;
+  border-bottom: 1px solid #4CD7F6;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -117,6 +119,8 @@
 .recentActivityListHeadingDiv p {
   margin: 20px 0px 0px 20px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   font-weight: 650;
   font-size: 15px;
   color: black;
@@ -125,6 +129,7 @@
   width: 100%;
   height: 60%;
   /* border: 1px solid black; */
+
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -143,7 +148,7 @@
   width: 2px;
 }
 .recentActivityList::-webkit-scrollbar-thumb {
-  background-color: #2f89fc;
+  background-color: #4CD7F6;
   border-radius: 4px;
 }
 .recentItemWrapper {
@@ -151,6 +156,7 @@
   width: 95%;
   /* border-bottom: 1px solid rgb(58, 165, 228); */
   /* border-top: 1px solid rgb(58, 165, 228); */
+  border-bottom: 1px solid #4CD7F6;
  
   margin: 10px 20px 10px 20px;
   display: flex;
@@ -158,7 +164,7 @@
   align-items: center;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(68, 61, 61, 0.24); */
     
-  /* background: rgba(255, 255, 255, 0); */
+  /* background: white; */
   /* border: 1px solid rgb(184, 183, 183); */
 }
 .recentItemContainer {
@@ -196,8 +202,8 @@
 .logo div {
   width: 90%;
   height: 90%;
-  border: 1px solid rgba(211, 211, 211, 0.39);
-  border: 1px solid rgba(133, 133, 133, 0.39);
+  /* border: 1px solid rgba(211, 211, 211, 0.39); */
+  /* border: 1px solid rgba(133, 133, 133, 0.39); */
 
   display: flex;
   flex-direction: row;
@@ -205,18 +211,20 @@
   align-items: center;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  background: transparent;
-  background: rgba(255, 255, 255, 0.1);
+  /* background: transparent; */
+  /* background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18); */
+    /* border: 1px solid #4cd7f646; */
+
 }
 .task {
   grid-area: task;
   width: 100%;
   width: 100%;
   /* border: 1px solid black; */
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -238,35 +246,51 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  /* border: 1px solid #4cd7f646; */
+
 }
 
 .taskAdded {
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   margin: 0px 0px 0px 0px;
   font-size: 12.5px;
-  font-weight: 650;
+  /* font-weight: 650; */
   color: #34c759;
   letter-spacing: 0.2px !important;
+  -webkit-text-stroke: 0.015em; 
+
 }
 
 .taskDeleted {
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   margin: 0px 0px 0px 0px;
   font-size: 12.5px;
-  font-weight: 650;
+  /* font-weight: 650; */
   color: red;
+  -webkit-text-stroke: 0.015em; 
+
 }
 
 .taskEdited {
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   margin: 0px 0px 0px 0px;
   font-size: 12.5px;
-  font-weight: 650;
+  /* font-weight: 650; */
   color: blue;
+  -webkit-text-stroke: 0.015em; 
+
 }
 
 .task p {
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   margin: 0px 0px 0px 0px;
   font-size: 12.5px;
   font-weight: 650;
@@ -278,7 +302,7 @@
   width: 100%;
   /* border: 1px solid yellow; */
   /* border: 1px solid black; */
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
 
   display: flex;
   flex-direction: row;
@@ -306,22 +330,28 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
+  /* border: 1px solid #4cd7f646; */
+
 }
 .type p {
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   margin: 0px 0px 0px 0px;
   /* text-decoration: underline; */
-  font-weight: 600;
+  /* font-weight: 600; */
   /* color: slategray; */
   font-size: 12px;
+  -webkit-text-stroke: 0.015em; 
+
 }
 .date {
   grid-area: date;
   width: 100%;
   /* min-width: 200px; */
   /* border: 1px solid blue; */
-  border-bottom: 1px solid black;
-  border-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid black; */
+  /* border-bottom: 1px solid lightgray; */
 
   display: flex;
   flex-direction: row;
@@ -333,11 +363,14 @@
   margin: 0px 8px 0px 10px;
   font-size: 12px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   /* font-family: "Share Tech Mono", monospace; */
   color: #2f89fc;
   color: rgb(2, 2, 2);
+  -webkit-text-stroke: 0.015em; 
 
-  font-weight: 650;
+  /* font-weight: 650; */
   letter-spacing: 0.2px;
 }
 .name {
@@ -358,6 +391,8 @@
 .name p {
   margin: 10px 10px 0px 10px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   font-weight: 650;
   font-size: 14px;
 }
@@ -380,17 +415,22 @@
 .item p {
   margin: 0px 10px 0px 10px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: rgb(53, 52, 52);
-  font-weight: 600;
-  color: slategray;
+  /* font-weight: 600; */
+  color: slategrey;
   font-size: 13px;
+  /* text-rendering: optimizeLegibility !important; */
+  /* -webkit-font-smoothing: antialiased !important; */
+  -webkit-text-stroke: 0.020em; 
 }
 
 @media screen and (max-width: 500px) {
   .recentActivityList {
     width: 100%;
     height: 100%;
-    /* border: 1px solid black; */
+    /* border: 1px solid #4CD7F6; */
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
@@ -429,7 +469,7 @@
     /* align-items: center; */
     /* margin: 25px 0px 0px 0px; */
     border-radius: 10px 10px 10px 10px;
-    background-color: white;
+    /* background-color: white; */
   }
   .countDiv {
     width: 110px;

@@ -1,7 +1,7 @@
 .cardList {
   position: relative;
   width: 100%;
-  height: 99.8%;
+  height: 100%;
   /* border: 1px solid red; */
   display: flex;
   align-items: center;
@@ -17,21 +17,33 @@
   /* background-color: #dae5eb; */
 
   /* overflow: hidden; */
-  /* border-radius: 10px 10px 0px 0px; */
+  /* border-radius: 20px 0px 0px 0px; */
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   /* background: rgba(255, 255, 255, 0.589);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px); */
 
-  background: rgba(255, 255, 255, 0.589);
+  /* background: rgba(255, 255, 255, 0.589); */
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(4px);
-  /* margin: 1px 0px 0px 1px; */
-  /* background-color: #d6e1e7; */
+  /* backdrop-filter: blur(10px); */
+  /* -webkit-backdrop-filter: blur(4px); */
+  /* background-color: #f4fff9; */
+  /* background-color: #f8f9fd; */
+  /* background: rgba( 255, 255, 255, 0.25 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px ); */
+ 
 
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
+background: rgba(255, 255, 255, 0.377);
+backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+
+
+
+background: rgba( 255, 255, 255, 0.25 );
+backdrop-filter: blur( 16.5px );
+-webkit-backdrop-filter: blur( 16.5px );
 
 }
 .opacity {
@@ -89,7 +101,7 @@
   width: 2px;
 }
 .contentContainer::-webkit-scrollbar-thumb {
-  background-color: #2f89fc;
+  background-color: #4CD7F6;
   border-radius: 4px;
 }
 
@@ -103,6 +115,6 @@
   background-color: rgb(231, 228, 228);
 }
 .contentContainerCollapse::-webkit-scrollbar-thumb {
-  background-color: #2f89fc;
+  background-color: #4CD7F6;
   border-radius: 4px;
 }

@@ -9,6 +9,9 @@ import styles from "../css/docsList.module.css";
 import noContentStyles from "../css/noContentMessage.module.css";
 import btnStyles from "../css/buttons.module.css";
 import { FiPlusCircle } from "react-icons/fi";
+import { CgAdd } from "react-icons/cg";
+
+
 
 const DocsList = ({ docs, setHeading }) => {
   const isLoading = useSelector((state) => state.loading.isLoading);
@@ -66,7 +69,7 @@ const DocsList = ({ docs, setHeading }) => {
 
       {formMode === false ? (
         <div className={btnStyles.addBtnDiv} onClick={formToggle}>
-          <FiPlusCircle fontSize="19px" />
+          <CgAdd fontSize="17px" />
           <span>Add</span>
         </div>
       ) : null}

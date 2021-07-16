@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { register } from "../actions/auth";
@@ -17,6 +17,23 @@ const initialState = {
 
 const SignUpPage = () => {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    window.scroll({
+      bottom: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
+  const handleClick = () => {
+    window.scroll({
+      top: 100,
+      left: 0,
+      behavior: "smooth",
+    });
+    console.log("clicked");
+  };
 
   const [formData, setFormData] = useState(initialState);
   const isLoading = useSelector((state) => state.loading.isLoading);
@@ -47,8 +64,8 @@ const SignUpPage = () => {
             the go
           </p>
           <br />
-          <p>
-            Simple<span className={formStyles.dot}>.</span>Secure
+          <p onClick={handleClick}>
+            Simple<span className={formStyles.dot}>.</span>Secure click
           </p>
         </div>
       </div>
@@ -86,7 +103,6 @@ const SignUpPage = () => {
                 fullWidth
                 id="firstName"
                 label="First Name"
-                autoFocus
                 size="small"
                 value={firstName}
                 onChange={handleChange}

@@ -7,7 +7,7 @@ import { FiPlusCircle } from "react-icons/fi";
 
 const FavDocsList = ({ favoritesDocsArray }) => {
   return (
-    <div className={listStyles.favList}>
+    <div className={listStyles.favDocList}>
       {favoritesDocsArray.length < 1 ? (
         <div className={noContentStyles.messageContainer}>
           <p>No Favourite Documents</p>

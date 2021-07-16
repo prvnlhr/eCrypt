@@ -5,20 +5,27 @@ import { useHistory } from "react-router-dom";
 import { logout } from "../actions/auth";
 import {
   IoCard,
+  IoCardOutline,
   IoGrid,
   IoDocumentTextOutline,
+  IoDocumentOutline,
   IoGridOutline,
+  IoPower,
 } from "react-icons/io5";
 import { IoMdKey, IoMdDocument } from "react-icons/io";
 import { FiKey } from "react-icons/fi";
 import { CgCreditCard } from "react-icons/cg";
-import { RiSettings3Fill } from "react-icons/ri";
+import { RiSettings3Fill, RiSearch2Line } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import {
   HiStar,
   HiOutlineDocumentText,
   HiAdjustments,
   HiOutlineLogout,
+  HiOutlineStar,
+  HiOutlineAdjustments,
+  HiOutlineViewGrid,
+  HiViewGrid,
 } from "react-icons/hi";
 import { FiLogOut } from "react-icons/fi";
 
@@ -61,8 +68,11 @@ const Sidebar = () => {
             color: "white",
             // border: "1px solid #0177fb",
             boxShadow:
-              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+              "0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048)",
+            // backgroundColor: "#b8e2d6",
             backgroundColor: "white",
+
+            // borderRadius :"50%"
           }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
@@ -73,15 +83,15 @@ const Sidebar = () => {
         >
           {sidebarShow === false ? (
             <div className={styles.linkDivClose}>
-              <IoGrid
-                color={window.location.pathname === "/" ? "#9baece" : "#9baece"}
-                fontSize="18px"
+              <HiViewGrid
+                color={window.location.pathname === "/" ? "#4CD7F6" : "#9baece"}
+                fontSize="22px"
               />
             </div>
           ) : (
             <div className={styles.linkDivOpen}>
-              <IoGrid
-                color={window.location.pathname === "/" ? "#9baece" : "#9baece"}
+              <HiViewGrid
+                color={window.location.pathname === "/" ? "#4CD7F6" : "#9baece"}
                 fontSize="20px"
               />
               <span className={styles.text}>Dashboard</span>
@@ -92,11 +102,10 @@ const Sidebar = () => {
         <NavLink
           activeStyle={{
             color: "white",
-            // border: "1px solid #0177fb",
+            // border: "1px solid #b8e2d6",
             boxShadow:
-              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+              "0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048)",
             backgroundColor: "white",
-
           }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
@@ -110,10 +119,10 @@ const Sidebar = () => {
               <IoCard
                 color={
                   window.location.pathname === "/displayCards"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
-                fontSize="20px"
+                fontSize="21px"
               />
             </div>
           ) : (
@@ -121,10 +130,10 @@ const Sidebar = () => {
               <IoCard
                 color={
                   window.location.pathname === "/displayCards"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
-                fontSize="20px"
+                fontSize="21px"
               />
               <span className={styles.text}>
                 Cards<span className={styles.cardCount}>{cardsCount}</span>
@@ -138,7 +147,7 @@ const Sidebar = () => {
             color: "white",
             // border: "1px solid #0177fb",
             boxShadow:
-              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+              "0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048)",
             backgroundColor: "white",
           }}
           className={
@@ -155,7 +164,7 @@ const Sidebar = () => {
                 name="key"
                 color={
                   window.location.pathname === "/displayLogins"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
               />
@@ -167,7 +176,7 @@ const Sidebar = () => {
                 name="key"
                 color={
                   window.location.pathname === "/displayLogins"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
               />
@@ -183,7 +192,7 @@ const Sidebar = () => {
             color: "white",
             // border: "1px solid #0177fb",
             boxShadow:
-              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+              "0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048)",
             backgroundColor: "white",
           }}
           className={
@@ -196,24 +205,25 @@ const Sidebar = () => {
           {sidebarShow === false ? (
             <div className={styles.linkDivClose}>
               <IoMdDocument
-                fontSize="24px"
+                fontSize="22px"
                 fontWeight="750"
                 name="key"
                 color={
                   window.location.pathname === "/documents"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
+                  // : "#9baece"
                 }
               />
             </div>
           ) : (
             <div className={styles.linkDivOpen}>
               <IoMdDocument
-                fontSize="20px"
+                fontSize="19px"
                 name="key"
                 color={
                   window.location.pathname === "/documents"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
               />
@@ -226,8 +236,7 @@ const Sidebar = () => {
           activeStyle={{
             color: "black",
             // border: "1px solid #0177fb",
-            boxShadow:
-              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+            boxShadow: "0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048)",
             backgroundColor: "white",
           }}
           className={
@@ -246,7 +255,7 @@ const Sidebar = () => {
                   window.location.pathname === "/favorites/favoritesCards" ||
                   window.location.pathname === "/favorites/favoritesLogins" ||
                   window.location.pathname === "/favorites/favoritesDocs"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
               />
@@ -258,7 +267,7 @@ const Sidebar = () => {
                 name="key"
                 color={
                   window.location.pathname === "/favorites"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
               />
@@ -273,7 +282,7 @@ const Sidebar = () => {
             // border: "1px solid cyan",
             backgroundColor: "white",
             boxShadow:
-              "0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)",
+              "0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048)",
           }}
           className={
             sidebarShow === false ? styles.NavLinkClose : styles.NavLink
@@ -289,7 +298,7 @@ const Sidebar = () => {
                 name="key"
                 color={
                   window.location.pathname === "/settings"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
               />
@@ -301,7 +310,7 @@ const Sidebar = () => {
                 name="key"
                 color={
                   window.location.pathname === "/settings"
-                    ? "#9baece"
+                    ? "#4CD7F6"
                     : "#9baece"
                 }
               />
@@ -309,14 +318,13 @@ const Sidebar = () => {
             </div>
           )}
         </NavLink>
-        
       </div>
       <div className={styles.logoutBtnDiv}>
-          <button className={styles.logOutBtn} onClick={handleLogout}>
-            <HiOutlineLogout fontSize="21px" color="black" />
+        <button className={styles.logOutBtn} onClick={handleLogout}>
+          <IoPower fontSize="17px" color="#9baece" />
           <p className={styles.logoutText}>Log Out</p>
-          </button>
-        </div>
+        </button>
+      </div>
     </div>
   );
 };

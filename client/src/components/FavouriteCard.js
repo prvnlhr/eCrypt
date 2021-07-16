@@ -86,7 +86,7 @@ const FavouriteCard = ({ favItem }) => {
         }}
       >
         {favItem.isFavourite ? (
-          <HiStar fontSize="24px" color="#2f89fc" />
+          <HiStar fontSize="24px" color="#4CD7F6" />
         ) : (
           <HiOutlineStar fontSize="16px" color="gray" />
         )}

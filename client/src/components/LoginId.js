@@ -7,17 +7,14 @@ import { loginIdFavToggle } from "../actions/loginInIdsAction";
 import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
 
-import {
-  HiOutlinePencil,
-  HiCheck,
-  HiX,
-  HiStar,
-  HiOutlineStar,
-} from "react-icons/hi";
+import { HiPencil, HiCheck, HiX, HiStar, HiOutlineStar } from "react-icons/hi";
+
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { editLoginId } from "../actions/loginInIdsAction";
+import { IoMdTrash } from "react-icons/io";
 
 import LoginIdLogo from "./LoginIdLogo";
+
 import styles from "../css/loginId.module.css";
 import modalStyles from "../css/modal.module.css";
 
@@ -87,7 +84,7 @@ const LoginId = ({
               setEditButton(true);
             }}
           >
-            <HiX />
+            <HiX color="#9baece" />
           </div>
           <div
             className={styles.saveIcon}
@@ -98,7 +95,7 @@ const LoginId = ({
               setEditButton(true);
             }}
           >
-            <HiCheck />
+            <HiCheck color="#9baece" />
           </div>
         </div>
       ) : (
@@ -118,7 +115,7 @@ const LoginId = ({
                 crud.operation === "edit" ? (
                   <CircleSpinner size={10} color="gray" loading={true} />
                 ) : (
-                  <HiOutlinePencil />
+                  <HiPencil color="#9baece" fontSize="16px" />
                 )}
               </div>
               <div
@@ -133,7 +130,7 @@ const LoginId = ({
                 crud.operation === "delete" ? (
                   <CircleSpinner size={10} color="gray" loading={true} />
                 ) : (
-                  <CgTrashEmpty />
+                  <IoMdTrash color="#9baece" />
                 )}
               </div>
             </div>
@@ -193,7 +190,7 @@ const LoginId = ({
         </div>
 
         <div className={styles.usernameDiv}>
-          <FaUserAlt fontSize="12px" color="gray" />
+          <FaUserAlt fontSize="12px" color="#9baece" />
 
           {inEditMode && loginId._id === editId ? (
             <input
@@ -208,7 +205,7 @@ const LoginId = ({
           )}
         </div>
         <div className={styles.passwordDiv}>
-          <FaLock fontSize="12px" color="gray" />
+          <FaLock fontSize="12px" color="#9baece" />
           {inEditMode && loginId._id === editId ? (
             <input
               className={styles.editInput}
@@ -230,9 +227,13 @@ const LoginId = ({
         }}
       >
         {loginId.isFavourite ? (
-          <HiStar className={styles.favIcon} fontSize="18px" color="#2f89fc" />
+          <HiStar className={styles.favIcon} fontSize="18px" color="#4CD7F6" />
         ) : (
-          <HiOutlineStar className={styles.favIcon} fontSize="16px" />
+          <HiOutlineStar
+            className={styles.favIcon}
+            fontSize="16px"
+            color="#9baece"
+          />
         )}
       </button>
     </div>

@@ -37,7 +37,6 @@ const sendEmail = (to, url, txt) => {
     refresh_token: MAILING_SERVICE_REFRESH_TOKEN,
   });
 
-
   const accessToken = oauth2Client.getAccessToken();
   const smtpTransport = nodemailer.createTransport({
     service: "gmail",
@@ -49,9 +48,17 @@ const sendEmail = (to, url, txt) => {
       clientSecret: MAILING_SERVICE_CLIENT_SECRET,
       refreshToken: MAILING_SERVICE_REFRESH_TOKEN,
       accessToken,
+      tls: {
+        rejectUnauthorized: false,
+      },
     },
   });
 
+  smtpTransport.verify((err, success) => {
+    err
+      ? console.log(err)
+      : console.log(`server ready to take messages:${success}`);
+  });
 
   const mailOptions = {
     from: SENDER_EMAIL_ADDRESS,
@@ -62,14 +69,22 @@ const sendEmail = (to, url, txt) => {
     <a style="color:white;margin:20px 10px 10px 10px; display:flex;justify-content:center; align-items:center; text-align:center" href=${url}><p style="margin:10px 0px 0px 10px;">Click Here!</p></a>
     </div>`,
   };
-  smtpTransport.sendMail(mailOptions, (err, info) => {
-    if (err) {
-      console.log("error in sending mail",err,info)
-      return err;
-      return info;
-    }
+
+  //   smtpTransport.sendMail(mailOptions, (err, info) => {
+  //     if (err) {
+  //       console.log("error in sending mail", err, info);
+  //       // return info;
+  //     }
+  //       else{
+  //         console.log(info)
+  //       }
+  //     }
+  //   );
+  // };
+  smtpTransport.sendMail(mailOptions, (error, response) => {
+    error ? console.log(error) : console.log(response);
+    smtpTransport.close();
   });
 };
-
 // export default sendEmail;
 module.exports = sendEmail;

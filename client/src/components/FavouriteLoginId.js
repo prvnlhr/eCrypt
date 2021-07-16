@@ -30,7 +30,7 @@ const FavouriteLoginId = ({ favItem }) => {
         }}
       >
         {favItem.isFavourite ? (
-          <HiStar className={styles.favIcon} fontSize="18px" color="#2f89fc" />
+          <HiStar className={styles.favIcon} fontSize="18px" color="#4CD7F6" />
         ) : (
           <HiOutlineStar className={styles.favIcon} fontSize="16px" />
         )}

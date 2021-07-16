@@ -16,7 +16,7 @@
   right: 2%;
   grid-column-start: 2;
   grid-column-end: 3;
-  border: 1px solid rgb(224, 224, 224);
+  /* border: 1px solid rgb(224, 224, 224); */
   background-color: white;
   /* display: grid; */
   /* grid-template-rows: 10% 1fr 25%; */
@@ -82,8 +82,10 @@ form {
   margin: 0px 0px 0px 30px;
   border-radius: 2px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: #2f89fc;
-  font-weight: 650;
+  /* font-weight: 650; */
   letter-spacing: 0.2px;
   font-size: 15px;
 }
@@ -118,7 +120,7 @@ form {
   grid-row-start: 2;
   grid-row-end: 3;
   /* border: 1px solid rgb(192, 191, 191); */
-  width: 80%;
+  width: 70%;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -126,21 +128,28 @@ form {
   justify-content: center;
   align-items: center;
   margin: 0px 0px 0px 30px;
-  border-radius: 15px;
-  background-color: #2f89fc;
+  border-radius: 10px;
+  background-color: #4cd7f6;
   color: white;
   font-family: "Nunito", sans-serif;
-  font-weight: 650;
+  font-family: "Quicksand", sans-serif;
+
+  /* font-weight: 650; */
   letter-spacing: 0.2px;
   font-size: 15px;
   /* text-decoration: underline; */
+  -webkit-text-stroke: 0.02em;
+  margin-left: auto;
+  margin-right: auto;
 }
 .fileInputDiv p {
   color: black;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: slategray;
-  font-weight: 650;
-  letter-spacing: 0.2px;
+  /* font-weight: 650; */
+  letter-spacing: 0.5px;
   font-size: 13px;
   color: white;
 }
@@ -165,8 +174,10 @@ form {
   border: none;
   background: #071a52;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: black;
-  font-weight: 650;
+  /* font-weight: 650; */
   /* letter-spacing: 0.2px; */
   font-size: 13px;
   border-radius: 5px;

@@ -6,6 +6,8 @@ import Card from "./Card";
 import CardForm from "./CardForm";
 
 import { FiPlusCircle } from "react-icons/fi";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { CgAdd } from "react-icons/cg";
 
 import styles from "../css/cardsList.module.css";
 import noContentStyles from "../css/noContentMessage.module.css";
@@ -51,9 +53,7 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
               to add
             </div>
           </div>
-        ) : null
-        
-        }
+        ) : null}
 
         {cards.map((card) => (
           <>
@@ -78,11 +78,13 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
       />
 
       {formMode === false ? (
+        // <div className={btnStyles.addBtnWrapper}>
         <div className={btnStyles.addBtnDiv} onClick={formToggle}>
-          <FiPlusCircle fontSize="19px" />
+          <CgAdd fontSize="17px" />
           <span>Add</span>
         </div>
-      ) : null}
+      ) : // </div>
+      null}
     </div>
   );
 };

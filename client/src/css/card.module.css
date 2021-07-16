@@ -10,6 +10,7 @@
   padding-left: 5px;
   padding-top: 5px;
   display: grid;
+
   object-fit: contain;
   grid-template-columns: 1.5fr 1fr 1fr;
   grid-template-rows: 50px 40px 50px;
@@ -20,49 +21,103 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   padding-right: 5px;
   overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(68, 61, 61, 0.24);
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(68, 61, 61, 0.24); */
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
 
-  background: rgba(255, 255, 255, 0.452);
-  /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
-  backdrop-filter: blur( 20.0px );
-  -webkit-backdrop-filter: blur( 20.0px );
+  /* backdrop-filter: blur(20px); */
+  /* -webkit-backdrop-filter: blur(20px); */
+  object-fit: contain;
+  /* background: #edeff870;
+  background: rgba(255, 255, 255, 0.664);
+  backdrop-filter: blur( 14.5px );
+  -webkit-backdrop-filter: blur( 14.5px ); */
+  /* border-radius: 10px; */
   /* border: 1px solid rgba( 255, 255, 255, 0.18 ); */
-  /* z-index: 20; */
+  /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+  /* backdrop-filter: blur( 15.0px ); */
+  /* -webkit-backdrop-filter: blur( 15.0px ); */
+  background-color: #ffffff;
+
+  /* #edeff870 */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 10px 10px rgba(0, 0, 0, 0.082);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
+
+  z-index: 20;
 }
 
 .overlayFont {
-  color: rgba(165, 165, 165, 0.288);
+  /* display: none; */
+
+  color: #c2ebfd49;
   position: absolute;
   text-transform: uppercase;
-  mix-blend-mode: overlay;
+  /* mix-blend-mode: overlay; */
   /* font-family: sans-serif; */
+  /* opacity: 0.2; */
   letter-spacing: 0px;
   font-family: "Anton", sans-serif !important;
   font-style: italic;
   letter-spacing: 2px;
   padding: 0px;
   font-size: 55px;
-  bottom: -59px !important;
+  bottom: -52px !important;
   left: 0px !important;
-
-  /* z-index: 30; */
+  z-index: 22;
 }
 .overlayDiv {
+  display: none;
+
   position: absolute;
-  padding: 0px;
-  margin: 0px;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
+  /* padding: 0px; */
+  /* margin: 0px; */
+  /* width: 200px; */
+  /* height: 200px; */
+  /* background: linear-gradient(
     135deg,
     transparent 0%,
     transparent 50%,
     #a0a0a00c 50%,
     #f8f8f8 100%
-  );
-  /* mix-blend-mode: overlay; */
-  /* background-color:black; */
+  ); */
+  /* border: 1.5px solid black; */
+  /* border-radius: 50%; */
+
+  /* top: 5px; */
+  /* left: 30%; */
+  /* background: url(../img/cardBg.jpg); */
+
+  /* background-color: rgba(12, 12, 12, 0.493); */
+  height: 280px;
+  width: 280px;
+  border-radius: 50%;
+  background: transparent;
+  border: 30px solid #edeff870;
+  bottom: -138px;
+  right: -136px;
+  box-sizing: border-box;
+  z-index: 21;
+}
+
+.overlayDiv::after {
+  content: "";
+  position: absolute;
+  height: 334px;
+  width: 310px;
+  border-radius: 50%;
+  background: transparent;
+  border: 20px solid #edeff870;
+  bottom: -47px;
+  right: -34px;
+  box-sizing: border-box;
+}
+
+.overlayDiv ::after {
+  content: "";
+  width: 125px;
+  height: 125px;
+
+  border-radius: 50%;
+  border: 20px solid rgba(165, 165, 165, 0.288);
 }
 
 .cardAmex {
@@ -291,6 +346,7 @@
   align-items: center;
   margin: 10px 0px 0px 0px;
   padding-right: 2px;
+  z-index: 23;
 }
 .cvvLabel {
   font-weight: 550;
@@ -299,6 +355,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0px 5px 0px 0px;
+  z-index: 23;
 }
 .cvvText {
   color: black;
@@ -308,7 +365,7 @@
   /* color: rgb(255, 255, 255); */
   /* margin: 8px 0px 0px -10px; */
   text-shadow: 0.5px 0.5px #dadada;
-
+  z-index: 23;
 }
 
 .bankName {
@@ -321,6 +378,7 @@
   justify-content: center;
   /* align-items: center; */
   margin: 10px 0px 0px 0px;
+  z-index: 23;
 
   /* color: white; */
 }
@@ -342,6 +400,7 @@
   font-size: 15px !important;
   color: slategray;
   text-shadow: 0.5px 0.5px rgb(202, 202, 202);
+  z-index: 23;
 }
 .cardText {
   margin: 10px 0px 0px 5px;
@@ -357,16 +416,16 @@
   /* -webkit-text-fill-color: transparent; */
 
   text-shadow: 0.5px 0.5px #e7e7e7;
-
+  z-index: 23;
 }
 .cardLogo {
   position: relative;
   grid-area: cardLogo;
   /* border: 1px solid blue; */
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 70%;
   display: flex;
-  margin: 15px 0px 0px 0px;
+  margin: 22px 0px 0px 10px;
   flex-direction: row;
   /* margin: 10px 0px 0px 0px; */
 
@@ -375,7 +434,7 @@
   align-items: center;
 
   /* padding-left: 10px; */
-  z-index: 30;
+  z-index: 23;
 }
 
 /* .logo {
@@ -392,6 +451,7 @@
   align-items: center;
   margin: 10px 0px 0px 0px;
   /* color: white; */
+  z-index: 23;
 }
 .cardExpiry {
   grid-area: cardExpiry;
@@ -405,6 +465,7 @@
   align-items: center;
   /* grid-template-rows: 20px 20px; */
   /* margin: 5px 0px 0px 0px; */
+  z-index: 23;
 }
 .expiryLabel {
   /* grid-row-start: 1; */
@@ -425,6 +486,7 @@
   align-items: center;
   justify-content: flex-end;
   font-weight: bold;
+  z-index: 23;
 }
 
 .expiryText {
@@ -445,6 +507,7 @@
   color: black;
   text-shadow: 0.5px 0.5px #dadada;
   font-size: 13px;
+  z-index: 23;
 }
 
 .saveCancelDiv {
@@ -459,6 +522,7 @@
   width: 48px;
 
   height: 20px;
+  z-index: 23;
 }
 .editDeleteDiv {
   position: absolute;
@@ -472,6 +536,7 @@
   width: 45px;
   height: 18px;
   z-index: 20;
+  z-index: 23;
 }
 
 .cancelIcon {
@@ -596,11 +661,7 @@
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   z-index: 23;
 }
-.favBtn:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
+
 .editButton {
   position: absolute;
   display: flex;
@@ -613,6 +674,7 @@
   border-radius: 50%;
   cursor: pointer;
   /* z-index: 25; */
+  z-index: 23;
 }
 .editButton :hover {
   background-color: rgba(128, 128, 128, 0.514);
@@ -692,9 +754,10 @@
 @media screen and (max-width: 550px) {
   .cardContainer {
     position: relative;
-    width: 90%;
-    height: 190px;
+    width: 85%;
+    /* height: 190px; */
     min-width: 250px;
+    max-width: 250px;
     /* border: 1px solid red; */
     border-radius: 8px;
     margin: 15px 15px 15px 15px;
@@ -708,12 +771,19 @@
       "bankName bankName cardLogo "
       "cardNo cardNo cvv"
       "user user cardExpiry";
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
     background-color: #ffffff;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
     padding-right: 5px;
+    overflow: hidden;
+    /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(68, 61, 61, 0.24); */
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
   .cancelIcon {
     width: 20px;

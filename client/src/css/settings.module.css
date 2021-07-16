@@ -8,13 +8,24 @@
   /* justify-content: center; */
   align-content: center;
   /* overflow: hidden; */
-  margin: 1px 0px 0px 0px;
+  /* margin: 1px 0px 0px 0px; */
   overflow-y: scroll;
   /* background-color: #dae5eb; */
   border-radius: 0px 0px 0px 0px;
-  background: rgba(255, 255, 255, 0.589);
+  /* background: rgba(255, 255, 255, 0.589);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); */
+  /* background-color: #f4fff9; */
+ 
+
+
+
+  background: rgba( 255, 255, 255, 0.25 );
+  backdrop-filter: blur( 16.5px );
+  -webkit-backdrop-filter: blur( 16.5px );
+
+
+
 }
 .settingsComponent::-webkit-scrollbar {
   display: none;
@@ -25,7 +36,7 @@
   grid-row-end: 2;
   width: 100%;
   height: 100%;
-  border-bottom: 1px solid #0177fb;
+  border-bottom: 1px solid #4CD7F6;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -35,6 +46,8 @@
 .headingText {
   margin: 0px 0px 0px 10px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: black;
   font-weight: 650;
   letter-spacing: 0.2px;
@@ -59,6 +72,8 @@
   justify-content: center;
   align-items: center;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   font-size: 12px;
   background-color: #d7232373;
   border: 1px solid #d72323;
@@ -75,6 +90,8 @@
   justify-content: center;
   align-items: center;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   font-size: 12px;
   background-color: #41d7236b;
   border: 1px solid #38d723;
@@ -93,6 +110,8 @@
   border-radius: 5px;
   z-index: 9;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
 }
 /* __PROFILE_____________________________________________________________________ */
 .profileContainer {
@@ -162,6 +181,8 @@
   margin: 0px 0px 0px 0px;
   padding-left: 2%;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: slategray;
   font-weight: 550;
   letter-spacing: 0.2px;
@@ -179,6 +200,8 @@
   align-items: center;
   padding-left: 2%;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: slategray;
   font-weight: 550;
   letter-spacing: 0.2px;
@@ -209,6 +232,8 @@
   align-items: center;
   padding-left: 2%;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   font-weight: 550;
   letter-spacing: 0.2px;
   font-size: 13px;
@@ -219,7 +244,7 @@
 }
 
 .activeInput {
-  border: 1px solid #0177fb;
+  border: 2px dotted #b8e2d6;
   color: black;
 }
 .inactiveInput {
@@ -247,13 +272,18 @@ button {
   justify-content: center;
   align-items: center;
 
-  background: #0177fb;
+  background: #4CD7F6;
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: white;
-  font-weight: 550;
-  letter-spacing: 0.2px;
-  font-size: 12px;
+  /* font-weight: 550; */
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.020em; 
+
+
 }
 
 /*_______CHANGE PASSWORD______________________________________________________________ */
@@ -287,7 +317,9 @@ button {
   width: 200px;
   height: 30px;
   margin: 10px 10px 10px 10px;
-  border: 1px solid #0177fb;
+  border: 1px solid #b8e2d6;
+  border: 2px dotted #b8e2d6;
+
   border-radius: 5px;
   padding-left: 2%;
 }
@@ -311,14 +343,18 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0177fb;
+  background: #4CD7F6;
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: white;
-  font-weight: 550;
-  letter-spacing: 0.2px;
+  /* font-weight: 550; */
   font-size: 12px;
   margin: 10px 10px 10px 10px;
+  /* color: black; */
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.020em; 
 }
 
 /* ____DELETE ACCOUNT________________________________________________________________ */
@@ -350,7 +386,9 @@ button {
   width: 200px;
   height: 30px;
   margin: 10px 10px 10px 10px;
-  border: 1px solid #0177fb;
+  border: 1px solid #b8e2d6;
+  border: 2px dotted #b8e2d6;
+
   border-radius: 5px;
   padding-left: 2%;
 }
@@ -379,13 +417,20 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0177fb;
+ background: #4CD7F6;
+  
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: white;
-  font-weight: 550;
+  /* font-weight: 550; */
   letter-spacing: 0.2px;
   font-size: 12px;
+  /* color: black; */
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.020em; 
+
 }
 .confirmBtn {
   width: 100px;
@@ -396,9 +441,18 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background: #0177fb;
+  background: #b8e2d6;
+  background: #4CD7F6;
+
   border: none;
   color: white;
+  /* color: black; */
+  font-family: "Quicksand", sans-serif;
+  /* font-weight: 550; */
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.020em; 
+
+
 }
 .cancelBtn {
   width: 100px;
@@ -409,12 +463,19 @@ button {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  background: #afafaf;
-  color: white;
+  background: #afafaf41;
+  color: black;
   border: none;
+  font-family: "Quicksand", sans-serif;
+  /* font-weight: 550; */
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.020em; 
+
 }
 ::placeholder {
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: rgb(175, 175, 175);
   font-weight: 550;
   letter-spacing: 0.2px;
@@ -422,8 +483,12 @@ button {
 }
 .disclaimer {
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: rgb(139, 139, 139);
-  font-weight: 550;
+  /* font-weight: 550; */
   letter-spacing: 0.2px;
   font-size: 13px;
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.020em; 
 }

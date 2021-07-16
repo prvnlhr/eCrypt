@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {  Route, NavLink } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 import { fetchFavorites } from "../actions/favouriteAction";
 
 import FavCardList from "./FavCardList";
@@ -29,27 +29,28 @@ const FavList = ({
     <div className={styles.favListComponent}>
       <div className={styles.navHeaderContainer}>
         <NavLink
-          activeStyle={{ backgroundColor: "#0177fb", color: "white" }}
+          activeStyle={{ backgroundColor: "#4CD7F6", color: "white" }}
           className={styles.navLink}
           to="/favorites/favoritesLogins"
         >
-          <p>Logins</p>
+          Logins
         </NavLink>
         <NavLink
-          activeStyle={{ backgroundColor: "#0177fb", color: "white" }}
+          activeStyle={{ backgroundColor: "#4CD7F6", color: "white" }}
           className={styles.navLink}
           to="/favorites/favoritesCards"
         >
-          <p>Cards</p>
+          Cards
         </NavLink>
         <NavLink
-          activeStyle={{ backgroundColor: "#0177fb", color: "white" }}
+          activeStyle={{ backgroundColor: "#4CD7F6", color: "white" }}
           className={styles.navLink}
           to="/favorites/favoritesDocs"
         >
-          <p>Documents</p>
+          Documents
         </NavLink>
       </div>
+
       <div className={styles.contentContainer}>
         <Route path="/favorites/favoritesCards">
           <FavCardList favoritesCardsArray={favoritesCardsArray} />

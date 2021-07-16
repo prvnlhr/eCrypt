@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { HiSearch, HiX, HiChevronDown, HiChevronUp } from "react-icons/hi";
+import { RiSettings3Fill, RiSearch2Line } from "react-icons/ri";
+import { CgCloseO } from "react-icons/cg";
 import styles from "../css/navbar.module.css";
 import { logout } from "../actions/auth";
 import { search } from "../actions/searchAction";
@@ -71,11 +73,11 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
 
           {searchMode ? (
             <div onClick={switchSearchMode} className={styles.searchIconDiv}>
-              <HiX fontSize="16px" color="gray" />
+              <HiX fontSize="16px" color="black" />
             </div>
           ) : (
             <div onClick={switchSearchMode} className={styles.searchIconDiv}>
-              <HiSearch fontSize="20px" color="black" />
+              <RiSearch2Line fontSize="16px" color="#4CD7F6" />
             </div>
           )}
         </div>
