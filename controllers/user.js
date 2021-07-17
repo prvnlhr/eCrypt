@@ -94,7 +94,7 @@ const userController = {
     }
   },
   login: async (req, res) => {
-    console.log("login controller");
+    console.log("login controller",req.body);
     try {
       const { email, password } = req.body;
       const user = await UserDatabase.findOne({ email });
@@ -112,10 +112,10 @@ const userController = {
         path: "/user/refresh_token",
         maxAge: 7 * 24 * 60 * 60 * 1000,
       });
+      console.log("login controller created new refresh token",refresh_token)
       res.status(200).json({ msg: "Login success" });
     } catch (error) {
-      console.log(error);
-
+      console.log("error at login controller",error);
       return res.status(400).json({ msg: error.message });
     }
   },

@@ -67,6 +67,9 @@ export const activationEmail = (activation_token) => async (dispatch) => {
 };
 //LOGIN_________________________________________________________________
 export const login = (formData) => async (dispatch) => {
+
+  console.log("at login auth action",formData)
+
   dispatch({
     type: LOADING_START,
   });
@@ -86,8 +89,10 @@ export const login = (formData) => async (dispatch) => {
       type: SUCCESS_MESSAGE,
       message: successMsg,
     });
+    console.log("logins action success",response)
   } catch (error) {
     const failureMsg = error.response.data.msg;
+    console.log("error at auth action ",error.response)
     dispatch({
       type: LOGIN_FAILURE,
       message: failureMsg,

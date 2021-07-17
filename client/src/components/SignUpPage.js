@@ -18,13 +18,13 @@ const initialState = {
 const SignUpPage = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    window.scroll({
-      bottom: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.scroll({
+  //     bottom: 0,
+  //     left: 0,
+  //     behavior: "smooth",
+  //   });
+  // }, []);
 
   const handleClick = () => {
     window.scroll({
