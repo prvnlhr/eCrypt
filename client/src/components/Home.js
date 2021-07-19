@@ -44,12 +44,15 @@ const Home = () => {
           )}
         </div>
       </div>
+
       <ContentDisplay
         heading={heading}
         setHeading={setHeading}
         fieldLength={fieldLength}
         setFieldLength={setFieldLength}
       />
+
+      
     </div>
   );
 };

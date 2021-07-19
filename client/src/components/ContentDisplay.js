@@ -58,7 +58,7 @@ const ContentDisplay = ({
   const searchResultArray = useSelector((state) => state.search.searchResults);
 
   return (
-    <div className={styles.main}>
+    <div className={styles.contentDisplay}>
       {searchResultArray.length > 0 && fieldLength > 0 ? (
         <SearchList
           searchResultArray={searchResultArray}

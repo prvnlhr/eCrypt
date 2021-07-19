@@ -115,7 +115,7 @@ const LoginId = ({
                 crud.operation === "edit" ? (
                   <CircleSpinner size={10} color="gray" loading={true} />
                 ) : (
-                  <HiPencil color="#9baece" fontSize="16px" />
+                  <HiPencil color="#9baece" />
                 )}
               </div>
               <div

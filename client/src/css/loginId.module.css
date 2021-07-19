@@ -115,7 +115,7 @@
   justify-content: center;
   align-items: center;
   color: #b3bac3;
-  font-size: 14px;
+  font-size: 17px;
 
   /* border: 1px solid black; */
 }
@@ -430,7 +430,7 @@
     justify-content: center;
     align-items: center;
     color: #b3bac3;
-    font-size: 17px;
+    font-size: 19px;
     /* border: 1px solid black; */
   }
   .deleteIcon {

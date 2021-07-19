@@ -2,14 +2,8 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://ecrypt.herokuapp.com",
-  // withCredentials: false,
-  // headers: {
-  //   "Access-Control-Allow-Origin": "*",
-  //   "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-  //   "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
-  // },
-});
 
+});
 
 // const API = axios.create({ baseURL: "http://localhost:9000" });
 

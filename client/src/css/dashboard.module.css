@@ -14,13 +14,7 @@
   /* overflow-y: scroll; */
   /* border-radius: 10px 10px 10px 10px; */
   /* background-color: #f4fff9; */
-  background: rgba( 255, 255, 255, 0.20 );
-  backdrop-filter: blur( 20.0px );
-  -webkit-backdrop-filter: blur( 20.0px );
 
-  background: rgba( 255, 255, 255, 0.25 );
-backdrop-filter: blur( 16.5px );
--webkit-backdrop-filter: blur( 16.5px );
 
   
 }

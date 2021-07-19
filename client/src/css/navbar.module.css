@@ -3,6 +3,8 @@
   position: relative;
   /* top: 0px; */
   border-bottom: 1px solid #7e7f803d;
+  border-bottom: 1px solid #58585811;
+
   /* border: 1px solid blue; */
 
   grid-row-start: 1;
@@ -15,43 +17,10 @@
   height: 100%;
   display: grid;
   grid-template-columns: 20% 80%;
-  /* 
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  /* background: rgba(242, 242, 243, 0.397);
+  backdrop-filter: blur( 20px );
+  -webkit-backdrop-filter: blur( 20px ); */
 
-  background: rgba(255, 255, 255, 0.589);
-  background: rgba(255, 255, 255, 0.747);
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px); */
-  /* background: rgba( 255, 255, 255, 0.50 );
-  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-  backdrop-filter: blur( 20.0px );
-  -webkit-backdrop-filter: blur( 20.0px ); */
-  /* border-radius: 10px; */
-  /* backdrop-filter: blur(14px) saturate(200%);
-  -webkit-backdrop-filter: blur(14px) saturate(200%);
-  background-color: rgba(255, 255, 255, 0.36);
-
-  background: rgba(255, 255, 255, 0.589);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px); */
-
-  /* background: rgba(255, 255, 255, 0.76);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px); */
-
-  /* background-color: #e6fdf1; */
-  /* background-color: #f4fff9; */
-
-  /* background: #ffffff; */
-
-
-
-background: rgba( 255, 255, 255, 0.25 );
-backdrop-filter: blur( 16.5px );
--webkit-backdrop-filter: blur( 16.5px );
 }
 
 .usernameDiv {
@@ -341,8 +310,7 @@ backdrop-filter: blur( 16.5px );
     border-radius: 20px;
     padding: 2px;
     margin: 0px 10px 0px 2%;
-  background-color: #ffffff;
-
+    background-color: #ffffff;
   }
   .nameLetterDiv {
     /* display: none; */
@@ -353,7 +321,7 @@ backdrop-filter: blur( 16.5px );
     height: 24px;
     /* border: 1px solid rgb(168, 168, 168); */
     background-color: white;
-  background-color: #ffffff;
+    background-color: #ffffff;
 
     border-radius: 50%;
   }

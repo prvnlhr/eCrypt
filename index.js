@@ -14,11 +14,11 @@ const app = express();
 var corsOptions = {
   credentials: true,
   origin: "https://ecrypt.herokuapp.com",
-  methods: ["POST", "GET", "DELETE"],
+  methods: ["POST", "GET", "DELETE" ,"PUT","OPTIONS"],
   maxAge: 3600,
 };
-
 app.use(cors(corsOptions));
+
 app.use(cookiesParser());
 // app.use(bodyParser.json({ limit: "30mb", extended: true }));
 // app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
@@ -48,6 +48,7 @@ mongoose
 //   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
 //   next();
 // });
+
 app.use("/", require("./routes/index"));
 
 if (process.env.NODE_ENV === "production") {

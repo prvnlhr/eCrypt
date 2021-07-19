@@ -33,18 +33,15 @@
   /* background: rgba( 255, 255, 255, 0.25 );
   backdrop-filter: blur( 4px );
   -webkit-backdrop-filter: blur( 4px ); */
+
+  /* background: #d7dae3; */
+  /* backdrop-filter: blur(20px); */
+  /* -webkit-backdrop-filter: blur(20px); */
+
+  /* background: rgba(255, 255, 255, 0.233); */
+  /* backdrop-filter: blur(20px); */
+  /* -webkit-backdrop-filter: blur(20px);  */
  
-
-background: rgba(255, 255, 255, 0.377);
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-
-
-
-background: rgba( 255, 255, 255, 0.25 );
-backdrop-filter: blur( 16.5px );
--webkit-backdrop-filter: blur( 16.5px );
-
 }
 .opacity {
   opacity: 0;
@@ -68,8 +65,6 @@ backdrop-filter: blur( 16.5px );
 
   /* overflow: scroll !important; */
   /* border-radius: 0px 0px 20px 0px; */
-
-
 }
 
 .contentContainerCollapse {
@@ -101,7 +96,7 @@ backdrop-filter: blur( 16.5px );
   width: 2px;
 }
 .contentContainer::-webkit-scrollbar-thumb {
-  background-color: #4CD7F6;
+  background-color: #4cd7f6;
   border-radius: 4px;
 }
 
@@ -115,6 +110,6 @@ backdrop-filter: blur( 16.5px );
   background-color: rgb(231, 228, 228);
 }
 .contentContainerCollapse::-webkit-scrollbar-thumb {
-  background-color: #4CD7F6;
+  background-color: #4cd7f6;
   border-radius: 4px;
 }

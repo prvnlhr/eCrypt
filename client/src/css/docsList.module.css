@@ -17,21 +17,6 @@
   /* justify-content: flex-start; */
   /* border-radius: 10px 10px 0px 0px; */
 
-  /* overflow-y: scroll; */
-  /* background-color: #f6f6f6; */
-  /* background-color: #dae5eb; */
-  /* 
-  background: rgba(255, 255, 255, 0.589);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px); */
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
-
-  /* background: rgba(255, 255, 255, 0.589); */
-  /* background-color: #f4fff9; */
-  background: rgba( 255, 255, 255, 0.20 );
-  backdrop-filter: blur( 20.0px );
-  -webkit-backdrop-filter: blur( 20.0px );
-
 }
 
 .contentContainer {

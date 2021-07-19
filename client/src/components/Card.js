@@ -69,8 +69,10 @@ const Card = ({ card, setEditButton, showEditButton }) => {
   const handleDeleteClick = () => {
     setModalShow(!modalShow);
   };
-  console.log("cartype hai", cardType);
   return (
+
+
+    
     <div
       className={`${styles.cardContainer} ${
         cardType === "MASTER"
@@ -96,68 +98,85 @@ const Card = ({ card, setEditButton, showEditButton }) => {
           : null
       }`}
     >
-      {inEditMode === true ? (
-        <div className={styles.saveCancelDiv}>
-          <div
-            className={styles.cancelIcon}
-            onClick={() => {
-              setEditId(null);
-              setInEditMode(false);
-              setEditButton(true);
-            }}
-          >
-            <HiX color="#9baece" />
-          </div>
-          <div
-            className={styles.saveIcon}
-            onClick={() => {
-              save(card._id);
-              setInEditMode(false);
-              setEditId(null);
-              setEditButton(true);
-            }}
-          >
-            <HiCheck color="#9baece" />
-          </div>
-        </div>
-      ) : (
-        <>
-          {showEditButton && inEditMode === false ? (
-            <div className={styles.editDeleteDiv}>
-              <div
-                className={styles.editIcon}
-                onClick={() => {
-                  setEditButton(null);
-                  setEditId(card._id);
-                  setInEditMode(true);
-                }}
-              >
-                {crud.inProcess &&
-                crud.itemId === card._id &&
-                crud.operation === "edit" ? (
-                  <CircleSpinner size={10} color="#9baece" loading={true} />
-                ) : (
-                  <HiPencil color="#9baece" />
-                )}
-              </div>
-              <div
-                className={styles.deleteIcon}
-                onClick={() => {
-                  handleDeleteClick();
-                }}
-              >
-                {crud.inProcess &&
-                crud.itemId === card._id &&
-                crud.operation === "delete" ? (
-                  <CircleSpinner size={10} color="#9baece" loading={true} />
-                ) : (
-                  <IoMdTrash color="#9baece" />
-                )}
-              </div>
+      <div className={styles.buttonDiv}>
+
+        {inEditMode === true ? (
+          <div className={styles.saveCancelDiv}>
+            <div
+              className={styles.cancelIcon}
+              onClick={() => {
+                setEditId(null);
+                setInEditMode(false);
+                setEditButton(true);
+              }}
+            >
+              <HiX color="#9baece" />
             </div>
-          ) : null}
-        </>
-      )}
+            <div
+              className={styles.saveIcon}
+              onClick={() => {
+                save(card._id);
+                setInEditMode(false);
+                setEditId(null);
+                setEditButton(true);
+              }}
+            >
+              <HiCheck color="#9baece" />
+            </div>
+          </div>
+        ) : (
+          <>
+            {showEditButton && inEditMode === false ? (
+              <div className={styles.editDeleteDiv}>
+                <div
+                  className={styles.editIcon}
+                  onClick={() => {
+                    setEditButton(null);
+                    setEditId(card._id);
+                    setInEditMode(true);
+                  }}
+                >
+                  {crud.inProcess &&
+                  crud.itemId === card._id &&
+                  crud.operation === "edit" ? (
+                    <CircleSpinner size={10} color="#9baece" loading={true} />
+                  ) : (
+                    <HiPencil color="#9baece" />
+                  )}
+                </div>
+                <div
+                  className={styles.deleteIcon}
+                  onClick={() => {
+                    handleDeleteClick();
+                  }}
+                >
+                  {crud.inProcess &&
+                  crud.itemId === card._id &&
+                  crud.operation === "delete" ? (
+                    <CircleSpinner size={10} color="#9baece" loading={true} />
+                  ) : (
+                    <IoMdTrash color="#9baece" />
+                  )}
+                </div>
+              </div>
+            ) : null}
+          </>
+        )}
+
+
+<button
+        className={styles.favBtn}
+        onClick={() => {
+          handleFavToggle(card._id, card.isFavourite);
+        }}
+      >
+        {card.isFavourite ? (
+          <HiStar color="#4CD7F6" fontSize="20px" />
+        ) : (
+          <HiOutlineStar color="#9baece" />
+        )}
+      </button>
+      </div>
 
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
@@ -206,7 +225,7 @@ const Card = ({ card, setEditButton, showEditButton }) => {
             }
           ></input>
         ) : (
-          <p className={styles.cardText}>{card.bank}</p>
+          <p className={styles.cardBankText}>{card.bank}</p>
         )}
       </div>
 
@@ -223,7 +242,7 @@ const Card = ({ card, setEditButton, showEditButton }) => {
             }
           ></input>
         ) : (
-          <p className={(styles.cardText, styles.cardNo)}>{formattedCardNo}</p>
+          <p className={styles.cardNoText}>{formattedCardNo}</p>
         )}
       </div>
       <div className={styles.cvv}>
@@ -257,7 +276,7 @@ const Card = ({ card, setEditButton, showEditButton }) => {
             }
           ></input>
         ) : (
-          <p className={styles.cardText}>{card.user}</p>
+          <p className={styles.cardUserText}>{card.user}</p>
         )}
       </div>
       <div className={styles.cardExpiry}>
@@ -279,22 +298,12 @@ const Card = ({ card, setEditButton, showEditButton }) => {
         )}
       </div>
 
-      <button
-        className={styles.favBtn}
-        onClick={() => {
-          handleFavToggle(card._id, card.isFavourite);
-        }}
-      >
-        {card.isFavourite ? (
-          <HiStar color="#4CD7F6" fontSize="20px"/>
-        ) : (
-          <HiOutlineStar color="#9baece" />
-        )}
-      </button>
+ 
 
       <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
       <div className={styles.overlayDiv}></div>
     </div>
+
   );
 };
 export default Card;

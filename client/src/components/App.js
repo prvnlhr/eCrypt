@@ -5,12 +5,7 @@ import jwt_decode from "jwt-decode";
 
 import React from "react";
 
-import {
-  Switch,
-  Route,
-  Redirect,
-  useLocation,
-} from "react-router-dom";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 
 import Home from "./Home";
 import styles from "../css/app.module.css";
@@ -61,10 +56,16 @@ const App = () => {
 
   return (
     <div className={styles.app}>
+      <div className={styles.appBgDiv1}></div>
+      <div className={styles.appBgDiv2}></div>
+      <div className={styles.appBgDiv3}></div>
+      <div className={styles.appBgDiv4}></div>
+
+      {/* <div></div> */}
 
       <Switch>
         <Route exact path="/user/reset/:token" component={ResetPassword} />
-        
+
         <Route exact path="/login" component={SignInPage} />
         <Route exact path="/register" component={SignUpPage} />
         <Route
