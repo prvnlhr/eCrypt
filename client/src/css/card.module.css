@@ -577,7 +577,7 @@
   background-color: #2f89fc;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 550px) {
   .cardContainer {
     position: relative;
     width: 85%;

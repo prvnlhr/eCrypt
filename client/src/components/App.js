@@ -57,11 +57,6 @@ const App = () => {
   return (
     <div className={styles.app}>
       <div className={styles.appBgDiv1}></div>
-      <div className={styles.appBgDiv2}></div>
-      <div className={styles.appBgDiv3}></div>
-      <div className={styles.appBgDiv4}></div>
-
-      {/* <div></div> */}
 
       <Switch>
         <Route exact path="/user/reset/:token" component={ResetPassword} />
