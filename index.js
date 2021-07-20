@@ -9,6 +9,11 @@ const path = require("path");
 
 const app = express();
 
+const allowedOrigins = [
+  "https://ecrypt.herokuapp.com",
+  "http://localhost:3000",
+];
+
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
 // var corsOptions = {
@@ -49,20 +54,18 @@ mongoose
 //   next();
 // });
 
-
 const corsOptions = {
   origin: (origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
-      callback(new Error('Origin not allowed by CORS'));
+      callback(new Error("Origin not allowed by CORS"));
     }
-  }
-}
+  },
+};
 
 // Enable preflight requests for all routes
-app.options('*', cors(corsOptions));
-
+app.options("*", cors(corsOptions));
 
 app.use("/", require("./routes/index"));
 
