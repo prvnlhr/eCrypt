@@ -41,13 +41,28 @@ mongoose
   .catch((err) => console.log(err.message));
 
 // app.use("/", routesIndex);
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", 'https://ecrypt.herokuapp.com');
-  res.header("Access-Control-Allow-Credentials", true);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", 'https://ecrypt.herokuapp.com');
+//   res.header("Access-Control-Allow-Credentials", true);
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+//   next();
+// });
+
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origin not allowed by CORS'));
+    }
+  }
+}
+
+// Enable preflight requests for all routes
+app.options('*', cors(corsOptions));
+
 
 app.use("/", require("./routes/index"));
 
