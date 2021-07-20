@@ -70,8 +70,9 @@ const corsOptions = {
 };
 
 // Enable preflight requests for all routes
+app.use(cors(corsOptions));
 
-app.options("*", cors(corsOptions));
+// app.options("*", cors(corsOptions));
 
 // app.options("/*", (req, res, next) => {
 //   res.header("Access-Control-Allow-Origin", "https://ecrypt.herokuapp.com");

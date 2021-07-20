@@ -24,6 +24,7 @@ export const activation = (activation_token) =>
     },
   });
 
+  
 //Login
 export const login = (formData) =>
   API.post("/user/login", formData, { withCredentials: true });
