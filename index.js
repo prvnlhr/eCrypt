@@ -66,7 +66,7 @@ const corsOptions = {
   maxAge: 3600,
   credentials: true,
   //   credentials: true,
-  // allowedHeaders: ["Content-Type", "Authorization"],
+  allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 // Enable preflight requests for all routes

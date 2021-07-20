@@ -258,6 +258,7 @@ const Card = ({ card, setEditButton, showEditButton }) => {
                 cvv: e.target.value,
               })
             }
+
           ></input>
         ) : (
           <p className={styles.cvvText}>{card.cvv}</p>
