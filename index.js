@@ -83,7 +83,14 @@ mongoose
 //   );
 //   res.sendStatus(200);
 // });
+
 app.use(function(req, res, next) {
+  // Access-Control-Allow-Credentials: true
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Credentials", true);
+
+
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Origin", "https://ecrypt.herokuapp.com"); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept ,Authorization");
   next();
