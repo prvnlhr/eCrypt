@@ -41,6 +41,14 @@
   /* background: rgba(255, 255, 255, 0.233); */
   /* backdrop-filter: blur(20px); */
   /* -webkit-backdrop-filter: blur(20px);  */
+  
+  /* background: rgba(255, 255, 255, 0.2); 
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur( 20px ); */
+  
+  /* background-color: rgba(255, 255, 255, 0.432);
+  -webkit-backdrop-filter: blur(2em);
+  backdrop-filter: blur(2em); */
  
 }
 .opacity {

@@ -58,11 +58,11 @@ const FavouriteCard = ({ favItem }) => {
         <CardLogo className={styles.logo} cardNo={favItem.cardNo} />
       </div>
       <div className={styles.bankName}>
-        <p className={styles.cardText}>{favItem.bank}</p>
+        <p className={styles.cardBankText}>{favItem.bank}</p>
       </div>
 
       <div className={styles.cardNo}>
-        <p className={(styles.cardText, styles.cardNo)}>{favItem.cardNo}</p>
+        <p className={(styles.cardNoText)}>{formattedCardNo}</p>
       </div>
 
       <div className={styles.cvv}>
@@ -71,7 +71,7 @@ const FavouriteCard = ({ favItem }) => {
         <p className={styles.cvvText}>{favItem.cvv}</p>
       </div>
       <div className={styles.cardUser}>
-        <p className={styles.cardText}>{favItem.user}</p>
+        <p className={styles.cardUserText}>{favItem.user}</p>
       </div>
       <div className={styles.cardExpiry}>
         <p className={styles.expiryLabel}>VALID UPTO</p>

@@ -2,8 +2,10 @@
   /* position: absolute; */
   position: relative;
   /* top: 0px; */
-  border-bottom: 1px solid #7e7f803d;
-  border-bottom: 1px solid #58585811;
+  /* border-bottom: 1px solid #7e7f803d; */
+  /* border-bottom: 1px solid rgb(3, 3, 3); */
+  border-bottom: 1px solid #0e0d0d2a;
+
 
   /* border: 1px solid blue; */
 
@@ -17,10 +19,14 @@
   height: 100%;
   display: grid;
   grid-template-columns: 20% 80%;
-  /* background: rgba(242, 242, 243, 0.397);
-  backdrop-filter: blur( 20px );
-  -webkit-backdrop-filter: blur( 20px ); */
 
+  /* background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur( 20px ); */
+  
+  /* background-color: rgba(255, 255, 255, 0.432);
+  -webkit-backdrop-filter: blur(2em);
+  backdrop-filter: blur(2em); */
 }
 
 .usernameDiv {
@@ -336,9 +342,9 @@
     /* border: 1px solid black; */
   }
   .inputContainer {
-    width: 65%;
+    width: 70%;
     /* min-width: 100px; */
-    height: 25px;
+    height: 30px;
     /* border: 1px solid rgb(189, 188, 188); */
     /* border: 1.5px solid black; */
     margin: 5px 5px 5px 5px;
@@ -348,7 +354,7 @@
     border-radius: 8px;
     /* transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
     background-color: white;
-    background-color: #b8e2d6;
+    /* background-color: #b8e2d6; */
 
     /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
 

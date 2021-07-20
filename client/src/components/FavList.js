@@ -29,9 +29,11 @@ const FavList = ({
     <div className={styles.favListComponent}>
       <div className={styles.navHeaderContainer}>
         <NavLink
-          activeStyle={{ backgroundColor: "#4CD7F6", color: "white" }}
+          activeStyle={{ backgroundColor: "#4CD7F6", color: "white" ,borderRadius:"20px"}}
           className={styles.navLink}
           to="/favorites/favoritesLogins"
+          style={{ borderRadius: "20px"}}
+
         >
           Logins
         </NavLink>

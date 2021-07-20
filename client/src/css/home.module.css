@@ -50,7 +50,9 @@
 
   /* filter:  drop-shadow(0px 20px 10px rgba(0, 0, 0,  0.30)); */
 
-
+  background-color: rgba(255, 255, 255, 0.432);
+  -webkit-backdrop-filter: blur(2em);
+  backdrop-filter: blur(2em);
 
 
 
@@ -71,7 +73,8 @@
   /* border-bottom: 1px solid rgb(212, 210, 210); */
   /* border-bottom: 1px solid rgb(37, 37, 37); */
 
-  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,8 +125,6 @@ background-color: rgba(255, 255, 255, 0.36); */
   /* border: 1px solid black; */
 }
 .headingText {
-  font-family: "Nunito", sans-serif;
-  font-family: "Comfortaa", cursive;
   font-family: "Quicksand", sans-serif;
   /* font-family: 'Varela Round', sans-serif; */
 

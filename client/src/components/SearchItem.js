@@ -17,9 +17,11 @@ const SearchItem = ({ item }) => {
     setEditId(item._id);
     setEnlarge(!maximize);
   };
+  let formattedCardNo;
   let cNo;
   let cardType;
   if (item.bank) {
+    formattedCardNo = item.cardNo.toString().replace(/\d{4}(?=.)/g, "$& ");
     let cardNumber = item.cardNo;
     cNo = cardNumber.toString();
     cardType = getCardType(cNo);
@@ -82,13 +84,11 @@ const SearchItem = ({ item }) => {
               <CardLogo className={cardStyles.logo} cardNo={item.cardNo} />
             </div>
             <div className={cardStyles.bankName}>
-              <p className={cardStyles.cardText}>{item.bank}</p>
+              <p className={cardStyles.cardBankText}>{item.bank}</p>
             </div>
 
             <div className={cardStyles.cardNo}>
-              <p className={(cardStyles.cardText, cardStyles.cardNo)}>
-                {item.cardNo}
-              </p>
+              <p className={cardStyles.cardNoText}>{formattedCardNo}</p>
             </div>
 
             <div className={cardStyles.cvv}>
@@ -96,7 +96,7 @@ const SearchItem = ({ item }) => {
               <p className={cardStyles.cvvText}>{item.cvv}</p>
             </div>
             <div className={cardStyles.cardUser}>
-              <p className={cardStyles.cardText}>{item.user}</p>
+              <p className={cardStyles.cardUserText}>{item.user}</p>
             </div>
             <div className={cardStyles.cardExpiry}>
               <p className={cardStyles.expiryLabel}>VALID UPTO</p>

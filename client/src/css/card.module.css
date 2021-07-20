@@ -13,7 +13,7 @@
 
   /* border: 1px solid red; */
   border-radius: 8px;
-  margin: 15px 15px 15px 15px;
+  margin: 20px 0px 5px 30px;
   padding-left: 5px;
   /* padding-top: 5px; */
   display: grid;
@@ -54,12 +54,13 @@
   /* filter:  drop-shadow(0px 10px 20px rgba(0, 0, 0,  0.30)); */
 
   z-index: 20;
+
 }
 
 .overlayFont {
   /* display: none; */
 
-  color: #c2ebfd49;
+  color: #cee6f077;
   position: absolute;
   text-transform: uppercase;
   /* mix-blend-mode: overlay; */
@@ -68,10 +69,10 @@
   letter-spacing: 0px;
   font-family: "Anton", sans-serif !important;
   font-style: italic;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   padding: 0px;
-  font-size: 55px;
-  bottom: -52px !important;
+  font-size: 70px;
+  bottom: -62px !important;
   left: 0px !important;
   z-index: 22;
 }
@@ -580,7 +581,7 @@
 @media screen and (max-width: 550px) {
   .cardContainer {
     position: relative;
-    width: 85%;
+    width: 75%;
     aspect-ratio: 8/5;
     /* aspect-ratio: 16/9; */
 
@@ -613,8 +614,8 @@
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 20px;
+    margin-bottom: 5px;
   }
   .cancelIcon {
     width: 20px;

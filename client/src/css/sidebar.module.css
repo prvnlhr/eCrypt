@@ -18,8 +18,6 @@
   /* grid-gap: 1px; */
   grid-template-rows: 10% 1fr 20%;
 
-
-
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 
   overflow: hidden;
@@ -37,15 +35,19 @@
 
   /* grid-gap: 1px; */
   grid-template-rows: 10% 1fr 20%;
- 
-  border-right: 1px solid #58585811;
+
+  border-right: 1px solid #0e0d0d2a;
 
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-
   overflow: hidden;
+  /* background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur( 20px ); */
 
-
+  /* background-color: rgba(255, 255, 255, 0.432);
+  -webkit-backdrop-filter: blur(2em);
+  backdrop-filter: blur(2em); */
 }
 
 .burgerBtnContainer {
@@ -119,6 +121,16 @@ backdrop-filter: blur( 4px );
 backdrop-filter: blur( 20.0px );
 -webkit-backdrop-filter: blur( 20.0px ); */
 }
+
+.hamXIcon {
+  font-size: 23px;
+  color: slategray;
+}
+.hamMenuIcon {
+  font-size: 25px;
+  color: slategray;
+}
+
 .toggleSideBarBtn {
   position: absolute;
   bottom: 20px;
@@ -302,4 +314,17 @@ backdrop-filter: blur( 20.0px );
   /* font-family: "Nunito", sans-serif !important; */
   -webkit-text-stroke: 0.01em;
   font-family: "Quicksand", sans-serif;
+}
+
+@media screen and (max-width: 500px) {
+
+
+  .hamXIcon {
+    font-size: 25px;
+    color: slategray;
+  }
+  .hamMenuIcon {
+    font-size: 25px;
+    color: slategray;
+  }
 }
