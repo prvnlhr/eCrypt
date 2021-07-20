@@ -11,13 +11,13 @@ const app = express();
 
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 
-var corsOptions = {
-  credentials: true,
-  origin: "https://ecrypt.herokuapp.com",
-  methods: ["POST", "GET", "DELETE" ,"PUT","OPTIONS"],
-  maxAge: 3600,
-};
-app.use(cors(corsOptions));
+// var corsOptions = {
+//   credentials: true,
+//   origin: "https://ecrypt.herokuapp.com",
+//   methods: ["POST", "GET", "DELETE" ,"PUT","OPTIONS"],
+//   maxAge: 3600,
+// };
+// app.use(cors(corsOptions));
 
 app.use(cookiesParser());
 // app.use(bodyParser.json({ limit: "30mb", extended: true }));
@@ -41,13 +41,13 @@ mongoose
   .catch((err) => console.log(err.message));
 
 // app.use("/", routesIndex);
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", 'https://ecrypt.herokuapp.com');
-//   res.header("Access-Control-Allow-Credentials", true);
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-//   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-//   next();
-// });
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", 'https://ecrypt.herokuapp.com');
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  next();
+});
 
 app.use("/", require("./routes/index"));
 
