@@ -54,23 +54,23 @@ mongoose
 //   next();
 // });
 
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Origin not allowed by CORS"));
-    }
-  },
-  methods: ["POST", "GET", "DELETE", "PUT", "OPTIONS"],
-  maxAge: 3600,
-  credentials: true,
-  //   credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (allowedOrigins.includes(origin) || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error("Origin not allowed by CORS"));
+//     }
+//   },
+//   methods: ["POST", "GET", "DELETE", "PUT", "OPTIONS"],
+//   maxAge: 3600,
+//   credentials: true,
+//   //   credentials: true,
+//   allowedHeaders: ["Content-Type", "Authorization"],
+// };
 
 // Enable preflight requests for all routes
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // app.options("*", cors(corsOptions));
 
@@ -83,6 +83,12 @@ app.use(cors(corsOptions));
 //   );
 //   res.sendStatus(200);
 // });
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "https://ecrypt.herokuapp.com"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept ,Authorization");
+  next();
+});
+
 
 app.use("/", require("./routes/index"));
 
