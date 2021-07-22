@@ -31,11 +31,11 @@ const Card = ({ card, setEditButton, showEditButton }) => {
   const cardNumber = card.cardNo;
   const cNo = cardNumber.toString();
   const cardType = getCardType(cNo);
-  console.log("cardType is ", cardType);
+  // console.log("cardType is ", cardType);
   //________________________________________
 
   const formattedCardNo = cNo.toString().replace(/\d{4}(?=.)/g, "$& ");
-  console.log(formattedCardNo);
+  // console.log(formattedCardNo);
 
   const cardDataToEdit = useSelector((state) =>
     editId ? state.cards.cards.find((c) => c._id === editId) : null
@@ -70,9 +70,6 @@ const Card = ({ card, setEditButton, showEditButton }) => {
     setModalShow(!modalShow);
   };
   return (
-
-
-    
     <div
       className={`${styles.cardContainer} ${
         cardType === "MASTER"
@@ -99,7 +96,6 @@ const Card = ({ card, setEditButton, showEditButton }) => {
       }`}
     >
       <div className={styles.buttonDiv}>
-
         {inEditMode === true ? (
           <div className={styles.saveCancelDiv}>
             <div
@@ -163,19 +159,18 @@ const Card = ({ card, setEditButton, showEditButton }) => {
           </>
         )}
 
-
-<button
-        className={styles.favBtn}
-        onClick={() => {
-          handleFavToggle(card._id, card.isFavourite);
-        }}
-      >
-        {card.isFavourite ? (
-          <HiStar color="#4CD7F6" fontSize="20px" />
-        ) : (
-          <HiOutlineStar color="#9baece" />
-        )}
-      </button>
+        <button
+          className={styles.favBtn}
+          onClick={() => {
+            handleFavToggle(card._id, card.isFavourite);
+          }}
+        >
+          {card.isFavourite ? (
+            <HiStar color="#4CD7F6" fontSize="20px" />
+          ) : (
+            <HiOutlineStar color="#9baece" />
+          )}
+        </button>
       </div>
 
       {modalShow === true ? (
@@ -258,7 +253,6 @@ const Card = ({ card, setEditButton, showEditButton }) => {
                 cvv: e.target.value,
               })
             }
-
           ></input>
         ) : (
           <p className={styles.cvvText}>{card.cvv}</p>
@@ -299,12 +293,9 @@ const Card = ({ card, setEditButton, showEditButton }) => {
         )}
       </div>
 
- 
-
-      <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
+      <h1 className={styles.overlayFont}>{cardType}</h1>
       <div className={styles.overlayDiv}></div>
     </div>
-
   );
 };
 export default Card;

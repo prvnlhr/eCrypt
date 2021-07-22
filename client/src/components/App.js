@@ -24,7 +24,10 @@ const App = () => {
   const auth = useSelector((state) => state.auth);
   const isAuthenticated = JSON.parse(localStorage.getItem("isAuthenticated"));
 
- 
+  const [logoutDivShow, setLogoutDivShow] = useState(false);
+
+
+
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -66,7 +69,7 @@ const App = () => {
   });
 
   return (
-    <div className={styles.app}>
+    <div className={styles.app}  >
       <div className={styles.appBgDiv1}></div>
 
       <Switch>

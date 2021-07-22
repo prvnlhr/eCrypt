@@ -13,7 +13,21 @@ body {
 
   min-height: 100vh;
   min-height: -webkit-fill-available;
-  /* background-image: linear-gradient(to right top, #e6f3ea, #e1f1e8, #dbefe7, #d6ece6, #d1eae6, #cde8e6, #c9e6e5, #c5e4e5, #c1e2e4, #bde0e3, #b9dee2, #b5dce1); */
+  background-image: linear-gradient(
+    to right top,
+    #e6f3ea,
+    #e1f1e8,
+    #dbefe7,
+    #d6ece6,
+    #d1eae6,
+    #cde8e6,
+    #c9e6e5,
+    #c5e4e5,
+    #c1e2e4,
+    #bde0e3,
+    #b9dee2,
+    #b5dce1
+  );
   /* background-image: linear-gradient(to right top, #ced8e5, #bfd2e5, #afcce4, #9dc7e2, #88c2e0); */
 }
 html {
@@ -60,9 +74,31 @@ body::-webkit-scrollbar {
   /* right: 10%; */
   width: 100%;
   height: 100%;
-  background: url(../img/bg1.jpg);
-  background-size: cover;
-  /* opacity: 0.5; */
-  /* filter: blur(200px); */
+  /* background: url(../img/bg1.jpg); */
+  /* background: #f2f6ff; */
 
+  /* background-size: cover;
+  background: hsla(206, 95%, 92%, 1);
+
+background: linear-gradient(90deg, hsla(206, 95%, 92%, 1) 0%, hsla(208, 87%, 91%, 1) 56%, hsla(209, 94%, 93%, 1) 100%);
+
+background: -moz-linear-gradient(90deg, hsla(206, 95%, 92%, 1) 0%, hsla(208, 87%, 91%, 1) 56%, hsla(209, 94%, 93%, 1) 100%);
+
+background: -webkit-linear-gradient(90deg, hsla(206, 95%, 92%, 1) 0%, hsla(208, 87%, 91%, 1) 56%, hsla(209, 94%, 93%, 1) 100%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#D5ECFE", endColorstr="#D3E9FC", GradientType=1 ); */
+
+  /* background: hsla(97, 52%, 95%, 1);
+
+background: linear-gradient(270deg, hsla(97, 52%, 95%, 1) 0%, hsla(136, 31%, 93%, 1) 14%, hsla(174, 30%, 87%, 1) 36%, hsla(184, 38%, 86%, 1) 52%, hsla(187, 43%, 80%, 0.8) 67%);
+
+background: -moz-linear-gradient(270deg, hsla(97, 52%, 95%, 1) 0%, hsla(136, 31%, 93%, 1) 14%, hsla(174, 30%, 87%, 1) 36%, hsla(184, 38%, 86%, 1) 52%, hsla(187, 43%, 80%, 0.8) 67%);
+
+background: -webkit-linear-gradient(270deg, hsla(97, 52%, 95%, 1) 0%, hsla(136, 31%, 93%, 1) 14%, hsla(174, 30%, 87%, 1) 36%, hsla(184, 38%, 86%, 1) 52%, hsla(187, 43%, 80%, 0.8) 67%);
+
+filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F1F9EC", endColorstr="#E8F3EB", GradientType=1 ); */
+
+  /* background-color: rgba(255, 255, 255, 0.432); */
+  /* -webkit-backdrop-filter: blur(20px); */
+  /* backdrop-filter: blur(20px); */
 }

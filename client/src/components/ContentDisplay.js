@@ -45,6 +45,10 @@ const ContentDisplay = ({
   const docsArray = useSelector((state) => state.docs.docs);
   const activitiesArray = useSelector((state) => state.activities.activities);
 
+  const detectClick = () => {
+    console.log("clicked app");
+  };
+
   const favoritesLoginsArray = useSelector(
     (state) => state.favorites.favoriteLoginsIds
   );
@@ -58,15 +62,13 @@ const ContentDisplay = ({
   const searchResultArray = useSelector((state) => state.search.searchResults);
 
   return (
-    <div className={styles.contentDisplay}>
+    <div className={styles.contentDisplay} onClick={detectClick}>
       {searchResultArray.length > 0 && fieldLength > 0 ? (
         <SearchList
           searchResultArray={searchResultArray}
           setHeading={setHeading}
         />
-      ) : null
-      
-      }
+      ) : null}
 
       <Switch>
         <Route

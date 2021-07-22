@@ -54,7 +54,6 @@
   /* filter:  drop-shadow(0px 10px 20px rgba(0, 0, 0,  0.30)); */
 
   z-index: 20;
-
 }
 
 .overlayFont {
@@ -167,10 +166,14 @@
   font-family: "Share Tech Mono", monospace;
   letter-spacing: 0.5px;
   font-weight: bold !important;
-  font-size: 14px !important;
+  /* font-size: 14px !important; */
+  font-size: 1em !important;
+
   color: black;
   text-shadow: 0.5px 0.5px rgb(202, 202, 202);
   z-index: 23;
+  white-space: normal;
+
 }
 .cardNo {
   grid-area: cardNo;
@@ -194,10 +197,14 @@
   font-family: "Share Tech Mono", monospace;
   letter-spacing: 0.5px;
   font-weight: bold !important;
-  font-size: 14px !important;
+  /* font-size: 14px !important; */
+  font-size: 1em !important;
+
   color: slategray;
   text-shadow: 0.5px 0.5px rgb(202, 202, 202);
   z-index: 23;
+  padding: 0px;
+  white-space: nowrap;
 }
 .cardUser {
   grid-area: user;
@@ -216,10 +223,13 @@
   /* letter-spacing: 0.3px; */
   /* color: white; */
   font-size: 15px;
+  font-size: 1em !important;
+
   font-family: "Share Tech Mono", monospace;
   color: rgb(29, 29, 29);
   text-shadow: 0.5px 0.5px #e7e7e7;
   z-index: 23;
+
 }
 .cardLogo {
   position: relative;
@@ -581,7 +591,7 @@
 @media screen and (max-width: 550px) {
   .cardContainer {
     position: relative;
-    width: 75%;
+    width: 78%;
     aspect-ratio: 8/5;
     /* aspect-ratio: 16/9; */
 
@@ -691,6 +701,39 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .cardNo {
+    grid-area: cardNo;
+    /* border: 1px solid green; */
+    width: 100%;
+    height: 100%;
+    margin: 0px 0px 0px 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    padding: 0px;
+  }
+  .cardNoText {
+    /* width: 100%; */
+    /* margin: 0px 0px 0px 0px !important; */
+    margin: 0px 0px 0px 2%;
+
+    font-weight: bolder;
+    font-family: "Share Tech Mono", monospace;
+    letter-spacing: 0px;
+    font-weight: bold !important;
+    /* font-size: 14px !important; */
+    font-size: 0.9em !important;
+
+    color: slategray;
+    text-shadow: 0.5px 0.5px rgb(202, 202, 202);
+    z-index: 23;
+    padding: 0px;
+    white-space: nowrap;
   }
 }
 

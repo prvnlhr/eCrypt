@@ -149,7 +149,7 @@ small{
   display: flex;
   /* grid-template-rows: 8% 80% 10%; */
   /* margin: 10px 10px 10px 10px; */
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
   /* background-color: rgba(255, 255, 255, 0.993); */
   background-color: black !important;
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -159,9 +159,14 @@ small{
   /* backdrop-filter: blur(4px); */
   /* -webkit-backdrop-filter: blur(4px); */
 
-  background: rgba(28, 27, 27, 0.65) !important;
+  background: rgba(5, 5, 5, 0.733) !important;
   /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
-  /* backdrop-filter: blur(15px); */
-  /* -webkit-backdrop-filter: blur(15px); */
-  z-index: 30;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  background: rgba(28, 27, 27, 0.788);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 45;
+
 }

@@ -176,7 +176,7 @@ const LoginId = ({
         <div className={styles.websiteDiv}>
           {inEditMode && loginId._id === editId ? (
             <input
-              className={styles.editInput}
+              className={styles.websiteEditInput}
               value={loginData.website}
               onChange={(e) =>
                 setLoginData({ ...loginData, website: e.target.value })
@@ -190,33 +190,40 @@ const LoginId = ({
         </div>
 
         <div className={styles.usernameDiv}>
-          <FaUserAlt fontSize="12px" color="#9baece" />
-
-          {inEditMode && loginId._id === editId ? (
-            <input
-              className={styles.editInput}
-              value={loginData.username}
-              onChange={(e) =>
-                setLoginData({ ...loginData, username: e.target.value })
-              }
-            ></input>
-          ) : (
-            <p className={styles.passwordText}>{loginId.username}</p>
-          )}
+          <div className={styles.iconDiv}>
+            <FaUserAlt fontSize="12px" color="#9baece" />
+          </div>
+          <div className={styles.textDiv}>
+            {inEditMode && loginId._id === editId ? (
+              <input
+                className={styles.editInput}
+                value={loginData.username}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, username: e.target.value })
+                }
+              ></input>
+            ) : (
+              <p className={styles.passwordText}>{loginId.username}</p>
+            )}
+          </div>
         </div>
         <div className={styles.passwordDiv}>
-          <FaLock fontSize="12px" color="#9baece" />
-          {inEditMode && loginId._id === editId ? (
-            <input
-              className={styles.editInput}
-              value={loginData.password}
-              onChange={(e) =>
-                setLoginData({ ...loginData, password: e.target.value })
-              }
-            ></input>
-          ) : (
-            <p className={styles.passwordText}>{loginId.password}</p>
-          )}
+          <div className={styles.iconDiv}>
+            <FaLock fontSize="12px" color="#9baece" />
+          </div>
+          <div className={styles.textDiv}>
+            {inEditMode && loginId._id === editId ? (
+              <input
+                className={styles.editInput}
+                value={loginData.password}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, password: e.target.value })
+                }
+              ></input>
+            ) : (
+              <p className={styles.passwordText}>{loginId.password}</p>
+            )}
+          </div>
         </div>
       </div>
       {/* FAV TOGGLE_________________________________________ */}

@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { HiSearch, HiX, HiChevronDown, HiChevronUp } from "react-icons/hi";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import OutsideClickHandler from "react-outside-click-handler";
+
 import { RiSettings3Fill, RiSearch2Line } from "react-icons/ri";
 import { CgCloseO } from "react-icons/cg";
 import styles from "../css/navbar.module.css";
@@ -16,17 +19,16 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
     dispatch(search(val));
   };
 
-  if (user.firstName) {
-    console.log(user.firstName.charAt(0));
-  }
+  // if (user.firstName) {
+  //   console.log(user.firstName.charAt(0));
+  // }
 
   const [searchQuery, setQuery] = useState("");
   const [searchMode, setSearchMode] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  const handleDownArrowClick = () => {
-    setShowPopup(!showPopup);
-  };
+  const node = useRef();
+
   const switchSearchMode = () => {
     setSearchMode(!searchMode);
     setFieldLength(null);
@@ -45,6 +47,41 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
     dispatch(logout());
     history.push("/login");
   };
+  // Logout Button Outside click functionality_____________________________
+  const [open, setOpen] = useState(false);
+
+  // const handleClick=()=>{
+  //   if(open){
+  //     document.addEventListener('click',handleClickOutside,false)
+  //   }else{
+  //     document.addEventListener('click',handleClickOutside,false)
+
+  //   }
+  //   setOpen(!open)
+  // }
+  useEffect(() => {
+    // add when mounted
+    document.addEventListener("mousedown", handleClick);
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
+  }, []);
+
+  const handleClick = (e) => {
+    if (node.current.contains(e.target)) {
+      // inside click
+      return;
+    }
+    // outside click
+    setOpen(false);
+  };
+
+  const chevronClicked = () => {
+    setOpen(!open);
+  };
+
+  //________________________________________________________________________________________________
 
   return (
     <div className={styles.navbar}>
@@ -55,7 +92,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
           </p>
         </div>
       </div>
-      <div className={styles.rightPortion}>
+      <div className={styles.rightPortion} >
         <div
           className={
             searchMode ? styles.inputContainer : styles.inputContainerSmall
@@ -81,39 +118,33 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
             </div>
           )}
         </div>
-        <div className={styles.usernameDiv}>
-          <div className={styles.nameLetterDiv}>
-            {user.firstName ? <p>{user.firstName.charAt(0)}</p> : null}
+
+        <div className={styles.userNamePopupWrapper} ref={node}>
+          <div className={styles.usernameContainer}>
+            <div className={styles.nameLetterDiv}>
+              {user.firstName ? <p>{user.firstName.charAt(0)}</p> : null}
+            </div>
+
+            <div className={styles.lgBtn} onClick={chevronClicked}>
+              {!open ? (
+                <HiChevronDown className={styles.downChevron} />
+              ) : (
+                <HiChevronUp className={styles.downChevron} />
+              )}
+            </div>
           </div>
-          <div className={styles.nameDiv}>
-            <p>{user.firstName}</p>
-          </div>
-          {/* {showPopup ? (
-            <HiChevronUp
-              className={styles.downBtn}
-              onClick={handleDownArrowClick}
-              fontSize="18px"
-              color="slategray"
-            />
-          ) : (
-            <HiChevronDown
-              className={styles.downBtn}
-              onClick={handleDownArrowClick}
-              fontSize="18px"
-              color="slategray"
-            />
-          )} */}
+
+          {open && (
+            <div className={styles.popUp}>
+              <div className={styles.nameDiv}>
+                <p>{user.firstName + " " + user.lastName}</p>
+              </div>
+              <div className={styles.lgOutBtnDiv} onClick={handleLogout}>
+                <p>Log Out</p>
+              </div>
+            </div>
+          )}
         </div>
-        {/* {showPopup ? (
-          <div
-            className={styles.userPopupDiv}
-          >
-            <button className={styles.logOutBtn} onClick={handleLogout}>
-              <FiLogOut fontSize="15px" color="b3bac3" />
-              <p>Logout</p>
-            </button>
-          </div>
-        ) : null} */}
       </div>
     </div>
   );

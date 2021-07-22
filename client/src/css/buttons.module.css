@@ -49,6 +49,7 @@
   z-index: 25;
   -webkit-text-stroke: 0.01em; 
   /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 5px 5px rgba(0, 0, 0, 0.034);
 
 }
 .addBtnDiv span {

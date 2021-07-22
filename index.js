@@ -9,12 +9,9 @@ const path = require("path");
 
 const app = express();
 
-const allowedOrigins = [
-  "https://ecrypt.herokuapp.com",
-  "http://localhost:3000",
-];
 
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
+
 
 // var corsOptions = {
 //   credentials: true,
@@ -45,15 +42,14 @@ mongoose
   .then(() => console.log("Connected to Database :: MongoDB Cloud"))
   .catch((err) => console.log(err.message));
 
-// app.use("/", routesIndex);
-// app.use(function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", 'https://ecrypt.herokuapp.com');
-//   res.header("Access-Control-Allow-Credentials", true);
-//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-//   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-//   next();
-// });
 
+
+
+  
+// const allowedOrigins = [
+//   "https://ecrypt.herokuapp.com",
+//   "http://localhost:3000",
+// ];
 // const corsOptions = {
 //   origin: (origin, callback) => {
 //     if (allowedOrigins.includes(origin) || !origin) {
@@ -68,30 +64,18 @@ mongoose
 //   //   credentials: true,
 //   allowedHeaders: ["Content-Type", "Authorization"],
 // };
-
 // Enable preflight requests for all routes
 // app.use(cors(corsOptions));
-
 // app.options("*", cors(corsOptions));
 
-// app.options("/*", (req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "https://ecrypt.herokuapp.com");
-//   res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "Content-Type, Authorization, Content-Length, X-Requested-With"
-//   );
-//   res.sendStatus(200);
-// });
 
 app.use(function(req, res, next) {
   // Access-Control-Allow-Credentials: true
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS,PATCH");
   res.header("Access-Control-Allow-Credentials", true);
-
-
-  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-  res.header("Access-Control-Allow-Origin", "https://ecrypt.herokuapp.com"); // update to match the domain you will make the request from
+  // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Origin", "https://ecrypt.herokuapp.com");
+   // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept ,Authorization");
   next();
 });

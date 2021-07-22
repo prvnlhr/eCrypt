@@ -10,7 +10,7 @@
   aspect-ratio: 3.73/1;
   border-radius: 8px;
   /* border: 1px solid rgba(105, 105, 105, 0.116); */
-  margin: 15px 10px 10px 15px;
+  margin: 15px 0px 10px 30px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: #ffffff;
   /* background-color:#f4fff9 ; */
@@ -60,7 +60,7 @@
   flex-direction: row;
   /* border: 1px solid black; */
   width: 48px;
-  height: 20px;
+  height: 19px;
 }
 .editDeleteDiv {
   position: absolute;
@@ -147,24 +147,52 @@
 }
 
 .editInput {
+  /* width: 100%; */
+  /* height: 100%; */
   outline: none;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 1px solid slategray;
-  background: none;
+  /* border-bottom: 1px solid slategray; */
+  /* background: rgb(134, 112, 112); */
   font-family: "Nunito", sans-serif;
   color: skyblue;
   font-weight: 550;
   letter-spacing: 0.2px;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   border: 1px dotted rgb(255, 196, 1);
-  background-color: rgb(255, 255, 255);
+  /* border: none; */
+
+  /* background-color: rgba(190, 182, 182, 0.582); */
   border-radius: 5px;
+  padding: 0px 0px 0px 5px;
+  margin: 0px 0px 0px 0px;
+}
+.websiteEditInput {
+  width: 100%;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  /* border-bottom: 1px solid slategray; */
+  /* background: rgb(134, 112, 112); */
+  font-family: "Nunito", sans-serif;
+  color: skyblue;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  /* padding-left: 10px; */
+  border: 1px dotted rgb(255, 196, 1);
+  /* border: none; */
+
+  /* background-color: rgba(190, 182, 182, 0.582); */
+  border-radius: 5px;
+  padding: 0px 0px 0px 5px;
+  margin: 0px 0px 0px 0px;
 }
 
 .websiteDiv {
-  width: 59%;
+  width: 58%;
+  /* width: calc(50% - 100px); */
   height: 100%;
   border-bottom: 1px solid lightgray;
   grid-row-start: 1;
@@ -172,45 +200,67 @@
   display: flex;
   /* justify-content: center; */
   /* border: 1px solid black; */
-  overflow-x: scroll;
-
+  /* overflow-x: scroll; */
+  /* padding-left: 2px; */
   align-items: center;
   color: gray !important;
-  margin: 0px 0px 2px 0px;
+  margin: 0px 0px 2px 5px;
 }
 .websiteDiv::-webkit-scrollbar {
   display: none;
 }
 .usernameDiv {
-  width: 95%;
+  width: 90%;
+  /* width: calc(100% - 20px); */
+
   height: 100%;
-  /* border: 1px solid black; */
+  /* border: 0.1px solid red; */
   grid-row-start: 2;
   grid-row-end: 3;
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  padding-left: 2%;
-  overflow: scroll;
-
-  margin: 2px 0px 0px 0px;
-
+  text-align: center;
+  /* padding-left: 2%; */
+  margin: 2px 0px 0px 5px;
   color: rgb(53, 52, 52) !important;
 }
 .usernameDiv::-webkit-scrollbar {
   display: none;
 }
-.passwordDiv {
-  width: 100%;
+.iconDiv {
+  width: 10%;
   height: 100%;
   /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.textDiv {
+  width: 90%;
+  height: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  overflow-x: scroll;
+}
+.textDiv::-webkit-scrollbar {
+  display: none;
+}
+.passwordDiv {
+  width: 90%;
+  height: 100%;
+  /* border: 1px solid red; */
   grid-row-start: 3;
   grid-row-end: 4;
   display: flex;
   /* justify-content: center; */
   align-items: center;
-  padding-left: 2%;
-  margin: 2px 0px 0px 0px;
+  /* padding-left: 2%; */
+  margin: 2px 0px 0px 5px;
 
   align-items: center;
   color: rgb(53, 52, 52) !important;
@@ -220,12 +270,11 @@
   /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
 
-  margin: 0px 0px 0px 10px;
+  margin: 0px 0px 0px 0px;
   font-family: "Nunito", sans-serif;
   /* font-family: 'Comfortaa', cursive; */
   font-family: "Quicksand", sans-serif;
   letter-spacing: 0.5px;
-
   font-weight: bold;
   color: black;
   font-size: 13px;
@@ -236,7 +285,7 @@
 .usernameText {
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
+  /* font-size: 1em; */
   margin: 0px 0px 0px 10px;
   font-weight: 650;
   font-size: 13px;
@@ -248,8 +297,7 @@
 .passwordText {
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
-  margin: 0px 0px 0px 10px;
+  margin: 0px 0px 0px 5px;
   font-weight: 650;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -376,21 +424,25 @@
     justify-content: center;
     align-items: center;
     /* align-content: center; */
-    width: 86% !important;
-    /* aspect-ratio: 3.73/1; */
+    width: 83% !important;
+    /* width: calc(80% - 100px); */
+
+    aspect-ratio: 3.73/1;
     /* max-width: 280px; */
     /* width: 20px; */
-    /* min-width: 250px; */
-    height: 85px;
+    min-width: 250px;
+    /* height: 85px; */
     border-radius: 8px;
     /* border: 1px solid red; */
-    /* margin: 15px 10px 10px 15px !important; */
+    /* margin: 10px 0px 10px 0px !important; */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     background-color: #ffffff;
     /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
     /* border: 1px solid red; */
     margin-left: auto;
     margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 5px;
   }
   .cancelIcon {
     width: 20px;

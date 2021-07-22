@@ -319,12 +319,7 @@ const Sidebar = () => {
           )}
         </NavLink>
       </div>
-      <div className={styles.logoutBtnDiv}>
-        <button className={styles.logOutBtn} onClick={handleLogout}>
-          <IoPower fontSize="17px" color="#9baece" />
-          <p className={styles.logoutText}>Log Out</p>
-        </button>
-      </div>
+      
     </div>
   );
 };

@@ -5,7 +5,10 @@
   /* left: 0; */
   right: 2%;
   /* text-align: center; */
-  height: 80% !important;
+  /* height: 80% !important; */
+
+  height: 400px;
+  max-height: 400px;
   width: 250px;
   grid-column-start: 2;
   grid-column-end: 3;

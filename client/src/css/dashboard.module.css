@@ -14,9 +14,6 @@
   /* overflow-y: scroll; */
   /* border-radius: 10px 10px 10px 10px; */
   /* background-color: #f4fff9; */
-
-
-  
 }
 
 .dashboardComponent::-webkit-scrollbar {
@@ -34,9 +31,10 @@
   /* align-items: center; */
   margin: 25px 0px 0px 0px;
   border-radius: 10px 10px 10px 10px;
+  /* display: none; */
 
   /* background-color: white; */
-/* 
+  /* 
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px); */
@@ -61,9 +59,6 @@
   /* -webkit-backdrop-filter: blur(4px); */
   /* border: 1px solid #4cd7f646; */
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
-
-
-
 }
 .count {
   width: 100%;
@@ -105,7 +100,7 @@
 .recentActivityListHeadingDiv {
   width: 99%;
   height: 10%;
-  border-bottom: 1px solid #4CD7F6;
+  border-bottom: 1px solid #4cd7f6;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -129,7 +124,6 @@
   flex-direction: column;
   /* justify-content: center; */
   align-items: center;
-  
 }
 
 .recentActivityList::-webkit-scrollbar {
@@ -142,32 +136,32 @@
   width: 2px;
 }
 .recentActivityList::-webkit-scrollbar-thumb {
-  background-color: #4CD7F6;
+  background-color: #4cd7f6;
   border-radius: 4px;
 }
 .recentItemWrapper {
   height: 100px;
-  width: 95%;
+  width: 100%;
   /* border-bottom: 1px solid rgb(58, 165, 228); */
   /* border-top: 1px solid rgb(58, 165, 228); */
-  border-bottom: 1px solid #4CD7F6;
- 
-  margin: 10px 20px 10px 20px;
+  /* border-bottom: 1px solid #4cd7f6; */
+
+  margin: 10px auto 10px auto;
   display: flex;
   /* justify-content: center; */
   align-items: center;
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(68, 61, 61, 0.24); */
-    
+
   /* background: white; */
-  /* border: 1px solid rgb(184, 183, 183); */
+  /* border: 1px solid rgb(184, 183, 183);/ */
 }
 .recentItemContainer {
   width: 70%;
-  max-width: 500px;
+  /* max-width: 500px; */
   height: 90px;
   /* min-height: 50px; */
   /* border: 1px solid black; */
-  /* background-color: #ffffff; */
+  background-color: #ffffff71;
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
   display: grid;
   grid-template-columns: 50px 80px 65px 100%;
@@ -178,9 +172,9 @@
     " logo name  name name  name"
     " logo item  item item  item";
 
-
   /* backdrop-filter: blur(4px); */
   /* -webkit-backdrop-filter: blur(4px); */
+  margin: 0px 0px 0px 5px;
 }
 /* */
 .logo {
@@ -210,8 +204,7 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18); */
-    /* border: 1px solid #4cd7f646; */
-
+  /* border: 1px solid #4cd7f646; */
 }
 .task {
   grid-area: task;
@@ -241,7 +234,6 @@
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   /* border: 1px solid #4cd7f646; */
-
 }
 
 .taskAdded {
@@ -253,8 +245,7 @@
   /* font-weight: 650; */
   color: #34c759;
   letter-spacing: 0.2px !important;
-  -webkit-text-stroke: 0.015em; 
-
+  -webkit-text-stroke: 0.015em;
 }
 
 .taskDeleted {
@@ -265,8 +256,7 @@
   font-size: 12.5px;
   /* font-weight: 650; */
   color: red;
-  -webkit-text-stroke: 0.015em; 
-
+  -webkit-text-stroke: 0.015em;
 }
 
 .taskEdited {
@@ -277,8 +267,7 @@
   font-size: 12.5px;
   /* font-weight: 650; */
   color: blue;
-  -webkit-text-stroke: 0.015em; 
-
+  -webkit-text-stroke: 0.015em;
 }
 
 .task p {
@@ -325,7 +314,6 @@
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   /* border: 1px solid #4cd7f646; */
-
 }
 .type p {
   font-family: "Nunito", sans-serif;
@@ -336,8 +324,7 @@
   /* font-weight: 600; */
   /* color: slategray; */
   font-size: 12px;
-  -webkit-text-stroke: 0.015em; 
-
+  -webkit-text-stroke: 0.015em;
 }
 .date {
   grid-area: date;
@@ -362,10 +349,11 @@
   /* font-family: "Share Tech Mono", monospace; */
   color: #2f89fc;
   color: rgb(2, 2, 2);
-  -webkit-text-stroke: 0.015em; 
+  -webkit-text-stroke: 0.015em;
 
   /* font-weight: 650; */
   letter-spacing: 0.2px;
+  white-space: pre;
 }
 .name {
   grid-area: name;
@@ -417,7 +405,7 @@
   font-size: 13px;
   /* text-rendering: optimizeLegibility !important; */
   /* -webkit-font-smoothing: antialiased !important; */
-  -webkit-text-stroke: 0.020em; 
+  -webkit-text-stroke: 0.02em;
 }
 
 @media screen and (max-width: 500px) {
@@ -432,17 +420,17 @@
     align-items: center;
   }
   .recentItemContainer {
-    width: 100%;
+    width: 99%;
     /* min-width: 280px; */
     /* max-width: 500px; */
     height: 90px;
-    min-width: 280px;
+    /* min-width: 280px; */
     /* min-height: 50px; */
     /* border: 1px solid red; */
     /* background-color: #ffffff; */
     /* border: 1px solid black; */
     /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
-    margin: 10px 20px 10px 0px;
+    /* margin: 10px 20px 10px 5px; */
     display: grid;
     grid-template-columns: 50px 80px 65px 1fr;
     grid-template-rows: 30px 30px 30px;
@@ -451,6 +439,8 @@
       " logo task type date  date"
       " logo name  name name  name"
       " logo item  item item  item";
+
+    /* display:none; */
   }
 
   .countContainer {
@@ -481,7 +471,7 @@
   .dashboardComponent {
     width: 100%;
     height: 100%;
-  height: 99.8%;
+    height: 99.8%;
 
     /* border: 1px solid red; */
     /* background-color: #dae5eb; */
@@ -494,5 +484,23 @@
     /* overflow-y: scroll; */
     /* border-radius: 10px 10px 10px 10px; */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .date p {
+    margin: 0px 8px 0px 5px;
+    font-size: 12px;
+    font-family: "Nunito", sans-serif;
+    font-family: "Quicksand", sans-serif;
+
+    /* font-family: "Share Tech Mono", monospace; */
+    color: #2f89fc;
+    color: rgb(2, 2, 2);
+    -webkit-text-stroke: 0.015em;
+
+    /* font-weight: 650; */
+    letter-spacing: 0.2px;
+    white-space: pre;
   }
 }

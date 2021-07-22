@@ -3,7 +3,6 @@
   /* margin-left: auto; */
   /* margin-right: auto; */
   right: 2%;
-
   text-align: center;
   display: flex;
   height: 500px;
@@ -29,8 +28,6 @@
   overflow: hidden;
   z-index: 45;
 
-
- 
   /* border: 1px solid red; */
 }
 .formContainerCollapse {
@@ -75,7 +72,6 @@
   margin: 5% auto 0px auto;
   background-color: #2f89fc;
   background-color: #4cd7f6;
-
 }
 .formHeadingDiv p {
   font-family: "Nunito", sans-serif;
@@ -116,7 +112,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .form {
   display: flex;
@@ -128,7 +123,6 @@
   margin: 0px;
   padding: 0px;
   /* border: 1px solid black; */
-
 }
 
 @media screen and (max-width: 550px) {
@@ -139,7 +133,9 @@
     /* left: 0; */
     right: 2%;
     /* text-align: center; */
-    height: 80% !important;
+    height: 90% !important;
+    min-height: 440px;
+    max-height: 440px;
     width: 90%;
     grid-column-start: 2;
     grid-column-end: 3;
@@ -163,13 +159,5 @@
     overflow: hidden;
     /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-
-
-
-
-
-
-
-
   }
 }
