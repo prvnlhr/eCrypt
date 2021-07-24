@@ -26,8 +26,43 @@
   /* filter: blur(50px); */
   /* backdrop-filter: blur(20px); */
   /* -webkit-backdrop-filter: blur(20px); */
-  overflow: hidden;
-  z-index: inherit;
+  /* overflow: hidden; */
+  /* z-index: inherit; */
+  z-index: 1;
+  -webkit-animation: scale-in-ver-top 0.4s both;
+  animation: scale-in-ver-top 0.4s both;
+}
+@-webkit-keyframes scale-in-ver-top {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}
+@keyframes scale-in-ver-top {
+  0% {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
+  }
 }
 
 .imageContainer {
@@ -329,11 +364,11 @@
   background: rgba(28, 27, 27, 0.788);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
-  z-index: 45;
-
+  /* z-index: 90; */
+  z-index: 12;
 }
 .minimizeBtn {
-  z-index: 10;
+  /* z-index: 10; */
   color: gray;
   font-size: 15px;
 }
@@ -342,6 +377,7 @@
   .documentCard {
     position: relative;
     height: 300px;
+    width: 75%;
     display: flex;
     transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: grid;
@@ -350,7 +386,6 @@
     margin: 20px 15px 20px 15px;
     border-radius: 3px;
 
-    width: 75%;
     /* min-width: 180px; */
     /* height: 250px; */
     /* min-height: 250px; */
@@ -364,13 +399,8 @@
     margin-left: auto;
     margin-right: auto;
     top: 0;
-    /* left: -40px; */
     right: 0;
-    /* width: 99%; */
-    /* width: 99vw; */
-    /* height: 95%; */
     top: -118px;
-    /* left: -40px; */
     right: 0;
     width: 100vw;
     height: 101vh;
@@ -382,41 +412,66 @@
     display: flex;
     /* grid-template-rows: 8% 80% 10%; */
     /* margin: 10px 10px 10px 10px; */
-   
+
     background-color: black;
     transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-   
 
     background: rgba(28, 27, 27, 0.788);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
-    z-index: 45;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    -webkit-animation: scale-in-center 400ms both;
+    animation: scale-in-center 400ms both;
+    /* z-index: 50 !important; */
   }
-  
-.saveIcon {
-  font-size: 19px;
-  cursor: pointer;
-}
-.cancelIcon {
-  font-size: 19px;
-  cursor: pointer;
-}
-.deleteIcon {
-  font-size: 19px;
-  cursor: pointer;
-}
 
-.editIcon {
-  font-size: 19px;
-  cursor: pointer;
-}
-.favIcon {
-  font-size: 19px;
-  cursor: pointer;
-}
-.favIconFilled {
-  font-size: 19px;
-  cursor: pointer;
-}
+  @-webkit-keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  @keyframes scale-in-center {
+    0% {
+      -webkit-transform: scale(0);
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 
+  .saveIcon {
+    font-size: 19px;
+    cursor: pointer;
+  }
+  .cancelIcon {
+    font-size: 19px;
+    cursor: pointer;
+  }
+  .deleteIcon {
+    font-size: 19px;
+    cursor: pointer;
+  }
+
+  .editIcon {
+    font-size: 19px;
+    cursor: pointer;
+  }
+  .favIcon {
+    font-size: 19px;
+    cursor: pointer;
+  }
+  .favIconFilled {
+    font-size: 19px;
+    cursor: pointer;
+  }
 }

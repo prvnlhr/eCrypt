@@ -16,13 +16,43 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(4px); */
   /* background-color: #f4fff9; */
- 
 
-
-
-
-
+  -webkit-animation: scale-in-ver-top 0.4s both;
+  animation: scale-in-ver-top 0.4s both;
 }
+@-webkit-keyframes scale-in-ver-top {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}
+@keyframes scale-in-ver-top {
+  0% {
+    -webkit-transform: scaleY(0);
+    transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+    opacity: 1;
+  }
+}
+
 .settingsComponent::-webkit-scrollbar {
   display: none;
 }
@@ -32,7 +62,7 @@
   grid-row-end: 2;
   width: 100%;
   height: 100%;
-  border-bottom: 1px solid #4CD7F6;
+  border-bottom: 1px solid #4cd7f6;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -107,7 +137,6 @@
   z-index: 9;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
 }
 /* __PROFILE_____________________________________________________________________ */
 .profileContainer {
@@ -260,6 +289,8 @@
 button {
   margin: 0px 0px 0px 10px;
 }
+
+
 .editProfileBtn {
   width: 100px;
   height: 25px;
@@ -268,7 +299,7 @@ button {
   justify-content: center;
   align-items: center;
 
-  background: #4CD7F6;
+  background: #4cd7f6;
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
@@ -277,11 +308,7 @@ button {
   /* font-weight: 550; */
   font-size: 13px;
   letter-spacing: 0.5px;
-  -webkit-text-stroke: 0.020em; 
-
-
-
-
+  -webkit-text-stroke: 0.02em;
 }
 
 /*_______CHANGE PASSWORD______________________________________________________________ */
@@ -310,7 +337,6 @@ button {
   flex-direction: column;
   /* justify-content: center; */
   /* align-items: center; */
-
 }
 .changePasswordDiv input {
   width: 200px;
@@ -342,7 +368,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #4CD7F6;
+  background: #4cd7f6;
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
@@ -353,7 +379,7 @@ button {
   margin: 10px 10px 10px 10px;
   /* color: black; */
   letter-spacing: 0.5px;
-  -webkit-text-stroke: 0.020em; 
+  -webkit-text-stroke: 0.02em;
 }
 
 /* ____DELETE ACCOUNT________________________________________________________________ */
@@ -416,8 +442,8 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
- background: #4CD7F6;
-  
+  background: #4cd7f6;
+
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
@@ -428,8 +454,7 @@ button {
   font-size: 12px;
   /* color: black; */
   letter-spacing: 0.5px;
-  -webkit-text-stroke: 0.020em; 
-
+  -webkit-text-stroke: 0.02em;
 }
 .confirmBtn {
   width: 110px;
@@ -441,7 +466,7 @@ button {
   align-items: center;
   border-radius: 5px;
   background: #b8e2d6;
-  background: #4CD7F6;
+  background: #4cd7f6;
 
   border: none;
   color: white;
@@ -449,11 +474,8 @@ button {
   font-family: "Quicksand", sans-serif;
   /* font-weight: 550; */
   letter-spacing: 0.5px;
-  -webkit-text-stroke: 0.020em; 
+  -webkit-text-stroke: 0.02em;
   /* border: 1px solid black; */
-
-
-
 }
 .cancelBtn {
   width: 100px;
@@ -470,8 +492,7 @@ button {
   font-family: "Quicksand", sans-serif;
   /* font-weight: 550; */
   letter-spacing: 0.5px;
-  -webkit-text-stroke: 0.020em; 
-
+  -webkit-text-stroke: 0.02em;
 }
 ::placeholder {
   font-family: "Nunito", sans-serif;
@@ -491,5 +512,5 @@ button {
   letter-spacing: 0.2px;
   font-size: 13px;
   letter-spacing: 0.5px;
-  -webkit-text-stroke: 0.020em; 
+  -webkit-text-stroke: 0.02em;
 }

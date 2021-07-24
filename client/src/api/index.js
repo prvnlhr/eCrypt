@@ -18,13 +18,11 @@ export const registerNewUser = (formData) =>
 //Account Activation through Email
 export const activation = (activation_token) =>
   API.post("/user/activation", {
-    
     data: {
       activation_token,
     },
   });
 
-  
 //Login
 export const login = (formData) =>
   API.post("/user/login", formData, { withCredentials: true });

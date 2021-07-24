@@ -34,11 +34,10 @@
   /* display: none; */
 
   /* grid-gap: 1px; */
-  grid-template-rows: 10% 1fr ;
+  grid-template-rows: 10% 1fr;
 
   /* border-right: 1px solid #0e0d0d2a; */
   border-right: 1px solid #bcdfe3;
-
 
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 
@@ -85,6 +84,8 @@ backdrop-filter: blur( 11.0px );
 background: rgba( 255, 255, 255, 0.25 );
 backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px ); */
+border: 1px solid red;
+
 }
 .burgerBtnContainerClose {
   position: relative;
@@ -97,7 +98,11 @@ backdrop-filter: blur( 4px );
   justify-content: flex-end !important;
   align-items: center;
   margin: 0px 0px 0px 0px;
+
+  /* border: 1px solid red; */
+
   /* background: rgba(255, 255, 255, 0.747);
+  
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -126,20 +131,27 @@ backdrop-filter: blur( 4px );
   /* background: rgba( 255, 255, 255, 0.20 );
 backdrop-filter: blur( 20.0px );
 -webkit-backdrop-filter: blur( 20.0px ); */
+
 }
 
 .hamXIcon {
+  /* position: absolute; */
+
   font-size: 23px;
   color: slategray;
 }
 .hamMenuIcon {
   font-size: 25px;
   color: slategray;
+  z-index: 1;
+
 }
 
 .toggleSideBarBtn {
-  position: absolute;
+  /* position: absolute; */
   bottom: 20px;
+  /* z-index: 2; */
+
 }
 
 .linksContainer {
@@ -325,8 +337,6 @@ backdrop-filter: blur( 20.0px );
 }
 
 @media screen and (max-width: 500px) {
-
-
   .hamXIcon {
     font-size: 25px;
     color: slategray;

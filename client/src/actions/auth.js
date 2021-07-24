@@ -67,8 +67,7 @@ export const activationEmail = (activation_token) => async (dispatch) => {
 };
 //LOGIN_________________________________________________________________
 export const login = (formData) => async (dispatch) => {
-
-  console.log("at login auth action",formData)
+  console.log("at login auth action", formData);
 
   dispatch({
     type: LOADING_START,
@@ -89,10 +88,10 @@ export const login = (formData) => async (dispatch) => {
       type: SUCCESS_MESSAGE,
       message: successMsg,
     });
-    console.log("logins action success",response)
+    console.log("logins action success", response);
   } catch (error) {
     const failureMsg = error.response.data.msg;
-    console.log("error at auth action ",error.response)
+    console.log("error at auth action ", error.response);
     dispatch({
       type: LOGIN_FAILURE,
       message: failureMsg,
@@ -212,50 +211,46 @@ export const resetPassword = (token, password) => async (dispatch) => {
   }
 };
 //change password api
-export const changePassword = (
-  oldPassword,
-  newPassword,
-  token,
-  userId
-) => async (dispatch) => {
-  dispatch({
-    type: LOADING_START,
-  });
-  try {
-    const res = await api.changePass(oldPassword, newPassword, token);
-    const successMsg = res.data.msg;
+export const changePassword =
+  (oldPassword, newPassword, token, userId) => async (dispatch) => {
     dispatch({
-      type: SUCCESS_MESSAGE,
-      message: successMsg,
+      type: LOADING_START,
     });
-    dispatch({
-      type: LOADING_END,
-    });
+    try {
+      const res = await api.changePass(oldPassword, newPassword, token);
+      const successMsg = res.data.msg;
+      dispatch({
+        type: SUCCESS_MESSAGE,
+        message: successMsg,
+      });
+      dispatch({
+        type: LOADING_END,
+      });
 
-    const d = moment().format("LLL");
-    const activity = {
-      date: d,
-      task: "Edited",
-      type: "Settings",
-      name: "Password settings",
-      item: "Password changed",
-    };
-    const activityResponse = await api.addActivity(activity, userId);
-    dispatch({
-      type: ADD_ACTIVITY,
-      payload: activity,
-    });
-  } catch (error) {
-    const failureMsg = error.response.data.msg;
-    dispatch({
-      type: ERROR_MESSAGE,
-      message: failureMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
-  }
-};
+      const d = moment().format("LLL");
+      const activity = {
+        date: d,
+        task: "Edited",
+        type: "Settings",
+        name: "Password settings",
+        item: "Password changed",
+      };
+      const activityResponse = await api.addActivity(activity, userId);
+      dispatch({
+        type: ADD_ACTIVITY,
+        payload: activity,
+      });
+    } catch (error) {
+      const failureMsg = error.response.data.msg;
+      dispatch({
+        type: ERROR_MESSAGE,
+        message: failureMsg,
+      });
+      dispatch({
+        type: LOADING_END,
+      });
+    }
+  };
 //delete account api
 export const deleteAccount = (password, token) => async (dispatch) => {
   dispatch({

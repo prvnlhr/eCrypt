@@ -24,7 +24,7 @@
   background-color: white;
   /* background-color: #b8e2d6; */
   /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-  z-index: 25;
+  /* z-index: 25; */
 }
 
 .addBtnDiv {
@@ -46,10 +46,11 @@
   border-radius: 20px;
   cursor: pointer;
   background-color: #4cd7f6;
-  z-index: 25;
+  /* z-index: 25; */
   -webkit-text-stroke: 0.01em; 
   /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 5px 5px rgba(0, 0, 0, 0.034);
+  /* z-index: -10; */
 
 }
 .addBtnDiv span {
@@ -99,12 +100,12 @@
 
 .cancelBtnDiv {
   position: absolute;
-  top: 15px;
+  top: 14px;
   left: 15px;
   width: 25px;
   height: 25px;
-  /* border: 1px solid rgb(187, 187, 187); */
   border: 1px solid rgb(235, 234, 234);
+  /* border: 1px solid rgb(187, 187, 187); */
 
   display: flex;
   justify-content: center;
@@ -114,7 +115,7 @@
   font-family: "Nunito", sans-serif;
   font-weight: 650;
   letter-spacing: 0.2px !important;
-  color: gray;
+  color: slategray;
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
@@ -193,7 +194,6 @@
   letter-spacing: 0.2px !important;
   color: #071a52;
   color: white;
-
   border-radius: 50%;
   cursor: pointer;
   background-color: transparent;
@@ -269,7 +269,7 @@ p {
     border-radius: 20px;
     cursor: pointer;
     background-color: #4cd7f6;
-    z-index: 25;
+    /* z-index: 25; */
     -webkit-text-stroke: 0.01em; 
     /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
   

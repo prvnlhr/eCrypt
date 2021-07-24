@@ -7,6 +7,13 @@ import Grid from "@material-ui/core/Grid";
 import formStyles from "../css/signUpPage.module.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { CircleSpinner } from "react-spinners-kit";
+
+import secure from "../img/secure.svg";
+import secure1 from "../img/secure1.svg";
+import docs from "../img/docs.svg";
+import cards from "../img/cards.svg";
+import login from "../img/login.svg";
+
 const initialState = {
   firstName: "",
   lastName: "",
@@ -51,11 +58,16 @@ const SignUpPage = () => {
   return (
     <div className={formStyles.signUpPage}>
       <div className={formStyles.containerBio}>
+      <img className={formStyles.docImg} src={docs} />
+      <img className={formStyles.cardImg} src={cards} />
+      <img className={formStyles.loginImg} src={login} />
+
         <div className={formStyles.appNameDiv}>
           <span className={formStyles.appNameDivSpan}>e</span>
           <p className={formStyles.appNameDivP}>Crypt</p>
         </div>
         <div className={formStyles.bioDiv}>
+          <img className={formStyles.secureImg} src={secure} />
           <p className={formStyles.heading1}>
             A Digital Solution for all your important data.
           </p>
@@ -64,8 +76,8 @@ const SignUpPage = () => {
             the go
           </p>
           <br />
-          <p onClick={handleClick}>
-            Simple<span className={formStyles.dot}>.</span>Secure click
+          <p onClick={handleClick} className={formStyles.dotText}>
+            Simple<span className={formStyles.dot}>.</span>Secure
           </p>
         </div>
       </div>

@@ -11,7 +11,7 @@ import { CgCloseO } from "react-icons/cg";
 import styles from "../css/navbar.module.css";
 import { logout } from "../actions/auth";
 import { search } from "../actions/searchAction";
-const Navbar = ({ fieldLength, setFieldLength }) => {
+const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
   const user = useSelector((state) => state.user.user);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -27,7 +27,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
   const [searchMode, setSearchMode] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
-  const node = useRef();
+  // const node = useRef();
 
   const switchSearchMode = () => {
     setSearchMode(!searchMode);
@@ -48,7 +48,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
     history.push("/login");
   };
   // Logout Button Outside click functionality_____________________________
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState(false);
 
   // const handleClick=()=>{
   //   if(open){
@@ -92,7 +92,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
           </p>
         </div>
       </div>
-      <div className={styles.rightPortion} >
+      <div className={styles.rightPortion}>
         <div
           className={
             searchMode ? styles.inputContainer : styles.inputContainerSmall
@@ -119,7 +119,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
           )}
         </div>
 
-        <div className={styles.userNamePopupWrapper} ref={node}>
+        <div className={styles.userNamePopupWrapper} >
           <div className={styles.usernameContainer}>
             <div className={styles.nameLetterDiv}>
               {user.firstName ? <p>{user.firstName.charAt(0)}</p> : null}
@@ -134,8 +134,8 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
             </div>
           </div>
 
-          {open && (
-            <div className={styles.popUp}>
+          {/* {open && (
+            <div className={`${styles.popUp}`}>
               <div className={styles.nameDiv}>
                 <p>{user.firstName + " " + user.lastName}</p>
               </div>
@@ -143,7 +143,7 @@ const Navbar = ({ fieldLength, setFieldLength }) => {
                 <p>Log Out</p>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>

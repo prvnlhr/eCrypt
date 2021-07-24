@@ -293,8 +293,9 @@ const Card = ({ card, setEditButton, showEditButton }) => {
         )}
       </div>
 
-      <h1 className={styles.overlayFont}>{cardType}</h1>
-      <div className={styles.overlayDiv}></div>
+      <div className={styles.overlayDiv}>
+        <h1 className={styles.overlayFont}>{cardType}</h1>
+      </div>
     </div>
   );
 };
