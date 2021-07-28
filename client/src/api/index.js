@@ -2,7 +2,6 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL: "https://ecrypt.herokuapp.com",
-
 });
 
 // const API = axios.create({ baseURL: "http://localhost:9000" });

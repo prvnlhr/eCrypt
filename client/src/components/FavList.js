@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Route, NavLink } from "react-router-dom";
+import { Route, NavLink, Redirect, useHistory } from "react-router-dom";
 import { fetchFavorites } from "../actions/favouriteAction";
 
 import FavCardList from "./FavCardList";
@@ -15,13 +15,24 @@ const FavList = ({
   favoritesDocsArray,
   favoritesLoginsArray,
   setHeading,
+  maxImg,
+  setMaxImg,
 }) => {
+  const history = useHistory();
+
   const userId = useSelector((state) => state.user.user._id);
 
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   history.push({
+  //     pathname: "/favorites/favoritesLogins",
+  //   });
+  // }, []);
+
   useEffect(() => {
     setHeading("Favorites");
+    // <Redirect to={{pathname: "/favorites/favoritesLogins"}} />;
 
     dispatch(fetchFavorites(userId));
   }, [dispatch, userId]);
@@ -33,7 +44,7 @@ const FavList = ({
             backgroundColor: "#4CD7F6",
             color: "white",
             borderRadius: "20px",
-            width: "100px"
+            width: "100px",
           }}
           className={styles.navLink}
           to="/favorites/favoritesLogins"
@@ -42,7 +53,11 @@ const FavList = ({
           Logins
         </NavLink>
         <NavLink
-          activeStyle={{ backgroundColor: "#4CD7F6", color: "white",width: "100px" }}
+          activeStyle={{
+            backgroundColor: "#4CD7F6",
+            color: "white",
+            width: "100px",
+          }}
           className={styles.navLink}
           to="/favorites/favoritesCards"
         >
@@ -69,7 +84,11 @@ const FavList = ({
           <FavLoginList favoritesLoginsArray={favoritesLoginsArray} />
         </Route>
         <Route path="/favorites/favoritesDocs">
-          <FavDocsList favoritesDocsArray={favoritesDocsArray} />
+          <FavDocsList
+            favoritesDocsArray={favoritesDocsArray}
+            maxImg={maxImg}
+            setMaxImg={setMaxImg}
+          />
         </Route>
       </div>
     </div>

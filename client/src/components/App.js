@@ -70,7 +70,15 @@ const App = () => {
 
   return (
     <div className={styles.app}  >
-      <div className={styles.appBgDiv1}></div>
+      <div className={styles.appBgDiv1}>
+
+<div className={styles.section1}></div>
+<div className={styles.section2}></div>
+<div className={styles.section3}></div>
+
+
+
+      </div>
 
       <Switch>
         <Route exact path="/user/reset/:token" component={ResetPassword} />

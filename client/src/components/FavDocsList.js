@@ -5,7 +5,7 @@ import listStyles from "../css/favList.module.css";
 import noContentStyles from "../css/noContentMessage.module.css";
 import { FiPlusCircle } from "react-icons/fi";
 
-const FavDocsList = ({ favoritesDocsArray }) => {
+const FavDocsList = ({ favoritesDocsArray, maxImg, setMaxImg }) => {
   return (
     <div className={listStyles.favDocList}>
       {favoritesDocsArray.length < 1 ? (
@@ -15,7 +15,7 @@ const FavDocsList = ({ favoritesDocsArray }) => {
       ) : null}
       {favoritesDocsArray.map((favItem) => (
         <>
-          <FavDoc favItem={favItem} />
+          <FavDoc favItem={favItem} maxImg={maxImg} setMaxImg={setMaxImg} />
         </>
       ))}
     </div>

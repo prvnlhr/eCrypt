@@ -4,7 +4,7 @@
   /* top: 0px; */
   /* border-bottom: 1px solid #7e7f803d; */
   /* border-bottom: 1px solid rgb(3, 3, 3); */
-  border-bottom: 1px solid #bcdfe3;
+  /* border-bottom: 1px solid #bcdfe3; */
 
   /* border: 1px solid blue; */
 
@@ -12,8 +12,8 @@
   grid-row-end: 2;
   /* grid-column-start: 2;
   grid-column-end: 3; */
-  grid-column-start: 1;
-  grid-column-end: 4;
+  /* grid-column-start: 1; */
+  /* grid-column-end: 4; */
   width: 100% !important;
   height: 100%;
   display: grid;
@@ -27,13 +27,17 @@
   -webkit-backdrop-filter: blur(2em);
   backdrop-filter: blur(2em); */
 
-  background-color: rgba(255, 255, 255, 0.432);
+  /* background-color: rgba(255, 255, 255, 0.432);
   -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
-
+  backdrop-filter: blur(20px); */
+  /* 
   background-color: rgba(255, 255, 255, 0.062);
   -webkit-backdrop-filter: blur(20px);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); */
+
+  /* background-color: rgba(255, 255, 255, 0.267);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); */
   /* z-index: 10; */
   /* z-index: -1; */
 }
@@ -132,7 +136,7 @@
 }
 .popUp {
   position: absolute;
-  right:0px;
+  right: 0px;
   /* bottom: -70px; */
   width: 150px;
   top: 15px;
@@ -304,7 +308,7 @@
 }
 
 .logoContainer {
-  position: absolute;
+  /* position: absolute; */
   /* top: 15px; */
   left: 0px;
   /* top: 0px; */
@@ -355,6 +359,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  box-sizing: border-box;
+  padding-left: 30px;
 }
 .rightPortion {
   grid-column-start: 2;
@@ -371,7 +377,7 @@
   width: 200px;
   /* min-width: 100px; */
   height: 25px;
-  /* border: 1px solid rgb(236, 236, 236); */
+  border: 1px solid rgba(236, 236, 236, 0.452);
   /* border: 1.5px solid black; */
   margin: 5px 5px 5px 5px;
   display: flex;
@@ -497,8 +503,8 @@
 }
 ::placeholder {
   font-family: "Nunito", sans-serif;
-  color: slategray;
-  font-weight: 550;
+  color: rgb(214, 215, 216);
+  /* font-weight: 550; */
   letter-spacing: 0.2px;
   font-size: 13px;
 }
@@ -527,5 +533,8 @@
     /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
 
     /* border: 1px solid red; */
+  }
+  .leftPortion {
+    padding-left: 5px;
   }
 }

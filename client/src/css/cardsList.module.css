@@ -49,9 +49,9 @@
   /* background-color: rgba(255, 255, 255, 0.432);
   -webkit-backdrop-filter: blur(2em);
   backdrop-filter: blur(2em); */
-
+  /* padding-top: 20px; */
+  box-sizing: border-box;
 }
- 
 
 .opacity {
   opacity: 0;
@@ -77,46 +77,47 @@
   /* border-radius: 0px 0px 20px 0px; */
   /* scroll-snap-type: y mandatory; */
   scroll-behavior: smooth;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+
   -webkit-animation: scale-in-ver-top 0.4s both;
   animation: scale-in-ver-top 0.4s both;
 }
- 
+
 @-webkit-keyframes scale-in-ver-top {
   0% {
     -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    transform: scaleY(0);
     -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
     opacity: 1;
   }
   100% {
     -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    transform: scaleY(1);
     -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
     opacity: 1;
   }
 }
 @keyframes scale-in-ver-top {
   0% {
     -webkit-transform: scaleY(0);
-            transform: scaleY(0);
+    transform: scaleY(0);
     -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
     opacity: 1;
   }
   100% {
     -webkit-transform: scaleY(1);
-            transform: scaleY(1);
+    transform: scaleY(1);
     -webkit-transform-origin: 100% 0%;
-            transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
     opacity: 1;
   }
 }
-
-
-
-
 
 .contentContainerCollapse {
   border-radius: 0px 0px 0px 0px;
@@ -163,4 +164,12 @@
 .contentContainerCollapse::-webkit-scrollbar-thumb {
   background-color: #4cd7f6;
   border-radius: 4px;
+}
+
+
+@media screen and (max-width: 650px) {
+  .contentContainer {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

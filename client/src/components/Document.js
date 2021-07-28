@@ -12,7 +12,13 @@ import { IoMdTrash } from "react-icons/io";
 
 import { HiPencil, HiStar, HiOutlineStar, HiCheck, HiX } from "react-icons/hi";
 
-const Document = ({ doc, showEditButton, setEditButton }) => {
+const Document = ({
+  doc,
+  showEditButton,
+  setEditButton,
+  maxImg,
+  setMaxImg,
+}) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.user._id);
   const crud = useSelector((state) => state.crud);
@@ -50,9 +56,10 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
   const save = (id) => {
     dispatch(editDoc(id, userId, title));
   };
-  const maximizeImg = (docId) => {
-    setEditId(doc._id);
-    setEnlarge(!maximize);
+  const handleMaximize = (docId) => {
+    // setEditId(doc._id);
+    // setEnlarge(!maximize);
+    setMaxImg(doc.imageUrl);
   };
   const minimizeImg = () => {
     setEditId(null);
@@ -194,22 +201,22 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
         </div>
       )} */}
 
-      <div
-        className={
-          editId === doc._id && maximize === true
-            ? styles.imageContainerMaximize
-            : styles.imageContainer
-        }
-      >
-        <img
-          className={
-            editId === doc._id && maximize === true
-              ? styles.docImgMaximized
-              : styles.docImg
-          }
-          src={doc.imageUrl}
-          onClick={maximizeImg}
-        ></img>
+      <div className={styles.imageContainer}>
+        <img src={doc.imageUrl} onClick={handleMaximize}></img>
+        <div className={styles.favBtnDiv}>
+          <div
+            className={styles.favBtn}
+            onClick={() => {
+              handleFavToggle(doc._id, doc.isFavourite);
+            }}
+          >
+            {doc.isFavourite ? (
+              <HiStar className={styles.favIconFilled} color="#4CD7F6" />
+            ) : (
+              <HiOutlineStar className={styles.favIcon} color="#9baece" />
+            )}
+          </div>
+        </div>
       </div>
 
       {editId === doc._id && maximize === true ? null : (
@@ -274,9 +281,9 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
           {editId === doc._id && maximize === true ? null : (
             <div className={styles.buttonContainer}>
               {maximize === true && editId === doc._id ? (
-                <div className={styles.minimizeBtn} onClick={minimizeImg}></div>
+                <div className={styles.minimizeBtn}></div>
               ) : (
-                <div className={styles.minimizeBtn} onClick={maximizeImg}></div>
+                <div className={styles.minimizeBtn}></div>
               )}
 
               <div className={styles.editBtnWrapper}>
@@ -338,20 +345,6 @@ const Document = ({ doc, showEditButton, setEditButton }) => {
                 ) : (
                   <IoMdTrash className={styles.deleteIcon} color="#9baece" />
                 )}
-              </div>
-              <div className={styles.favBtnDiv}>
-                <div
-                  className={styles.favBtn}
-                  onClick={() => {
-                    handleFavToggle(doc._id, doc.isFavourite);
-                  }}
-                >
-                  {doc.isFavourite ? (
-                    <HiStar className={styles.favIconFilled} color="#4CD7F6" />
-                  ) : (
-                    <HiOutlineStar className={styles.favIcon} color="#9baece" />
-                  )}
-                </div>
               </div>
             </div>
           )}

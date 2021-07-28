@@ -22,7 +22,7 @@ const FavouriteLoginId = ({ favItem }) => {
   };
 
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.loginContainer}>
       <button
         className={styles.favBtn}
         onClick={() => {

@@ -11,9 +11,7 @@ import btnStyles from "../css/buttons.module.css";
 import { FiPlusCircle } from "react-icons/fi";
 import { CgAdd } from "react-icons/cg";
 
-
-
-const DocsList = ({ docs, setHeading }) => {
+const DocsList = ({ docs, setHeading, maxImg, setMaxImg }) => {
   const isLoading = useSelector((state) => state.loading.isLoading);
   const [showEditButton, setEditButton] = useState(true);
   const crud = useSelector((state) => state.crud);
@@ -60,6 +58,8 @@ const DocsList = ({ docs, setHeading }) => {
               showEditButton={showEditButton}
               setEditButton={setEditButton}
               doc={doc}
+              maxImg={maxImg}
+              setMaxImg={setMaxImg}
             />
           </>
         ))}

@@ -20,6 +20,8 @@ const ContentDisplay = ({
   setHeading,
   fieldLength,
   setFieldLength,
+  maxImg,
+  setMaxImg,
 }) => {
   const dispatch = useDispatch();
 
@@ -67,6 +69,8 @@ const ContentDisplay = ({
         <SearchList
           searchResultArray={searchResultArray}
           setHeading={setHeading}
+          maxImg={maxImg}
+          setMaxImg={setMaxImg}
         />
       ) : null}
 
@@ -100,7 +104,13 @@ const ContentDisplay = ({
         <Route
           path="/documents"
           render={(props) => (
-            <DocsList {...props} docs={docsArray} setHeading={setHeading} />
+            <DocsList
+              {...props}
+              docs={docsArray}
+              setHeading={setHeading}
+              maxImg={maxImg}
+              setMaxImg={setMaxImg}
+            />
           )}
         />
 
@@ -118,6 +128,8 @@ const ContentDisplay = ({
               favoritesCardsArray={favoritesCardsArray}
               favoritesDocsArray={favoritesDocsArray}
               favoritesLoginsArray={favoritesLoginsArray}
+              maxImg={maxImg}
+              setMaxImg={setMaxImg}
             />
           )}
         />

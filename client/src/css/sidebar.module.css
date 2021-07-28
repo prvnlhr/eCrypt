@@ -31,13 +31,13 @@
   width: 100% !important;
   height: 100%;
   display: grid;
-  /* display: none; */
+  display: none;
 
   /* grid-gap: 1px; */
   grid-template-rows: 10% 1fr;
 
   /* border-right: 1px solid #0e0d0d2a; */
-  border-right: 1px solid #bcdfe3;
+  /* border-right: 1px solid #bcdfe3; */
 
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 
@@ -46,22 +46,29 @@
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur( 20px ); */
 
-  background-color: rgba(255, 255, 255, 0.432);
+  /* background-color: rgba(255, 255, 255, 0.432);
   -webkit-backdrop-filter: blur(2em);
-  backdrop-filter: blur(2em);
+  backdrop-filter: blur(2em); */
 
-  background-color: rgba(255, 255, 255, 0.062);
+  /* background-color: rgba(255, 255, 255, 0.062);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px); */
+  
+  background-color: rgba(255, 255, 255, 0.267);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
 
 .burgerBtnContainer {
   position: relative;
+
   width: 99%;
   height: 100%;
   grid-row-start: 1;
   grid-row-end: 2;
   display: flex;
+  /* display: none; */
+
   justify-content: flex-end !important;
   align-items: center;
   margin: 0px 0px 0px 0px;

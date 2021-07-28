@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteLoginId } from "../actions/loginInIdsAction";
 import { loginIdFavToggle } from "../actions/loginInIdsAction";
+import { Icon } from '@iconify/react';
+
 
 import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
@@ -71,7 +73,7 @@ const LoginId = ({
   };
 
   return (
-    <div className={styles.cardContainer}>
+    <div className={styles.loginContainer}>
       {/* ___C_R_U_D_____________________BUTTONS */}
 
       {inEditMode === true ? (

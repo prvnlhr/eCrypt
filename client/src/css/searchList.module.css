@@ -23,14 +23,33 @@
   padding-top: 5%;
   background: hsla(205, 55%, 94%, 1);
 
-background: linear-gradient(90deg, hsla(205, 55%, 94%, 1) 19%, hsla(209, 94%, 93%, 1) 68%, hsla(208, 87%, 91%, 1) 98%);
+  background: linear-gradient(
+    90deg,
+    hsla(205, 55%, 94%, 1) 19%,
+    hsla(209, 94%, 93%, 1) 68%,
+    hsla(208, 87%, 91%, 1) 98%
+  );
 
-background: -moz-linear-gradient(90deg, hsla(205, 55%, 94%, 1) 19%, hsla(209, 94%, 93%, 1) 68%, hsla(208, 87%, 91%, 1) 98%);
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(205, 55%, 94%, 1) 19%,
+    hsla(209, 94%, 93%, 1) 68%,
+    hsla(208, 87%, 91%, 1) 98%
+  );
 
-background: -webkit-linear-gradient(90deg, hsla(205, 55%, 94%, 1) 19%, hsla(209, 94%, 93%, 1) 68%, hsla(208, 87%, 91%, 1) 98%);
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(205, 55%, 94%, 1) 19%,
+    hsla(209, 94%, 93%, 1) 68%,
+    hsla(208, 87%, 91%, 1) 98%
+  );
 
-filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E7F1F8", endColorstr="#DDEEFE", GradientType=1 );
-z-index: 1000;
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#E7F1F8", endColorstr="#DDEEFE", GradientType=1 );
+  z-index: 800;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 20px;
 
 }
 

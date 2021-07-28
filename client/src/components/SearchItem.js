@@ -9,13 +9,16 @@ import { FaUserAlt, FaLock } from "react-icons/fa";
 import LoginIdLogo from "./LoginIdLogo";
 import CardLogo, { getCardType } from "./CardLogo";
 
-const SearchItem = ({ item }) => {
+const SearchItem = ({ item, maxImg, setMaxImg }) => {
   const [maximize, setEnlarge] = useState(false);
   const [editId, setEditId] = useState(null);
 
   const maximizeImg = (docId) => {
     setEditId(item._id);
     setEnlarge(!maximize);
+  };
+  const handleMaximize = () => {
+    setMaxImg(item.imageUrl);
   };
   let formattedCardNo;
   let cNo;
@@ -32,7 +35,7 @@ const SearchItem = ({ item }) => {
     <>
       {item.website ? (
         <>
-          <div className={loginsStyles.cardContainer}>
+          <div className={loginsStyles.loginContainer}>
             <div className={loginsStyles.logoDiv}>
               <LoginIdLogo website={item.website} />
             </div>
@@ -108,21 +111,15 @@ const SearchItem = ({ item }) => {
         </>
       ) : item.imageName ? (
         <>
-          <div
-            className={
-              editId === item._id && maximize === true
-                ? styles.maximize
-                : styles.documentCard
-            }
-          >
-            <div className={styles.imageContainer}>
-              <img src={item.imageUrl} onClick={maximizeImg}></img>
+          <div className={docStyles.documentCard}>
+            <div className={docStyles.imageContainer}>
+              <img src={item.imageUrl} onClick={handleMaximize}></img>
             </div>
 
-            <div className={styles.imageTitleContainer}>
-              <div className={styles.titleDiv}>
+            <div className={docStyles.imageTitleContainer}>
+              <div className={docStyles.titleDiv}>
                 {maximize === false ? (
-                  <p className={styles.titleText}>{item.imageName}</p>
+                  <p className={docStyles.titleText}>{item.imageName}</p>
                 ) : null}
               </div>
             </div>

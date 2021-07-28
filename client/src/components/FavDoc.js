@@ -6,7 +6,7 @@ import styles from "../css/document.module.css";
 import favStyles from "../css/favouriteItem.module.css";
 import { HiStar, HiOutlineStar } from "react-icons/hi";
 
-const FavDoc = ({ favItem }) => {
+const FavDoc = ({ favItem ,maxImg,setMaxImg}) => {
   const dispatch = useDispatch();
   const [maximize, setEnlarge] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -24,7 +24,9 @@ const FavDoc = ({ favItem }) => {
     setEditId(favItem._id);
     setEnlarge(!maximize);
   };
-
+  const handleMaximize = () => {
+    setMaxImg(favItem.imageUrl);
+  };
   return (
     <div
       className={
@@ -47,7 +49,7 @@ const FavDoc = ({ favItem }) => {
               : styles.docImg
           }
           src={favItem.imageUrl}
-          onClick={maximizeImg}
+          onClick={handleMaximize}
         ></img>
       </div>
 

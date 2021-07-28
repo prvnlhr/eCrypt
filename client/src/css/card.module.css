@@ -2,8 +2,9 @@
   position: relative;
 
   width: 250px;
-  /* height: 150px !important; */
-  aspect-ratio: 8/5;
+  height: 155px;
+  /* max-height: 155px; */
+  aspect-ratio: 8/5 !important;
   /* aspect-ratio: 16/9; */
 
   /* width: 50%; */
@@ -14,6 +15,8 @@
   /* border: 1px solid red; */
   border-radius: 8px;
   margin: 20px 0px 5px 30px;
+  margin: 15px 15px 15px 15px;
+
   padding-left: 5px;
   /* padding-top: 5px; */
   display: grid;
@@ -57,6 +60,7 @@
   animation: scale-in-ver-top 0.4s both;
   /* z-index: 20; */
   /* overflow: hidden; */
+  box-sizing: border-box;
 }
 
 @-webkit-keyframes scale-in-ver-top {
@@ -106,7 +110,6 @@
   overflow: hidden;
   /* background-color: white; */
   padding: 0px;
-
 }
 .overlayFont {
   /* display: none; */
@@ -122,9 +125,7 @@
   bottom: -20px !important;
   left: 0px !important;
   margin: 0px 0px 0px 0px;
-
 }
-
 
 .cardContainer:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -181,6 +182,8 @@
   text-align: center;
   padding: 0px;
   z-index: 3;
+  /* box-sizing: border-box; */
+  /* padding-left: 5%; */
 }
 
 .cardNoText {
@@ -193,7 +196,7 @@
   letter-spacing: 0.5px;
   font-weight: bold !important;
   /* font-size: 14px !important; */
-  font-size: 1em !important;
+  font-size: 0.9em !important;
 
   color: slategray;
   text-shadow: 0.5px 0.5px rgb(202, 202, 202);
@@ -593,7 +596,7 @@
     aspect-ratio: 8/5;
     /* aspect-ratio: 16/9; */
 
-    /* height: 160px; */
+    height: auto;
     /* min-width: 250px; */
     /* max-width: 250px; */
     /* border: 1px solid red; */
@@ -624,6 +627,24 @@
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 5px;
+  }
+  .cardNoText {
+    /* width: 100%; */
+    /* margin: 0px 0px 0px 0px !important; */
+    margin: 0px 0px 0px 5%;
+
+    font-weight: bolder;
+    font-family: "Share Tech Mono", monospace;
+    letter-spacing: 0px;
+    font-weight: bold !important;
+    /* font-size: 14px !important; */
+    font-size: 1.1em !important;
+
+    color: slategray;
+    text-shadow: 0.5px 0.5px rgb(202, 202, 202);
+    /* z-index: 23; */
+    padding: 0px;
+    white-space: nowrap;
   }
   .cancelIcon {
     width: 20px;
@@ -725,7 +746,7 @@
     letter-spacing: 0px;
     font-weight: bold !important;
     /* font-size: 14px !important; */
-    font-size: 0.9em !important;
+    font-size: 1.1em !important;
 
     color: slategray;
     text-shadow: 0.5px 0.5px rgb(202, 202, 202);
