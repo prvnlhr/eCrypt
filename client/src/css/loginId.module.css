@@ -157,39 +157,50 @@
   color: #51cb02;
 }
 
-.editIcon {
+.editIconDiv {
   display: flex;
   justify-content: center;
   align-items: center;
   color: #b3bac3;
-  font-size: 17px;
 
   /* border: 1px solid black; */
 }
-.deleteIcon {
+.deleteIconDiv {
   /* width: 20px; */
   /* height: 20px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  color: gray;
-  color: #b3bac3;
 
   /* border: 1px solid black; */
 }
-.deleteIcon:hover {
-  color: #d11a2a;
-  transform: scale(1.05);
-  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+.favBtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  outline: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  /* border: 1px solid black; */
+  color: gray;
+  color: #b3bac3;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-.editIcon :hover {
-  color: orange;
-  transform: scale(1.05);
-  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
 
-  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+.favIcon {
+  font-size: 16px;
+}
+.trashIcon {
+  font-size: 1.2em;
+}
+.pencilIcon {
+  font-size: 1.2em;
 }
 
 .editInput {
@@ -366,35 +377,6 @@
 .editButton :hover {
   background-color: rgba(128, 128, 128, 0.514);
   border-radius: 50%;
-}
-.favBtn {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  background: none;
-  outline: none;
-  border: none;
-  width: 30px;
-  height: 30px;
-  /* border: 1px solid black; */
-  color: gray;
-  color: #b3bac3;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.favIcon:hover {
-  color: #2f89fc;
-}
-.favBtn:hover {
-  cursor: pointer;
-  /* transform: scale(1.05); */
-  color: #2f89fc;
-  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
-
-  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .dotMenuContainer {

@@ -3,7 +3,10 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteLoginId } from "../actions/loginInIdsAction";
 import { loginIdFavToggle } from "../actions/loginInIdsAction";
-import { Icon } from '@iconify/react';
+// npm install --save-dev @iconify/react @iconify-icons/bi
+// npm install --save-dev @iconify/react @iconify-icons/bi
+import { Icon, InlineIcon } from '@iconify/react';
+import bookmarkFill from '@iconify-icons/bi/bookmark-fill';
 
 
 import { CgTrashEmpty } from "react-icons/cg";
@@ -105,7 +108,7 @@ const LoginId = ({
           {showEditButton && inEditMode === false ? (
             <div className={styles.editDeleteDiv}>
               <div
-                className={styles.editIcon}
+                className={styles.editIconDiv}
                 onClick={() => {
                   setEditButton(null);
                   setEditId(loginId._id);
@@ -117,11 +120,11 @@ const LoginId = ({
                 crud.operation === "edit" ? (
                   <CircleSpinner size={10} color="gray" loading={true} />
                 ) : (
-                  <HiPencil color="#9baece" />
+                  <HiPencil className={styles.pencilIcon} color="#9baece" />
                 )}
               </div>
               <div
-                className={styles.deleteIcon}
+                className={styles.deleteIconDiv}
                 onClick={() => {
                   handleDeleteClick();
                   setEditId(loginId._id);
@@ -132,7 +135,7 @@ const LoginId = ({
                 crud.operation === "delete" ? (
                   <CircleSpinner size={10} color="gray" loading={true} />
                 ) : (
-                  <IoMdTrash color="#9baece" />
+                  <IoMdTrash className={styles.trashIcon} color="#9baece" />
                 )}
               </div>
             </div>
@@ -236,16 +239,21 @@ const LoginId = ({
         }}
       >
         {loginId.isFavourite ? (
-          <HiStar className={styles.favIcon} fontSize="18px" color="#4CD7F6" />
+        <Icon  className={styles.favIcon} icon={bookmarkFill} color="#00b7fd"  />
         ) : (
-          <HiOutlineStar
-            className={styles.favIcon}
-            fontSize="16px"
-            color="#9baece"
-          />
+          <Icon className={styles.favIcon} icon={bookmarkFill} color="#9baece"/>
         )}
       </button>
     </div>
   );
 };
 export default LoginId;
+
+// <HiStar className={styles.favIcon} fontSize="18px" color="#4CD7F6" />
+{
+  /* <HiOutlineStar
+className={styles.favIcon}
+fontSize="16px"
+color="#9baece"
+/> */
+}

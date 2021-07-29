@@ -1,36 +1,43 @@
 .documentCard {
   position: relative;
   width: 180px;
-  min-width: 180px;
-  height: 250px;
-  min-height: 250px;
+  /* min-width: 180px; */
+  /* height: 250px; */
+  /* min-height: 250px; */
+  aspect-ratio: 2/3;
+
   display: flex;
-  /* justify-content: space-around; */
+  /* justify-content: center; */
   /* align-items: center; */
   /* border: 1px solid red; */
-  display: grid;
-  grid-template-rows: 80% 20%;
+  /* display: grid; */
+  /* grid-template-rows: 80% 20%; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* grid-gap: 1px; */
   margin: 15px 0px 20px 30px;
-  /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
   border-radius: 5px;
   /* background-color: rgba(255, 255, 255, 0.021); */
   /* background-color: white; */
-  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); */
   /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(68, 61, 61, 0.24); */
   /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */
   /* border: 1px solid rgba(5, 5, 5, 0.082); */
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
   /* border: 1px solid white; */
-  background-color: rgba(255, 255, 255, 0.411);
+  /* background-color: rgba(255, 255, 255, 0.411); */
   /* filter: blur(50px); */
   /* backdrop-filter: blur(20px); */
   /* -webkit-backdrop-filter: blur(20px); */
   /* overflow: hidden; */
   /* z-index: inherit; */
+  /* border-radius: 10px; */
   z-index: 1;
-  -webkit-animation: scale-in-ver-top 0.4s both;
-  animation: scale-in-ver-top 0.4s both;
+  /* -webkit-animation: scale-in-ver-top 0.4s both; */
+  /* animation: scale-in-ver-top 0.4s both; */
+  box-sizing: border-box;
 }
 @-webkit-keyframes scale-in-ver-top {
   0% {
@@ -67,26 +74,29 @@
 
 .imageContainer {
   position: relative;
-  grid-row-start: 1;
-  grid-row-end: 2;
+  /* grid-row-start: 1; */
+  /* grid-row-end: 2; */
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-radius: 5px 5px 0px 0px; */
-  /* border: 1px solid cyan; */
-  /* background-size: contain; */
+  /* border-radius: 10px 10px 10px 10px; */
+  /* border: 1px solid black; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  overflow: hidden;
+  border-radius: 5px;
 }
 
 .imageContainer img {
   /* display: none; */
 
   position: relative;
-  height: 90%;
+  height: 98%;
   width: 90%;
   object-fit: contain;
-  /* object-fit: fill; */
+  /* object-fit: cover; */
   cursor: pointer;
 }
 
@@ -168,7 +178,7 @@
   width: 100%;
   height: 100%;
   display: grid;
-  /* display: none; */
+  display: none;
 
   /* grid-template-rows: 80% 20; */
   grid-template-rows: 50% 50%;
@@ -187,23 +197,38 @@
   /* -webkit-backdrop-filter: blur( 20.0px ); */
 }
 .titleDiv {
-  grid-row-start: 1;
-  grid-row-end: 2;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  position: absolute;
+  /* grid-row-start: 1; */
+  /* grid-row-end: 2; */
   /* grid-row-start: 1; */
   /* grid-row-end: 2; */
   /* border: 1px solid black; */
   width: 100%;
   height: 100%;
   display: flex;
+  /* width: 100%; */
+  height: 30px;
   /* display: none; */
-
+  /* border-radius:15px; */
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
+  background-color: rgba(255, 255, 255, 0.411);
+  background: #ffffff;
+  /* filter: blur(50px); */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   justify-content: center;
   text-align: center;
   align-items: center;
   overflow-x: scroll;
-  background: #ffffff;
-
+  margin-left: auto;
+  margin-right: auto;
   /* overflow-wrap: normal; */
+  border-radius: 0px 0px 5px 5px;
+  box-sizing: border-box;
 }
 .titleDiv p {
   font-family: "Nunito", sans-serif;
@@ -220,18 +245,22 @@
 }
 
 .buttonContainer {
-  position: relative;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   width: 100%;
-  height: 100%;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  height: 25px;
+  /* grid-row-start: 2; */
+  /* grid-row-end: 3; */
   /* border: 1px solid blue; */
   display: flex;
   /* display: none; */
 
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
-  /* background: rgba(255, 255, 255, 0.75); */
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(40px);
   /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
   /* backdrop-filter: blur(16px); */
   /* -webkit-backdrop-filter: blur(16px); */
@@ -243,13 +272,16 @@
   /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
   /* backdrop-filter: blur( 20.0px ); */
   /* -webkit-backdrop-filter: blur( 20.0px ); */
+  border-radius: 5px 5px 0px 0px;
+
+  box-sizing: border-box;
 }
 
 .favBtnDiv {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  width: 25px;
+  position: relative;
+  /* top: 0px; */
+  /* right: 0px; */
+  width: 35px;
   height: 25px;
   cursor: pointer;
   display: flex;
@@ -257,10 +289,10 @@
   align-items: center;
   /* border: 1px solid blue; */
   /* margin: 0px 10px 0px 10px; */
-  background-color: rgba(255, 255, 255, 0.61);
+  /* background-color: rgba(255, 255, 255, 0.61); */
   /* filter: blur(50px); */
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  /* backdrop-filter: blur(2px); */
+  /* -webkit-backdrop-filter: blur(2px); */
 }
 .favBtn {
   width: 100%;
@@ -272,16 +304,13 @@
   /* border: 1px solid blue; */
 }
 
-.favIcon:hover {
-  color: #2f89fc;
-}
 .editBtnWrapper {
   /* grid-row-start: 2; */
   /* grid-row-end: 3; */
   grid-column-start: 2;
   grid-column-end: 3;
   /* border: 1px solid black; */
-  width: 25%;
+  width: 50px;
   height: 100%;
   /* font-size: 10px; */
   display: flex;
@@ -296,7 +325,7 @@
   /* border: 1px solid red; */
   /* width: 50%; */
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 }
 .editBtnDiv :hover {
@@ -311,9 +340,7 @@
   justify-content: flex-end;
   align-items: center;
 }
-.cancelBtnDiv :hover {
-  color: red;
-}
+
 .saveBtnDiv {
   width: 50%;
   height: 100%;
@@ -343,16 +370,12 @@
   cursor: pointer;
 }
 .favIcon {
-  font-size: 18px;
-  cursor: pointer;
-}
-.favIconFilled {
-  font-size: 19px;
+  font-size: 16px;
   cursor: pointer;
 }
 
 .imageDeleteBtnDiv {
-  width: 25%;
+  width: 35px;
   height: 100%;
   cursor: pointer;
   display: flex;
@@ -363,17 +386,10 @@
   color: gray;
   color: #b3bac3;
 }
-.imageDeleteBtnDiv:hover {
-  color: #d11a2a;
-  transform: scale(1.05);
-  /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
-
-  /* transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1); */
-}
 
 .titleInput {
   width: 90%;
-  /* height: 80%; */
+  height: 70%;
   overflow-x: scroll;
   outline: none;
   border-bottom: 1px solid rgb(151, 151, 151);
@@ -381,8 +397,9 @@
   border-left: none;
   border-right: none;
   border: 1px dotted rgb(255, 196, 1);
-  background-color: rgb(255, 255, 255);
+  background: transparent;
   border-radius: 5px;
+  /* border-radius:15px; */
 
   /* display: flex; */
   /* justify-content: flex-start; */
@@ -390,7 +407,7 @@
   /* border: 1px solid rgb(151, 151, 151); */
   text-align: center;
   color: black;
-  margin: 0px 0px 0px 3px;
+  margin: 0px 0px 0px 0px;
   font-size: 15px;
 }
 
@@ -439,15 +456,17 @@
 @media screen and (max-width: 465px) {
   .documentCard {
     position: relative;
-    height: 300px;
-    width: 75%;
+    /* height: 300px; */
+    width: 40%;
+    aspect-ratio: 2/3;
+
     display: flex;
     transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-    display: grid;
-    grid-template-rows: 80% 20%;
+    /* display: grid; */
+    /* grid-template-rows: 80% 20%; */
     /* grid-gap: 1px; */
     margin: 20px 15px 20px 15px;
-    border-radius: 3px;
+    /* border-radius: 3px; */
 
     /* min-width: 180px; */
     /* height: 250px; */
@@ -530,7 +549,7 @@
     cursor: pointer;
   }
   .favIcon {
-    font-size: 19px;
+    font-size: 16px;
     cursor: pointer;
   }
   .favIconFilled {

@@ -55,10 +55,10 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
           </div>
         ) : null}
 
-        {cards.map((card) => (
+        {cards.map((card,index) => (
           <>
             <Card
-              key={card._id}
+              index={index}
               card={card}
               setCurrentId={setCurrentId}
               formMode={formMode}

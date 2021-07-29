@@ -52,7 +52,7 @@ const App = () => {
       const decodedToken = jwt_decode(token);
       const expiry = decodedToken.exp * 1000;
       const currentTime = new Date().getTime();
-      console.log(expiry < currentTime);
+      // console.log(expiry < currentTime);
       if (expiry < currentTime) {
         dispatch(getToken(null));
       }

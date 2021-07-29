@@ -37,7 +37,7 @@ const Home = () => {
     setMaxImg(null);
   };
   useEffect(() => {
-    console.log(maxImg);
+    // console.log(maxImg);
   }, [maxImg]);
   // useEffect(() => {
   //   // add when mounted
@@ -58,7 +58,7 @@ const Home = () => {
   const toggleSidebar = () => {
     setSidebarShow(!sidebarShow);
   };
-  console.log(open);
+  // console.log(open);
   return (
     <div className={homeStyles.homeComponent}>
       <div className={navStyles.popupWrapper} ref={node}>

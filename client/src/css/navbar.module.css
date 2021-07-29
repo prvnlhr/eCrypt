@@ -118,6 +118,13 @@
   /* border: 1px solid black; */
   cursor: pointer;
   /* z-index: 45; */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .downChevron {
   margin: 0px;
@@ -235,6 +242,7 @@
   background-color: rgba(253, 1, 1, 0.425);
   cursor: pointer;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
+  
 }
 
 .lgOutBtnDiv p {

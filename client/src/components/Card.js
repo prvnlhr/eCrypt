@@ -7,13 +7,15 @@ import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
 import { CgCloseO } from "react-icons/cg";
 import { IoMdTrash } from "react-icons/io";
+import { Icon, InlineIcon } from "@iconify/react";
+import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 
 import { HiPencil, HiCheck, HiX, HiStar, HiOutlineStar } from "react-icons/hi";
 import CardLogo, { getCardType } from "./CardLogo";
 import modalStyles from "../css/modal.module.css";
 import styles from "../css/card.module.css";
 
-const Card = ({ card, setEditButton, showEditButton }) => {
+const Card = ({ card, setEditButton, showEditButton, index }) => {
   const dispatch = useDispatch();
   const [modalShow, setModalShow] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -71,6 +73,7 @@ const Card = ({ card, setEditButton, showEditButton }) => {
   };
   return (
     <div
+      key={index}
       className={`${styles.cardContainer} ${
         cardType === "MASTER"
           ? styles.cardMaster
@@ -166,9 +169,17 @@ const Card = ({ card, setEditButton, showEditButton }) => {
           }}
         >
           {card.isFavourite ? (
-            <HiStar color="#4CD7F6" fontSize="20px" />
+            <Icon
+              className={styles.favIcon}
+              icon={bookmarkFill}
+              color="#00b7fd"
+            />
           ) : (
-            <HiOutlineStar color="#9baece" />
+            <Icon
+              className={styles.favIcon}
+              icon={bookmarkFill}
+              color="#9baece"
+            />
           )}
         </button>
       </div>

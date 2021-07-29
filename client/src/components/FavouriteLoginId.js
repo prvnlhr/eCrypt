@@ -5,7 +5,8 @@ import { FaUserAlt, FaLock } from "react-icons/fa";
 import { HiStar, HiOutlineStar } from "react-icons/hi";
 import LoginIdLogo from "./LoginIdLogo";
 import styles from "../css/loginId.module.css";
-
+import { Icon, InlineIcon } from "@iconify/react";
+import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 const FavouriteLoginId = ({ favItem }) => {
   const dispatch = useDispatch();
 
@@ -30,9 +31,17 @@ const FavouriteLoginId = ({ favItem }) => {
         }}
       >
         {favItem.isFavourite ? (
-          <HiStar className={styles.favIcon} fontSize="18px" color="#4CD7F6" />
-        ) : (
-          <HiOutlineStar className={styles.favIcon} fontSize="16px" />
+       <Icon
+       className={styles.favIcon}
+       icon={bookmarkFill}
+       color="#00b7fd"
+     />
+   ) : (
+     <Icon
+       className={styles.favIcon}
+       icon={bookmarkFill}
+       color="#9baece"
+     />
         )}
       </button>
       <div className={styles.logoDiv}>

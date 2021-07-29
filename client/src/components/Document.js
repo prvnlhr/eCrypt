@@ -9,7 +9,8 @@ import { deleteDoc, editDoc, docFavToggle } from "../actions/documentsAction";
 import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
 import { IoMdTrash } from "react-icons/io";
-
+import { Icon, InlineIcon } from "@iconify/react";
+import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 import { HiPencil, HiStar, HiOutlineStar, HiCheck, HiX } from "react-icons/hi";
 
 const Document = ({
@@ -79,13 +80,7 @@ const Document = ({
   // };
 
   return (
-    <div
-      className={
-        editId === doc._id && maximize === true
-          ? styles.maximize
-          : styles.documentCard
-      }
-    >
+    <div className={styles.documentCard}>
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
           <div className={modalStyles.dialogDiv}>
@@ -203,25 +198,129 @@ const Document = ({
 
       <div className={styles.imageContainer}>
         <img src={doc.imageUrl} onClick={handleMaximize}></img>
-        <div className={styles.favBtnDiv}>
-          <div
-            className={styles.favBtn}
-            onClick={() => {
-              handleFavToggle(doc._id, doc.isFavourite);
-            }}
-          >
-            {doc.isFavourite ? (
-              <HiStar className={styles.favIconFilled} color="#4CD7F6" />
+
+        <div className={styles.titleDiv}>
+          {inEditMode ? (
+            <input
+              className={styles.titleInput}
+              value={title.imageName}
+              onChange={(e) =>
+                setTitle({ ...title, imageName: e.target.value })
+              }
+            ></input>
+          ) : (
+            <p className={styles.titleText}>{doc.imageName}</p>
+          )}
+        </div>
+        {editId === doc._id && maximize === true ? null : (
+        <div className={styles.buttonContainer}>
+          {maximize === true && editId === doc._id ? (
+            <div className={styles.minimizeBtn}></div>
+          ) : (
+            <div className={styles.minimizeBtn}></div>
+          )}
+
+          <div className={styles.editBtnWrapper}>
+            {inEditMode ? (
+              <>
+                <div className={styles.saveBtnDiv}>
+                  <HiCheck
+                    color="#9baece"
+                    className={styles.saveIcon}
+                    onClick={() => {
+                      save(doc._id);
+                      setEditId(null);
+                      setInEditMode(!inEditMode);
+                      setEditButton(true);
+                    }}
+                  />
+                </div>
+                <div className={styles.cancelBtnDiv}>
+                  <HiX
+                    color="#9baece"
+                    className={styles.cancelIcon}
+                    onClick={() => {
+                      setEditId(null);
+                      setInEditMode(!inEditMode);
+                      setEditButton(true);
+                    }}
+                  />
+                </div>
+              </>
             ) : (
-              <HiOutlineStar className={styles.favIcon} color="#9baece" />
+              <>
+                {showEditButton && inEditMode === false ? (
+                  <div className={styles.editBtnDiv}>
+                    <HiPencil
+                      color="#9baece"
+                      className={styles.editIcon}
+                      onClick={() => {
+                        setEditButton(null);
+                        setEditId(doc._id);
+                        setInEditMode(!inEditMode);
+                      }}
+                    />
+                  </div>
+                ) : null}
+              </>
             )}
           </div>
+          <div
+            className={styles.imageDeleteBtnDiv}
+            //  onClick={handleDelete}
+            onClick={() => {
+              handleDeleteClick();
+            }}
+          >
+            {crud.inProcess &&
+            crud.itemId === doc._id &&
+            crud.operation === "delete" ? (
+              <CircleSpinner size={10} color="gray" loading={true} />
+            ) : (
+              <IoMdTrash className={styles.deleteIcon} color="#9baece" />
+            )}
+          </div>
+          <div className={styles.favBtnDiv}>
+            <div
+              className={styles.favBtn}
+              onClick={() => {
+                handleFavToggle(doc._id, doc.isFavourite);
+              }}
+            >
+              {doc.isFavourite ? (
+                <Icon
+                  className={styles.favIcon}
+                  icon={bookmarkFill}
+                  color="#00b7fd"
+                />
+              ) : (
+                <Icon
+                  className={styles.favIcon}
+                  icon={bookmarkFill}
+                  color="#9baece"
+                />
+              )}
+            </div>
+          </div>
         </div>
+      )}
       </div>
 
-      {editId === doc._id && maximize === true ? null : (
+     
+
+      {/* {editId === doc._id && maximize === true ? null : (
         <div className={styles.imageTitleContainer}>
-          <div className={styles.titleDiv}>
+        
+          
+        </div>
+      )} */}
+    </div>
+  );
+};
+
+export default Document;
+{
+  /* <div className={styles.titleDiv}>
             {inEditMode ? (
               <input
                 className={styles.titleInput}
@@ -233,9 +332,11 @@ const Document = ({
             ) : (
               <p className={styles.titleText}>{doc.imageName}</p>
             )}
-          </div>
+          </div> */
+}
 
-          {/* <div className={styles.titleBtnDiv}>
+{
+  /* <div className={styles.titleBtnDiv}>
             {inEditMode ? (
               <>
                 <div className={styles.saveBtnDiv}>
@@ -276,82 +377,5 @@ const Document = ({
                 ) : null}
               </>
             )}
-          </div> */}
-
-          {editId === doc._id && maximize === true ? null : (
-            <div className={styles.buttonContainer}>
-              {maximize === true && editId === doc._id ? (
-                <div className={styles.minimizeBtn}></div>
-              ) : (
-                <div className={styles.minimizeBtn}></div>
-              )}
-
-              <div className={styles.editBtnWrapper}>
-                {inEditMode ? (
-                  <>
-                    <div className={styles.saveBtnDiv}>
-                      <HiCheck
-                        color="#9baece"
-                        className={styles.saveIcon}
-                        onClick={() => {
-                          save(doc._id);
-                          setEditId(null);
-                          setInEditMode(!inEditMode);
-                          setEditButton(true);
-                        }}
-                      />
-                    </div>
-                    <div className={styles.cancelBtnDiv}>
-                      <HiX
-                        color="#9baece"
-                        className={styles.cancelIcon}
-                        onClick={() => {
-                          setEditId(null);
-                          setInEditMode(!inEditMode);
-                          setEditButton(true);
-                        }}
-                      />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    {showEditButton && inEditMode === false ? (
-                      <div className={styles.editBtnDiv}>
-                        <HiPencil
-                          color="#9baece"
-                          className={styles.editIcon}
-                          onClick={() => {
-                            setEditButton(null);
-                            setEditId(doc._id);
-                            setInEditMode(!inEditMode);
-                          }}
-                        />
-                      </div>
-                    ) : null}
-                  </>
-                )}
-              </div>
-              <div
-                className={styles.imageDeleteBtnDiv}
-                //  onClick={handleDelete}
-                onClick={() => {
-                  handleDeleteClick();
-                }}
-              >
-                {crud.inProcess &&
-                crud.itemId === doc._id &&
-                crud.operation === "delete" ? (
-                  <CircleSpinner size={10} color="gray" loading={true} />
-                ) : (
-                  <IoMdTrash className={styles.deleteIcon} color="#9baece" />
-                )}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default Document;
+          </div> */
+}

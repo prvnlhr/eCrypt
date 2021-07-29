@@ -5,7 +5,8 @@ import { docFavToggle } from "../actions/documentsAction";
 import styles from "../css/document.module.css";
 import favStyles from "../css/favouriteItem.module.css";
 import { HiStar, HiOutlineStar } from "react-icons/hi";
-
+import { Icon, InlineIcon } from "@iconify/react";
+import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 const FavDoc = ({ favItem ,maxImg,setMaxImg}) => {
   const dispatch = useDispatch();
   const [maximize, setEnlarge] = useState(false);
@@ -69,9 +70,9 @@ const FavDoc = ({ favItem ,maxImg,setMaxImg}) => {
                   }}
                 >
                   {favItem.isFavourite ? (
-                    <HiStar className={styles.favIcon} color="#4CD7F6" />
-                  ) : (
-                    <HiOutlineStar className={styles.favIcon} />
+                       <Icon  className={styles.favIcon} icon={bookmarkFill} color="#00b7fd"  />
+                       ) : (
+                         <Icon className={styles.favIcon} icon={bookmarkFill} color="#9baece"/>
                   )}
                 </div>
               </div>

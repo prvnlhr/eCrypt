@@ -6,7 +6,8 @@ import { HiStar, HiOutlineStar } from "react-icons/hi";
 
 import CardLogo, { getCardType } from "./CardLogo";
 import styles from "../css/card.module.css";
-
+import { Icon, InlineIcon } from "@iconify/react";
+import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 const FavouriteCard = ({ favItem }) => {
   const dispatch = useDispatch();
 
@@ -86,9 +87,17 @@ const FavouriteCard = ({ favItem }) => {
         }}
       >
         {favItem.isFavourite ? (
-          <HiStar fontSize="24px" color="#4CD7F6" />
-        ) : (
-          <HiOutlineStar fontSize="16px" color="gray" />
+     <Icon
+     className={styles.favIcon}
+     icon={bookmarkFill}
+     color="#00b7fd"
+   />
+ ) : (
+   <Icon
+     className={styles.favIcon}
+     icon={bookmarkFill}
+     color="#9baece"
+   />
         )}
       </button>
       <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
