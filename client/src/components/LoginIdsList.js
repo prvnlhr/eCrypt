@@ -27,8 +27,9 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   };
 
   return (
-    <div className={styles.loginsList}>
+    <div className={styles.loginsList} >
       <div
+  
         className={
           formMode === false
             ? styles.contentContainer

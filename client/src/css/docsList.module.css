@@ -15,8 +15,8 @@
   /* align-items: center; */
   /* justify-content: flex-start; */
   /* border-radius: 10px 10px 0px 0px; */
-  -webkit-animation: scale-in-center 400ms both;
-  animation: scale-in-center 400ms both;
+  /* -webkit-animation: scale-in-center 400ms both; */
+  /* animation: scale-in-center 400ms both; */
   z-index: 99;
   /* padding-top: 20px; */
   box-sizing: border-box;
@@ -41,46 +41,12 @@
   /* overflow: scroll !important; */
   /* border-radius: 0px 0px 20px 0px; */
 
-  /* -webkit-animation: scale-in-ver-top 0.4s both; */
-  /* animation: scale-in-ver-top 0.4s both; */
   box-sizing: border-box;
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 20px;
 }
 
-@-webkit-keyframes scale-in-ver-top {
-  0% {
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-    opacity: 1;
-  }
-}
-@keyframes scale-in-ver-top {
-  0% {
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-    opacity: 1;
-  }
-}
 .contentContainerCollapse {
   border-radius: 0px 0px 0px 0px;
   border-radius: 20px 20px 20px 20px;
@@ -209,7 +175,6 @@
   letter-spacing: 0.2px;
   font-size: 11.5px;
 }
-
 
 @media screen and (max-width: 650px) {
   .contentContainer {

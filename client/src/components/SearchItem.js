@@ -116,12 +116,8 @@ const SearchItem = ({ item, maxImg, setMaxImg }) => {
               <img src={item.imageUrl} onClick={handleMaximize}></img>
             </div>
 
-            <div className={docStyles.imageTitleContainer}>
-              <div className={docStyles.titleDiv}>
-                {maximize === false ? (
-                  <p className={docStyles.titleText}>{item.imageName}</p>
-                ) : null}
-              </div>
+            <div className={docStyles.titleDiv}>
+              <p className={docStyles.titleText}>{item.imageName}</p>
             </div>
           </div>
         </>

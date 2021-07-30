@@ -7,13 +7,22 @@ import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
 import { CgCloseO } from "react-icons/cg";
 import { IoMdTrash } from "react-icons/io";
-import { Icon, InlineIcon } from "@iconify/react";
-import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 
 import { HiPencil, HiCheck, HiX, HiStar, HiOutlineStar } from "react-icons/hi";
 import CardLogo, { getCardType } from "./CardLogo";
 import modalStyles from "../css/modal.module.css";
 import styles from "../css/card.module.css";
+// new icons set
+import { Icon, InlineIcon } from "@iconify/react";
+import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
+import pencilIcon from "@iconify-icons/akar-icons/pencil";
+import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
+import bookmarkStar from "@iconify-icons/bi/bookmark-star";
+import circleXFill from "@iconify-icons/akar-icons/circle-x-fill";
+import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
+import checkIcon from "@iconify-icons/bi/check";
+import xLg from "@iconify-icons/bi/x-lg";
+import trashEmpty from "@iconify-icons/gg/trash-empty";
 
 const Card = ({ card, setEditButton, showEditButton, index }) => {
   const dispatch = useDispatch();
@@ -100,19 +109,19 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
     >
       <div className={styles.buttonDiv}>
         {inEditMode === true ? (
-          <div className={styles.saveCancelDiv}>
+          <div className={styles.checkCancelContainer}>
             <div
-              className={styles.cancelIcon}
+              className={styles.cancelIconDiv}
               onClick={() => {
                 setEditId(null);
                 setInEditMode(false);
                 setEditButton(true);
               }}
             >
-              <HiX color="#9baece" />
+              <HiX color="#9baece" className={styles.cancelIcon}/>
             </div>
             <div
-              className={styles.saveIcon}
+              className={styles.checkIconDiv}
               onClick={() => {
                 save(card._id);
                 setInEditMode(false);
@@ -120,15 +129,15 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                 setEditButton(true);
               }}
             >
-              <HiCheck color="#9baece" />
+              <HiCheck color="#9baece"    className={styles.checkIcon} />
             </div>
           </div>
         ) : (
           <>
             {showEditButton && inEditMode === false ? (
-              <div className={styles.editDeleteDiv}>
+              <div className={styles.editDeleteContainer}>
                 <div
-                  className={styles.editIcon}
+                  className={styles.editIconDiv}
                   onClick={() => {
                     setEditButton(null);
                     setEditId(card._id);
@@ -140,11 +149,15 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                   crud.operation === "edit" ? (
                     <CircleSpinner size={10} color="#9baece" loading={true} />
                   ) : (
-                    <HiPencil color="#9baece" />
+                    <Icon
+                      icon={pencilIcon}
+                      className={styles.pencilIcon}
+                      color="#9baece"
+                    />
                   )}
                 </div>
                 <div
-                  className={styles.deleteIcon}
+                  className={styles.deleteIconDiv}
                   onClick={() => {
                     handleDeleteClick();
                   }}
@@ -154,7 +167,11 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                   crud.operation === "delete" ? (
                     <CircleSpinner size={10} color="#9baece" loading={true} />
                   ) : (
-                    <IoMdTrash color="#9baece" />
+                    <Icon
+                      icon={trashEmpty}
+                      className={styles.trashIcon}
+                      color="#9baece"
+                    />
                   )}
                 </div>
               </div>
@@ -171,13 +188,13 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
           {card.isFavourite ? (
             <Icon
               className={styles.favIcon}
-              icon={bookmarkFill}
+              icon={bookmarkStarFill}
               color="#00b7fd"
             />
           ) : (
             <Icon
               className={styles.favIcon}
-              icon={bookmarkFill}
+              icon={bookmarkStar}
               color="#9baece"
             />
           )}

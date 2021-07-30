@@ -19,18 +19,44 @@ const Dashboard = ({ setHeading, activities }) => {
 
   return (
     <div className={styles.dashboardComponent}>
-      <div className={styles.countContainer}>
-        <div className={styles.countDiv}>
-          <div className={styles.count}>{cardsArray.length}</div>
-          <div className={styles.footer}>Total Cards</div>
+      <div className={styles.countWrapper}>
+        <div className={styles.countContainer}>
+          <div className={styles.countDiv}>
+            <p>
+
+            {cardsArray.length}
+            </p>
+            </div>
+          <div className={styles.footer}>
+          <div className={styles.underLineDiv1}></div>
+            <p>Cards</p>
+          </div>
         </div>
-        <div className={styles.countDiv}>
-          <div className={styles.count}>{loginIdsArray.length}</div>
-          <div className={styles.footer}>Total Logins</div>
+        <div className={styles.countContainer}>
+          <div className={styles.countDiv}>
+            <p>
+
+            {loginIdsArray.length}
+            </p>
+            </div>
+          <div className={styles.footer}>
+            <div className={styles.underLineDiv2}></div>
+          <p>Logins</p>
+
+            </div>
         </div>
-        <div className={styles.countDiv}>
-          <div className={styles.count}>{docsArray.length}</div>
-          <div className={styles.footer}>Total Docs</div>
+        <div className={styles.countContainer}>
+          <div className={styles.countDiv}>
+            <p>
+
+            {docsArray.length}
+            </p>
+            
+            </div>
+          <div className={styles.footer}>
+          <div className={styles.underLineDiv3}></div>
+            <p>Docs</p>
+            </div>
         </div>
       </div>
       <div className={styles.recentActivityListHeadingDiv}>

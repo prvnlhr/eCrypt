@@ -28,7 +28,7 @@ const TabBar = ({ fieldLength }) => {
 
     if (tabBarRef.current !== null) {
       // tabBarRef.current.scrollLeft = 150 + "px";
-      if (location.pathname === "/dashboard") {
+      if (location.pathname === "/dashboard" || "/") {
         // tabBarRef.current.scrollLeft = nav1.current.offsetLeft + "px";
         indicatorRef.current.style.left = nav1.current.offsetLeft + "px";
         nav1.current.scrollIntoView({ behavior: "smooth", inline: "center" });
@@ -98,6 +98,7 @@ const TabBar = ({ fieldLength }) => {
           >
             <NavLink
               to="/dashboard"
+              isActive={() => ["/", "/dashboard"].includes(location.pathname)}
               className={`${tabStyles.navLink}`}
               activeStyle={{
                 fontSize: "28px",

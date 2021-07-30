@@ -8,6 +8,8 @@ import CardLogo, { getCardType } from "./CardLogo";
 import styles from "../css/card.module.css";
 import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
+import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
+import bookmarkStar from "@iconify-icons/bi/bookmark-star";
 const FavouriteCard = ({ favItem }) => {
   const dispatch = useDispatch();
 
@@ -89,13 +91,13 @@ const FavouriteCard = ({ favItem }) => {
         {favItem.isFavourite ? (
      <Icon
      className={styles.favIcon}
-     icon={bookmarkFill}
+     icon={bookmarkStarFill}
      color="#00b7fd"
    />
  ) : (
    <Icon
      className={styles.favIcon}
-     icon={bookmarkFill}
+     icon={bookmarkStar}
      color="#9baece"
    />
         )}

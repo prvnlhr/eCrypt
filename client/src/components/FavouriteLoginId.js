@@ -7,11 +7,12 @@ import LoginIdLogo from "./LoginIdLogo";
 import styles from "../css/loginId.module.css";
 import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
+import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
+import bookmarkStar from "@iconify-icons/bi/bookmark-star";
 const FavouriteLoginId = ({ favItem }) => {
   const dispatch = useDispatch();
 
   const handleFavToggle = (loginCardId, favValue) => {
-
     let isFav;
     if (favValue === false) {
       isFav = true;
@@ -31,17 +32,17 @@ const FavouriteLoginId = ({ favItem }) => {
         }}
       >
         {favItem.isFavourite ? (
-       <Icon
-       className={styles.favIcon}
-       icon={bookmarkFill}
-       color="#00b7fd"
-     />
-   ) : (
-     <Icon
-       className={styles.favIcon}
-       icon={bookmarkFill}
-       color="#9baece"
-     />
+          <Icon
+            className={styles.favIcon}
+            icon={bookmarkStarFill}
+            color="#00b7fd"
+          />
+        ) : (
+          <Icon
+            className={styles.favIcon}
+            icon={bookmarkStar}
+            color="#9baece"
+          />
         )}
       </button>
       <div className={styles.logoDiv}>

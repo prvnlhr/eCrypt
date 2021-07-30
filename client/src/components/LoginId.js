@@ -1,27 +1,28 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteLoginId } from "../actions/loginInIdsAction";
-import { loginIdFavToggle } from "../actions/loginInIdsAction";
-// npm install --save-dev @iconify/react @iconify-icons/bi
-// npm install --save-dev @iconify/react @iconify-icons/bi
-import { Icon, InlineIcon } from '@iconify/react';
-import bookmarkFill from '@iconify-icons/bi/bookmark-fill';
-
-
-import { CgTrashEmpty } from "react-icons/cg";
-import { CircleSpinner } from "react-spinners-kit";
-
-import { HiPencil, HiCheck, HiX, HiStar, HiOutlineStar } from "react-icons/hi";
-
-import { FaUserAlt, FaLock } from "react-icons/fa";
 import { editLoginId } from "../actions/loginInIdsAction";
-import { IoMdTrash } from "react-icons/io";
-
-import LoginIdLogo from "./LoginIdLogo";
-
 import styles from "../css/loginId.module.css";
 import modalStyles from "../css/modal.module.css";
+import { deleteLoginId } from "../actions/loginInIdsAction";
+import LoginIdLogo from "./LoginIdLogo";
+import { loginIdFavToggle } from "../actions/loginInIdsAction";
+import { IoMdTrash } from "react-icons/io";
+import { CircleSpinner } from "react-spinners-kit";
+import { FaUserAlt, FaLock } from "react-icons/fa";
+import { CgTrashEmpty } from "react-icons/cg";
+import { HiPencil, HiCheck, HiX, HiStar, HiOutlineStar } from "react-icons/hi";
+// new icons set
+import { Icon, InlineIcon } from "@iconify/react";
+import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
+import pencilIcon from "@iconify-icons/akar-icons/pencil";
+import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
+import bookmarkStar from "@iconify-icons/bi/bookmark-star";
+import circleXFill from "@iconify-icons/akar-icons/circle-x-fill";
+import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
+import checkIcon from "@iconify-icons/bi/check";
+import xLg from "@iconify-icons/bi/x-lg";
+import trashEmpty from "@iconify-icons/gg/trash-empty";
 
 const LoginId = ({
   loginId,
@@ -80,19 +81,19 @@ const LoginId = ({
       {/* ___C_R_U_D_____________________BUTTONS */}
 
       {inEditMode === true ? (
-        <div className={styles.saveCancelDiv}>
+        <div className={styles.saveCancelContainer}>
           <div
-            className={styles.cancelIcon}
+            className={styles.cancelIconDiv}
             onClick={() => {
               setEditId(null);
               setInEditMode(false);
               setEditButton(true);
             }}
           >
-            <HiX color="#9baece" />
+            <HiX color="#9baece" className={styles.cancelIcon} />
           </div>
           <div
-            className={styles.saveIcon}
+            className={styles.saveIconDiv}
             onClick={() => {
               save(loginId._id);
               setInEditMode(false);
@@ -100,13 +101,13 @@ const LoginId = ({
               setEditButton(true);
             }}
           >
-            <HiCheck color="#9baece" />
+            <HiCheck color="#9baece" className={styles.checkIcon}/>
           </div>
         </div>
       ) : (
         <>
           {showEditButton && inEditMode === false ? (
-            <div className={styles.editDeleteDiv}>
+            <div className={styles.editDeleteContainer}>
               <div
                 className={styles.editIconDiv}
                 onClick={() => {
@@ -120,7 +121,11 @@ const LoginId = ({
                 crud.operation === "edit" ? (
                   <CircleSpinner size={10} color="gray" loading={true} />
                 ) : (
-                  <HiPencil className={styles.pencilIcon} color="#9baece" />
+                  <Icon
+                    icon={pencilIcon}
+                    className={styles.pencilIcon}
+                    color="#9baece"
+                  />
                 )}
               </div>
               <div
@@ -135,7 +140,11 @@ const LoginId = ({
                 crud.operation === "delete" ? (
                   <CircleSpinner size={10} color="gray" loading={true} />
                 ) : (
-                  <IoMdTrash className={styles.trashIcon} color="#9baece" />
+                  <Icon
+                    icon={trashEmpty}
+                    className={styles.trashIcon}
+                    color="#9baece"
+                  />
                 )}
               </div>
             </div>
@@ -239,9 +248,17 @@ const LoginId = ({
         }}
       >
         {loginId.isFavourite ? (
-        <Icon  className={styles.favIcon} icon={bookmarkFill} color="#00b7fd"  />
+          <Icon
+            className={styles.favIcon}
+            icon={bookmarkStarFill}
+            color="#00b7fd"
+          />
         ) : (
-          <Icon className={styles.favIcon} icon={bookmarkFill} color="#9baece"/>
+          <Icon
+            className={styles.favIcon}
+            icon={bookmarkStar}
+            color="#9baece"
+          />
         )}
       </button>
     </div>

@@ -28,42 +28,41 @@
   scroll-snap-align: start;
   scroll-behavior: smooth;
 
-  -webkit-animation: scale-in-ver-top 0.4s both;
-  animation: scale-in-ver-top 0.4s both;
   /* overflow: visible; */
   /* z-index: 4; */
   /* border: 1px solid black; */
+  -webkit-animation: scale-in-tl 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: scale-in-tl 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-
-@-webkit-keyframes scale-in-ver-top {
+@-webkit-keyframes scale-in-tl {
   0% {
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
     opacity: 1;
   }
   100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
     opacity: 1;
   }
 }
-@keyframes scale-in-ver-top {
+@keyframes scale-in-tl {
   0% {
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
     opacity: 1;
   }
   100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
     opacity: 1;
   }
 }
@@ -94,86 +93,6 @@
   grid-template-rows: 1fr 1fr 1fr;
   /* grid-gap: 2px; */
 }
-
-.saveCancelDiv {
-  position: absolute;
-  top: 5px;
-  right: 28px;
-  right: 35px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  /* border: 1px solid black; */
-  width: 48px;
-  height: 19px;
-}
-.editDeleteDiv {
-  position: absolute;
-  top: 5px;
-  right: 25px;
-  right: 35px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  /* border: 1px solid black; */
-  width: 45px;
-  height: 18px;
-}
-
-.cancelIcon {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 15px;
-  color: gray;
-  border-radius: 50%;
-  /* border: 1px solid rgb(214, 214, 214); */
-
-  /* border: 1px solid black; */
-  /* background: white; */
-}
-.cancelIcon:hover {
-  color: #d11a2a;
-}
-
-.saveIcon {
-  width: 20px;
-  height: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 17px;
-  color: gray;
-  border-radius: 50%;
-  /* border: 1px solid rgb(214, 214, 214); */
-  background: none;
-  /*  */
-}
-.saveIcon:hover {
-  color: #51cb02;
-}
-
-.editIconDiv {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #b3bac3;
-
-  /* border: 1px solid black; */
-}
-.deleteIconDiv {
-  /* width: 20px; */
-  /* height: 20px; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  /* border: 1px solid black; */
-}
 .favBtn {
   position: absolute;
   top: 0px;
@@ -190,17 +109,102 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.editDeleteContainer {
+  position: absolute;
+  top: 0px;
+  right: 30px;
+  /* right: 35px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid red; */
+  width: 60px;
+  height: 30px;
+  box-sizing: border-box;
+}
+
+.editIconDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b3bac3;
+
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  width: 30px;
+  height: 30px;
+}
+.deleteIconDiv {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+}
+
+.saveCancelContainer {
+  position: absolute;
+  top: 0px;
+  right: 28px;
+  right: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  width: 60px;
+  height: 30px;
+}
+
+.cancelIconDiv {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: gray;
+  /* border-radius: 50%; */
+  /* border: 1px solid rgb(214, 214, 214); */
+
+  /* border: 1px solid black; */
+  /* background: white; */
+}
+
+.saveIconDiv {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  color: gray;
+  /* border-radius: 50%; */
+  /* border: 1px solid black; */
+  background: none;
+  /*  */
 }
 
 .favIcon {
-  font-size: 16px;
+  font-size: 17px;
 }
 .trashIcon {
-  font-size: 1.2em;
+  font-size: 17px;
 }
 .pencilIcon {
-  font-size: 1.2em;
+  font-size: 17px;
+}
+.cancelIcon {
+  font-size: 17px;
+}
+.checkIcon {
+  font-size: 17px;
 }
 
 .editInput {
@@ -213,17 +217,21 @@
   /* border-bottom: 1px solid slategray; */
   /* background: rgb(134, 112, 112); */
   font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
   color: skyblue;
   font-weight: 550;
   letter-spacing: 0.2px;
   /* padding-left: 10px; */
-  border: 1px dotted rgb(255, 196, 1);
   /* border: none; */
-
-  /* background-color: rgba(190, 182, 182, 0.582); */
+  box-sizing: border-box;
+  background-color: rgba(255, 196, 1, 0.062);
   border-radius: 5px;
-  padding: 0px 0px 0px 5px;
+  padding: 0px 5px 0px 5px;
   margin: 0px 0px 0px 0px;
+  border: 1.5px dotted #00b7fd;
+  background: #00b5fd11;
+  color: #00b7fd;
 }
 .websiteEditInput {
   width: 100%;
@@ -238,13 +246,19 @@
   font-weight: 550;
   letter-spacing: 0.2px;
   /* padding-left: 10px; */
-  border: 1px dotted rgb(255, 196, 1);
   /* border: none; */
 
   /* background-color: rgba(190, 182, 182, 0.582); */
   border-radius: 5px;
-  padding: 0px 0px 0px 5px;
+
+  box-sizing: border-box;
+  background-color: rgba(255, 196, 1, 0.062);
+  border-radius: 5px;
+  padding: 0px 5px 0px 5px;
   margin: 0px 0px 0px 0px;
+  border: 1.5px dotted #00b7fd;
+  background: #00b5fd11;
+  color: #00b7fd;
 }
 
 .websiteDiv {
@@ -362,88 +376,6 @@
   color: slategray;
 }
 
-.editButton {
-  position: absolute;
-  display: flex;
-  /* justify-content: centre; */
-  /* align-items: centre; */
-  top: 2px;
-  right: 25px;
-  /* border: 1px solid black; */
-  /* width: 50%; */
-  border-radius: 50%;
-  cursor: pointer;
-}
-.editButton :hover {
-  background-color: rgba(128, 128, 128, 0.514);
-  border-radius: 50%;
-}
-
-.dotMenuContainer {
-  position: absolute;
-  top: 30px;
-  right: 10px;
-  width: 90px;
-  height: 60px;
-  /* border: 1px solid #2f89fc; */
-  background-color: rgba(255, 255, 255, 0.993);
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  border-radius: 5px;
-  overflow: hidden;
-
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
-
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.editDiv {
-  width: 100%;
-  height: 100%;
-  grid-row-start: 1;
-  grid-row-end: 2;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  cursor: pointer;
-  font-family: "Nunito", sans-serif;
-  /* color: gray; */
-  font-size: 14px;
-  font-weight: 650;
-
-  padding-left: 5%;
-}
-.editDiv span {
-  margin: 0px 0px 0px 10%;
-}
-.editDiv:hover {
-  background-color: #2f89fc;
-}
-
-.deleteDiv {
-  width: 100%;
-  height: 100%;
-  grid-row-start: 2;
-  grid-row-end: 3;
-  /* border: 1px solid black; */
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-family: "Nunito", sans-serif;
-  /* color: gray; */
-
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 650;
-  padding-left: 5%;
-}
-.deleteDiv span {
-  margin: 0px 0px 0px 5%;
-}
-.deleteDiv:hover {
-  background-color: #2f89fc;
-}
-
 @media screen and (max-width: 650px) {
   .loginContainer {
     position: relative;
@@ -476,63 +408,31 @@
     /* z-index: 45; */
     /* margin: 25px 0px 5px 30px; */
   }
-  .cancelIcon {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    color: gray;
-    border-radius: 50%;
-    /* border: 1px solid rgb(214, 214, 214); */
 
-    /* border: 1px solid black; */
-    /* background: white; */
-  }
-  .cancelIcon:hover {
-    color: #d11a2a;
-  }
-
-  .saveIcon {
-    width: 20px;
-    height: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 20px;
-    color: gray;
-    border-radius: 50%;
-    /* border: 1px solid rgb(214, 214, 214); */
-    background: none;
-    /*  */
-  }
-  .saveIcon:hover {
-    color: #51cb02;
-  }
-
-  .editIcon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #b3bac3;
-    font-size: 19px;
-    /* border: 1px solid black; */
-  }
-  .deleteIcon {
-    /* width: 20px; */
-    /* height: 20px; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: gray;
-    color: #b3bac3;
-    font-size: 18px;
-
-    /* border: 1px solid black; */
-  }
   .favIcon {
-    font-size: 20px;
+    /* font-size: 25px; */
+    /* font-size: 2em; */
+    font-size: 1.4em;
+  }
+  .trashIcon {
+    font-size: 18px;
+    /* font-size: 1.4em; */
+    font-size: 1.4em;
+  }
+  .pencilIcon {
+    font-size: 18px;
+    /* font-size: 1.4em; */
+    font-size: 1.4em;
+  }
+  .cancelIcon {
+    font-size: 18px;
+    /* font-size: 1.4em; */
+    font-size: 1.4em;
+  }
+  .checkIcon {
+    font-size: 18px;
+    /* font-size: 1.4em; */
+    font-size: 1.4em;
   }
 }
 
