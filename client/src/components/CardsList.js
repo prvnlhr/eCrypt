@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 
 import Card from "./Card";
@@ -30,15 +30,32 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
     setFormMode(!formMode);
   };
 
+  // SCROLLING BUTTON HIDE__
+  const node = useRef();
+  var timeOut = null;
+  const [isScrolling, setIsScrolling] = useState(false);
+  useEffect(() => {
+    if (node.current != null) {
+      node.current.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      if (node.current != null) {
+        node.current.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
+
+  const handleScroll = (e) => {
+    setIsScrolling(true);
+    clearTimeout(timeOut);
+    timeOut = setTimeout(() => {
+      setIsScrolling(false);
+    }, 200);
+  };
+
   return (
     <div className={`${styles.cardList} `}>
-      <div
-        className={
-          formMode === false
-            ? styles.contentContainer
-            : styles.contentContainerCollapse
-        }
-      >
+      <div className={styles.contentContainer} ref={node}>
         {cards.length < 1 && crud.operation === "fetching" ? (
           <div className={noContentStyles.messageContainer}>
             <p>Fetching data...</p>
@@ -55,7 +72,7 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
           </div>
         ) : null}
 
-        {cards.map((card,index) => (
+        {cards.map((card, index) => (
           <>
             <Card
               index={index}
@@ -79,7 +96,14 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
 
       {formMode === false ? (
         // <div className={btnStyles.addBtnWrapper}>
-        <div className={btnStyles.addBtnDiv} onClick={formToggle}>
+        <div
+          className={
+            isScrolling === false
+              ? btnStyles.addBtnDiv
+              : btnStyles.addBtnDivHidden
+          }
+          onClick={formToggle}
+        >
           <CgAdd fontSize="17px" />
           <span>Add</span>
         </div>

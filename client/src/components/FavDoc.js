@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { docFavToggle } from "../actions/documentsAction";
 import styles from "../css/document.module.css";
 import favStyles from "../css/favouriteItem.module.css";
@@ -9,8 +9,13 @@ import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
 import bookmarkStar from "@iconify-icons/bi/bookmark-star";
-const FavDoc = ({ favItem, maxImg, setMaxImg }) => {
+import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
+
+const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
   const dispatch = useDispatch();
+  const docData = useSelector((state) =>
+    favItem._id ? state.docs.docs.find((d) => d._id === favItem._id) : null
+  );
   const [maximize, setEnlarge] = useState(false);
   const [editId, setEditId] = useState(null);
   const handleFavToggle = (docId, favValue) => {
@@ -20,19 +25,17 @@ const FavDoc = ({ favItem, maxImg, setMaxImg }) => {
     } else {
       isFav = false;
     }
-
     dispatch(docFavToggle(docId, isFav));
   };
-  const maximizeImg = (docId) => {
-    setEditId(favItem._id);
-    setEnlarge(!maximize);
-  };
+
   const handleMaximize = () => {
-    setMaxImg(favItem.imageUrl);
+    setImageData(docData);
+    setMaximizeOrNot(true);
   };
   return (
     <div className={styles.documentCard}>
-      <div className={styles.buttonContainer}>
+     
+      <div className={styles.imageContainer}>
         <div className={styles.favBtnDiv}>
           <div
             className={styles.favBtn}
@@ -41,22 +44,12 @@ const FavDoc = ({ favItem, maxImg, setMaxImg }) => {
             }}
           >
             {favItem.isFavourite ? (
-              <Icon
-                icon={bookmarkStarFill}
-                className={styles.favIcon}
-                color="#00b7fd"
-              />
+              <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
             ) : (
-              <Icon
-                className={styles.favIcon}
-                icon={bookmarkStar}
-                color="#9baece"
-              />
+              <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
             )}
           </div>
         </div>
-      </div>
-      <div className={styles.imageContainer}>
         <img src={favItem.imageUrl} onClick={handleMaximize}></img>
       </div>
       <div className={styles.titleDiv}>

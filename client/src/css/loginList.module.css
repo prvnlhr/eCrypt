@@ -34,7 +34,7 @@
 }
 
 .contentContainer {
-  position: relative;
+  /* position: relative; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -56,7 +56,7 @@
 
   /* border: 1px solid green; */
 
-  z-index: 45;
+  /* z-index: 45; */
   padding-top: 10px;
   padding-left: 20px;
   /* padding-right: auto; */

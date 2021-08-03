@@ -69,6 +69,7 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
   }, []);
 
   const handleClick = (e) => {
+    // console.log(e.target,node.current);
     if (node.current.contains(e.target)) {
       // inside click
       return;
@@ -119,7 +120,7 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
           )}
         </div>
 
-        <div className={styles.userNamePopupWrapper} >
+        <div className={styles.userNamePopupWrapper}>
           <div className={styles.usernameContainer}>
             <div className={styles.nameLetterDiv}>
               {user.firstName ? <p>{user.firstName.charAt(0)}</p> : null}

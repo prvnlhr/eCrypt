@@ -17,6 +17,8 @@ const FavList = ({
   setHeading,
   maxImg,
   setMaxImg,
+  setImageData,
+  setMaximizeOrNot
 }) => {
   const history = useHistory();
 
@@ -86,8 +88,8 @@ const FavList = ({
         <Route path="/favorites/favoritesDocs">
           <FavDocsList
             favoritesDocsArray={favoritesDocsArray}
-            maxImg={maxImg}
-            setMaxImg={setMaxImg}
+            setImageData={setImageData}
+            setMaximizeOrNot={setMaximizeOrNot}
           />
         </Route>
       </div>

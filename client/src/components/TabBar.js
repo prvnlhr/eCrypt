@@ -14,6 +14,8 @@ const TabBar = ({ fieldLength }) => {
   const nav3 = useRef(null);
   const nav4 = useRef(null);
   const nav5 = useRef(null);
+  const nav6 = useRef(null);
+
   const tabBarRef = useRef(null);
 
   // const [currActiveLink, setCurrActiveLink] = useState();
@@ -61,6 +63,11 @@ const TabBar = ({ fieldLength }) => {
         // tabBarRef.current.scrollLeft = nav5.current.offsetLeft + "px";
         indicatorRef.current.style.left = nav5.current.offsetLeft + "px";
         nav5.current.scrollIntoView({ behavior: "smooth", inline: "center" });
+      }
+      if (location.pathname === "/settings") {
+        // tabBarRef.current.scrollLeft = nav4.current.offsetLeft + "px";
+        indicatorRef.current.style.left = nav6.current.offsetLeft + "px";
+        nav6.current.scrollIntoView({ behavior: "smooth", inline: "center" });
       }
     }
   }, [tabBarRef.current]);
@@ -227,6 +234,32 @@ const TabBar = ({ fieldLength }) => {
                   window.location.pathname === "/favorites/favoritesCards" ||
                   window.location.pathname === "/favorites/favoritesLogins" ||
                   window.location.pathname === "/favorites/favoritesDocs"
+                    ? tabStyles.bottomBorderDiv
+                    : tabStyles.bottomBorderDivNone
+                }
+              ></div> */}
+            </NavLink>
+          </div>
+          <div
+            className={tabStyles.navLinkDiv}
+            onClick={handleNavClick}
+            ref={nav6}
+          >
+            <NavLink
+              to="/settings"
+              className={`${tabStyles.navLink}`}
+              activeStyle={{
+                fontSize: "28px",
+                color: "#15192c",
+                fontWeight: "900",
+                transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
+              }}
+              // onClick={handleNavClick}
+            >
+              Settings
+              {/* <div
+                className={
+                  window.location.pathname === "/documents"
                     ? tabStyles.bottomBorderDiv
                     : tabStyles.bottomBorderDivNone
                 }

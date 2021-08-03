@@ -23,6 +23,8 @@ import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
 import checkIcon from "@iconify-icons/bi/check";
 import xLg from "@iconify-icons/bi/x-lg";
 import trashEmpty from "@iconify-icons/gg/trash-empty";
+import { BsBookmarkPlus ,BsBookmarkFill} from "react-icons/bs";
+
 
 const Card = ({ card, setEditButton, showEditButton, index }) => {
   const dispatch = useDispatch();
@@ -186,15 +188,15 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
           }}
         >
           {card.isFavourite ? (
-            <Icon
+            <BsBookmarkFill
               className={styles.favIcon}
-              icon={bookmarkStarFill}
+             
               color="#00b7fd"
             />
           ) : (
-            <Icon
+            <BsBookmarkPlus
               className={styles.favIcon}
-              icon={bookmarkStar}
+         
               color="#9baece"
             />
           )}
@@ -273,7 +275,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
 
         {inEditMode && card._id === editId ? (
           <input
-            className={styles.editInput}
+            className={styles.expiryInput}
             value={cardData.cvv}
             onChange={(e) =>
               setCardData({
@@ -307,7 +309,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
 
         {inEditMode && card._id === editId ? (
           <input
-            className={styles.editInput}
+            className={styles.expiryInput}
             value={cardData.expiry}
             onChange={(e) =>
               setCardData({

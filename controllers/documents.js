@@ -43,7 +43,7 @@ const documentsController = {
     }
   },
   deleteDoc: async (req, res) => {
-    // console.log("deleteDoc controller", req.body);
+    console.log("deleteDoc controller", req.body);
     const cloudId = req.body.cloudId;
     const userId = req.body.userId;
     const docId = req.params.id;
@@ -72,6 +72,7 @@ const documentsController = {
   },
   editDoc: async (req, res) => {
     const id = req.params.id;
+    console.log("at edit doc controller",req.body)
     const { imageName } = req.body;
     try {
       const response = await UserDatabase.findOneAndUpdate(

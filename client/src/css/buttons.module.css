@@ -30,10 +30,37 @@
 .addBtnDiv {
   position: absolute;
   right: 1%;
-  bottom: 0px;
+  bottom: 50px;
   width: 80px;
   height: 25px;
   display: flex;
+  /* display: none; */
+
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  font-family: "Comfortaa", cursive;
+  font-family: "Quicksand", sans-serif;
+
+  /* font-weight: bold; */
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+  background-color: #4cd7f6;
+  /* z-index: 25; */
+  -webkit-text-stroke: 0.01em;
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 5px 5px rgba(0, 0, 0, 0.034);
+  /* z-index: -10; */
+}
+.addBtnDivHidden {
+  position: absolute;
+  right: 1%;
+  bottom: 50px;
+  width: 80px;
+  height: 25px;
+  /* display: flex; */
   display: none;
 
   justify-content: center;
@@ -256,11 +283,11 @@ p {
   .addBtnDiv {
     position: absolute;
     right: 1%;
-    bottom: 50px;
+    bottom: 2%;
     width: 80px;
     height: 28px;
     display: flex;
-    display: none;
+    /* display: none; */
     justify-content: center;
     align-items: center;
     font-size: 15px;
@@ -270,7 +297,7 @@ p {
     border-radius: 20px;
     cursor: pointer;
     background-color: #4cd7f6;
-    /* z-index: 25; */
+    z-index: 200;
     -webkit-text-stroke: 0.01em;
     /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
   }

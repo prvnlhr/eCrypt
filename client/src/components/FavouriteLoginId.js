@@ -9,6 +9,8 @@ import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
 import bookmarkStar from "@iconify-icons/bi/bookmark-star";
+import { BsBookmarkPlus ,BsBookmarkFill} from "react-icons/bs";
+
 const FavouriteLoginId = ({ favItem }) => {
   const dispatch = useDispatch();
 
@@ -32,15 +34,13 @@ const FavouriteLoginId = ({ favItem }) => {
         }}
       >
         {favItem.isFavourite ? (
-          <Icon
-            className={styles.favIcon}
-            icon={bookmarkStarFill}
+          <BsBookmarkFill
+          className={styles.favIcon}
             color="#00b7fd"
           />
         ) : (
-          <Icon
-            className={styles.favIcon}
-            icon={bookmarkStar}
+          <BsBookmarkPlus
+          className={styles.favIcon}
             color="#9baece"
           />
         )}

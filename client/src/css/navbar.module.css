@@ -162,7 +162,7 @@
   border-radius: 5px;
   -webkit-animation: scale-in-tr 200ms both;
   animation: scale-in-tr 200ms both;
-  z-index: 100;
+  z-index: 900;
 }
 
 /* ----------------------------------------------

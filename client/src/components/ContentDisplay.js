@@ -20,8 +20,12 @@ const ContentDisplay = ({
   setHeading,
   fieldLength,
   setFieldLength,
-  maxImg,
-  setMaxImg,
+  imageData,
+  setImageData,
+  maximizeOrNot,
+  setMaximizeOrNot,
+  showHeaderFooter,
+  setShowHeaderFooter
 }) => {
   const dispatch = useDispatch();
 
@@ -47,9 +51,9 @@ const ContentDisplay = ({
   const docsArray = useSelector((state) => state.docs.docs);
   const activitiesArray = useSelector((state) => state.activities.activities);
 
-  const detectClick = () => {
-    console.log("clicked app");
-  };
+  // const detectClick = () => {
+  //   console.log("clicked app");
+  // };
 
   const favoritesLoginsArray = useSelector(
     (state) => state.favorites.favoriteLoginsIds
@@ -64,13 +68,15 @@ const ContentDisplay = ({
   const searchResultArray = useSelector((state) => state.search.searchResults);
 
   return (
-    <div className={styles.contentDisplay} onClick={detectClick}>
+    <div className={styles.contentDisplay}>
       {searchResultArray.length > 0 && fieldLength > 0 ? (
         <SearchList
           searchResultArray={searchResultArray}
           setHeading={setHeading}
-          maxImg={maxImg}
-          setMaxImg={setMaxImg}
+          setImageData={setImageData}
+          setMaximizeOrNot={setMaximizeOrNot}
+          // maxImg={maxImg}
+          // setMaxImg={setMaxImg}
         />
       ) : null}
 
@@ -108,8 +114,12 @@ const ContentDisplay = ({
               {...props}
               docs={docsArray}
               setHeading={setHeading}
-              maxImg={maxImg}
-              setMaxImg={setMaxImg}
+              imageData={imageData}
+              setImageData={setImageData}
+              maximizeOrNot={maximizeOrNot}
+              setMaximizeOrNot={setMaximizeOrNot}
+              showHeaderFooter={showHeaderFooter}
+              setShowHeaderFooter={setShowHeaderFooter}
             />
           )}
         />
@@ -128,8 +138,10 @@ const ContentDisplay = ({
               favoritesCardsArray={favoritesCardsArray}
               favoritesDocsArray={favoritesDocsArray}
               favoritesLoginsArray={favoritesLoginsArray}
-              maxImg={maxImg}
-              setMaxImg={setMaxImg}
+              setImageData={setImageData}
+              setMaximizeOrNot={setMaximizeOrNot}
+              // maxImg={maxImg}
+              // setMaxImg={setMaxImg}
             />
           )}
         />

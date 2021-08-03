@@ -40,7 +40,6 @@
 
   /* overflow: scroll !important; */
   /* border-radius: 0px 0px 20px 0px; */
-
   box-sizing: border-box;
   padding-top: 10px;
   padding-left: 20px;
@@ -157,6 +156,8 @@
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
   border-radius: 5px;
+  z-index: 50;
+
 }
 .loadingDiv p {
   margin: 2px 0px 0px 2px;

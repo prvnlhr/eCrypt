@@ -9,7 +9,7 @@ import { FaUserAlt, FaLock } from "react-icons/fa";
 import LoginIdLogo from "./LoginIdLogo";
 import CardLogo, { getCardType } from "./CardLogo";
 
-const SearchItem = ({ item, maxImg, setMaxImg }) => {
+const SearchItem = ({ item, setImageData, setMaximizeOrNot }) => {
   const [maximize, setEnlarge] = useState(false);
   const [editId, setEditId] = useState(null);
 
@@ -17,8 +17,10 @@ const SearchItem = ({ item, maxImg, setMaxImg }) => {
     setEditId(item._id);
     setEnlarge(!maximize);
   };
-  const handleMaximize = () => {
-    setMaxImg(item.imageUrl);
+  const handleMaximize = (docData) => {
+    console.log(docData);
+    setImageData(docData);
+    setMaximizeOrNot(true);
   };
   let formattedCardNo;
   let cNo;
@@ -113,7 +115,12 @@ const SearchItem = ({ item, maxImg, setMaxImg }) => {
         <>
           <div className={docStyles.documentCard}>
             <div className={docStyles.imageContainer}>
-              <img src={item.imageUrl} onClick={handleMaximize}></img>
+              <img
+                src={item.imageUrl}
+                onClick={() => {
+                  handleMaximize(item);
+                }}
+              ></img>
             </div>
 
             <div className={docStyles.titleDiv}>

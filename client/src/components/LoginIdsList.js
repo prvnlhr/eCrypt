@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 
 import LoginIdForm from "./LoginIdForm";
@@ -12,30 +12,47 @@ import btnStyles from "../css/buttons.module.css";
 import { FiPlusCircle } from "react-icons/fi";
 import { CgAdd } from "react-icons/cg";
 
-
 const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   const [formMode, setFormMode] = useState(false);
   const [showEditButton, setEditButton] = useState(true);
+  
   const crud = useSelector((state) => state.crud);
 
   useEffect(() => {
     setHeading("LoginIds");
   }, []);
 
+  // SCROLLING BUTTON HIDE__
+  const node = useRef();
+  var timeOut = null;
+  const [isScrolling, setIsScrolling] = useState(false);
+  useEffect(() => {
+    if (node.current != null) {
+      node.current.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      if (node.current != null) {
+        node.current.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
+
+  const handleScroll = (e) => {
+ 
+    setIsScrolling(true);
+    clearTimeout(timeOut);
+    timeOut = setTimeout(() => {
+      setIsScrolling(false);
+    },200);
+  };
+
   const formToggle = () => {
     setFormMode(!formMode);
   };
 
   return (
-    <div className={styles.loginsList} >
-      <div
-  
-        className={
-          formMode === false
-            ? styles.contentContainer
-            : styles.contentContainerCollapse
-        }
-      >
+    <div className={styles.loginsList}>
+      <div className={styles.contentContainer} ref={node}>
         {loginIds.length === true && crud.operation === "fetching" ? (
           <div className={noContentStyles.messageContainer}>
             <p>Fetching data...</p>
@@ -53,7 +70,7 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
         ) : null}
 
         {loginIds.map((loginId) => (
-          <>
+          <React.Fragment key={loginId._id}>
             <LoginId
               loginId={loginId}
               setCurrentId={setCurrentId}
@@ -62,7 +79,7 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
               setEditButton={setEditButton}
               showEditButton={showEditButton}
             />
-          </>
+          </React.Fragment>
         ))}
 
         <LoginIdForm
@@ -74,7 +91,14 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
       </div>
 
       {formMode == false ? (
-        <div className={btnStyles.addBtnDiv} onClick={formToggle}>
+        <div
+          className={
+            isScrolling === false
+              ? btnStyles.addBtnDiv
+              : btnStyles.addBtnDivHidden
+          }
+          onClick={formToggle}
+        >
           <CgAdd fontSize="17px" />
           <span>Add</span>
         </div>

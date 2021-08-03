@@ -152,11 +152,14 @@
   margin: 0px 0px 0px 0px;
   z-index: 3;
 
+  /* padding: 0px 0px 0px 5%; */
+  box-sizing: border-box;
+
   /* color: white; */
 }
 .cardBankText {
   /* width: 100%; */
-  margin: 0px 0px 0px 0px;
+  /* margin: 0px 0px 0px 0px; */
   margin: 0px 0px 0px 5%;
 
   font-weight: bolder;
@@ -185,11 +188,13 @@
   z-index: 3;
   /* box-sizing: border-box; */
   /* padding-left: 5%; */
+  /* padding: 0px 0px 0px 5%; */
+  box-sizing: border-box;
 }
 
 .cardNoText {
   /* width: 100%; */
-  margin: 0px 0px 0px 0px;
+  /* margin: 0px 0px 0px 0px; */
   margin: 0px 0px 0px 5%;
 
   font-weight: bolder;
@@ -216,6 +221,8 @@
   /* color: white; */
   /* z-index: 23; */
   z-index: 3;
+  /* padding: 0px 0px 0px 5%; */
+  box-sizing: border-box;
 }
 .cardUserText {
   margin: 0px 0px 0px 5%;
@@ -263,24 +270,37 @@
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0px 0px 0px 0px;
   padding-right: 0px;
   /* z-index: 23; */
   z-index: 3;
+  box-sizing: border-box;
 }
 .cvvLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
   font-weight: 550;
   font-size: 10px;
   color: slategray;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  margin: 0px 5px 0px 0px;
+  /* margin: 0px 5px 0px 0px; */
   /* z-index: 23; */
+  /* border: 1px solid blue; */
+  box-sizing: border-box;
 }
 .cvvText {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50%;
   color: black;
   font-size: 13px;
   font-family: "Share Tech Mono", monospace;
@@ -289,6 +309,8 @@
   /* margin: 8px 0px 0px -10px; */
   text-shadow: 0.5px 0.5px #dadada;
   /* z-index: 23; */
+  /* border: 1px solid green; */
+  box-sizing: border-box;
 }
 .cardExpiry {
   grid-area: cardExpiry;
@@ -304,6 +326,7 @@
   /* margin: 5px 0px 0px 0px; */
   /* z-index: 23; */
   z-index: 3;
+  box-sizing: border-box;
 }
 .expiryLabel {
   /* grid-row-start: 1; */
@@ -325,6 +348,7 @@
   justify-content: flex-end;
   font-weight: bold;
   /* z-index: 23; */
+  box-sizing: border-box;
 }
 
 .expiryText {
@@ -346,6 +370,7 @@
   text-shadow: 0.5px 0.5px #dadada;
   font-size: 13px;
   /* z-index: 23; */
+  box-sizing: border-box;
 }
 
 .favBtn {
@@ -471,8 +496,8 @@
 
 .editInput {
   outline: none;
-  width: 80%;
-  /* height: 15px; */
+  width: 98%;
+  height: 80%;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -482,25 +507,56 @@
   font-family: "Nunito", sans-serif;
   color: rgb(0, 0, 0);
   font-weight: 550;
-  letter-spacing: 0.2px;
-  padding-top: 3px;
+  letter-spacing: 0.5px;
   display: flex;
   /* align-items: center; */
   justify-content: center;
   /* text-align: start; */
-  padding-left: 6px;
-  margin: 4px 0px 0px 1px;
-
+  /* margin: 4px 0px 0px 1px; */
   box-sizing: border-box;
   background-color: rgba(255, 196, 1, 0.062);
   border-radius: 5px;
-  padding: 0px 5px 0px 5px;
+  /* padding: 0px 5px 0px 5px; */
   margin: 0px 0px 0px 0px;
   border: 1.5px dotted #00b7fd;
   background: #00b5fd11;
   color: #00b7fd;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  padding: 0px 0px 0px 5%;
+  box-sizing: border-box;
+  /* font-family: "Share Tech Mono", monospace; */
+  font-weight: 700;
+  font-size: 15px;
 
   /* z-index: 23; */
+}
+
+.expiryInput {
+  outline: none;
+  width: 90%;
+  height: 50%;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5px;
+  /* padding: 0px 5px 0px 5px; */
+  margin: 0px 0px 0px 0px;
+  border: 1.5px dotted #00b7fd;
+  background: #00b5fd11;
+  color: #00b7fd;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  /* padding: 0px 0px 0px 5%; */
+  box-sizing: border-box;
+  /* font-family: "Share Tech Mono", monospace; */
+  font-weight: 700;
+  font-size: 13px;
 }
 
 @media screen and (max-width: 550px) {
@@ -562,28 +618,26 @@
   }
   .favIcon {
     font-size: 19px;
+    font-size: 1.4em;
+  
   }
   .pencilIcon {
-    font-size: 21px;
-    font-size: 1.4em;
-
+    /* font-size: 17px; */
+    font-size: 1.3em;
   }
 
   .trashIcon {
     font-size: 20px;
-    font-size: 1.4em;
-
+    font-size: 1.3em;
   }
 
   .checkIcon {
     font-size: 20px;
-    font-size: 1.4em;
-
+    font-size: 1.3em;
   }
   .cancelIcon {
     font-size: 20px;
-    font-size: 1.4em;
-
+    font-size: 1.3em;
   }
 }
 

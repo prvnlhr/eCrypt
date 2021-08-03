@@ -208,8 +208,8 @@
 }
 
 .editInput {
-  /* width: 100%; */
-  /* height: 100%; */
+  width: 100%;
+  height: 90%;
   outline: none;
   border-top: none;
   border-left: none;
@@ -235,30 +235,31 @@
 }
 .websiteEditInput {
   width: 100%;
+  height: 95%;
   outline: none;
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  /* border-top: none; */
+  /* border-left: none; */
+  /* border-right: none; */
   /* border-bottom: 1px solid slategray; */
   /* background: rgb(134, 112, 112); */
-  font-family: "Nunito", sans-serif;
-  color: skyblue;
-  font-weight: 550;
-  letter-spacing: 0.2px;
-  /* padding-left: 10px; */
-  /* border: none; */
+  font-family: "Quicksand", sans-serif;
 
-  /* background-color: rgba(190, 182, 182, 0.582); */
-  border-radius: 5px;
-
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: start;
   background-color: rgba(255, 196, 1, 0.062);
   border-radius: 5px;
   padding: 0px 5px 0px 5px;
+
   margin: 0px 0px 0px 0px;
-  border: 1.5px dotted #00b7fd;
+  border: 1px dotted #00b7fd;
   background: #00b5fd11;
   color: #00b7fd;
+  box-sizing: border-box;
+  font-weight: 550;
+
+
 }
 
 .websiteDiv {
@@ -269,13 +270,16 @@
   grid-row-start: 1;
   grid-row-end: 2;
   display: flex;
-  /* justify-content: center; */
+  justify-content: flex-start;
   /* border: 1px solid black; */
+  padding: 0px 0px 0px 2%;
+
   /* overflow-x: scroll; */
   /* padding-left: 2px; */
   align-items: center;
   color: gray !important;
   margin: 0px 0px 2px 5px;
+  box-sizing: border-box;
 }
 .websiteDiv::-webkit-scrollbar {
   display: none;
@@ -295,6 +299,7 @@
   /* padding-left: 2%; */
   margin: 2px 0px 0px 5px;
   color: rgb(53, 52, 52) !important;
+  box-sizing: border-box;
 }
 .usernameDiv::-webkit-scrollbar {
   display: none;
@@ -307,6 +312,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  box-sizing: border-box;
 }
 .textDiv {
   width: 90%;
@@ -317,6 +323,7 @@
   align-items: center;
   text-align: center;
   overflow-x: scroll;
+  box-sizing: border-box;
 }
 .textDiv::-webkit-scrollbar {
   display: none;
@@ -335,6 +342,7 @@
 
   align-items: center;
   color: rgb(53, 52, 52) !important;
+  box-sizing: border-box;
 }
 
 .websiteText {
@@ -410,19 +418,19 @@
   }
 
   .favIcon {
-    /* font-size: 25px; */
+    /* font-size: 3px; */
     /* font-size: 2em; */
     font-size: 1.4em;
   }
   .trashIcon {
     font-size: 18px;
     /* font-size: 1.4em; */
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
   .pencilIcon {
     font-size: 18px;
     /* font-size: 1.4em; */
-    font-size: 1.4em;
+    font-size: 1.3em;
   }
   .cancelIcon {
     font-size: 18px;

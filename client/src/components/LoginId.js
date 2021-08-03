@@ -23,6 +23,8 @@ import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
 import checkIcon from "@iconify-icons/bi/check";
 import xLg from "@iconify-icons/bi/x-lg";
 import trashEmpty from "@iconify-icons/gg/trash-empty";
+import { BsBookmarkPlus ,BsBookmarkFill} from "react-icons/bs";
+
 
 const LoginId = ({
   loginId,
@@ -248,15 +250,15 @@ const LoginId = ({
         }}
       >
         {loginId.isFavourite ? (
-          <Icon
+          <BsBookmarkFill
             className={styles.favIcon}
-            icon={bookmarkStarFill}
+         
             color="#00b7fd"
           />
         ) : (
-          <Icon
+          <BsBookmarkPlus
             className={styles.favIcon}
-            icon={bookmarkStar}
+      
             color="#9baece"
           />
         )}

@@ -1,7 +1,6 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import styles from "../css/document.module.css";
 import modalStyles from "../css/modal.module.css";
 
@@ -9,11 +8,19 @@ import { deleteDoc, editDoc, docFavToggle } from "../actions/documentsAction";
 import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
 import { IoMdTrash } from "react-icons/io";
-import { HiPencil, HiStar, HiOutlineStar, HiCheck, HiX } from "react-icons/hi";
+import {
+  HiPencil,
+  HiStar,
+  HiOutlineStar,
+  HiCheck,
+  HiX,
+  HiChevronLeft,
+  HiChevronRight,
+} from "react-icons/hi";
 import { Icon, InlineIcon } from "@iconify/react";
 
 //new icons set__________________________________
-import pencilIcon from "@iconify-icons/akar-icons/pencil";
+// import pencilIcon from "@iconify-icons/akar-icons/pencil";
 import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
 import bookmarkStar from "@iconify-icons/bi/bookmark-star";
 import circleXFill from "@iconify-icons/akar-icons/circle-x-fill";
@@ -21,14 +28,28 @@ import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
 import checkIcon from "@iconify-icons/bi/check";
 import xLg from "@iconify-icons/bi/x-lg";
 import trashEmpty from "@iconify-icons/gg/trash-empty";
+import starSolid from "@iconify-icons/clarity/star-solid";
+import starLine from "@iconify-icons/clarity/star-line";
+
+import trashSimpleBold from "@iconify-icons/ph/trash-simple-bold";
+import pencilIcon from "@iconify-icons/lucide/pencil";
+import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 // ______________________________________________________
 const Document = ({
   doc,
   showEditButton,
   setEditButton,
-  maxImg,
-  setMaxImg,
+  btnExpandId,
+  setBtnExpandId,
+  setBtnExpand,
+  btnExpand,
+  imageData,
+  setImageData,
+  maximizeOrNot,
+  setMaximizeOrNot,
+  showHeaderFooter,
+  setShowHeaderFooter,
 }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.user._id);
@@ -38,13 +59,20 @@ const Document = ({
   const [editId, setEditId] = useState(null);
   const [inEditMode, setInEditMode] = useState(false);
   const [modalShow, setModalShow] = useState(false);
-
+  const [thisDocRefIndex, setThisDocRefIndex] = useState(null);
+  const node = useRef();
   const [title, setTitle] = useState({
     imageName: "",
   });
 
+  const dotBtnClicked = () => {
+    setBtnExpand(!btnExpand);
+  };
   const docDataToEdit = useSelector((state) =>
     editId ? state.docs.docs.find((d) => d._id === editId) : null
+  );
+  const docData = useSelector((state) =>
+    doc._id ? state.docs.docs.find((d) => d._id === doc._id) : null
   );
 
   useEffect(() => {
@@ -60,27 +88,27 @@ const Document = ({
     } else {
       isFav = false;
     }
-
     dispatch(docFavToggle(docId, isFav));
   };
 
   const save = (id) => {
+    console.log(title);
     dispatch(editDoc(id, userId, title));
   };
-  const handleMaximize = (docId) => {
-    // setEditId(doc._id);
-    // setEnlarge(!maximize);
-    setMaxImg(doc.imageUrl);
+  const handleMaximize = () => {
+    setImageData(docData);
+    setShowHeaderFooter(true);
+    setMaximizeOrNot(true);
+    console.log(docData);
   };
-  const minimizeImg = () => {
-    setEditId(null);
-    setEnlarge(!maximize);
-  };
+
   const confirmDelete = () => {
     dispatch(deleteDoc(doc.cloudinary_id, userId, doc._id, doc.imageName));
     setModalShow(!modalShow);
   };
   const handleDeleteClick = () => {
+    setBtnExpandId(null);
+    setBtnExpand(false);
     setModalShow(!modalShow);
   };
 
@@ -121,73 +149,110 @@ const Document = ({
         </div>
       ) : null}
 
-
-      <div className={styles.buttonContainer}>
-        <div className={styles.editBtnWrapper}>
-          {inEditMode ? (
-            <>
-              <div className={styles.saveBtnDiv}>
-                <HiCheck
-                  color="#9baece"
-                  className={styles.saveIcon}
-                  onClick={() => {
-                    save(doc._id);
-                    setEditId(null);
-                    setInEditMode(!inEditMode);
-                    setEditButton(true);
-                  }}
-                />
-              </div>
-              <div className={styles.cancelBtnDiv}>
-                <HiX
-                  color="#9baece"
-                  className={styles.cancelIcon}
-                  onClick={() => {
-                    setEditId(null);
-                    setInEditMode(!inEditMode);
-                    setEditButton(true);
-                  }}
-                />
-              </div>
-            </>
+      {/* <div className={styles.buttonContainer}>
+        <div className={styles.dotMenuDiv}>
+          {btnExpandId === doc._id && btnExpand ? (
+            <HiChevronRight
+              className={styles.chevronIcon}
+              onClick={() => {
+                setBtnExpandId(null);
+                setBtnExpand(false);
+              }}
+            />
           ) : (
             <>
-              {showEditButton && inEditMode === false ? (
-                <div className={styles.editBtnDiv}>
-                  <Icon
-                    icon={pencilIcon}
+              {crud.inProcess ? (
+                <CircleSpinner size={12} color="white" loading={true} />
+              ) : (
+                <HiChevronLeft
+                  className={styles.chevronIcon}
+                  onClick={() => {
+                    setBtnExpandId(doc._id);
+                    setBtnExpand(true);
+                  }}
+                />
+              )}
+            </>
+          )}
+        </div>
+
+ 
+
+
+        {btnExpandId === doc._id && btnExpand && (
+          <div className={styles.editDeleteBtnDiv}>
+            {inEditMode ? (
+              <>
+                <div className={styles.saveBtnDiv}>
+                  <HiCheck
                     color="#9baece"
-                    className={styles.editIcon}
+                    className={styles.saveIcon}
                     onClick={() => {
-                      setEditButton(null);
-                      setEditId(doc._id);
+                      save(doc._id);
+                      setEditId(null);
                       setInEditMode(!inEditMode);
+                      setEditButton(true);
                     }}
                   />
                 </div>
-              ) : null}
-            </>
-          )}
-        </div>
-        <div
-          className={styles.imageDeleteBtnDiv}
-          onClick={() => {
-            handleDeleteClick();
-          }}
-        >
-          {crud.inProcess &&
-          crud.itemId === doc._id &&
-          crud.operation === "delete" ? (
-            <CircleSpinner size={10} color="gray" loading={true} />
-          ) : (
-            <Icon
-              icon={trashEmpty}
-              className={styles.deleteIcon}
-              color="#9baece"
-            />
-          )}
-        </div>
-        <div className={styles.favBtnDiv}>
+                <div className={styles.cancelBtnDiv}>
+                  <HiX
+                    color="#9baece"
+                    className={styles.cancelIcon}
+                    onClick={() => {
+                      setEditId(null);
+                      setInEditMode(!inEditMode);
+                      setEditButton(true);
+                    }}
+                  />
+                </div>
+              </>
+            ) : (
+              <>
+                {showEditButton && inEditMode === false ? (
+                  <>
+                    <div className={styles.editBtnDiv}>
+                      <Icon
+                        icon={pencilIcon}
+                        color="#9baece"
+                        className={styles.editIcon}
+                        onClick={() => {
+                          setEditButton(null);
+                          setEditId(doc._id);
+                          setInEditMode(!inEditMode);
+                        }}
+                      />
+                    </div>
+
+                    <div
+                      className={styles.deleteBtnDiv}
+                      onClick={() => {
+                        handleDeleteClick();
+                      }}
+                    >
+                      {crud.inProcess &&
+                      crud.itemId === doc._id &&
+                      crud.operation === "delete" ? (
+                        <CircleSpinner size={10} color="gray" loading={true} />
+                      ) : (
+                        <Icon
+                          icon={trashSimpleBold}
+                          className={styles.deleteIcon}
+                          color="#f9aeb5"
+                        />
+                      )}
+                    </div>
+                  </>
+                ) : null}
+              </>
+            )}
+          </div>
+        )}
+      </div> */}
+
+      <div className={styles.imageContainer} >
+        
+      <div className={styles.favBtnDiv}>
           <div
             className={styles.favBtn}
             onClick={() => {
@@ -195,24 +260,13 @@ const Document = ({
             }}
           >
             {doc.isFavourite ? (
-              <Icon
-                icon={bookmarkStarFill}
-                className={styles.favIcon}
-                color="#00b7fd"
-              />
+              <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
             ) : (
-              <Icon
-                className={styles.favIcon}
-                icon={bookmarkStar}
-                color="#9baece"
-              />
+              <BsBookmarkPlus className={styles.favIcon} color="gray" />
             )}
           </div>
         </div>
-      </div>
-
-      <div className={styles.imageContainer}>
-        <img src={doc.imageUrl} onClick={handleMaximize}></img>
+        <img onClick={handleMaximize} src={doc.imageUrl} ></img >
       </div>
 
       <div className={styles.titleDiv}>
@@ -230,7 +284,30 @@ const Document = ({
   );
 };
 
+// export default React.forwardRef(Document);
 export default Document;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 {
   /* {editId === doc._id && maximize === true ? null : (
