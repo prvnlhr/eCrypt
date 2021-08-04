@@ -1,12 +1,45 @@
 .addBtnWrapper {
   position: absolute;
+  right: 2%;
+  bottom: 5%;
+  /* bottom: 30px; */
+  width: 80px;
+  height: 38px;
+  /* border: 1px solid rgb(255, 255, 255); */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+  font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  font-family: "Comfortaa", cursive;
+  font-family: "Quicksand", sans-serif;
+
+  font-weight: bold;
+  /* letter-spacing: 0.2px !important; */
+  /* color: white; */
+  border-radius: 20px;
+  cursor: pointer;
+  /* */
+  background-color: #00b7fd;
+  /* background-color: #b8e2d6; */
+  /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+  /* z-index: 25; */
+  /* <div className={btnStyles.addBtnWrapper}> </div> */
+  padding-left: 4px;
+  /* padding-right: 4px; */
+
+  box-sizing: border-box;
+}
+.addBtnWrapperHidden {
+  position: absolute;
   right: 1%;
   top: -30px;
   /* bottom: 30px; */
   width: 80px;
   height: 25px;
   /* border: 1px solid #0177fb; */
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
@@ -25,64 +58,58 @@
   /* background-color: #b8e2d6; */
   /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
   /* z-index: 25; */
+  /* <div className={btnStyles.addBtnWrapper}> </div> */
 }
 
-.addBtnDiv {
-  position: absolute;
-  right: 1%;
-  bottom: 50px;
-  width: 80px;
-  height: 25px;
+.addBtnIconDIv {
+  position: relative;
+  /* right: 5%; */
+  /* bottom: 5%; */
+  width: 30px;
+  height: 30px;
   display: flex;
-  /* display: none; */
-
   justify-content: center;
   align-items: center;
-  font-size: 15px;
-  font-family: "Nunito", sans-serif;
-  font-family: "Comfortaa", cursive;
-  font-family: "Quicksand", sans-serif;
-
-  /* font-weight: bold; */
-  color: white;
-  border-radius: 20px;
-  cursor: pointer;
-  background-color: #4cd7f6;
+  /* color: white; */
+  border-radius: 50%;
+  background-color: white;
   /* z-index: 25; */
-  -webkit-text-stroke: 0.01em;
-  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 5px 5px rgba(0, 0, 0, 0.034);
-  /* z-index: -10; */
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 5px 5px rgba(0, 0, 0, 0.034); */
+  /* border: 2px solid white; */
+  box-sizing: border-box;
+  font-size: 25px;
+  color: white;
+  color: #00b7fd;
+  padding: 0px;
+  overflow: hidden;
 }
-.addBtnDivHidden {
-  position: absolute;
-  right: 1%;
-  bottom: 50px;
-  width: 80px;
-  height: 25px;
-  /* display: flex; */
-  display: none;
 
-  justify-content: center;
+.addBtnTextDiv {
+  /* position: absolute; */
+  /* right: 1%; */
+  /* bottom: 50px; */
+  width: 50px;
+  height: 23px;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  font-size: 15px;
-  font-family: "Nunito", sans-serif;
-  font-family: "Comfortaa", cursive;
-  font-family: "Quicksand", sans-serif;
+  /* font-size: 15px; */
 
-  /* font-weight: bold; */
-  color: white;
-  border-radius: 20px;
-  cursor: pointer;
-  background-color: #4cd7f6;
+  /* background-color: #4cd7f6; */
   /* z-index: 25; */
-  -webkit-text-stroke: 0.01em;
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 5px 5px rgba(0, 0, 0, 0.034); */
   /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 5px 5px rgba(0, 0, 0, 0.034);
-  /* z-index: -10; */
+  /* border: 1px solid black; */
+  box-sizing: border-box;
 }
-.addBtnDiv span {
+.addBtnTextDiv p {
   margin: 0px 0px 0px 5px;
+  padding: 0px;
+  font-family: "Quicksand", sans-serif;
+  /* font-weight: bold; */
+  /* border-radius: 20px; */
+  color: white;
+  -webkit-text-stroke: 0.01em;
 }
 
 .save_cancel_Div {
@@ -280,25 +307,12 @@ p {
 }
 
 @media screen and (max-width: 500px) {
-  .addBtnDiv {
+  .addBtnWrapper {
     position: absolute;
-    right: 1%;
-    bottom: 2%;
+    right: 5%;
+    bottom: 5%;
+    /* bottom: 30px; */
     width: 80px;
-    height: 28px;
-    display: flex;
-    /* display: none; */
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    font-family: "Quicksand", sans-serif;
-    /* font-weight: bold; */
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    background-color: #4cd7f6;
-    z-index: 200;
-    -webkit-text-stroke: 0.01em;
-    /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
+    height: 38px;
   }
 }

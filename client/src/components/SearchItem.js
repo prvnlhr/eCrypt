@@ -3,6 +3,7 @@ import styles from "../css/searchItem.module.css";
 import cardStyles from "../css/card.module.css";
 import loginsStyles from "../css/loginId.module.css";
 import docStyles from "../css/document.module.css";
+import LazyLoad from "react-lazy-load";
 
 import { FaUserAlt, FaLock } from "react-icons/fa";
 
@@ -115,12 +116,14 @@ const SearchItem = ({ item, setImageData, setMaximizeOrNot }) => {
         <>
           <div className={docStyles.documentCard}>
             <div className={docStyles.imageContainer}>
-              <img
-                src={item.imageUrl}
-                onClick={() => {
-                  handleMaximize(item);
-                }}
-              ></img>
+              <LazyLoad offset={0}>
+                <img
+                  src={item.imageUrl}
+                  onClick={() => {
+                    handleMaximize(item);
+                  }}
+                ></img>
+              </LazyLoad>
             </div>
 
             <div className={docStyles.titleDiv}>

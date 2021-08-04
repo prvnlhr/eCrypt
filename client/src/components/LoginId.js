@@ -23,8 +23,7 @@ import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
 import checkIcon from "@iconify-icons/bi/check";
 import xLg from "@iconify-icons/bi/x-lg";
 import trashEmpty from "@iconify-icons/gg/trash-empty";
-import { BsBookmarkPlus ,BsBookmarkFill} from "react-icons/bs";
-
+import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 const LoginId = ({
   loginId,
@@ -45,24 +44,32 @@ const LoginId = ({
     editId ? state.logins.loginIds.find((l) => l._id === editId) : null
   );
 
+  const [currLoginIdData, setCurrLoginIdData] = useState();
+
   useEffect(() => {
     if (loginIdDataToEdit) {
       setLoginData(loginIdDataToEdit);
     }
   }, [loginIdDataToEdit]);
 
+  useEffect(() => {
+    setCurrLoginIdData(loginId);
+  }, []);
+
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.user._id);
   const crud = useSelector((state) => state.crud);
 
-  const handleFavToggle = (loginCardId, favValue) => {
+  const handleFavToggle = (loginCardId) => {
+    // currLoginIdData
+    var favValue = currLoginIdData.isFavourite;
     let isFav;
     if (favValue === false) {
       isFav = true;
     } else {
       isFav = false;
     }
-
+    setCurrLoginIdData({ ...currLoginIdData, isFavourite: isFav });
     dispatch(loginIdFavToggle(loginCardId, isFav));
   };
   const save = (id) => {
@@ -103,7 +110,7 @@ const LoginId = ({
               setEditButton(true);
             }}
           >
-            <HiCheck color="#9baece" className={styles.checkIcon}/>
+            <HiCheck color="#9baece" className={styles.checkIcon} />
           </div>
         </div>
       ) : (
@@ -249,18 +256,12 @@ const LoginId = ({
           handleFavToggle(loginId._id, loginId.isFavourite);
         }}
       >
-        {loginId.isFavourite ? (
-          <BsBookmarkFill
-            className={styles.favIcon}
-         
-            color="#00b7fd"
-          />
+        {(
+          currLoginIdData ? currLoginIdData.isFavourite : loginId.isFavourite
+        ) ? (
+          <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
         ) : (
-          <BsBookmarkPlus
-            className={styles.favIcon}
-      
-            color="#9baece"
-          />
+          <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
         )}
       </button>
     </div>

@@ -6,11 +6,11 @@ import { addNewCard, editCard } from "../actions/cardsAction";
 import { TextField } from "@material-ui/core";
 import { HiX, HiCheck, HiArrowNarrowRight } from "react-icons/hi";
 import formStyles from "../css/cardForm.module.css";
+import styles from "../css/cardFormNew.module.css";
+
 import btnStyles from "../css/buttons.module.css";
 
-
 const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
-
   const [cardData, setCardData] = useState({
     user: "",
     bank: "",
@@ -34,6 +34,7 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   }, [cardDataToEdit]);
 
   const confirmSave = () => {
+    console.log(cardData);
     if (currentId) {
       dispatch(editCard(currentId, cardData));
     } else {
@@ -53,8 +54,30 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
     setInProcess(!inProcess);
   };
   const handleSubmit = (e) => {
+    console.log(cardData);
     e.preventDefault();
     inProcessing();
+  };
+  const handleDateChange = (e) => {
+    // console.log(e.target.value, e.target.value.length);
+    if (e.target.value.length === 2) {
+      setCardData({ ...cardData, expiry: e.target.value + "/" });
+    } else if (e.target.value.length === 3) {
+      setCardData({
+        ...cardData,
+        expiry: e.target.value.substring(0, 2),
+      });
+    } else {
+      setCardData({
+        ...cardData,
+        expiry: e.target.value,
+      });
+    }
+
+    //     console.log(
+    //       e.target.value,e.target.value.substring(0, 2) +"/" +
+    // e.target.value.substring(2, 4)
+    //     );
   };
 
   const clear = () => {
@@ -72,20 +95,127 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
 
   return (
     <div
-      className={
-        formMode === false
-          ? formStyles.formContainerCollapse
-          : formStyles.formContainer
-      }
+      className={formMode ? styles.formComponent : styles.formComponentClose}
     >
-      <div className={formStyles.formHeadingDiv}>
+      <form className={styles.formTag} onSubmit={handleSubmit}>
+        {/* ___HEADING_________ */}
+        <div className={styles.headingWrapper}>
+          <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
+            <HiX fontSize="15px" />
+          </div>
+          <p className={styles.HeadingText}>Add new card</p>
+        </div>
+        {/* ___CARD NUMBER__________ */}
+        <div className={styles.cardNoWrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>Card number</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              name="cardNo"
+              className={styles.inputField}
+              type="text"
+              placeholder="Enter 16 digit card number"
+              value={cardData.cardNo}
+              onChange={(e) =>
+                setCardData({ ...cardData, cardNo: e.target.value })
+              }
+            />
+          </div>
+        </div>
+        <div className={styles.bankNameWrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>Bank</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              name="bank"
+              className={styles.inputField}
+              type="text"
+              placeholder="Issuing bank"
+              value={cardData.bank}
+              onChange={(e) =>
+                setCardData({ ...cardData, bank: e.target.value })
+              }
+            />
+          </div>
+        </div>
+
+        {/* ___EXPIRY DATE__________ */}
+        <div className={styles.expiryDateWrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>Expiry date</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              className={styles.inputField}
+              name="expiry"
+              type="text"
+              value={cardData.expiry}
+              placeholder="MM / YY"
+              maxLength="5"
+              onChange={handleDateChange}
+              // (e) =>
+              //  setCardData({ ...cardData, expiry: e.target.value })
+              //  ,
+            />
+          </div>
+        </div>
+        {/* ___CVV__________ */}
+        <div className={styles.cvvWrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>CVV</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              className={styles.inputField}
+              name="cvv"
+              type="text"
+              placeholder="000"
+              value={cardData.cvv}
+              onChange={(e) =>
+                setCardData({ ...cardData, cvv: e.target.value })
+              }
+            />
+          </div>
+        </div>
+        {/* ___CARDHOLDER__________ */}
+        <div className={styles.cardHolderWrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>Cardholder name</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              className={styles.inputField}
+              type="text"
+              name="user"
+              placeholder="Enter cardholder's full name"
+              value={cardData.user}
+              onChange={(e) =>
+                setCardData({ ...cardData, user: e.target.value })
+              }
+            />
+          </div>
+        </div>
+        {/* ___BUTTON_________ */}
+        <div className={styles.buttonWrapper}>
+          <button type="submit" onClick={confirmSave}>
+            Add card
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+};
+export default CardForm;
+
+{
+  /* <div className={formStyles.formHeadingDiv}>
         {currentId ? <p>Edit</p> : <p>Create New</p>}
       </div>
 
       <div className={formStyles.formDiv}>
         <form className={formStyles.form} onSubmit={handleSubmit}>
-        
-
           <div className={formStyles.inputContainer}>
             <TextField
               variant="outlined"
@@ -94,6 +224,9 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
               size="small"
               value={cardData.user}
               placeholder="user"
+              InputLabelProps={{
+                shrink: true,
+              }}
               onChange={(e) =>
                 setCardData({ ...cardData, user: e.target.value })
               }
@@ -168,7 +301,6 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
               }
             />
           </div>
-     
 
           {inProcess === false ? (
             <button type="submit" className={btnStyles.submitBtn}>
@@ -194,8 +326,5 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
             <HiX fontSize="15px" />
           </div>
         )}
-      </div>
-    </div>
-  );
-};
-export default CardForm;
+      </div> */
+}

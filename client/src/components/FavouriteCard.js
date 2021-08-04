@@ -1,5 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+
 import { cardFavToggle } from "../actions/cardsAction";
 
 import { HiStar, HiOutlineStar } from "react-icons/hi";
@@ -10,11 +12,15 @@ import { Icon, InlineIcon } from "@iconify/react";
 import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
 import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
 import bookmarkStar from "@iconify-icons/bi/bookmark-star";
-import { BsBookmarkPlus ,BsBookmarkFill} from "react-icons/bs";
+import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 const FavouriteCard = ({ favItem }) => {
   const dispatch = useDispatch();
+  const [currCardData, setCurrCardData] = useState();
 
+  useEffect(() => {
+    setCurrCardData(favItem);
+  }, [favItem]);
   const cardNumber = favItem.cardNo;
   const cNo = cardNumber.toString();
   const cardType = getCardType(cNo);
@@ -22,42 +28,44 @@ const FavouriteCard = ({ favItem }) => {
   const formattedCardNo = cNo.toString().replace(/\d{4}(?=.)/g, "$& ");
   console.log(formattedCardNo);
 
-  const handleFavToggle = (cardId, favValue) => {
+  const handleFavToggle = (cardId) => {
+    var favValue = currCardData.isFavourite;
     let isFav;
     if (favValue === false) {
       isFav = true;
     } else {
       isFav = false;
     }
+    setCurrCardData({ ...currCardData, isFavourite: isFav });
 
     dispatch(cardFavToggle(cardId, isFav));
   };
 
   return (
-    <div className=
-    {`${styles.cardContainer} ${
-      cardType === "MASTER"
-        ? styles.cardMaster
-        : cardType === "VISA"
-        ? styles.cardVisa
-        : cardType === "RUPAY"
-        ? styles.cardRupay
-        : cardType === "MAESTRO"
-        ? styles.cardMaestro
-        : cardType === "AMEX"
-        ? styles.cardAmex
-        : cardType === "JCB"
-        ? styles.cardJcb
-        : cardType === "HIPERCARD"
-        ? styles.cardHiper
-        : cardType === "UNIONPAY"
-        ? styles.cardUnion
-        : cardType === "DISCOVERY"
-        ? styles.cardDiscovery
-        : cardType === "DINERS"
-        ? styles.cardDiners
-        : null
-    }`}
+    <div
+      className={`${styles.cardContainer} ${
+        cardType === "MASTER"
+          ? styles.cardMaster
+          : cardType === "VISA"
+          ? styles.cardVisa
+          : cardType === "RUPAY"
+          ? styles.cardRupay
+          : cardType === "MAESTRO"
+          ? styles.cardMaestro
+          : cardType === "AMEX"
+          ? styles.cardAmex
+          : cardType === "JCB"
+          ? styles.cardJcb
+          : cardType === "HIPERCARD"
+          ? styles.cardHiper
+          : cardType === "UNIONPAY"
+          ? styles.cardUnion
+          : cardType === "DISCOVERY"
+          ? styles.cardDiscovery
+          : cardType === "DINERS"
+          ? styles.cardDiners
+          : null
+      }`}
     >
       <div className={styles.cardLogo}>
         <CardLogo className={styles.logo} cardNo={favItem.cardNo} />
@@ -67,7 +75,7 @@ const FavouriteCard = ({ favItem }) => {
       </div>
 
       <div className={styles.cardNo}>
-        <p className={(styles.cardNoText)}>{formattedCardNo}</p>
+        <p className={styles.cardNoText}>{formattedCardNo}</p>
       </div>
 
       <div className={styles.cvv}>
@@ -90,18 +98,10 @@ const FavouriteCard = ({ favItem }) => {
           handleFavToggle(favItem._id, favItem.isFavourite);
         }}
       >
-        {favItem.isFavourite ? (
-     <BsBookmarkFill
-     className={styles.favIcon}
-   
-     color="#00b7fd"
-   />
- ) : (
-   <BsBookmarkPlus
-     className={styles.favIcon}
-   
-     color="#9baece"
-   />
+        {(currCardData ? currCardData.isFavourite : favItem.isFavourite) ? (
+          <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+        ) : (
+          <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
         )}
       </button>
       <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>

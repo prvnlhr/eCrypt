@@ -3,6 +3,8 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../css/document.module.css";
 import modalStyles from "../css/modal.module.css";
+import LazyLoad from 'react-lazy-load';
+
 
 import { deleteDoc, editDoc, docFavToggle } from "../actions/documentsAction";
 import { CgTrashEmpty } from "react-icons/cg";
@@ -61,9 +63,7 @@ const Document = ({
   const [modalShow, setModalShow] = useState(false);
   const [thisDocRefIndex, setThisDocRefIndex] = useState(null);
   const node = useRef();
-  const [title, setTitle] = useState({
-    imageName: "",
-  });
+  const [currDocData, setCurrDocData] = useState();
 
   const dotBtnClicked = () => {
     setBtnExpand(!btnExpand);
@@ -72,28 +72,32 @@ const Document = ({
     editId ? state.docs.docs.find((d) => d._id === editId) : null
   );
   const docData = useSelector((state) =>
-    doc._id ? state.docs.docs.find((d) => d._id === doc._id) : null
+    state.docs.docs.find((d) => d._id === doc._id)
   );
 
   useEffect(() => {
-    if (docDataToEdit) {
-      setTitle(docDataToEdit);
-    }
-  }, [docDataToEdit]);
+    // console.log(doc , docData);
+    setCurrDocData(doc);
+    // console.log(currDocData);
+    // if (docDataToEdit) {
+    //   setDocData(docDataToEdit);
+    // }
+  }, []);
 
-  const handleFavToggle = (docId, favValue) => {
+  const handleFavToggle = (docId) => {
+    var favValue = currDocData.isFavourite;
     let isFav;
     if (favValue === false) {
       isFav = true;
     } else {
       isFav = false;
     }
+    setCurrDocData({ ...currDocData, isFavourite: isFav });
     dispatch(docFavToggle(docId, isFav));
   };
 
   const save = (id) => {
-    console.log(title);
-    dispatch(editDoc(id, userId, title));
+    dispatch(editDoc(id, userId, currDocData));
   };
   const handleMaximize = () => {
     setImageData(docData);
@@ -149,7 +153,70 @@ const Document = ({
         </div>
       ) : null}
 
-      {/* <div className={styles.buttonContainer}>
+      <div className={styles.imageContainer}>
+        <div className={styles.favBtnDiv}>
+          <div
+            className={styles.favBtn}
+            onClick={() => {
+              handleFavToggle(doc._id);
+            }}
+          >
+            {(currDocData ? currDocData.isFavourite : doc.isFavourite) ? (
+              <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+            ) : (
+              <BsBookmarkPlus className={styles.favIcon} color="gray" />
+            )}
+          </div>
+        </div>
+        <LazyLoad offset={0}  >
+        <img onClick={handleMaximize} src={doc.imageUrl}></img>
+        </LazyLoad>
+      </div>
+
+      <div className={styles.titleDiv}>
+        {inEditMode ? (
+          <input
+            className={styles.titleInput}
+            value={currDocData.imageName}
+            onChange={(e) =>
+              setCurrDocData({ ...currDocData, imageName: e.target.value })
+            }
+          ></input>
+        ) : (
+          <p className={styles.titleText}>{doc.imageName}</p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// export default React.forwardRef(Document);
+export default Document;
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//_____________________________________-
+{
+  /* <div className={styles.buttonContainer}>
         <div className={styles.dotMenuDiv}>
           {btnExpandId === doc._id && btnExpand ? (
             <HiChevronRight
@@ -248,66 +315,8 @@ const Document = ({
             )}
           </div>
         )}
-      </div> */}
-
-      <div className={styles.imageContainer} >
-        
-      <div className={styles.favBtnDiv}>
-          <div
-            className={styles.favBtn}
-            onClick={() => {
-              handleFavToggle(doc._id, doc.isFavourite);
-            }}
-          >
-            {doc.isFavourite ? (
-              <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
-            ) : (
-              <BsBookmarkPlus className={styles.favIcon} color="gray" />
-            )}
-          </div>
-        </div>
-        <img onClick={handleMaximize} src={doc.imageUrl} ></img >
-      </div>
-
-      <div className={styles.titleDiv}>
-        {inEditMode ? (
-          <input
-            className={styles.titleInput}
-            value={title.imageName}
-            onChange={(e) => setTitle({ ...title, imageName: e.target.value })}
-          ></input>
-        ) : (
-          <p className={styles.titleText}>{doc.imageName}</p>
-        )}
-      </div>
-    </div>
-  );
-};
-
-// export default React.forwardRef(Document);
-export default Document;
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+      </div> */
+}
 
 {
   /* {editId === doc._id && maximize === true ? null : (

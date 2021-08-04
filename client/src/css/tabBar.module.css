@@ -85,7 +85,7 @@
   /* -webkit-animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1)
     both;
   animation: scale-up-center 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both; */
-  transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1); */
 }
 
 .indicator {
@@ -100,7 +100,13 @@
   top: 0px;
   margin-top: auto;
   margin-bottom: auto;
-  transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1); */
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  -o-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+
+ 
 }
 
 .bottomBorderDiv {

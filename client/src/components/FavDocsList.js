@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect, useRef } from "react";
 
 import FavDoc from "./FavDoc";
 import listStyles from "../css/favList.module.css";
@@ -10,6 +11,8 @@ const FavDocsList = ({
   setImageData,
   setMaximizeOrNot,
 }) => {
+  useEffect(() => {}, [favoritesDocsArray]);
+
   return (
     <div className={listStyles.favDocList}>
       {favoritesDocsArray.length < 1 ? (

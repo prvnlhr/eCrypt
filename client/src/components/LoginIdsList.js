@@ -11,11 +11,11 @@ import btnStyles from "../css/buttons.module.css";
 
 import { FiPlusCircle } from "react-icons/fi";
 import { CgAdd } from "react-icons/cg";
-
+import { HiPlus } from "react-icons/hi";
 const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   const [formMode, setFormMode] = useState(false);
   const [showEditButton, setEditButton] = useState(true);
-  
+
   const crud = useSelector((state) => state.crud);
 
   useEffect(() => {
@@ -38,12 +38,11 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   }, []);
 
   const handleScroll = (e) => {
- 
     setIsScrolling(true);
     clearTimeout(timeOut);
     timeOut = setTimeout(() => {
       setIsScrolling(false);
-    },200);
+    }, 200);
   };
 
   const formToggle = () => {
@@ -94,13 +93,17 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
         <div
           className={
             isScrolling === false
-              ? btnStyles.addBtnDiv
-              : btnStyles.addBtnDivHidden
+              ? btnStyles.addBtnWrapper
+              : btnStyles.addBtnWrapperHidden
           }
           onClick={formToggle}
         >
-          <CgAdd fontSize="17px" />
-          <span>Add</span>
+          <div className={btnStyles.addBtnIconDIv}>
+            <HiPlus />
+          </div>
+          <div className={btnStyles.addBtnTextDiv}>
+            <p>Add</p>
+          </div>
         </div>
       ) : null}
     </div>

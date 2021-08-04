@@ -23,8 +23,7 @@ import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
 import checkIcon from "@iconify-icons/bi/check";
 import xLg from "@iconify-icons/bi/x-lg";
 import trashEmpty from "@iconify-icons/gg/trash-empty";
-import { BsBookmarkPlus ,BsBookmarkFill} from "react-icons/bs";
-
+import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 const Card = ({ card, setEditButton, showEditButton, index }) => {
   const dispatch = useDispatch();
@@ -39,6 +38,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
     cvv: "",
     pin: "",
   });
+  const [currCardData, setCurrCardData] = useState();
 
   // determining the card type___________
   const cardNumber = card.cardNo;
@@ -61,13 +61,19 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
   const userId = useSelector((state) => state.user.user._id);
   const crud = useSelector((state) => state.crud);
 
-  const handleFavToggle = (cardId, favValue) => {
+  useEffect(() => {
+    setCurrCardData(card);
+  }, []);
+
+  const handleFavToggle = (cardId) => {
+    var favValue = currCardData.isFavourite;
     let isFav;
     if (favValue === false) {
       isFav = true;
     } else {
       isFav = false;
     }
+    setCurrCardData({ ...currCardData, isFavourite: isFav });
 
     dispatch(cardFavToggle(cardId, isFav));
   };
@@ -120,7 +126,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                 setEditButton(true);
               }}
             >
-              <HiX color="#9baece" className={styles.cancelIcon}/>
+              <HiX color="#9baece" className={styles.cancelIcon} />
             </div>
             <div
               className={styles.checkIconDiv}
@@ -131,7 +137,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                 setEditButton(true);
               }}
             >
-              <HiCheck color="#9baece"    className={styles.checkIcon} />
+              <HiCheck color="#9baece" className={styles.checkIcon} />
             </div>
           </div>
         ) : (
@@ -187,18 +193,10 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
             handleFavToggle(card._id, card.isFavourite);
           }}
         >
-          {card.isFavourite ? (
-            <BsBookmarkFill
-              className={styles.favIcon}
-             
-              color="#00b7fd"
-            />
+          {(currCardData ? currCardData.isFavourite : card.isFavourite) ? (
+            <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
           ) : (
-            <BsBookmarkPlus
-              className={styles.favIcon}
-         
-              color="#9baece"
-            />
+            <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
           )}
         </button>
       </div>

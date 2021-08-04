@@ -8,6 +8,7 @@ import CardForm from "./CardForm";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CgAdd } from "react-icons/cg";
+import { HiPlus } from "react-icons/hi";
 
 import styles from "../css/cardsList.module.css";
 import noContentStyles from "../css/noContentMessage.module.css";
@@ -99,13 +100,17 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
         <div
           className={
             isScrolling === false
-              ? btnStyles.addBtnDiv
-              : btnStyles.addBtnDivHidden
+              ? btnStyles.addBtnWrapper
+              : btnStyles.addBtnWrapperHidden
           }
           onClick={formToggle}
         >
-          <CgAdd fontSize="17px" />
-          <span>Add</span>
+          <div className={btnStyles.addBtnIconDIv}>
+            <HiPlus />
+          </div>
+          <div className={btnStyles.addBtnTextDiv}>
+            <p>Add</p>
+          </div>
         </div>
       ) : // </div>
       null}

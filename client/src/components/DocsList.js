@@ -11,6 +11,7 @@ import noContentStyles from "../css/noContentMessage.module.css";
 import btnStyles from "../css/buttons.module.css";
 import { FiPlusCircle } from "react-icons/fi";
 import { CgAdd } from "react-icons/cg";
+import { HiPlus } from "react-icons/hi";
 
 const DocsList = ({
   docs,
@@ -107,13 +108,17 @@ const DocsList = ({
         <div
           className={
             isScrolling === false
-              ? btnStyles.addBtnDiv
-              : btnStyles.addBtnDivHidden
+              ? btnStyles.addBtnWrapper
+              : btnStyles.addBtnWrapperHidden
           }
           onClick={formToggle}
         >
-          <CgAdd fontSize="17px" />
-          <span>Add</span>
+          <div className={btnStyles.addBtnIconDIv}>
+            <HiPlus />
+          </div>
+          <div className={btnStyles.addBtnTextDiv}>
+            <p>Add</p>
+          </div>
         </div>
       ) : null}
 

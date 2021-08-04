@@ -31,9 +31,8 @@
   /* overflow: visible; */
   /* z-index: 4; */
   /* border: 1px solid black; */
-  -webkit-animation: scale-in-tl 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: scale-in-tl 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
+
 @-webkit-keyframes scale-in-tl {
   0% {
     -webkit-transform: scale(0);
@@ -258,8 +257,6 @@
   color: #00b7fd;
   box-sizing: border-box;
   font-weight: 550;
-
-
 }
 
 .websiteDiv {

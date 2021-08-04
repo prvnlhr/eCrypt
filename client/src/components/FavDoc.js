@@ -1,5 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import LazyLoad from "react-lazy-load";
+
 import { useDispatch, useSelector } from "react-redux";
 import { docFavToggle } from "../actions/documentsAction";
 import styles from "../css/document.module.css";
@@ -18,13 +20,23 @@ const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
   );
   const [maximize, setEnlarge] = useState(false);
   const [editId, setEditId] = useState(null);
-  const handleFavToggle = (docId, favValue) => {
+  const [currDocData, setCurrDocData] = useState();
+
+  useEffect(() => {
+    setCurrDocData(favItem);
+  }, [favItem]);
+
+  const handleFavToggle = (docId) => {
+    var favValue = currDocData.isFavourite;
+
     let isFav;
     if (favValue === false) {
       isFav = true;
     } else {
       isFav = false;
     }
+    setCurrDocData({ ...currDocData, isFavourite: isFav });
+
     dispatch(docFavToggle(docId, isFav));
   };
 
@@ -34,7 +46,6 @@ const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
   };
   return (
     <div className={styles.documentCard}>
-     
       <div className={styles.imageContainer}>
         <div className={styles.favBtnDiv}>
           <div
@@ -43,14 +54,16 @@ const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
               handleFavToggle(favItem._id, favItem.isFavourite);
             }}
           >
-            {favItem.isFavourite ? (
+            {(currDocData ? currDocData.isFavourite : favItem.isFavourite) ? (
               <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
             ) : (
               <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
             )}
           </div>
         </div>
-        <img src={favItem.imageUrl} onClick={handleMaximize}></img>
+        <LazyLoad offset={0}>
+          <img src={favItem.imageUrl} onClick={handleMaximize}></img>
+        </LazyLoad>
       </div>
       <div className={styles.titleDiv}>
         <p className={styles.titleText}>{favItem.imageName}</p>
