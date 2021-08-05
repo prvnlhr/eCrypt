@@ -11,6 +11,7 @@ const loginsController = {
     }
   },
   addLoginId: async (req, res) => {
+    console.log("at loginId controller", req.body);
     try {
       const response = await UserDatabase.findOneAndUpdate(
         { _id: req.body.user_id },

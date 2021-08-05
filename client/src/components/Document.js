@@ -103,7 +103,7 @@ const Document = ({
     setImageData(docData);
     setShowHeaderFooter(true);
     setMaximizeOrNot(true);
-    console.log(docData);
+    // console.log(docData);
   };
 
   const confirmDelete = () => {

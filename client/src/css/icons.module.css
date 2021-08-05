@@ -11,3 +11,177 @@
   overflow: hidden;
 }
 /* RiSnapchatLine */
+.noLogo {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noLogo p {
+  margin: 0px;
+  font-family: "Anton", sans-serif;
+  font-size: 3em;
+  color: #9baece;
+  font-weight: 550;
+  letter-spacing: 0.4px;
+}
+.iconifyIcon {
+  width: 60%;
+  height: 60%;
+  /* font-size: 2em; */
+}
+.iconifyPaytm {
+  width: 65%;
+  height: 60%;
+  color: #042e6f;
+}
+.iconifyApplePay {
+  width: 80%;
+  height: 80%;
+  /* font-size: 3em; */
+  color: gray;
+}
+.iconifyMS {
+  width: 50%;
+  height: 50%;
+  /* font-size: 3em; */
+  /* color: gray; */
+}
+.iconifyGmail {
+  width: 50%;
+  height: 50%;
+}
+.iconifyGFG {
+  width: 60%;
+  height: 60%;
+  color: #419b44;
+}
+.iconifyFlpkrt {
+  width: 70%;
+  height: 70%;
+  color: #f7da00;
+  background-color: #0179d4;
+  border-radius: 10px;
+}
+/* #419b44 */
+.iconifySamsung {
+  width: 85%;
+  height: 90%;
+  color: #034b9d;
+  /* background-color: #0179d4; */
+  /* border-radius: 10px; */
+}
+.iconifyImdb {
+  width: 70%;
+  height: 80%;
+  color: #dfb31e;
+  /* background-color: black; */
+  border-radius: 10px;
+}
+.iconifyMedium {
+  width: 80%;
+  height: 80%;
+  color: black;
+  /* background-color: #0179d4; */
+  /* border-radius: 10px; */
+}
+.iconifyOracle {
+  width: 80%;
+  height: 80%;
+  /* color: #034b9d; */
+  /* background-color: #0179d4; */
+  /* border-radius: 10px; */
+}
+.iconifyNetlify {
+  width: 65%;
+  height: 65%;
+  /* color: #034b9d; */
+  /* background-color: #0179d4; */
+  /* border-radius: 10px; */
+}
+.iconifyHeroku {
+  width: 65%;
+  height: 65%;
+  /* color: #034b9d; */
+  /* background-color: #0179d4; */
+  /* border-radius: 10px; */
+}
+.iconifyAws {
+  width: 65%;
+  height:65%;
+  /* color: #034b9d; */
+  /* background-color: #0179d4; */
+  border-radius: 10px;
+}
+.iconifyDell {
+  width: 65%;
+  height: 65%;
+  color: #034b9d;
+  /* background-color: #0179d4; */
+  border-radius: 10px;
+}
+.iconifyHp {
+  width: 65%;
+  height: 65%;
+  color: #034b9d;
+  /* background-color: #0179d4; */
+  border-radius: 10px;
+}
+.iconifyAirbnb {
+  width: 60%;
+  height: 60%;
+  /* color: #034b9d; */
+  /* background-color: #0179d4; */
+  border-radius: 10px;
+}
+.iconifyPhonepe {
+  width: 65%;
+  height: 65%;
+  color: #6539b2;
+  /* background-color: #0179d4; */
+  border-radius: 10px;
+}
+.iconifyPaytm {
+  width: 70%;
+  height: 70%;
+  color: #1c2b90;
+  /* background-color: #0179d4; */
+  border-radius: 10px;
+}
+.iconifyAdobe {
+  width: 75%;
+  height: 75%;
+  color: #e51a2d;
+  /* background-color: #0179d4; */
+  border-radius: 10px;
+}
+.iconifySnapchat {
+  width: 75%;
+  height: 70%;
+  color: black;
+  background-color: #f6f403;
+  border-radius: 5px;
+}
+.iconifySlack {
+  width: 60%;
+  height: 60%;
+  /* color: black; */
+  /* background-color: #f6f403; */
+  /* border-radius: 5px; */
+}
+.iconifyStoveflw {
+  width: 60%;
+  height: 60%;
+  /* color: black; */
+  /* background-color: #f6f403; */
+  /* border-radius: 5px; */
+}
+.iconifyGpay {
+  width: 60%;
+  height: 60%;
+}
+.iconifyPstore {
+  width: 60%;
+  height: 60%;
+}

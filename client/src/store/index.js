@@ -4,33 +4,33 @@ import rootReducer from "../reducers/index";
 
 const initialState = {};
 
-// let store;
+let store;
 
-// if (process.env.NODE_ENV === "production") {
-//   store = createStore(
-//     rootReducer,
-//     initialState,
-//     compose(applyMiddleware(thunk))
-//   );
-// } else {
-//   store = createStore(
-//     rootReducer,
-//     initialState,
-//     compose(
-//       applyMiddleware(thunk),
-//       window.__REDUX_DEVTOOLS_EXTENSION__ &&
-//         window.__REDUX_DEVTOOLS_EXTENSION__({
-//           latency: 0,
-//         })
-//     )
-//   );
-// }
+if (process.env.NODE_ENV === "production") {
+  store = createStore(
+    rootReducer,
+    initialState,
+    compose(applyMiddleware(thunk))
+  );
+} else {
+  store = createStore(
+    rootReducer,
+    initialState,
+    compose(
+      applyMiddleware(thunk),
+      window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__({
+          latency: 0,
+        })
+    )
+  );
+}
 
-const store = createStore(
-  rootReducer,
-  initialState,
-  compose(applyMiddleware(thunk))
-);
+// const store = createStore(
+//   rootReducer,
+//   initialState,
+//   compose(applyMiddleware(thunk))
+// );
 
 // const store = createStore(
 //   rootReducer,

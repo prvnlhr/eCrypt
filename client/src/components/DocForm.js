@@ -68,8 +68,8 @@ const DocForm = ({ formMode, setFormMode }) => {
         </div>
 
         <div className={formStyles.btnDiv}>
-          <button type="submit" className={btnStyles.submitBtn}>
-            <HiArrowNarrowRight fontSize="20px" />
+          <button type="submit" className={formStyles.submitBtn}>
+          <p>Add</p>
           </button>
         </div>
       </form>

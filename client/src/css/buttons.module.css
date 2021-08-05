@@ -28,6 +28,7 @@
   /* <div className={btnStyles.addBtnWrapper}> </div> */
   padding-left: 4px;
   /* padding-right: 4px; */
+  z-index: 25;
 
   box-sizing: border-box;
 }
@@ -57,7 +58,6 @@
   background-color: white;
   /* background-color: #b8e2d6; */
   /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-  /* z-index: 25; */
   /* <div className={btnStyles.addBtnWrapper}> </div> */
 }
 
@@ -155,32 +155,33 @@
 
 .cancelBtnDiv {
   position: absolute;
-  top: 14px;
-  left: 15px;
+  top: 10px;
+  left: 10px;
   width: 25px;
   height: 25px;
-  border: 1px solid rgb(235, 234, 234);
+  border: 2px solid rgba(151, 151, 151, 0.267);
   /* border: 1px solid rgb(187, 187, 187); */
 
   display: flex;
   justify-content: center;
   align-items: center;
   /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
-  font-size: 14px;
+  font-size: 15px;
   font-family: "Nunito", sans-serif;
   font-weight: 650;
   letter-spacing: 0.2px !important;
   color: slategray;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
+  /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.05),
     -6px -6px 6px rgba(255, 255, 255, 0.6),
     inset 2px 2px 5px rgba(0, 0, 0, 0.03),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4);
+    inset -2px -2px 5px rgba(255, 255, 255, 0.4); */
+  box-sizing: border-box;
 }
 .cancelBtnDiv span {
-  margin: 0px 0px 0px 2px;
+  /* margin: 0px 0px 0px 2px; */
 }
 .cancelBtnDiv:hover {
   /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); */

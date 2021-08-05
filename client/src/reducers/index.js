@@ -10,6 +10,7 @@ import tokenReducer from "./tokenReducer";
 import notificationReducer from "./notificationReducer";
 import searchReducer from "./searchReducer";
 import activityReducer from "./activityReducer";
+import processReducer from "./processReducer";
 
 import crudReducer from "./crudReducer";
 export default combineReducers({
@@ -26,4 +27,5 @@ export default combineReducers({
   search: searchReducer,
   activities: activityReducer,
   crud: crudReducer,
+  process: processReducer,
 });

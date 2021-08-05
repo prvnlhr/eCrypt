@@ -1,6 +1,7 @@
 .loginContainer {
   position: relative;
   display: grid;
+  /* display: none; */
   grid-template-columns: 70px 1fr;
   justify-content: center;
   align-items: center;

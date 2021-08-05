@@ -1,16 +1,18 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addNewCard, editCard } from "../actions/cardsAction";
+import { addNewCard, editCard, clearProcess } from "../actions/cardsAction";
 import { TextField } from "@material-ui/core";
 import { HiX, HiCheck, HiArrowNarrowRight } from "react-icons/hi";
 import formStyles from "../css/cardForm.module.css";
 import styles from "../css/cardFormNew.module.css";
+import { CircleSpinner } from "react-spinners-kit";
 
 import btnStyles from "../css/buttons.module.css";
 
 const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
+  const dispatch = useDispatch();
   const [cardData, setCardData] = useState({
     user: "",
     bank: "",
@@ -20,11 +22,23 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
     pin: "",
   });
 
-  const [inProcess, setInProcess] = useState(false);
+  // const [inProcess, setInProcess] = useState(false);
 
-  const dispatch = useDispatch();
+  //State to hold what to show inside a button______
+  const [btnText, setBtnText] = useState("Add card");
+
+  //refs to all input fields________________________
+  const userInputRef = useRef();
+  const bankInputRef = useRef();
+  const cardNoInputRef = useRef();
+  const expiryInputRef = useRef();
+  const cvvInputRef = useRef();
+
+  //Extracting Process and user state from redux store________
   const userId = useSelector((state) => state.user.user._id);
+  const process = useSelector((state) => state.process);
 
+  //THIS WAS USED IN PREVIOUS FORM
   const cardDataToEdit = useSelector((state) =>
     currentId ? state.cards.cards.find((c) => c._id === currentId) : null
   );
@@ -33,31 +47,81 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
     if (cardDataToEdit) setCardData(cardDataToEdit);
   }, [cardDataToEdit]);
 
-  const confirmSave = () => {
-    console.log(cardData);
-    if (currentId) {
-      dispatch(editCard(currentId, cardData));
+  //___This useEffect keeps track of process state after dispatching
+  useEffect(() => {
+    if (process.category === "card") {
+      if (process.status === "success") {
+        successHandler();
+      } else if (process.status === "failed") {
+        failureHandler();
+      }
+    }
+  }, [process]);
+
+  //___This function is to check if all fields are correct before dispatching addCard()
+  const formValidator = () => {
+    if (cardData.cardNo.length < 15 || cardData.cardNo.length === 0) {
+      //check your cardNo
+      cardNoInputRef.current.focus();
+    } else if (cardData.expiry.length === 0 || cardData.expiry.length < 5) {
+      //check your expiry date
+      expiryInputRef.current.focus();
+    } else if (cardData.cvv.length === 0 || cardData.cvv.length < 3) {
+      //check your cvv
+      cvvInputRef.current.focus();
+    } else if (cardData.bank.length === 0) {
+      //check your expiry date
+      bankInputRef.current.focus();
+    } else if (cardData.user.length === 0) {
+      userInputRef.current.focus();
     } else {
+      // dispatch add card
       dispatch(addNewCard(cardData, userId));
     }
-    clear();
-    setFormMode(!formMode);
-    inProcessing();
   };
 
+  //___After button is clicked this function is called and form is validated further
+  const confirmSave = () => {
+    console.log("form btn clicked");
+    formValidator();
+  };
+
+  //__Functions form success or failure of form adding
+  const successHandler = () => {
+    // if success ==> clear form ,toggle formMode == false ,setBtnText back to 'Add card' ,
+    // and dispatch action to clear the process state in redux
+    clear();
+    setFormMode(false);
+    setBtnText("Add card");
+    dispatch(clearProcess());
+  };
+
+  const failureHandler = () => {
+    //if failure to add==> setBtnText to 'Retry'
+    setBtnText("Retry");
+  };
+
+  //___Function to toggle form
   const fromToggle = () => {
     setFormMode(!formMode);
-    setInProcess(false);
+    // setInProcess(false);
+    setBtnText("Add card");
+    dispatch(clearProcess());
     clear();
   };
-  const inProcessing = () => {
-    setInProcess(!inProcess);
-  };
+
+  // const inProcessing = () => {
+  //   setInProcess(!inProcess);
+  // };
+
+  //___This function prevent default behaviour of form submitting
   const handleSubmit = (e) => {
-    console.log(cardData);
+    // console.log(cardData);
     e.preventDefault();
-    inProcessing();
+    // inProcessing();
   };
+
+  //___Utility function to format expiry date in inputField MM/YY
   const handleDateChange = (e) => {
     // console.log(e.target.value, e.target.value.length);
     if (e.target.value.length === 2) {
@@ -73,13 +137,8 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
         expiry: e.target.value,
       });
     }
-
-    //     console.log(
-    //       e.target.value,e.target.value.substring(0, 2) +"/" +
-    // e.target.value.substring(2, 4)
-    //     );
   };
-
+  //___UTILITY function to clear inputFields on form Closing
   const clear = () => {
     setCurrentId(null);
     setCardData({
@@ -112,10 +171,13 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
           </div>
           <div className={styles.inputDiv}>
             <input
+              ref={cardNoInputRef}
+              required
               name="cardNo"
               className={styles.inputField}
               type="text"
-              placeholder="Enter 16 digit card number"
+              minLength="15"
+              placeholder="Enter 15 - 16 digit card number"
               value={cardData.cardNo}
               onChange={(e) =>
                 setCardData({ ...cardData, cardNo: e.target.value })
@@ -129,6 +191,8 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
           </div>
           <div className={styles.inputDiv}>
             <input
+              ref={bankInputRef}
+              required
               name="bank"
               className={styles.inputField}
               type="text"
@@ -149,11 +213,14 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
           <div className={styles.inputDiv}>
             <input
               className={styles.inputField}
+              required
+              ref={expiryInputRef}
               name="expiry"
               type="text"
               value={cardData.expiry}
               placeholder="MM / YY"
               maxLength="5"
+              minLength="5"
               onChange={handleDateChange}
               // (e) =>
               //  setCardData({ ...cardData, expiry: e.target.value })
@@ -168,9 +235,13 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
           </div>
           <div className={styles.inputDiv}>
             <input
+              ref={cvvInputRef}
               className={styles.inputField}
+              required
               name="cvv"
               type="text"
+              minLength="3"
+              maxLength="4"
               placeholder="000"
               value={cardData.cvv}
               onChange={(e) =>
@@ -186,7 +257,9 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
           </div>
           <div className={styles.inputDiv}>
             <input
+              ref={userInputRef}
               className={styles.inputField}
+              required
               type="text"
               name="user"
               placeholder="Enter cardholder's full name"
@@ -199,8 +272,16 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
         </div>
         {/* ___BUTTON_________ */}
         <div className={styles.buttonWrapper}>
-          <button type="submit" onClick={confirmSave}>
-            Add card
+          <button
+            type="submit"
+            onClick={confirmSave}
+            disabled={process.inProcess ? true : false}
+          >
+            {process.inProcess ? (
+              <CircleSpinner size={10} color="white" loading={true} />
+            ) : (
+              <p>{btnText}</p>
+            )}
           </button>
         </div>
       </form>

@@ -1,7 +1,7 @@
 .formComponent {
   position: absolute;
   /* position: relative; */
-  width: 300px;
+  width: 280px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,32 +30,6 @@
     both;
   animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
-
-@-webkit-keyframes scale-in-center {
-  0% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-@keyframes scale-in-center {
-  0% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 .formComponentClose {
   position: absolute;
   /* position: relative; */
@@ -74,32 +48,6 @@
     both;
   animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
-
-@-webkit-keyframes scale-out-center {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    opacity: 1;
-  }
-}
-@keyframes scale-out-center {
-  0% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-    opacity: 1;
-  }
-}
-
 .formTag {
   /* border: 1px solid rgba(0, 0, 0, 0.089); */
   position: relative;
@@ -110,15 +58,15 @@
   /* right: 0; */
   /* left: 0; */
   display: grid;
-  grid-template-rows: 13% 18% 18% 18% 18% 15%;
-  grid-template-columns: 50% 50%;
+  grid-template-rows: 14% 22% 22% 22% 22%;
+  grid-template-columns: 100%;
+
   grid-template-areas:
-    "headingWrapper headingWrapper"
-    "cardNoWrapper cardNoWrapper"
-    "bankNameWrapper bankNameWrapper"
-    "expiryDateWrapper cvvWrapper"
-    "cardHolderWrapper cardHolderWrapper"
-    "buttonWrapper buttonWrapper";
+    "headingWrapper"
+    "websiteWrapper"
+    "userNameWrapper"
+    "passwordWrapper"
+    "buttonWrapper";
 
   /* margin-left: auto; */
   /* margin-right: auto; */
@@ -132,9 +80,9 @@
   padding: 0 15px 0 15px;
   /* grid-gap: 5px; */
 }
+
 .headingWrapper {
   position: relative;
-
   grid-area: headingWrapper;
   width: 100%;
   height: 100%;
@@ -144,6 +92,7 @@
   align-items: center;
   box-sizing: border-box;
   border-bottom: 1px solid #1072f1;
+  /* border: 1px solid #1072f1; */
 }
 .HeadingText {
   font-family: "Quicksand", sans-serif;
@@ -154,8 +103,21 @@
   margin: 0px 0px 0px 2px;
   letter-spacing: 0.3px;
 }
-.cardNoWrapper {
-  grid-area: cardNoWrapper;
+
+.websiteWrapper {
+  grid-area: websiteWrapper;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  /* border: 1px solid blue; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+}
+
+.userNameWrapper {
+  grid-area: userNameWrapper;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -165,20 +127,9 @@
   justify-content: flex-start;
   /* align-items: center; */
 }
-.bankNameWrapper {
-  grid-area: bankNameWrapper;
+.passwordWrapper {
+  grid-area: passwordWrapper;
   width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  /* border: 1px solid green; */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* align-items: center; */
-}
-.expiryDateWrapper {
-  grid-area: expiryDateWrapper;
-  width: 95%;
   height: 100%;
   box-sizing: border-box;
   /* border: 1px solid orange; */
@@ -187,28 +138,7 @@
   justify-content: flex-start;
   /* align-items: center; */
 }
-.cvvWrapper {
-  grid-area: cvvWrapper;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  /* border: 1px solid violet; */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* align-items: center; */
-}
-.cardHolderWrapper {
-  grid-area: cardHolderWrapper;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  /* border: 1px solid rgb(255, 230, 0); */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* align-items: center; */
-}
+
 .buttonWrapper {
   grid-area: buttonWrapper;
   width: 100%;
@@ -300,4 +230,54 @@ button p {
 .inputField:focus {
   /* outline: 1px solid red; */
   border: 2px solid #1072f1;
+}
+
+@-webkit-keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+@keyframes scale-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 1;
+  }
 }

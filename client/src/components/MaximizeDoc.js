@@ -40,7 +40,7 @@ const MaximizeDoc = ({
   //HANDLER_____FUNCTIONS___________________//
 
   const handleImageClick = () => {
-    console.log(fieldLength);
+    // console.log(fieldLength);
     if (location.pathname === "/documents" && fieldLength <= 0) {
       setShowHeaderFooter(!showHeaderFooter);
       //   console.log("img clicked", showHeaderFooter);
@@ -82,7 +82,7 @@ const MaximizeDoc = ({
     setDocEditMode(false);
   };
   useEffect(() => {
-    console.log(imageData);
+    // console.log(imageData);
   }, [imageData]);
 
   const handleFavToggle = (docId, favValue) => {

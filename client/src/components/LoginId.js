@@ -198,13 +198,60 @@ const LoginId = ({
       <div className={styles.infoDiv}>
         <div className={styles.websiteDiv}>
           {inEditMode && loginId._id === editId ? (
-            <input
-              className={styles.websiteEditInput}
-              value={loginData.website}
-              onChange={(e) =>
-                setLoginData({ ...loginData, website: e.target.value })
-              }
-            ></input>
+            <>
+              <input
+                className={styles.websiteEditInput}
+                list="websites"
+                value={loginData.website}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, website: e.target.value })
+                }
+              />
+              <datalist id="websites">
+                <option value="Amazon" />
+                <option value="Apple" />
+                <option value="Apple Music" />
+                <option value="Apple Pay" />
+                <option value="Adobe" />
+                <option value="AWS" />
+                <option value="Airbnb" />
+                <option value="Dribble" />
+                <option value="Dell" />
+                <option value="Dropbox" />
+                <option value="Facebook" />
+                <option value="Flipkart" />
+                <option value="Google" />
+                <option value="Gmail" />
+                <option value="Google Pay" />
+                <option value="Google Photos" />
+                <option value="GeeksforGeeks" />
+                <option value="Google Drive" />
+                <option value="Github" />
+                <option value="Heroku" />
+                <option value="Hp" />
+                <option value="Instagram" />
+                <option value="Imdb" />
+                <option value="LinkedIn" />
+                <option value="Medium" />
+                <option value="Microsoft" />
+                <option value="Netflix" />
+                <option value="Netlify" />
+                <option value="Oracle" />
+                <option value="PayPal" />
+                <option value="Pinterest" />
+                <option value="Phonepe" />
+                <option value="Paytm" />
+                <option value="Playstore" />
+                <option value="Quora" />
+                <option value="Samsung" />
+                <option value="Slack" />
+                <option value="Snapchat" />
+                <option value="Spotify" />
+                <option value="Stackoverflow" />
+                <option value="Twitter" />
+                <option value="Youtube" />
+              </datalist>
+            </>
           ) : (
             <p className={styles.websiteText} color="gray">
               {loginId.website}

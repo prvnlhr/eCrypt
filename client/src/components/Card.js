@@ -39,6 +39,8 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
     pin: "",
   });
   const [currCardData, setCurrCardData] = useState();
+  const process = useSelector((state) => state.process);
+
 
   // determining the card type___________
   const cardNumber = card.cardNo;

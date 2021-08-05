@@ -12,6 +12,9 @@ import {
   ADD_ACTIVITY,
   OPERATION_START,
   OPERATION_END,
+  PROCESS_START,
+  PROCESS_END,
+  PROCESS_CLEAR,
 } from "./types";
 
 //FETCHING
@@ -43,6 +46,14 @@ export const fetchUserCards = (user_id) => async (dispatch) => {
 };
 //ADD NEW
 export const addNewCard = (newCardData, user_id) => async (dispatch) => {
+  dispatch({
+    type: PROCESS_START,
+    category: "card",
+    inProcess: true,
+    process: "adding",
+    status: null,
+  });
+
   try {
     const response = await api.addNewCard(newCardData, user_id);
 
@@ -52,6 +63,13 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
       dispatch({
         type: ADD_NEW_CARD,
         payload: newAddedCard,
+      });
+      dispatch({
+        type: PROCESS_END,
+        category: "card",
+        inProcess: false,
+        process: "adding",
+        status: "success",
       });
       const d = moment().format("LLL");
       const activity = {
@@ -68,12 +86,26 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
       });
     } else {
       dispatch({
+        type: PROCESS_END,
+        category: "card",
+        inProcess: false,
+        process: "adding",
+        status: "failed",
+      });
+      dispatch({
         type: ADD_NEW_CARD_FAILED,
         error: true,
       });
     }
   } catch (error) {
     console.log(error);
+    dispatch({
+      type: PROCESS_END,
+      category: "card",
+      inProcess: false,
+      process: "adding",
+      status: "failed",
+    });
   }
 };
 
@@ -179,6 +211,16 @@ export const cardFavToggle = (card_id, isFav) => async (dispatch) => {
         favValue: isFav,
         id: card_id,
       },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const clearProcess = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: PROCESS_CLEAR,
     });
   } catch (error) {
     console.log(error);
