@@ -92,6 +92,7 @@ const FavouriteCard = ({ favItem }) => {
         <p className={styles.expiryText}>{favItem.expiry}</p>
       </div>
 
+      <div className={styles.buttonDiv}>
       <button
         className={styles.favBtn}
         onClick={() => {
@@ -104,6 +105,10 @@ const FavouriteCard = ({ favItem }) => {
           <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
         )}
       </button>
+      </div>
+
+
+     
       <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
       <div className={styles.overlayDiv}></div>
     </div>

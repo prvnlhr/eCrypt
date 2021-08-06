@@ -60,13 +60,13 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
 
   //___This function is to check if all fields are correct before dispatching addCard()
   const formValidator = () => {
-    if (cardData.cardNo.length < 15 || cardData.cardNo.length === 0) {
+    if (cardData.cardNo.length < 15) {
       //check your cardNo
       cardNoInputRef.current.focus();
-    } else if (cardData.expiry.length === 0 || cardData.expiry.length < 5) {
+    } else if (cardData.expiry.length < 3) {
       //check your expiry date
       expiryInputRef.current.focus();
-    } else if (cardData.cvv.length === 0 || cardData.cvv.length < 3) {
+    } else if (cardData.cvv.length < 3) {
       //check your cvv
       cvvInputRef.current.focus();
     } else if (cardData.bank.length === 0) {
@@ -177,6 +177,7 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
               className={styles.inputField}
               type="text"
               minLength="15"
+              maxLength="16"
               placeholder="Enter 15 - 16 digit card number"
               value={cardData.cardNo}
               onChange={(e) =>

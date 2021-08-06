@@ -15,6 +15,7 @@ import { HiPlus } from "react-icons/hi";
 const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   const [formMode, setFormMode] = useState(false);
   const [showEditButton, setEditButton] = useState(true);
+  const [currEditId , setCurrEditId]=useState(null);
 
   const crud = useSelector((state) => state.crud);
 
@@ -77,6 +78,8 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
               setFormMode={setFormMode}
               setEditButton={setEditButton}
               showEditButton={showEditButton}
+              setCurrEditId={setCurrEditId}
+              currEditId={currEditId}
             />
           </React.Fragment>
         ))}

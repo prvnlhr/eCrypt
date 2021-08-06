@@ -72,6 +72,8 @@ const TabBar = ({ fieldLength }) => {
     }
   }, [tabBarRef.current]);
 
+
+
   const handleNavClick = (e) => {
     var pos = e.target.offsetLeft;
     // var indicator = document.get("indicator");
@@ -82,6 +84,7 @@ const TabBar = ({ fieldLength }) => {
 
     // console.log(e.target, pos ,e.target.offsetWidth);
     // setCurrActiveLink(pos);
+    // e.target.scrollIntoView({behaviour:'smooth' ,inline:'center'})
   };
   return (
     <>

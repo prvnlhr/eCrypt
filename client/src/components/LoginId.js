@@ -2,7 +2,8 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editLoginId } from "../actions/loginInIdsAction";
-import styles from "../css/loginId.module.css";
+// import styles from "../css/loginId.module.css";
+import styles from "../css/loginIdComponent.module.css";
 import modalStyles from "../css/modal.module.css";
 import { deleteLoginId } from "../actions/loginInIdsAction";
 import LoginIdLogo from "./LoginIdLogo";
@@ -31,6 +32,8 @@ const LoginId = ({
   setFormMode,
   setEditButton,
   showEditButton,
+  setCurrEditId,
+  currEditId,
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -80,87 +83,16 @@ const LoginId = ({
     //NOTE : We are also sending deleteCard data as an argument to add to activityAction
     dispatch(deleteLoginId(loginId, loginCardId, userId));
     setModalShow(!modalShow);
+    setEditId(null);
   };
   const handleDeleteClick = () => {
     setModalShow(!modalShow);
   };
 
   return (
-    <div className={styles.loginContainer}>
-      {/* ___C_R_U_D_____________________BUTTONS */}
-
-      {inEditMode === true ? (
-        <div className={styles.saveCancelContainer}>
-          <div
-            className={styles.cancelIconDiv}
-            onClick={() => {
-              setEditId(null);
-              setInEditMode(false);
-              setEditButton(true);
-            }}
-          >
-            <HiX color="#9baece" className={styles.cancelIcon} />
-          </div>
-          <div
-            className={styles.saveIconDiv}
-            onClick={() => {
-              save(loginId._id);
-              setInEditMode(false);
-              setEditId(null);
-              setEditButton(true);
-            }}
-          >
-            <HiCheck color="#9baece" className={styles.checkIcon} />
-          </div>
-        </div>
-      ) : (
-        <>
-          {showEditButton && inEditMode === false ? (
-            <div className={styles.editDeleteContainer}>
-              <div
-                className={styles.editIconDiv}
-                onClick={() => {
-                  setEditButton(null);
-                  setEditId(loginId._id);
-                  setInEditMode(true);
-                }}
-              >
-                {crud.inProcess &&
-                crud.itemId === loginId._id &&
-                crud.operation === "edit" ? (
-                  <CircleSpinner size={10} color="gray" loading={true} />
-                ) : (
-                  <Icon
-                    icon={pencilIcon}
-                    className={styles.pencilIcon}
-                    color="#9baece"
-                  />
-                )}
-              </div>
-              <div
-                className={styles.deleteIconDiv}
-                onClick={() => {
-                  handleDeleteClick();
-                  setEditId(loginId._id);
-                }}
-              >
-                {crud.inProcess &&
-                crud.itemId === loginId._id &&
-                crud.operation === "delete" ? (
-                  <CircleSpinner size={10} color="gray" loading={true} />
-                ) : (
-                  <Icon
-                    icon={trashEmpty}
-                    className={styles.trashIcon}
-                    color="#9baece"
-                  />
-                )}
-              </div>
-            </div>
-          ) : null}
-        </>
-      )}
-
+    <div
+    className={`${styles.loginIdContainer} ${inEditMode ? styles.loginIdContainerInEditMode :null}`}
+    >
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
           <div className={modalStyles.dialogDiv}>
@@ -182,7 +114,7 @@ const LoginId = ({
               }}
             >
               {crud.inProcess && crud.itemId === loginId._id ? (
-                <CircleSpinner size={12} color="white" loading={true} />
+                <CircleSpinner size={12} color="#1072f1" loading={true} />
               ) : (
                 <p>Sure, Delete ! </p>
               )}
@@ -191,17 +123,18 @@ const LoginId = ({
         </div>
       ) : null}
 
-      <div className={styles.logoDiv}>
-        <LoginIdLogo website={loginId.website} />
+      <div className={styles.logoWrapper}>
+        <div className={styles.logoDiv}>
+          <LoginIdLogo website={loginId.website} />
+        </div>
       </div>
-
-      <div className={styles.infoDiv}>
+      <div className={styles.websiteWrapper}>
         <div className={styles.websiteDiv}>
-          {inEditMode && loginId._id === editId ? (
+          {inEditMode ? (
             <>
               <input
-                className={styles.websiteEditInput}
                 list="websites"
+                className={styles.inputField}
                 value={loginData.website}
                 onChange={(e) =>
                   setLoginData({ ...loginData, website: e.target.value })
@@ -253,68 +186,365 @@ const LoginId = ({
               </datalist>
             </>
           ) : (
-            <p className={styles.websiteText} color="gray">
-              {loginId.website}
-            </p>
+            <p>{loginId.website}</p>
           )}
         </div>
+      </div>
 
-        <div className={styles.usernameDiv}>
-          <div className={styles.iconDiv}>
-            <FaUserAlt fontSize="12px" color="#9baece" />
-          </div>
-          <div className={styles.textDiv}>
-            {inEditMode && loginId._id === editId ? (
-              <input
-                className={styles.editInput}
-                value={loginData.username}
-                onChange={(e) =>
-                  setLoginData({ ...loginData, username: e.target.value })
-                }
-              ></input>
+      <div className={styles.buttonWrapper}>
+        {(currEditId === loginId._id && inEditMode) || currEditId === null ? (
+          <div className={styles.editBtnContainer}>
+            {inEditMode ? (
+              <>
+                <div
+                  className={styles.cancelIconDiv}
+                  onClick={() => {
+                    setInEditMode(false);
+                    setCurrEditId(null);
+                    setEditId(null);
+                  }}
+                >
+                  <HiX color="#9baece" className={styles.cancelIcon} />
+                </div>
+                <div
+                  className={styles.checkIconDiv}
+                  onClick={() => {
+                    save(loginId._id);
+                    setInEditMode(false);
+                    setCurrEditId(null);
+                  }}
+                >
+                  <HiCheck color="#9baece" className={styles.checkIcon} />
+                </div>
+              </>
             ) : (
-              <p className={styles.passwordText}>{loginId.username}</p>
+              <>
+                <div
+                  className={styles.editIconDiv}
+                  onClick={() => {
+                    setEditId(loginId._id);
+
+                    setInEditMode(true);
+                    setCurrEditId(loginId._id);
+                  }}
+                >
+                  {crud.inProcess &&
+                  crud.itemId === loginId._id &&
+                  crud.operation === "edit" ? (
+                    <CircleSpinner size={10} color="#1072f1" loading={true} />
+                  ) : (
+                    <Icon
+                      icon={pencilIcon}
+                      className={styles.pencilIcon}
+                      color="#9baece"
+                    />
+                  )}
+                </div>
+                <div
+                  className={styles.deleteIconDiv}
+                  onClick={() => {
+                    handleDeleteClick();
+                    setEditId(loginId._id);
+                  }}
+                >
+                  {crud.inProcess &&
+                  crud.itemId === loginId._id &&
+                  crud.operation === "delete" ? (
+                    <CircleSpinner size={10} color="#1072f1" loading={true} />
+                  ) : (
+                    <Icon
+                      icon={trashEmpty}
+                      className={styles.trashIcon}
+                      color="#9baece"
+                    />
+                  )}
+                </div>
+              </>
             )}
           </div>
+        ) : null}
+
+        <button
+          className={styles.favBtn}
+          onClick={() => {
+            handleFavToggle(loginId._id, loginId.isFavourite);
+          }}
+        >
+          {(
+            currLoginIdData ? currLoginIdData.isFavourite : loginId.isFavourite
+          ) ? (
+            <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+          ) : (
+            <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+          )}
+        </button>
+      </div>
+      <div className={styles.userNameWrapper}>
+        <div className={styles.iconDiv}>
+          <FaUserAlt />
         </div>
-        <div className={styles.passwordDiv}>
-          <div className={styles.iconDiv}>
-            <FaLock fontSize="12px" color="#9baece" />
-          </div>
-          <div className={styles.textDiv}>
-            {inEditMode && loginId._id === editId ? (
-              <input
-                className={styles.editInput}
-                value={loginData.password}
-                onChange={(e) =>
-                  setLoginData({ ...loginData, password: e.target.value })
-                }
-              ></input>
-            ) : (
-              <p className={styles.passwordText}>{loginId.password}</p>
-            )}
-          </div>
+        <div className={styles.textDiv}>
+          {inEditMode ? (
+            <input
+              className={styles.inputField}
+              value={loginData.username}
+              onChange={(e) =>
+                setLoginData({ ...loginData, username: e.target.value })
+              }
+            ></input>
+          ) : (
+            <p>{loginId.username}</p>
+          )}
         </div>
       </div>
-      {/* FAV TOGGLE_________________________________________ */}
-      <button
-        className={styles.favBtn}
-        onClick={() => {
-          handleFavToggle(loginId._id, loginId.isFavourite);
-        }}
-      >
-        {(
-          currLoginIdData ? currLoginIdData.isFavourite : loginId.isFavourite
-        ) ? (
-          <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
-        ) : (
-          <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
-        )}
-      </button>
+
+      <div className={styles.passwordWrapper}>
+        <div className={styles.iconDiv}>
+          <FaLock />
+        </div>
+        <div className={styles.textDiv}>
+          {inEditMode ? (
+            <input
+              className={styles.inputField}
+              value={loginData.password}
+              onChange={(e) =>
+                setLoginData({ ...loginData, password: e.target.value })
+              }
+            ></input>
+          ) : (
+            <p>{loginId.password}</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
 export default LoginId;
+
+// {inEditMode === true ? (
+//   <div className={styles.saveCancelContainer}>
+//     <div
+//       className={styles.cancelIconDiv}
+//       onClick={() => {
+//         setEditId(null);
+//         setInEditMode(false);
+//         setEditButton(true);
+//       }}
+//     >
+//       <HiX color="#9baece" className={styles.cancelIcon} />
+//     </div>
+//     <div
+//       className={styles.saveIconDiv}
+//       onClick={() => {
+//         save(loginId._id);
+//         setInEditMode(false);
+//         setEditId(null);
+//         setEditButton(true);
+//       }}
+//     >
+//       <HiCheck color="#9baece" className={styles.checkIcon} />
+//     </div>
+//   </div>
+// ) : (
+//   <>
+//     {showEditButton && inEditMode === false ? (
+//       <div className={styles.editDeleteContainer}>
+//         <div
+//           className={styles.editIconDiv}
+//           onClick={() => {
+//             setEditButton(null);
+//             setEditId(loginId._id);
+//             setInEditMode(true);
+//           }}
+//         >
+//           {crud.inProcess &&
+//           crud.itemId === loginId._id &&
+//           crud.operation === "edit" ? (
+//             <CircleSpinner size={10} color="gray" loading={true} />
+//           ) : (
+//             <Icon
+//               icon={pencilIcon}
+//               className={styles.pencilIcon}
+//               color="#9baece"
+//             />
+//           )}
+//         </div>
+//         <div
+//           className={styles.deleteIconDiv}
+//           onClick={() => {
+//             handleDeleteClick();
+//             setEditId(loginId._id);
+//           }}
+//         >
+//           {crud.inProcess &&
+//           crud.itemId === loginId._id &&
+//           crud.operation === "delete" ? (
+//             <CircleSpinner size={10} color="gray" loading={true} />
+//           ) : (
+//             <Icon
+//               icon={trashEmpty}
+//               className={styles.trashIcon}
+//               color="#9baece"
+//             />
+//           )}
+//         </div>
+//       </div>
+//     ) : null}
+//   </>
+// )}
+
+// {modalShow === true ? (
+//   <div className={modalStyles.modalContainer}>
+//     <div className={modalStyles.dialogDiv}>
+//       <p>Are you sure you want to delete this item permanently ?</p>
+//     </div>
+//     <div className={modalStyles.modalBtnDiv}>
+//       <div
+//         className={modalStyles.modalCancelBtn}
+//         onClick={() => {
+//           setModalShow(!modalShow);
+//         }}
+//       >
+//         <p>Cancel</p>
+//       </div>
+//       <div
+//         className={modalStyles.modalConfirmBtn}
+//         onClick={() => {
+//           confirmDelete(loginId._id);
+//         }}
+//       >
+//         {crud.inProcess && crud.itemId === loginId._id ? (
+//           <CircleSpinner size={12} color="white" loading={true} />
+//         ) : (
+//           <p>Sure, Delete ! </p>
+//         )}
+//       </div>
+//     </div>
+//   </div>
+// ) : null}
+
+// <div className={styles.logoDiv}>
+//   <LoginIdLogo website={loginId.website} />
+// </div>
+
+// <div className={styles.infoDiv}>
+//   <div className={styles.websiteDiv}>
+//     {inEditMode && loginId._id === editId ? (
+//       <>
+//         <input
+//           className={styles.websiteEditInput}
+//           list="websites"
+//           value={loginData.website}
+//           onChange={(e) =>
+//             setLoginData({ ...loginData, website: e.target.value })
+//           }
+//         />
+//         <datalist id="websites">
+//           <option value="Amazon" />
+//           <option value="Apple" />
+//           <option value="Apple Music" />
+//           <option value="Apple Pay" />
+//           <option value="Adobe" />
+//           <option value="AWS" />
+//           <option value="Airbnb" />
+//           <option value="Dribble" />
+//           <option value="Dell" />
+//           <option value="Dropbox" />
+//           <option value="Facebook" />
+//           <option value="Flipkart" />
+//           <option value="Google" />
+//           <option value="Gmail" />
+//           <option value="Google Pay" />
+//           <option value="Google Photos" />
+//           <option value="GeeksforGeeks" />
+//           <option value="Google Drive" />
+//           <option value="Github" />
+//           <option value="Heroku" />
+//           <option value="Hp" />
+//           <option value="Instagram" />
+//           <option value="Imdb" />
+//           <option value="LinkedIn" />
+//           <option value="Medium" />
+//           <option value="Microsoft" />
+//           <option value="Netflix" />
+//           <option value="Netlify" />
+//           <option value="Oracle" />
+//           <option value="PayPal" />
+//           <option value="Pinterest" />
+//           <option value="Phonepe" />
+//           <option value="Paytm" />
+//           <option value="Playstore" />
+//           <option value="Quora" />
+//           <option value="Samsung" />
+//           <option value="Slack" />
+//           <option value="Snapchat" />
+//           <option value="Spotify" />
+//           <option value="Stackoverflow" />
+//           <option value="Twitter" />
+//           <option value="Youtube" />
+//         </datalist>
+//       </>
+//     ) : (
+//       <p className={styles.websiteText} color="gray">
+//         {loginId.website}
+//       </p>
+//     )}
+//   </div>
+
+//   <div className={styles.usernameDiv}>
+//     <div className={styles.iconDiv}>
+//       <FaUserAlt />
+//     </div>
+//     <div className={styles.textDiv}>
+//       {inEditMode && loginId._id === editId ? (
+//         <input
+//           className={styles.editInput}
+//           value={loginData.username}
+//           onChange={(e) =>
+//             setLoginData({ ...loginData, username: e.target.value })
+//           }
+//         ></input>
+//       ) : (
+//         <p className={styles.passwordText}>{loginId.username}</p>
+//       )}
+//     </div>
+//   </div>
+//   <div className={styles.passwordDiv}>
+//     <div className={styles.iconDiv}>
+//       <FaLock />
+//     </div>
+//     <div className={styles.textDiv}>
+//       {inEditMode && loginId._id === editId ? (
+//         <input
+//           className={styles.editInput}
+//           value={loginData.password}
+//           onChange={(e) =>
+//             setLoginData({ ...loginData, password: e.target.value })
+//           }
+//         ></input>
+//       ) : (
+//         <p className={styles.passwordText}>{loginId.password}</p>
+//       )}
+//     </div>
+//   </div>
+// </div>
+// {/* FAV TOGGLE_________________________________________ */}
+// <button
+//   className={styles.favBtn}
+//   onClick={() => {
+//     handleFavToggle(loginId._id, loginId.isFavourite);
+//   }}
+// >
+//   {(
+//     currLoginIdData ? currLoginIdData.isFavourite : loginId.isFavourite
+//   ) ? (
+//     <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+//   ) : (
+//     <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+//   )}
+// </button>
+
+// _____________________________________________________________________________________
 
 // <HiStar className={styles.favIcon} fontSize="18px" color="#4CD7F6" />
 {

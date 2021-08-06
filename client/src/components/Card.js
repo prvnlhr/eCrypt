@@ -41,7 +41,6 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
   const [currCardData, setCurrCardData] = useState();
   const process = useSelector((state) => state.process);
 
-
   // determining the card type___________
   const cardNumber = card.cardNo;
   const cNo = cardNumber.toString();
@@ -93,101 +92,81 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
   return (
     <div
       key={index}
-      className={`${styles.cardContainer} ${
-        cardType === "MASTER"
-          ? styles.cardMaster
-          : cardType === "VISA"
-          ? styles.cardVisa
-          : cardType === "RUPAY"
-          ? styles.cardRupay
-          : cardType === "MAESTRO"
-          ? styles.cardMaestro
-          : cardType === "AMEX"
-          ? styles.cardAmex
-          : cardType === "JCB"
-          ? styles.cardJcb
-          : cardType === "HIPERCARD"
-          ? styles.cardHiper
-          : cardType === "UNIONPAY"
-          ? styles.cardUnion
-          : cardType === "DISCOVERY"
-          ? styles.cardDiscovery
-          : cardType === "DINERS"
-          ? styles.cardDiners
-          : null
-      }`}
+      className={`${styles.cardContainer} ${inEditMode ? styles.cardContainerInEditMode :null}`}
     >
       <div className={styles.buttonDiv}>
-        {inEditMode === true ? (
-          <div className={styles.checkCancelContainer}>
-            <div
-              className={styles.cancelIconDiv}
-              onClick={() => {
-                setEditId(null);
-                setInEditMode(false);
-                setEditButton(true);
-              }}
-            >
-              <HiX color="#9baece" className={styles.cancelIcon} />
-            </div>
-            <div
-              className={styles.checkIconDiv}
-              onClick={() => {
-                save(card._id);
-                setInEditMode(false);
-                setEditId(null);
-                setEditButton(true);
-              }}
-            >
-              <HiCheck color="#9baece" className={styles.checkIcon} />
-            </div>
-          </div>
-        ) : (
-          <>
-            {showEditButton && inEditMode === false ? (
-              <div className={styles.editDeleteContainer}>
-                <div
-                  className={styles.editIconDiv}
-                  onClick={() => {
-                    setEditButton(null);
-                    setEditId(card._id);
-                    setInEditMode(true);
-                  }}
-                >
-                  {crud.inProcess &&
-                  crud.itemId === card._id &&
-                  crud.operation === "edit" ? (
-                    <CircleSpinner size={10} color="#9baece" loading={true} />
-                  ) : (
-                    <Icon
-                      icon={pencilIcon}
-                      className={styles.pencilIcon}
-                      color="#9baece"
-                    />
-                  )}
-                </div>
-                <div
-                  className={styles.deleteIconDiv}
-                  onClick={() => {
-                    handleDeleteClick();
-                  }}
-                >
-                  {crud.inProcess &&
-                  crud.itemId === card._id &&
-                  crud.operation === "delete" ? (
-                    <CircleSpinner size={10} color="#9baece" loading={true} />
-                  ) : (
-                    <Icon
-                      icon={trashEmpty}
-                      className={styles.trashIcon}
-                      color="#9baece"
-                    />
-                  )}
-                </div>
+        <div className={styles.editBtnsContainer}>
+          {inEditMode === true ? (
+            <>
+              <div
+                className={styles.cancelIconDiv}
+                onClick={() => {
+                  setEditId(null);
+                  setInEditMode(false);
+                  setEditButton(true);
+                }}
+              >
+                <HiX color="#9baece" className={styles.cancelIcon} />
               </div>
-            ) : null}
-          </>
-        )}
+              <div
+                className={styles.checkIconDiv}
+                onClick={() => {
+                  save(card._id);
+                  setInEditMode(false);
+                  setEditId(null);
+                  setEditButton(true);
+                }}
+              >
+                <HiCheck color="#9baece" className={styles.checkIcon} />
+              </div>
+            </>
+          ) : (
+            <>
+              {showEditButton && inEditMode === false ? (
+                <>
+                  <div
+                    className={styles.editIconDiv}
+                    onClick={() => {
+                      setEditButton(null);
+                      setEditId(card._id);
+                      setInEditMode(true);
+                    }}
+                  >
+                    {crud.inProcess &&
+                    crud.itemId === card._id &&
+                    crud.operation === "edit" ? (
+                      <CircleSpinner size={10} color="#1072f1" loading={true} />
+                    ) : (
+                      <Icon
+                        icon={pencilIcon}
+                        className={styles.pencilIcon}
+                        color="#9baece"
+                      />
+                    )}
+                  </div>
+                  <div
+                    className={styles.deleteIconDiv}
+                    onClick={() => {
+                      handleDeleteClick();
+                    }}
+                  >
+                    {crud.inProcess &&
+                    crud.itemId === card._id &&
+                    crud.operation === "delete" ? (
+                      <CircleSpinner size={10} color="#1072f1" loading={true} />
+                    ) : (
+                      <Icon
+                        icon={trashEmpty}
+                        className={styles.trashIcon}
+                        color="#9baece"
+                      />
+                    )}
+                  </div>
+                </>
+              ) : null}
+            </>
+          )}
+        </div>
 
         <button
           className={styles.favBtn}

@@ -46,7 +46,7 @@ const LoginIdLogo = ({ website }) => {
     return arrOfWordsCased.join(" ");
   }
   const toCheckWebsite = capitalize(website);
-  console.log(toCheckWebsite);
+  // console.log(toCheckWebsite);
 
   if (toCheckWebsite === "microsoft") {
     logo = <Icon icon="logos:microsoft-windows" className={styles.iconifyMS} />;

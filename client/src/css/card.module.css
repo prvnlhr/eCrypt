@@ -52,16 +52,26 @@
   background-color: #ffffff;
 
   /* #edeff870 */
-  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 10px 10px rgba(0, 0, 0, 0.082); */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 10px 10px rgba(0, 0, 0, 0.082);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
+
   /* filter:  drop-shadow(0px 10px 20px rgba(0, 0, 0,  0.30)); */
   scroll-behavior: smooth;
 
-  /* z-index: 20; */
+  z-index: 1;
   /* overflow: hidden; */
   box-sizing: border-box;
 }
-
+.cardContainerInEditMode {
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
 .overlayDiv {
   /* display: none; */
   position: absolute;
@@ -73,7 +83,7 @@
   right: 0px;
   /* box-sizing: border-box; */
   /* z-index: 21; */
-  z-index: -1;
+  z-index: 2;
   overflow: hidden;
   /* background-color: white; */
   padding: 0px;
@@ -94,17 +104,9 @@
   margin: 0px 0px 0px 0px;
 }
 
-.cardContainer:hover {
+/* .cardContainer:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
-
-.buttonDiv {
-  position: relative;
-  grid-area: buttonDiv;
-  /* border: 1px solid black; */
-  width: 100%;
-  height: 100%;
-}
+} */
 
 .bankName {
   grid-area: bankName;
@@ -123,6 +125,7 @@
 
   /* color: white; */
 }
+
 .cardBankText {
   /* width: 100%; */
   /* margin: 0px 0px 0px 0px; */
@@ -133,8 +136,8 @@
   letter-spacing: 0.5px;
   font-weight: bold !important;
   /* font-size: 14px !important; */
-  font-size: 1em !important;
-
+  /* font-size: 1em !important; */
+  font-size: 0.9em;
   color: black;
   text-shadow: 0.5px 0.5px rgb(202, 202, 202);
   /* z-index: 23; */
@@ -195,8 +198,9 @@
   font-weight: bolder;
   /* letter-spacing: 0.3px; */
   /* color: white; */
-  font-size: 15px;
-  font-size: 1em !important;
+  /* font-size: 15px; */
+
+  font-size: 0.9em;
 
   font-family: "Share Tech Mono", monospace;
   color: rgb(29, 29, 29);
@@ -253,6 +257,7 @@
   height: 50%;
   font-weight: 550;
   font-size: 10px;
+  font-size: 0.6em;
   color: slategray;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -268,7 +273,9 @@
   width: 100%;
   height: 50%;
   color: black;
-  font-size: 13px;
+  /* font-size: 13px; */
+  font-size: 1em;
+  font-size: 0.8em;
   font-family: "Share Tech Mono", monospace;
   font-weight: 600;
   /* color: rgb(255, 255, 255); */
@@ -303,6 +310,7 @@
   /* font-family: "Nunito", sans-serif; */
   font-weight: 550;
   font-size: 10px;
+  font-size: 0.6em;
   color: gray;
   /* border: 1px solid green; */
   margin: 0px 0px 0px 0px;
@@ -334,49 +342,75 @@
   font-weight: 700;
   color: black;
   text-shadow: 0.5px 0.5px #dadada;
-  font-size: 13px;
+  font-size: 1em;
+  font-size: 0.8em;
+
   /* z-index: 23; */
   box-sizing: border-box;
 }
 
+.buttonDiv {
+  position: relative;
+  grid-area: buttonDiv;
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
 .favBtn {
-  position: absolute;
-  top: 0px;
-  right: 0px;
+  position: relative;
+  margin: 0px;
+  padding: 0px;
+  /* top: 0px; */
+  /* right: 0px; */
   background: none;
   outline: none;
   border: none;
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  width: 15%;
+  width: 12%;
+
+  /* height: 30px; */
+  height: 100%;
+
   /* border: 1px solid black; */
   color: #ffffff;
-  font-size: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  /* z-index: 23; */
+  z-index: 3;
 }
 
-.editDeleteContainer {
-  position: absolute;
-  top: 0px;
-  right: 30px;
+.editBtnsContainer {
+  position: relative;
+  /* top: 0px; */
+  /* right: 35px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
   /* border: 1px solid red; */
-  width: 60px;
-  height: 30px;
+  /* width: 90px; */
+  width: 30%;
+  width: 24%;
+
+  height: 100%;
   /* z-index: 20; */
   /* z-index: 23; */
   box-sizing: border-box;
 }
 
 .deleteIconDiv {
-  width: 30px;
-  height: 30px;
+  position: relative;
+  width: 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -386,11 +420,12 @@
 }
 
 .editIconDiv {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30px;
-  height: 30px;
+  width: 50%;
+  height: 100%;
 
   /* border: 1px solid black; */
   /* border-radius: 50%; */
@@ -398,25 +433,24 @@
   box-sizing: border-box;
 }
 
-.checkCancelContainer {
+/* .checkCancelContainer {
   position: absolute;
-  top: 5px;
+  top: 0px;
   right: 35px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  /* border: 1px solid black; */
+  border: 1px solid black;
   box-sizing: border-box;
 
-  width: 48px;
+  width: 50%;
 
-  height: 20px;
-  /* z-index: 23; */
-}
+  height: 100%;
+} */
 .cancelIconDiv {
-  width: 20px;
-  height: 20px;
+  width: 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -429,8 +463,8 @@
 }
 
 .checkIconDiv {
-  width: 20px;
-  height: 20px;
+  width: 50%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -444,20 +478,25 @@
 
 .favIcon {
   font-size: 17px;
+  cursor: pointer;
 }
 .pencilIcon {
   font-size: 17px;
+  cursor: pointer;
 }
 
 .trashIcon {
   font-size: 17px;
+  cursor: pointer;
 }
 
 .checkIcon {
   font-size: 17px;
+  cursor: pointer;
 }
 .cancelIcon {
   font-size: 17px;
+  cursor: pointer;
 }
 
 .editInput {
@@ -497,7 +536,9 @@
 
   /* z-index: 23; */
 }
-
+.editInput:focus {
+  border: 2px solid #1072f1;
+}
 .expiryInput {
   outline: none;
   width: 90%;
@@ -523,6 +564,9 @@
   /* font-family: "Share Tech Mono", monospace; */
   font-weight: 700;
   font-size: 13px;
+}
+.expiryInput:focus {
+  border: 2px solid #1072f1;
 }
 
 @media screen and (max-width: 550px) {
@@ -558,30 +602,42 @@
     padding-right: 5px;
     /* overflow: hidden; */
     /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(68, 61, 61, 0.24); */
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
+    /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 5px;
   }
   .cardNoText {
-    /* width: 100%; */
-    /* margin: 0px 0px 0px 0px !important; */
     margin: 0px 0px 0px 5%;
-
-    font-weight: bolder;
-    font-family: "Share Tech Mono", monospace;
-    letter-spacing: 0px;
-    font-weight: bold !important;
-    /* font-size: 14px !important; */
     font-size: 1.1em !important;
-
     color: slategray;
-    text-shadow: 0.5px 0.5px rgb(202, 202, 202);
-    /* z-index: 23; */
     padding: 0px;
     white-space: nowrap;
   }
+
+  .cardBankText {
+    margin: 0px 0px 0px 5%;
+    font-size: 1em !important;
+    white-space: normal;
+  }
+  .cardUserText {
+    font-size: 1em !important;
+  }
+
+  .cvvLabel {
+    font-size: 0.7em;
+  }
+  .cvvText {
+    font-size: 1em;
+  }
+  .expiryLabel {
+    font-size: 0.7em;
+  }
+  .expiryText {
+    font-size: 1em;
+  }
+
   .favIcon {
     font-size: 19px;
     font-size: 1.4em;
