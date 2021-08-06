@@ -55,7 +55,7 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
     const response = await api.addNewLoginId(newLoginData, user_id);
     const responseArray = response.data.loginIdsArray;
     const newAddedLoginId = responseArray[responseArray.length - 1];
-    console.log('loginId Response' , response)
+    console.log("loginId Response", response);
     if (response.status === 201) {
       dispatch({
         type: ADD_NEW_LOGIN_ID,
@@ -104,7 +104,7 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
 
 // EDIT LOGIN ID
 export const editLoginId =
-  (loginId_id, loginIdData, userId) => async (dispatch) => {
+  (loginId_id, oldData, loginIdData, userId) => async (dispatch) => {
     dispatch({
       type: OPERATION_START,
       message: "",
@@ -113,6 +113,11 @@ export const editLoginId =
     });
 
     try {
+      // ______________
+
+      
+      // ______________
+
       const response = await api.editLoginId(loginId_id, loginIdData);
 
       dispatch({

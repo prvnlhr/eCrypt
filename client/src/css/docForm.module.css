@@ -34,6 +34,15 @@
   -webkit-animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
   animation: scale-in-center 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 .docFormContainerCollapse {
   position: absolute;
@@ -41,6 +50,7 @@
   /* margin-right: auto; */
   /* left: 0; */
   right: 2%;
+  bottom: 5%;
   /* text-align: center; */
   height: 0px;
   width: 0px;
@@ -58,6 +68,15 @@
   overflow: hidden;
   /* box-shadow: 20px 20px 30px 0 rgba(0, 0, 0, 0.1); */
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  bottom: 0%;
+  top: 0%;
+  /* right: 50%; */
+  width: 0px;
+  height: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 form {

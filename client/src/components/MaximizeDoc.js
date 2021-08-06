@@ -134,7 +134,12 @@ const MaximizeDoc = ({
       <div className={styles.maximizeImgContainer}>
         {!showHeaderFooter && (
           <div className={styles.maxImgCloseBtnDiv} onClick={minimizeImg}>
-            <HiOutlineArrowNarrowLeft className={styles.minimizeIcon} />
+            {/* <HiOutlineArrowNarrowLeft className={styles.minimizeIcon} /> */}
+            <Icon
+              icon="entypo:chevron-left"
+              color="white"
+              className={styles.minimizeIcon}
+            />
           </div>
         )}
         {showHeaderFooter && (
