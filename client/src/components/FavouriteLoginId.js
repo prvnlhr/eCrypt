@@ -4,15 +4,8 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { loginIdFavToggle } from "../actions/loginInIdsAction";
 import { FaUserAlt, FaLock } from "react-icons/fa";
-import { HiStar, HiOutlineStar } from "react-icons/hi";
 import LoginIdLogo from "./LoginIdLogo";
-// import styles from "../css/loginId.module.css";
 import styles from "../css/loginIdComponent.module.css";
-
-import { Icon, InlineIcon } from "@iconify/react";
-import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
-import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
-import bookmarkStar from "@iconify-icons/bi/bookmark-star";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 const FavouriteLoginId = ({ favItem }) => {

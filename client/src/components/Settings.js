@@ -11,19 +11,28 @@ import {
 import { updateProfile } from "../actions/userAction";
 import { CircleSpinner } from "react-spinners-kit";
 import styles from "../css/settings.module.css";
+import { authResponseClear } from "../actions/auth";
 
 const Settings = ({ setHeading }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.token.token);
-  const isLoading = useSelector((state) => state.loading.isLoading);
+  // const isLoading = useSelector((state) => state.loading.isLoading);
   const notification = useSelector((state) => state.notification);
+
+  const loadState = useSelector((state) => state.loading);
+
+  const { place, isLoading } = loadState;
+
+  const responseHandler = useSelector((state) => state.authResponseHandler);
+
+  const { at, error, success } = responseHandler;
 
   const [editMode, setEditMode] = useState({
     isEditing: false,
     value: null,
   });
-  const [inputState, setInputState] = useState(true);
+  const [inputState, setInputState] = useState(false);
   const [profileData, setProfileData] = useState({
     firstName: "",
     lastName: "",
@@ -33,6 +42,12 @@ const Settings = ({ setHeading }) => {
   const [passwordData, setPasswordData] = useState({
     oldPassword: "",
     newPassword: "",
+  });
+
+  const [editState, setEditState] = useState({
+    isEditing: false,
+    inputState: false,
+    value: 0,
   });
 
   const { firstName, lastName, email } = profileData;
@@ -60,27 +75,33 @@ const Settings = ({ setHeading }) => {
     //NOTE: we are passing userId to add activity
     dispatch(updateProfile(token, profileData, user._id));
   };
-  const switchEditMode = (val) => {
-    if (val === 0) {
-      setPasswordData({
-        oldPassword: "",
-        newPassword: "",
-      });
-      console.log("profileData", profileData);
-      dispatch(clearNotification("error"));
-      dispatch(clearNotification("success"));
-    }
 
-    if (notification.error || notification.success) {
-      setPasswordData({
-        oldPassword: "",
-        newPassword: "",
-      });
-      dispatch(clearNotification("error"));
-      dispatch(clearNotification("success"));
-    }
-    setEditMode({
-      isEditing: true,
+  const notificationClear = () => {
+    dispatch(authResponseClear());
+  };
+  const switchEditMode = (isEdit, input, val) => {
+    // if (val === 0) {
+    //   setPasswordData({
+    //     oldPassword: "",
+    //     newPassword: "",
+    //   });
+    //   console.log("profileData", profileData);
+    //   dispatch(clearNotification("error"));
+    //   dispatch(clearNotification("success"));
+    // }
+
+    // if (notification.error || notification.success) {
+    //   setPasswordData({
+    //     oldPassword: "",
+    //     newPassword: "",
+    //   });
+    //   dispatch(clearNotification("error"));
+    //   dispatch(clearNotification("success"));
+    // }
+
+    setEditState({
+      isEditing: isEdit,
+      inputState: input,
       value: val,
     });
   };
@@ -95,40 +116,45 @@ const Settings = ({ setHeading }) => {
   }, [user]);
 
   useEffect(() => {
-    if (notification.success && editMode.isEditing) {
-      setEditMode({
-        ...editMode,
+    if (success && editState.isEditing === true && editState.value !== 2) {
+      setEditState({
         isEditing: false,
+        inputState: false,
+        value: 0,
       });
-      if (inputState === false) {
-        setInputState(true);
-      }
+    } else if (
+      success &&
+      editState.isEditing === true &&
+      editState.value === 2
+    ) {
+      setEditState({
+        isEditing: false,
+        inputState: false,
+        value: 0,
+      });
+      setPasswordData({
+        oldPassword: "",
+        newPassword: "",
+      });
     }
-  }, [notification.success]);
+  }, [success]);
 
   return (
     <div className={styles.settingsComponent}>
       <div className={styles.profileContainer}>
         <div className={styles.notificationDiv}>
-          {editMode.value === 1 ? (
-            <>
-              {notification.error || notification.success ? (
-                <div
-                  className={
-                    notification.error
-                      ? styles.notificationErrorDiv
-                      : styles.notificationSuccessDiv
-                  }
-                >
-                  {notification.error ? (
-                    <p>{notification.error}</p>
-                  ) : (
-                    <p>{notification.success}</p>
-                  )}
-                </div>
-              ) : null}
-            </>
-          ) : null}
+          {at === "updateProfile" && error ? (
+            <div className={styles.notificationErrorDiv}>
+              <p>{error}</p>
+            </div>
+          ) : (
+            at === "updateProfile" &&
+            success && (
+              <div className={styles.notificationSuccessDiv}>
+                <p>{success}</p>
+              </div>
+            )
+          )}
         </div>
         <div className={styles.headerDiv}>
           <p className={styles.headingText}>Profile</p>
@@ -140,18 +166,20 @@ const Settings = ({ setHeading }) => {
 
             <input
               className={` ${styles.firstNameInput}  ${
-                inputState === false ? styles.activeInput : styles.inactiveInput
+                editState.inputState === true && editState.value === 1
+                  ? styles.activeInput
+                  : styles.inactiveInput
               }`}
               name="firstName"
               id="firstName"
               value={firstName}
               onChange={handleProfileInputChange}
-              disabled={inputState}
+              disabled={editState.inputState === false && editState.value === 0}
             ></input>
             <input
               className={`${styles.lastNameInput} 
                ${
-                 inputState === false
+                 editState.inputState === true && editState.value === 1
                    ? styles.activeInput
                    : styles.inactiveInput
                }
@@ -160,14 +188,16 @@ const Settings = ({ setHeading }) => {
               id="lastName"
               value={lastName}
               onChange={handleProfileInputChange}
-              disabled={inputState}
+              disabled={editState.inputState === false && editState.value === 0}
             ></input>
 
             <p className={styles.emailLabel}>Email Address</p>
             <input
               className={`${styles.emailInput}
               ${
-                inputState === false ? styles.activeInput : styles.inactiveInput
+                editState.inputState === true && editState.value === 1
+                  ? styles.activeInput
+                  : styles.inactiveInput
               }
               
               `}
@@ -175,15 +205,15 @@ const Settings = ({ setHeading }) => {
               id="email"
               value={email}
               onChange={handleProfileInputChange}
-              disabled={inputState}
+              disabled={editState.inputState === false && editState.value === 0}
             ></input>
           </div>
         </div>
         <div className={styles.profileButtonContainer}>
-          {editMode.isEditing && editMode.value === 1 ? (
+          {editState.inputState && editState.value === 1 ? (
             <>
               <button className={styles.confirmBtn} onClick={handleEditProfile}>
-                {isLoading ? (
+                {place === "updateProfile" && isLoading === true ? (
                   <CircleSpinner size={10} color="white" loading={true} />
                 ) : (
                   "save changes"
@@ -192,8 +222,9 @@ const Settings = ({ setHeading }) => {
               <button
                 className={styles.cancelBtn}
                 onClick={() => {
-                  switchEditMode(0);
+                  switchEditMode(false, false, 0);
                   setInputState(!inputState);
+                  notificationClear();
                 }}
               >
                 cancel
@@ -204,8 +235,7 @@ const Settings = ({ setHeading }) => {
               <button
                 className={styles.editProfileBtn}
                 onClick={() => {
-                  switchEditMode(1);
-                  setInputState(!inputState);
+                  switchEditMode(true, true, 1);
                 }}
               >
                 Edit Profile
@@ -220,28 +250,23 @@ const Settings = ({ setHeading }) => {
           <p className={styles.headingText}>Password</p>
         </div>
         <div className={styles.notificationDiv}>
-          {editMode.value === 2 ? (
-            <>
-              {notification.error || notification.success ? (
-                <div
-                  className={
-                    notification.error
-                      ? styles.notificationErrorDiv
-                      : styles.notificationSuccessDiv
-                  }
-                >
-                  {notification.error ? (
-                    <p>{notification.error}</p>
-                  ) : (
-                    <p>{notification.success}</p>
-                  )}
-                </div>
-              ) : null}
-            </>
-          ) : null}
+          {at === "changePassword" && error ? (
+            <div className={styles.notificationErrorDiv}>
+              <p>{error}</p>
+            </div>
+          ) : (
+            at === "changePassword" &&
+            success && (
+              <div className={styles.notificationSuccessDiv}>
+                <p>{success}</p>
+              </div>
+            )
+          )}
         </div>
         <div className={styles.bodyDiv}>
-          {editMode.isEditing && editMode.value === 2 ? (
+          {editState.inputState &&
+          editState.value === 2 &&
+          editState.isEditing === true ? (
             <>
               <div className={styles.changePasswordDiv}>
                 <input
@@ -266,7 +291,7 @@ const Settings = ({ setHeading }) => {
                   className={styles.confirmBtn}
                   onClick={handlePasswordChange}
                 >
-                  {isLoading ? (
+                  {place === "changePassword" && isLoading === true ? (
                     <CircleSpinner size={10} color="white" loading={true} />
                   ) : (
                     "confirm"
@@ -274,7 +299,10 @@ const Settings = ({ setHeading }) => {
                 </button>
                 <button
                   className={styles.cancelBtn}
-                  onClick={() => switchEditMode(0)}
+                  onClick={() => {
+                    switchEditMode(false, false, 0);
+                    notificationClear();
+                  }}
                 >
                   cancel
                 </button>
@@ -283,7 +311,9 @@ const Settings = ({ setHeading }) => {
           ) : (
             <button
               className={styles.changePassBtn}
-              onClick={() => switchEditMode(2)}
+              onClick={() => {
+                switchEditMode(true, true, 2);
+              }}
             >
               Change password
             </button>
@@ -296,28 +326,23 @@ const Settings = ({ setHeading }) => {
           <p className={styles.headingText}>Delete Account</p>
         </div>
         <div className={styles.notificationDiv}>
-          {editMode.value === 3 ? (
-            <>
-              {notification.error || notification.success ? (
-                <div
-                  className={
-                    notification.error
-                      ? styles.notificationErrorDiv
-                      : styles.notificationSuccessDiv
-                  }
-                >
-                  {notification.error ? (
-                    <p>{notification.error}</p>
-                  ) : (
-                    <p>{notification.success}</p>
-                  )}
-                </div>
-              ) : null}
-            </>
-          ) : null}
+          {at === "deleteAccount" && error ? (
+            <div className={styles.notificationErrorDiv}>
+              <p>{error}</p>
+            </div>
+          ) : (
+            at === "deleteAccount" &&
+            success && (
+              <div className={styles.notificationSuccessDiv}>
+                <p>{success}</p>
+              </div>
+            )
+          )}
         </div>
         <div className={styles.bodyDiv}>
-          {editMode.isEditing && editMode.value === 3 ? (
+          {editState.inputState &&
+          editState.value === 3 &&
+          editState.isEditing === true ? (
             <>
               <div className={styles.deleteInputDiv}>
                 <p className={styles.disclaimer}>Confirm your password</p>
@@ -337,7 +362,7 @@ const Settings = ({ setHeading }) => {
                   className={styles.confirmBtn}
                   onClick={handleAccountDelete}
                 >
-                  {isLoading ? (
+                  {place === "deleteAccount" && isLoading === true ? (
                     <CircleSpinner size={10} color="white" loading={true} />
                   ) : (
                     "confirm"
@@ -345,7 +370,10 @@ const Settings = ({ setHeading }) => {
                 </button>
                 <button
                   className={styles.cancelBtn}
-                  onClick={() => switchEditMode(0)}
+                  onClick={() => {
+                    switchEditMode(false, false, 0);
+                    notificationClear();
+                  }}
                 >
                   cancel
                 </button>
@@ -365,7 +393,7 @@ const Settings = ({ setHeading }) => {
               <br />
               <button
                 className={styles.deleteAccountBtn}
-                onClick={() => switchEditMode(3)}
+                onClick={() => switchEditMode(true, true, 3)}
               >
                 Delete Account
               </button>

@@ -30,9 +30,9 @@ const Home = () => {
 
 
   const handleLogout = () => {
-    localStorage.removeItem("isAuthenticated");
-    dispatch(logout());
-    history.push("/login");
+    localStorage.removeItem("firstLogin");
+    dispatch(logout(history));
+    // history.push("/login");
   };
 
   return (

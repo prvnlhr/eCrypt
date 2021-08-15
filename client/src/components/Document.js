@@ -3,38 +3,14 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../css/document.module.css";
 import modalStyles from "../css/modal.module.css";
-import LazyLoad from 'react-lazy-load';
-
+import LazyLoad from "react-lazy-load";
 
 import { deleteDoc, editDoc, docFavToggle } from "../actions/documentsAction";
-import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
-import { IoMdTrash } from "react-icons/io";
-import {
-  HiPencil,
-  HiStar,
-  HiOutlineStar,
-  HiCheck,
-  HiX,
-  HiChevronLeft,
-  HiChevronRight,
-} from "react-icons/hi";
+
+// icons set__________________________________
 import { Icon, InlineIcon } from "@iconify/react";
 
-//new icons set__________________________________
-// import pencilIcon from "@iconify-icons/akar-icons/pencil";
-import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
-import bookmarkStar from "@iconify-icons/bi/bookmark-star";
-import circleXFill from "@iconify-icons/akar-icons/circle-x-fill";
-import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
-import checkIcon from "@iconify-icons/bi/check";
-import xLg from "@iconify-icons/bi/x-lg";
-import trashEmpty from "@iconify-icons/gg/trash-empty";
-import starSolid from "@iconify-icons/clarity/star-solid";
-import starLine from "@iconify-icons/clarity/star-line";
-
-import trashSimpleBold from "@iconify-icons/ph/trash-simple-bold";
-import pencilIcon from "@iconify-icons/lucide/pencil";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 // ______________________________________________________
@@ -168,8 +144,8 @@ const Document = ({
             )}
           </div>
         </div>
-        <LazyLoad offset={0}  >
-        <img onClick={handleMaximize} src={doc.imageUrl}></img>
+        <LazyLoad offset={0}>
+          <img onClick={handleMaximize} src={doc.imageUrl}></img>
         </LazyLoad>
       </div>
 

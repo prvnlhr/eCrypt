@@ -5,6 +5,7 @@ import { register } from "../actions/auth";
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import formStyles from "../css/signUpPage.module.css";
+import styles from "../css/signUpPageNew.module.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { CircleSpinner } from "react-spinners-kit";
 
@@ -25,175 +26,139 @@ const initialState = {
 const SignUpPage = () => {
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   window.scroll({
-  //     bottom: 0,
-  //     left: 0,
-  //     behavior: "smooth",
-  //   });
-  // }, []);
-
-  const handleClick = () => {
-    window.scroll({
-      top: 100,
-      left: 0,
-      behavior: "smooth",
-    });
-    console.log("clicked");
-  };
-
   const [formData, setFormData] = useState(initialState);
-  const isLoading = useSelector((state) => state.loading.isLoading);
+  // const isLoading = useSelector((state) => state.loading.isLoading);
+  const loadState = useSelector((state) => state.loading);
+
   const notification = useSelector((state) => state.notification);
+  const message = useSelector((state) => state.authResponseHandler);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value, err: "", success: "" });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(formData);
     dispatch(register(formData));
   };
   const { firstName, lastName, email, password, confirmPassword } = formData;
+  const { place, isLoading } = loadState;
 
   return (
-    <div className={formStyles.signUpPage}>
-      <div className={formStyles.containerBio}>
-      <img className={formStyles.docImg} src={docs} />
-      <img className={formStyles.cardImg} src={cards} />
-      <img className={formStyles.loginImg} src={login} />
-
-        <div className={formStyles.appNameDiv}>
-          <span className={formStyles.appNameDivSpan}>e</span>
-          <p className={formStyles.appNameDivP}>Crypt</p>
+    <div className={styles.formComponent}>
+      <form className={styles.formTag} onSubmit={handleSubmit}>
+        <div className={styles.headingWrapper}>
+          <p className={styles.HeadingText}>Sign Up</p>
         </div>
-        <div className={formStyles.bioDiv}>
-          <img className={formStyles.secureImg} src={secure} />
-          <p className={formStyles.heading1}>
-            A Digital Solution for all your important data.
-          </p>
-          <p className={formStyles.heading2}>
-            Access your Bank cards details, Logins passwords and Documents on
-            the go
-          </p>
-          <br />
-          <p onClick={handleClick} className={formStyles.dotText}>
-            Simple<span className={formStyles.dot}>.</span>Secure
-          </p>
-        </div>
-      </div>
-
-      <div className={formStyles.containerForm}>
-        <div className={formStyles.signUpTextDIv} component="h1" variant="h4">
-          Sign Up
-        </div>
-
-        <form className={formStyles.form} onSubmit={handleSubmit}>
-          {notification.error || notification.success ? (
-            <div
-              className={
-                notification.error
-                  ? formStyles.notificationErrorDiv
-                  : formStyles.notificationSuccessDiv
-              }
-            >
-              {notification.error ? (
-                <p>{notification.error}</p>
-              ) : (
-                <p>{notification.success}</p>
-              )}
+        <div className={styles.messageWrapper}>
+          {message.error && message.at === "register" ? (
+            <div className={styles.errorDiv}>
+              <p>{message.error}</p>
             </div>
-          ) : null}
-          {/* <br /> */}
-
-          <Grid container spacing={2} className={formStyles.grid}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                size="small"
-                value={firstName}
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-                size="small"
-                value={lastName}
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                size="small"
-                value={email}
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-                size="small"
-                value={password}
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="confirmPassword"
-                label="Confirm password"
-                type="password"
-                id="confirmPassword"
-                autoComplete="current-password"
-                size="small"
-                value={confirmPassword}
-                onChange={handleChange}
-              />
-            </Grid>
-          </Grid>
-          <br />
-          <button type="submit" className={formStyles.submitBtn}>
-            {isLoading ? (
-              <CircleSpinner size={15} color="white" loading={true} />
+          ) : (
+            message.success &&
+            message.at === "register" && (
+              <div className={styles.successDiv}>
+                <p>{message.success}</p>
+              </div>
+            )
+          )}
+        </div>
+        <div className={styles.firstNameWrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>FIRST NAME</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              className={styles.inputField}
+              required
+              placeholder="first name"
+              name="firstName"
+              value={firstName}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className={styles.lastNameWrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>LAST NAME</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              className={styles.inputField}
+              required
+              placeholder="last name"
+              name="lastName"
+              value={lastName}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className={styles.emailWrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>EMAIL ADDRESS</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              className={styles.inputField}
+              required
+              placeholder="email address"
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+        <div className={styles.password1Wrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>PASSWORD</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              className={styles.inputField}
+              required
+              placeholder="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              type="password"
+            />
+          </div>
+        </div>
+        <div className={styles.password2Wrapper}>
+          <div className={styles.labelDiv}>
+            <p className={styles.labelText}>CONFIRM PASSWORD</p>
+          </div>
+          <div className={styles.inputDiv}>
+            <input
+              className={styles.inputField}
+              required
+              placeholder="confirm password"
+              name="confirmPassword"
+              value={confirmPassword}
+              onChange={handleChange}
+              type="password"
+            />
+          </div>
+        </div>
+        <div className={styles.buttonWrapper}>
+          <button type="submit">
+            {place === "login" && isLoading === true ? (
+              <CircleSpinner size={10} color="white" loading={true} />
             ) : (
-              <HiArrowNarrowRight fontSize="20px" />
+              <p>Sign In</p>
             )}
           </button>
-          <div className={formStyles.AlreadyHaveAccountDiv}>
-            <Link to="/login" className={formStyles.linkText}>
-              Already have an account? Sign in
+        </div>
+        <div className={styles.BottomLinkWrapper}>
+          <p to="/login">
+            Already have an account?{" "}
+            <Link to="/login" className={styles.link}>
+              Sign In
             </Link>
-          </div>
-        </form>
-      </div>
+          </p>
+        </div>
+      </form>
     </div>
   );
 };

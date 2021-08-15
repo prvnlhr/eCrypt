@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory ,Link} from "react-router-dom";
 import { FiLogOut } from "react-icons/fi";
 import { HiSearch, HiX, HiChevronDown, HiChevronUp } from "react-icons/hi";
 import ClickAwayListener from "@material-ui/core/ClickAwayListener";
@@ -86,6 +86,9 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
 
   return (
     <div className={styles.navbar}>
+      {/* <Link to="/login">Login</Link> */}
+      {/* <Link to="/register">Register</Link> */}
+
       <div className={styles.leftPortion}>
         <div className={styles.logoContainer}>
           <p className={styles.logoText}>

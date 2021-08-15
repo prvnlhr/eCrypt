@@ -1,7 +1,7 @@
-import React, {  useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import formStyles from "../css/forgotPass.module.css";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { useParams } from "react-router-dom";
 import { activationEmail } from "../actions/auth";
@@ -11,15 +11,21 @@ import Grid from "@material-ui/core/Grid";
 const ActivationEmail = () => {
   const dispatch = useDispatch();
   const notification = useSelector((state) => state.notification);
-
   const { activation_token } = useParams();
+  console.log("activationEmail component ");
 
   useEffect(() => {
+    console.log("activationEmail component", activation_token);
 
     if (activation_token) {
-      dispatch(activationEmail(activation_token));
+      console.log("activationEmail component", activation_token);
+      // dispatch(activationEmail(activation_token));
     }
-  }, []);
+  }, [activation_token]);
+
+  const handleClick = () => {
+    console.log("hii");
+  };
 
   return (
     <div className={formStyles.forgotPassPage}>
@@ -35,42 +41,13 @@ const ActivationEmail = () => {
           component="h1"
           variant="h5"
           className={formStyles.typography}
-        >
-          {notification.success
-            ? "Account Successfully Activated. Login to continue"
-            : "Link Expired ! Please register again"}
-        </Typography>
+        ></Typography>
         <br />
 
-        <div className={formStyles.formContainer}>
-          {notification.error || notification.success ? (
-            <div
-              className={
-                notification.error
-                  ? formStyles.notificationErrorDiv
-                  : formStyles.notificationSuccessDiv
-              }
-            >
-              {notification.error ? (
-                <p>{notification.error}</p>
-              ) : (
-                <p>{notification.success}</p>
-              )}
-            </div>
-          ) : null}
-          <br />
-
+        <div className={formStyles.formContainer} onClick={handleClick}>
           <Grid item>
             <Grid item>
-              {notification.error ? (
-                <Link to="/register" className={formStyles.linkText}>
-                  Register again
-                </Link>
-              ) : (
-                <Link to="/login" className={formStyles.linkText}>
-                  Login
-                </Link>
-              )}
+            
             </Grid>
           </Grid>
         </div>

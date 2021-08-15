@@ -54,6 +54,13 @@
   -webkit-font-smoothing: subpixel-antialiased;
   transform: perspective(1px) translateZ(0);
   backface-visibility: hidden;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.904);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
+
 }
 
 .imageContainer {
@@ -68,6 +75,8 @@
   border-radius: 10px 10px 10px 10px;
   border: 1px solid rgba(223, 223, 223, 0.384);
   /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
+  border: 1px solid rgba(0, 0, 0, 0.055);
+  /* box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); */
 
   margin-left: 2.5%;
   margin-right: 2.5%;

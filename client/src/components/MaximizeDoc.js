@@ -152,7 +152,7 @@ const MaximizeDoc = ({
                     handleDeleteClick();
                   }}
                 >
-                  <Icon icon={trashEmpty} className={styles.deleteIcon} />
+                  <Icon icon="feather:trash" className={styles.deleteIcon} />
                 </div>
               )}
               <div className={styles.maxImgFavBtnContainer}>
@@ -208,7 +208,10 @@ const MaximizeDoc = ({
                     className={styles.maxImgEditDiv}
                     onClick={handleEditButtonClicked}
                   >
-                    <Icon icon={pencilIcon} className={styles.pencilIcon} />
+                    <Icon
+                      icon="akar-icons:pencil"
+                      className={styles.pencilIcon}
+                    />
                   </div>
                 ) : (
                   <>

@@ -1,9 +1,4 @@
-// import UserDatabase from "../models/userData.js";
 const UserDatabase = require("../models/userData");
-// import bcrypt from "bcryptjs";
-// import jwt from "jsonwebtoken";
-// import sendMail from "../utils/sendMail.js";
-// import cookiesParser from "cookie-parser";
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 var cookieParser = require("cookie-parser");
@@ -14,6 +9,7 @@ const {
   ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET,
   CLIENT_URL,
+  CLIENT_URL_PRODUCTION,
   SEND_GRID_API_KEY,
   SENDER_EMAIL_ADDRESS,
 } = process.env;
@@ -22,10 +18,9 @@ sgMail.setApiKey(SEND_GRID_API_KEY);
 //_________________________________________________________________________________________________________________________________________
 //REGISTERING NEW USER_____________________________________________________________________________________________________________________
 
-const userController = {
+const authController = {
   register: async (req, res) => {
     const { email, password, confirmPassword, firstName, lastName } = req.body;
-    console.log("At register controller", req.body);
     try {
       //checking all field fill or not.
       if (!firstName || !lastName || !email || !password || !confirmPassword) {
@@ -40,12 +35,8 @@ const userController = {
         return res.status(400).json({ msg: " Passwords does not match" });
       }
       //checking email address already exist or not.
-      console.log("check 1");
-
       const existingUser = await UserDatabase.findOne({ email });
-      console.log(existingUser);
       if (existingUser) {
-        console.log("user exists");
         return res.status(400).json({ msg: "Email address already exist" });
       }
       //checking password length for minimum password length.
@@ -61,32 +52,9 @@ const userController = {
         password: passwordHash,
       };
       //creating jwt Token.
-      console.log("check 2");
-
       const activation_token = createActivationToken(newUser);
-
-      // const emailData = {
-      //   from: SENDER_EMAIL_ADDRESS,
-      //   to: email,
-      //   subject: "Account activation link",
-      //   html: `<h1>Please Click the link to activate account</h1>
-      //       <p>${CLIENT_URL}/user/auth/activation/${activation_token}<p>
-      //       <hr/>
-      //       <p>This email contains sensitive information</p>
-      //       <p>${CLIENT_URL}</p>
-      //       `,
-      // };
-      // sgMail
-      //   .send(emailData)
-      //   .then((sent) => {
-      //     return res.json({ message: `Email has been sent to ${email}` });
-      //   })
-      //   .catch((err) => {
-      //     return res.status(400).json({ error: err });
-      //   });
-      console.log("check 3");
       const txt = "Account Activation Link";
-      const url = `${CLIENT_URL}/user/activate/${activation_token}`;
+      const url = `${CLIENT_URL_PRODUCTION}/user/auth/activate/${activation_token}`;
 
       const response = sendMail(email, url, txt);
       res.status(200).json({ msg: "Check your email for activation link" });
@@ -95,7 +63,6 @@ const userController = {
     }
   },
   activateEmail: async (req, res) => {
-    console.log("At activate email controller", req.body.data.activation_token);
     try {
       // const {activation_token} = req.body,data
       const user = jwt.verify(
@@ -117,41 +84,46 @@ const userController = {
 
       res.json({ msg: "Account has been activated!" });
     } catch (err) {
+      console.log("error at activateEmail", err);
       return res.status(500).json({ msg: err.message });
     }
   },
   login: async (req, res) => {
-    console.log("login controller", req.body);
     try {
       const { email, password } = req.body;
+      console.log("at login cntrl", req.body);
       const user = await UserDatabase.findOne({ email });
+      console.log("user", user);
       if (!user)
         return res.status(400).json({ msg: "This email does not exist." });
-
+      console.log("check1");
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch)
         return res.status(400).json({ msg: "Password is incorrect." });
-
+      console.log("check2");
       const refresh_token = createRefreshToken({ id: user._id });
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
         secure: true,
         samSite: "none",
-        path: "/user/refresh_token",
+        path: "/user/auth/refresh_token",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
-      console.log("new rftoken at login cntrl", refresh_token);
+      console.log("check3");
 
-      res.json({ msg: "Login success!" });
+      const access_token = createAccessToken({ id: user._id });
+      console.log("check4");
+
+      res.status(200).json(access_token);
     } catch (err) {
+      console.log("error at Login controller", err);
       return res.status(500).json({ msg: err.message });
     }
   },
   getAccessToken: async (req, res) => {
     try {
-      console.log("getToken controller");
       const rf_token = req.cookies.refreshtoken;
-      console.log("At get token controller", rf_token);
+      console.log("refresh_token from cookies::", req.cookies.refreshtoken);
       if (!rf_token) {
         return res.status(401).json({ msg: "Please Login to continue !" });
       }
@@ -160,7 +132,13 @@ const userController = {
       const access_token = createAccessToken({ id: userId });
       res.status(200).json(access_token);
     } catch (error) {
-      console.log(error);
+      console.log("error at get token controller", error.name);
+      if (
+        error.name === "TokenExpiredError" ||
+        error.name === "JsonWebTokenError"
+      ) {
+        return res.status(401).json({ msg: "Please Login to continue !" });
+      }
       return res.status(400).json({ msg: error });
     }
   },
@@ -177,8 +155,7 @@ const userController = {
       sendMail(email, url, "Reset your password. Click the below link");
       res.json({ msg: "Please check your email for reset link" });
     } catch (error) {
-      console.log(error);
-
+      console.log("error at forgot password controller", error);
       return res.status(404).send(error);
     }
   },
@@ -193,26 +170,20 @@ const userController = {
       );
       res.json({ msg: "Password successfully changed !" });
     } catch (error) {
-      console.log(error);
-
+      console.log("error at reset password controller", error);
       return res.status(404).send(error);
     }
   },
   changePassword: async (req, res) => {
-    console.log("Att change pass cntrl", req.body);
     try {
       const { oldPassword, newPassword } = req.body;
       const id = req.user.id;
       const user = await UserDatabase.findById(id);
       if (!user) {
-        console.log("User does not exist");
-
         return res.status(400).send({ msg: "Email Id does not exist." });
       }
       const isMatch = await bcrypt.compare(oldPassword, user.password);
       if (!isMatch) {
-        console.log("Pass does not match");
-
         return res.status(400).send({ msg: "Old Password does not matched !" });
       }
       const passwordHash = await bcrypt.hash(newPassword, 12);
@@ -222,8 +193,7 @@ const userController = {
       );
       res.json({ msg: "Password successfully changed !" });
     } catch (error) {
-      console.log(error);
-
+      console.log("error at changePassword controller", error);
       return res.status(404).send(error);
     }
   },
@@ -252,6 +222,7 @@ const userController = {
       };
       res.json({ msg: "Profile Successfully updated !", newData });
     } catch (error) {
+      console.log("error at edit profile controller", error);
       return res.status(404).send(error);
     }
   },
@@ -273,6 +244,8 @@ const userController = {
 
       res.json({ msg: "Account successfully deleted !" });
     } catch (error) {
+      console.log("error at edit delete account controller", error);
+
       return res.status(404).send(error);
     }
   },
@@ -281,6 +254,7 @@ const userController = {
       const user = await UserDatabase.findById(req.user.id).select("-password");
       res.json({ user });
     } catch (error) {
+      console.log("error at getUserinfo controller", error);
       return res.status(404).send(error);
     }
   },
@@ -296,9 +270,10 @@ const userController = {
   },
   logout: async (req, res) => {
     try {
-      res.clearCookie("refreshtoken", { path: "/user/refresh_token" });
+      res.clearCookie("refreshtoken", { path: "/user/auth/refresh_token" });
       return res.status(200).json({ msg: "Successfully Logged out" });
     } catch (error) {
+      console.log("error at logout controller", error);
       return res.status(404).send(error);
     }
   },
@@ -315,7 +290,7 @@ function createAccessToken(payload) {
   return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: "15m" });
 }
 function createRefreshToken(payload) {
-  return jwt.sign(payload, REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
+  return jwt.sign(payload, REFRESH_TOKEN_SECRET, { expiresIn: "2d" });
 }
 
 function validateEmail(email) {
@@ -324,4 +299,4 @@ function validateEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 
-module.exports = userController;
+module.exports = authController;

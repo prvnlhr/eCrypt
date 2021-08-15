@@ -11,6 +11,7 @@ import notificationReducer from "./notificationReducer";
 import searchReducer from "./searchReducer";
 import activityReducer from "./activityReducer";
 import processReducer from "./processReducer";
+import authResponseReducer from "./authResponseReducer";
 
 import crudReducer from "./crudReducer";
 export default combineReducers({
@@ -28,4 +29,5 @@ export default combineReducers({
   activities: activityReducer,
   crud: crudReducer,
   process: processReducer,
+  authResponseHandler: authResponseReducer,
 });

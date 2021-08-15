@@ -3,10 +3,9 @@ import moment from "moment";
 
 import {
   USER_LOGIN,
-  LOGIN_SUCCESSFUL,
-  LOGIN_FAILURE,
-  TOKEN_SUCCESS,
-  TOKEN_FAILURE,
+  TOKEN_ADD,
+  TOKEN_TOKEN,
+  TOKEN_SET,
   USER_LOGOUT,
   ERROR_MESSAGE,
   SUCCESS_MESSAGE,
@@ -17,32 +16,34 @@ import {
   CLEAR_ERROR,
   CLEAR_SUCCESS,
   ADD_ACTIVITY,
+  RESPONSE_SUCCESS,
+  RESPONSE_ERROR,
+  RESPONSE_CLEAR,
+  LOADING_SET,
 } from "./types";
 // REGISTER_________________________________________________________
 export const register = (formData) => async (dispatch) => {
-  dispatch({
-    type: LOADING_START,
-  });
+  dispatch(loadingSetter("register", true));
   try {
     const response = await api.registerNewUser(formData);
-    const successMsg = response.data.msg;
-    dispatch({
-      type: SUCCESS_MESSAGE,
-      message: successMsg,
-    });
+    // dispatch({
+    //   type: RESPONSE_SUCCESS,
+    //   at: "register",
+    //   success: response.data.msg,
+    // });
+    dispatch(authSuccessResponseHandler(response.data.msg, "register"));
 
-    dispatch({
-      type: LOADING_END,
-    });
+    dispatch(loadingSetter("register", false));
   } catch (error) {
-    const failureMsg = error.response.data.msg;
-    dispatch({
-      type: ERROR_MESSAGE,
-      message: failureMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
+    dispatch(loadingSetter("register", false));
+    dispatch(authErrorResponseHandler(error.response.data.msg, "register"));
+
+    // dispatch({
+    //   at: "register",
+    //   type: RESPONSE_ERROR,
+    //   error: error.response.data.msg,
+    // });
+    console.log("at register action", error.response);
   }
 };
 
@@ -50,182 +51,165 @@ export const register = (formData) => async (dispatch) => {
 export const activationEmail = (activation_token) => async (dispatch) => {
   try {
     const response = await api.activation(activation_token);
-
-    const successMsg = response.data.msg;
-    dispatch({
-      type: SUCCESS_MESSAGE,
-      message: successMsg,
-    });
+    // dispatch({
+    //   type: RESPONSE_SUCCESS,
+    //   at: "accountActivate",
+    //   success: response.data.msg,
+    // });
+    dispatch(authSuccessResponseHandler(response.data.msg, "activation"));
   } catch (error) {
-    const failureMsg = error.response.data.msg;
-
     dispatch({
-      type: ERROR_MESSAGE,
-      message: failureMsg,
+      type: RESPONSE_ERROR,
+      at: "accountActivate",
+      error: error.response.data.msg,
     });
+    dispatch(authErrorResponseHandler(error.response.data.msg, "activation"));
+
+    console.log("at activate email action", error.response);
   }
 };
 //LOGIN_________________________________________________________________
-export const login = (formData) => async (dispatch) => {
-  console.log("at login auth action", formData);
-
-  dispatch({
-    type: LOADING_START,
-  });
-
+export const login = (formData, history) => async (dispatch) => {
+  dispatch(loadingSetter("login", true));
   try {
     const response = await api.login(formData);
-    const successMsg = response.data.msg;
-    dispatch({
-      type: USER_LOGIN,
-      message: successMsg,
-    });
+    const token = response.data;
+    console.log("token", token);
+    dispatch(authSuccessResponseHandler(response.data.msg, "login"));
+    // dispatch({
+    //   type: RESPONSE_SUCCESS,
+    //   at: "login",
+    //   success: response.data.msg,
+    // });
+    // tokenSetter(dispatch, token);
+    dispatch(tokenSetter(token));
 
     dispatch({
-      type: LOADING_END,
+      type: USER_LOGIN,
     });
-    dispatch({
-      type: SUCCESS_MESSAGE,
-      message: successMsg,
-    });
-    console.log("logins action success", response);
+    dispatch(loadingSetter("login", false));
+
+    history.push("/");
   } catch (error) {
-    const failureMsg = error.response.data.msg;
-    console.log("error at auth action ", error.response);
-    dispatch({
-      type: LOGIN_FAILURE,
-      message: failureMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
-    dispatch({
-      type: ERROR_MESSAGE,
-      message: failureMsg,
-    });
+    dispatch(authErrorResponseHandler(error.response.data.msg, "login"));
+    dispatch(loadingSetter("login", false));
+    console.log("at login action", error, error.response);
+
+    // dispatch({
+    //   type: RESPONSE_ERROR,
+    //   at: "login",
+    //   error: error.response.data.msg,
+    // });
   }
 };
 
-export const getToken = () => async (dispatch) => {
+export const getToken = (history) => async (dispatch) => {
   try {
     const response = await api.getToken();
     const token = response.data;
-    dispatch({
-      type: TOKEN_SUCCESS,
-      token,
-    });
+    dispatch(tokenSetter(token));
+
     dispatch({
       type: USER_LOGIN,
     });
+    // history.push("/");
   } catch (error) {
-    const failureMsg = error.response.data.msg;
-    if (error.response.status === 401) {
-      dispatch({
-        type: TOKEN_FAILURE,
-        failureMsg,
-      });
-
-      dispatch({
-        type: ERROR_MESSAGE,
-        message: failureMsg,
-      });
-
-      localStorage.removeItem("isAuthenticated");
-    }
+    console.log("At get token action", error.response.data.msg);
+    // dispatch({
+    //   type: RESPONSE_ERROR,
+    //   at: "token",
+    //   error: error.response.data.msg,
+    // });
+    dispatch(authErrorResponseHandler(error.response.data.msg, "login"));
+    dispatch({
+      type: USER_LOGOUT,
+    });
+    // history.push("/login");
   }
 };
 
 export const logout = () => async (dispatch) => {
-  try {
-    const res = await api.logout();
-    const successMsg = res.data.msg;
+  dispatch(loadingSetter("logout", true));
 
+  try {
+    const res = await api.logoutUser();
+    dispatch(tokenSetter(""));
+    dispatch(loadingSetter("logout", false));
     dispatch({
       type: USER_LOGOUT,
-      msg: successMsg,
     });
-
-    dispatch({
-      type: TOKEN_REMOVE,
-    });
-    dispatch({
-      type: REMOVE_USER,
-    });
-
-    dispatch({
-      type: SUCCESS_MESSAGE,
-      message: successMsg,
-    });
-  } catch (error) {}
+    dispatch(authSuccessResponseHandler(res.data.msg, "login"));
+  } catch (error) {
+    dispatch(loadingSetter("logout", false));
+    console.log("at logout action", error);
+  }
 };
 
 export const forgotPassword = (email) => async (dispatch) => {
-  dispatch({
-    type: LOADING_START,
-  });
+  dispatch(loadingSetter("forgotPassword", true));
+
   try {
     const res = await api.forgotPass(email);
     const successMsg = res.data.msg;
-    dispatch({
-      type: SUCCESS_MESSAGE,
-      message: successMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
+    // dispatch({
+    //   type: SUCCESS_MESSAGE,
+    //   message: successMsg,
+    // });
+    dispatch(authSuccessResponseHandler(successMsg, "forgotPassword"));
+    dispatch(loadingSetter("forgotPassword", false));
   } catch (error) {
+    dispatch(loadingSetter("forgotPassword", false));
     const failureMsg = error.response.data.msg;
+    dispatch(authErrorResponseHandler(failureMsg, "forgotPassword"));
 
-    dispatch({
-      type: ERROR_MESSAGE,
-      message: failureMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
+    // dispatch({
+    //   type: ERROR_MESSAGE,
+    //   message: failureMsg,
+    // });
+    // dispatch({
+    //   type: LOADING_END,
+    // });
   }
 };
 export const resetPassword = (token, password) => async (dispatch) => {
-  dispatch({
-    type: LOADING_START,
-  });
+  dispatch(loadingSetter("resetPassword", true));
+
   try {
     const res = await api.resetPass(token, password);
     const successMsg = res.data.msg;
-    dispatch({
-      type: SUCCESS_MESSAGE,
-      message: successMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
+    // dispatch({
+    //   type: SUCCESS_MESSAGE,
+    //   message: successMsg,
+    // });
+    dispatch(authSuccessResponseHandler(successMsg, "resetPassword"));
+
+    dispatch(loadingSetter("resetPassword", false));
   } catch (error) {
+    dispatch(loadingSetter("resetPassword", false));
     const failureMsg = error.response.data.msg;
-    dispatch({
-      type: ERROR_MESSAGE,
-      message: failureMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
+
+    // dispatch({
+    //   type: ERROR_MESSAGE,
+    //   message: failureMsg,
+    // });
+    dispatch(authErrorResponseHandler(failureMsg, "resetPassword"));
   }
 };
 //change password api
 export const changePassword =
   (oldPassword, newPassword, token, userId) => async (dispatch) => {
-    dispatch({
-      type: LOADING_START,
-    });
+    dispatch(loadingSetter("changePassword", true));
+
     try {
       const res = await api.changePass(oldPassword, newPassword, token);
       const successMsg = res.data.msg;
-      dispatch({
-        type: SUCCESS_MESSAGE,
-        message: successMsg,
-      });
-      dispatch({
-        type: LOADING_END,
-      });
+      // dispatch({
+      //   type: SUCCESS_MESSAGE,
+      //   message: successMsg,
+      // });
+      dispatch(authSuccessResponseHandler(successMsg, "changePassword"));
+
+      dispatch(loadingSetter("changePassword", false));
 
       const d = moment().format("LLL");
       const activity = {
@@ -241,57 +225,50 @@ export const changePassword =
         payload: activity,
       });
     } catch (error) {
+      dispatch(loadingSetter("changePassword", false));
       const failureMsg = error.response.data.msg;
-      dispatch({
-        type: ERROR_MESSAGE,
-        message: failureMsg,
-      });
-      dispatch({
-        type: LOADING_END,
-      });
+      console.log("At change pass action", error);
+
+      // dispatch({
+      //   type: ERROR_MESSAGE,
+      //   message: error,
+      // });
+      dispatch(authErrorResponseHandler(failureMsg, "changePassword"));
     }
   };
 //delete account api
 export const deleteAccount = (password, token) => async (dispatch) => {
-  dispatch({
-    type: LOADING_START,
-  });
+  dispatch(loadingSetter("deleteAccount", true));
+
   try {
     const res = await api.deleteAccount(password, token);
-
-    const logoutResponse = await api.logout();
+    const logoutResponse = await api.logoutUser();
     const successMsg = res.data.msg;
-    dispatch({
-      type: SUCCESS_MESSAGE,
-      message: successMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
-    localStorage.removeItem("isAuthenticated");
+    // dispatch({
+    //   type: SUCCESS_MESSAGE,
+    //   message: successMsg,
+    // });
+    dispatch(authSuccessResponseHandler(successMsg, "login"));
 
+    dispatch(loadingSetter("deleteAccount", false));
     dispatch({
       type: USER_LOGOUT,
       msg: successMsg,
     });
-
-    dispatch({
-      type: TOKEN_REMOVE,
-    });
+    dispatch(tokenSetter(""));
     dispatch({
       type: REMOVE_USER,
     });
 
     console.log(res);
   } catch (error) {
+    dispatch(loadingSetter("deleteAccount", false));
     const failureMsg = error.response.data.msg;
-    dispatch({
-      type: ERROR_MESSAGE,
-      message: failureMsg,
-    });
-    dispatch({
-      type: LOADING_END,
-    });
+    dispatch(authErrorResponseHandler(failureMsg, "deleteAccount"));
+    // dispatch({
+    //   type: ERROR_MESSAGE,
+    //   message: failureMsg,
+    // });
   }
 };
 
@@ -303,4 +280,51 @@ export const clearNotification = (notificationType) => async (dispatch) => {
       dispatch({ type: CLEAR_SUCCESS });
     }
   } catch (error) {}
+};
+export const updateToken = (token) => {
+  return {
+    type: TOKEN_SET,
+    token: token,
+  };
+};
+export const forceLogout = () => {
+  console.log("force logout");
+  return {
+    type: USER_LOGOUT,
+  };
+};
+export const authSuccessResponseHandler = (msg, at) => {
+  return {
+    type: RESPONSE_SUCCESS,
+    success: msg,
+    at: at,
+  };
+};
+export const authErrorResponseHandler = (msg, at) => {
+  return {
+    type: RESPONSE_ERROR,
+    error: msg,
+    at: at,
+  };
+};
+export const authResponseClear = () => {
+  return {
+    type: RESPONSE_CLEAR,
+  };
+};
+
+export const tokenSetter = (token) => {
+  console.log("token", token);
+  return {
+    type: TOKEN_SET,
+    token: token,
+  };
+};
+
+export const loadingSetter = (place, isLoading) => {
+  return {
+    type: LOADING_SET,
+    loading: isLoading,
+    place: place,
+  };
 };

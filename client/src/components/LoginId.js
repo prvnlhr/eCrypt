@@ -2,28 +2,15 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { editLoginId } from "../actions/loginInIdsAction";
-// import styles from "../css/loginId.module.css";
 import styles from "../css/loginIdComponent.module.css";
 import modalStyles from "../css/modal.module.css";
 import { deleteLoginId } from "../actions/loginInIdsAction";
 import LoginIdLogo from "./LoginIdLogo";
 import { loginIdFavToggle } from "../actions/loginInIdsAction";
-import { IoMdTrash } from "react-icons/io";
 import { CircleSpinner } from "react-spinners-kit";
+// icons set
 import { FaUserAlt, FaLock } from "react-icons/fa";
-import { CgTrashEmpty } from "react-icons/cg";
-import { HiPencil, HiCheck, HiX, HiStar, HiOutlineStar } from "react-icons/hi";
-// new icons set
 import { Icon, InlineIcon } from "@iconify/react";
-import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
-import pencilIcon from "@iconify-icons/akar-icons/pencil";
-import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
-import bookmarkStar from "@iconify-icons/bi/bookmark-star";
-import circleXFill from "@iconify-icons/akar-icons/circle-x-fill";
-import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
-import checkIcon from "@iconify-icons/bi/check";
-import xLg from "@iconify-icons/bi/x-lg";
-import trashEmpty from "@iconify-icons/gg/trash-empty";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 const LoginId = ({
@@ -37,7 +24,7 @@ const LoginId = ({
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const [editId, setEditId] = useState(null);
-  const[oldData,setOldData] =useState(null);
+  const [oldData, setOldData] = useState(null);
   const [inEditMode, setInEditMode] = useState(false);
   const [loginData, setLoginData] = useState({
     website: "",
@@ -58,7 +45,7 @@ const LoginId = ({
 
   useEffect(() => {
     setCurrLoginIdData(loginId);
-    setOldData(loginId)
+    setOldData(loginId);
   }, []);
 
   const dispatch = useDispatch();
@@ -78,7 +65,7 @@ const LoginId = ({
     dispatch(loginIdFavToggle(loginCardId, isFav));
   };
   const save = (id) => {
-    dispatch(editLoginId(id,oldData, loginData, userId));
+    dispatch(editLoginId(id, oldData, loginData, userId));
   };
 
   const confirmDelete = (loginCardId) => {
@@ -93,7 +80,9 @@ const LoginId = ({
 
   return (
     <div
-    className={`${styles.loginIdContainer} ${inEditMode ? styles.loginIdContainerInEditMode :null}`}
+      className={`${styles.loginIdContainer} ${
+        inEditMode ? styles.loginIdContainerInEditMode : null
+      }`}
     >
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
@@ -206,7 +195,11 @@ const LoginId = ({
                     setEditId(null);
                   }}
                 >
-                  <HiX color="#9baece" className={styles.cancelIcon} />
+                  <Icon
+                    icon="heroicons-solid:x"
+                    color="#9baece"
+                    className={styles.cancelIcon}
+                  />
                 </div>
                 <div
                   className={styles.checkIconDiv}
@@ -216,7 +209,11 @@ const LoginId = ({
                     setCurrEditId(null);
                   }}
                 >
-                  <HiCheck color="#9baece" className={styles.checkIcon} />
+                  <Icon
+                    icon="heroicons-solid:check"
+                    color="#9baece"
+                    className={styles.checkIcon}
+                  />
                 </div>
               </>
             ) : (
@@ -225,7 +222,6 @@ const LoginId = ({
                   className={styles.editIconDiv}
                   onClick={() => {
                     setEditId(loginId._id);
-
                     setInEditMode(true);
                     setCurrEditId(loginId._id);
                   }}
@@ -236,7 +232,7 @@ const LoginId = ({
                     <CircleSpinner size={10} color="#1072f1" loading={true} />
                   ) : (
                     <Icon
-                      icon={pencilIcon}
+                      icon="akar-icons:pencil"
                       className={styles.pencilIcon}
                       color="#9baece"
                     />
@@ -255,7 +251,7 @@ const LoginId = ({
                     <CircleSpinner size={10} color="#1072f1" loading={true} />
                   ) : (
                     <Icon
-                      icon={trashEmpty}
+                      icon="feather:trash"
                       className={styles.trashIcon}
                       color="#9baece"
                     />

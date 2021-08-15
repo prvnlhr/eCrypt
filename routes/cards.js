@@ -7,5 +7,4 @@ router.delete("/deleteCard/:id", cardsController.deleteCard);
 router.patch("/editCard/:id", cardsController.editCard);
 router.patch("/toggleFavourite/:id", cardsController.toggleFav);
 
-
 module.exports = router;

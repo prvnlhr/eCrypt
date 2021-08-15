@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.use("/user", require("./user"));
+router.use("/user/auth", require("./auth"));
 router.use("/user/cards", require("./cards"));
 router.use("/user/loginIds", require("./loginIds"));
 router.use("/user/docs", require("./documents"));

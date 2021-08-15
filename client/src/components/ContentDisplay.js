@@ -25,14 +25,18 @@ const ContentDisplay = ({
   maximizeOrNot,
   setMaximizeOrNot,
   showHeaderFooter,
-  setShowHeaderFooter
+  setShowHeaderFooter,
 }) => {
   const dispatch = useDispatch();
 
   const userId = useSelector((state) => state.user.user._id);
 
   const [currentId, setCurrentId] = useState(null);
+  const token = useSelector((state) => state.token.token);
 
+  // useEffect(() => {
+
+  // }, [token, dispatch]);
   useEffect(() => {
     if (userId) {
       dispatch(fetchActivity(userId));
@@ -50,10 +54,6 @@ const ContentDisplay = ({
   const cardsArray = useSelector((state) => state.cards.cards);
   const docsArray = useSelector((state) => state.docs.docs);
   const activitiesArray = useSelector((state) => state.activities.activities);
-
-  // const detectClick = () => {
-  //   console.log("clicked app");
-  // };
 
   const favoritesLoginsArray = useSelector(
     (state) => state.favorites.favoriteLoginsIds

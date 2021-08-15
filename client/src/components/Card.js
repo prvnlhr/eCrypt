@@ -3,26 +3,14 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteCard, editCard } from "../actions/cardsAction";
 import { cardFavToggle } from "../actions/cardsAction";
-import { CgTrashEmpty } from "react-icons/cg";
 import { CircleSpinner } from "react-spinners-kit";
-import { CgCloseO } from "react-icons/cg";
-import { IoMdTrash } from "react-icons/io";
+import Ripples from "react-ripples";
+import styles from "../css/card.module.css";
 
-import { HiPencil, HiCheck, HiX, HiStar, HiOutlineStar } from "react-icons/hi";
 import CardLogo, { getCardType } from "./CardLogo";
 import modalStyles from "../css/modal.module.css";
-import styles from "../css/card.module.css";
-// new icons set
+//icons set
 import { Icon, InlineIcon } from "@iconify/react";
-import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
-import pencilIcon from "@iconify-icons/akar-icons/pencil";
-import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
-import bookmarkStar from "@iconify-icons/bi/bookmark-star";
-import circleXFill from "@iconify-icons/akar-icons/circle-x-fill";
-import circleCheckFill from "@iconify-icons/akar-icons/circle-check-fill";
-import checkIcon from "@iconify-icons/bi/check";
-import xLg from "@iconify-icons/bi/x-lg";
-import trashEmpty from "@iconify-icons/gg/trash-empty";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 const Card = ({ card, setEditButton, showEditButton, index }) => {
@@ -92,7 +80,9 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
   return (
     <div
       key={index}
-      className={`${styles.cardContainer} ${inEditMode ? styles.cardContainerInEditMode :null}`}
+      className={`${styles.cardContainer} ${
+        inEditMode ? styles.cardContainerInEditMode : null
+      }`}
     >
       <div className={styles.buttonDiv}>
         <div className={styles.editBtnsContainer}>
@@ -106,7 +96,11 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                   setEditButton(true);
                 }}
               >
-                <HiX color="#9baece" className={styles.cancelIcon} />
+                <Icon
+                  icon="heroicons-solid:x"
+                  color="#9baece"
+                  className={styles.cancelIcon}
+                />
               </div>
               <div
                 className={styles.checkIconDiv}
@@ -117,7 +111,11 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                   setEditButton(true);
                 }}
               >
-                <HiCheck color="#9baece" className={styles.checkIcon} />
+                <Icon
+                  icon="heroicons-solid:check"
+                  color="#9baece"
+                  className={styles.checkIcon}
+                />
               </div>
             </>
           ) : (
@@ -137,11 +135,16 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                     crud.operation === "edit" ? (
                       <CircleSpinner size={10} color="#1072f1" loading={true} />
                     ) : (
-                      <Icon
-                        icon={pencilIcon}
-                        className={styles.pencilIcon}
-                        color="#9baece"
-                      />
+                      // <Ripples color={"blue"} during={1200}>
+                        // <button type="button">
+
+                        <Icon
+                          icon="akar-icons:pencil"
+                          className={styles.pencilIcon}
+                          color="#9baece"
+                        />
+                        // </button>
+                      // </Ripples>
                     )}
                   </div>
                   <div
@@ -156,7 +159,8 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                       <CircleSpinner size={10} color="#1072f1" loading={true} />
                     ) : (
                       <Icon
-                        icon={trashEmpty}
+                        icon="feather:trash"
+                        // icon="eva:trash-fill"
                         className={styles.trashIcon}
                         color="#9baece"
                       />

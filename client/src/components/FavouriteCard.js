@@ -3,15 +3,8 @@ import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 
 import { cardFavToggle } from "../actions/cardsAction";
-
-import { HiStar, HiOutlineStar } from "react-icons/hi";
-
 import CardLogo, { getCardType } from "./CardLogo";
 import styles from "../css/card.module.css";
-import { Icon, InlineIcon } from "@iconify/react";
-import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
-import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
-import bookmarkStar from "@iconify-icons/bi/bookmark-star";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 const FavouriteCard = ({ favItem }) => {
@@ -93,22 +86,20 @@ const FavouriteCard = ({ favItem }) => {
       </div>
 
       <div className={styles.buttonDiv}>
-      <button
-        className={styles.favBtn}
-        onClick={() => {
-          handleFavToggle(favItem._id, favItem.isFavourite);
-        }}
-      >
-        {(currCardData ? currCardData.isFavourite : favItem.isFavourite) ? (
-          <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
-        ) : (
-          <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
-        )}
-      </button>
+        <button
+          className={styles.favBtn}
+          onClick={() => {
+            handleFavToggle(favItem._id, favItem.isFavourite);
+          }}
+        >
+          {(currCardData ? currCardData.isFavourite : favItem.isFavourite) ? (
+            <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+          ) : (
+            <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+          )}
+        </button>
       </div>
 
-
-     
       <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
       <div className={styles.overlayDiv}></div>
     </div>

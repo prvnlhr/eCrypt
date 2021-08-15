@@ -432,6 +432,18 @@
   /* z-index: 23; */
   box-sizing: border-box;
 }
+.editIconDiv button{
+  position: relative;
+  /* width:100%; */
+  /* height:100%; */
+  /* border-radius: 50%; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* box-sizing: border-box; */
+
+
+}
 
 /* .checkCancelContainer {
   position: absolute;
@@ -493,6 +505,7 @@
 .checkIcon {
   font-size: 17px;
   cursor: pointer;
+
 }
 .cancelIcon {
   font-size: 17px;

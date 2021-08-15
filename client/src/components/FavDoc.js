@@ -1,16 +1,10 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import LazyLoad from "react-lazy-load";
 
 import { useDispatch, useSelector } from "react-redux";
 import { docFavToggle } from "../actions/documentsAction";
 import styles from "../css/document.module.css";
-import favStyles from "../css/favouriteItem.module.css";
-import { HiStar, HiOutlineStar } from "react-icons/hi";
-import { Icon, InlineIcon } from "@iconify/react";
-import bookmarkFill from "@iconify-icons/bi/bookmark-fill";
-import bookmarkStarFill from "@iconify-icons/bi/bookmark-star-fill";
-import bookmarkStar from "@iconify-icons/bi/bookmark-star";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 
 const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {

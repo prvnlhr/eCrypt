@@ -157,6 +157,8 @@ export const editLoginId =
 // DELETE LOGIN ID
 export const deleteLoginId =
   (loginData, loginCardId, user_id) => async (dispatch) => {
+    console.log("at delete Login action",loginData, loginCardId, user_id)
+
     try {
       dispatch({
         type: OPERATION_START,
@@ -166,6 +168,7 @@ export const deleteLoginId =
       });
       const response = await api.deleteLoginId(loginCardId, user_id);
       const loginIdsData = response.data.reverse();
+      console.log("at delete Login action Response",loginIdsData)
 
       dispatch({
         type: DELETE_LOGIN_ID,

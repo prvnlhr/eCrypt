@@ -40,44 +40,49 @@ mongoose
   .then(() => console.log("Connected to Database :: MongoDB Cloud"))
   .catch((err) => console.log(err.message));
 
-// const allowedOrigins = [
-//   "https://ecrypt.herokuapp.com",
-//   "http://localhost:3000",
-// ];
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     if (allowedOrigins.includes(origin) || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Origin not allowed by CORS"));
-//     }
-//   },
-//   methods: ["POST", "GET", "DELETE", "PUT", "OPTIONS"],
-//   maxAge: 3600,
-//   credentials: true,
-//   //   credentials: true,
-//   allowedHeaders: ["Content-Type", "Authorization"],
-// };
+const allowedOrigins = [
+  "https://ecrypt.herokuapp.com",
+  "http://localhost:3000",
+];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Origin not allowed by CORS"));
+    }
+  },
+  // methods: ["POST", "GET", "DELETE", "PUT", "OPTIONS"],
+  // maxAge: 3600,
+  // credentials: true,
+  credentials: true,
+  // allowedHeaders: ["Content-Type", "Authorization"],
+};
 // Enable preflight requests for all routes
-// app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: ["https://ecrypt.herokuapp.com", "http://localhost:3000"],
+    credentials: true,
+  })
+);
 // app.options("*", cors(corsOptions));
 
-app.use(function (req, res, next) {
-  // Access-Control-Allow-Credentials: true
-  res.header(
-    "Access-Control-Allow-Methods",
-    "GET,PUT,POST,DELETE,OPTIONS,PATCH"
-  );
-  res.header("Access-Control-Allow-Credentials", true);
-  // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header("Access-Control-Allow-Origin", "https://ecrypt.herokuapp.com");
-  // update to match the domain you will make the request from
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept ,Authorization"
-  );
-  next();
-});
+// app.use(function (req, res, next) {
+//   // Access-Control-Allow-Credentials: true
+//   res.header(
+//     "Access-Control-Allow-Methods",
+//     "GET,PUT,POST,DELETE,OPTIONS,PATCH"
+//   );
+//   res.header("Access-Control-Allow-Credentials", true);
+//   // res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+//   res.header("Access-Control-Allow-Origin", "https://ecrypt.herokuapp.com");
+//   // update to match the domain you will make the request from
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested-With, Content-Type, Accept ,Authorization"
+//   );
+//   next();
+// });
 
 app.use("/", require("./routes/index"));
 

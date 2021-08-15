@@ -5,18 +5,15 @@ import {
   GET_USER,
   USER_LOGOUT,
   DESTROY_SESSION,
-
 } from "../actions/types";
 
 const initialAuthState = {
-  isLogged: false,
+  isLogged: undefined,
 };
-
 
 const authNewReducer = (state = initialAuthState, action) => {
   switch (action.type) {
     case USER_LOGIN:
-      localStorage.setItem("isAuthenticated", true);
       return {
         ...state,
         isLogged: true,
