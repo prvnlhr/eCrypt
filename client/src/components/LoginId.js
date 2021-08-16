@@ -105,7 +105,7 @@ const LoginId = ({
               }}
             >
               {crud.inProcess && crud.itemId === loginId._id ? (
-                <CircleSpinner size={12} color="#1072f1" loading={true} />
+                <CircleSpinner size={15} color="#1072f1" loading={true} />
               ) : (
                 <p>Sure, Delete ! </p>
               )}
@@ -229,7 +229,7 @@ const LoginId = ({
                   {crud.inProcess &&
                   crud.itemId === loginId._id &&
                   crud.operation === "edit" ? (
-                    <CircleSpinner size={10} color="#1072f1" loading={true} />
+                    <CircleSpinner size={15} color="#1072f1" loading={true} />
                   ) : (
                     <Icon
                       icon="akar-icons:pencil"
@@ -248,7 +248,7 @@ const LoginId = ({
                   {crud.inProcess &&
                   crud.itemId === loginId._id &&
                   crud.operation === "delete" ? (
-                    <CircleSpinner size={10} color="#1072f1" loading={true} />
+                    <CircleSpinner size={15} color="#1072f1" loading={true} />
                   ) : (
                     <Icon
                       icon="feather:trash"

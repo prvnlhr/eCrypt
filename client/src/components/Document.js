@@ -28,6 +28,7 @@ const Document = ({
   setMaximizeOrNot,
   showHeaderFooter,
   setShowHeaderFooter,
+  currDeletingDocId
 }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.user._id);
@@ -40,6 +41,9 @@ const Document = ({
   const [thisDocRefIndex, setThisDocRefIndex] = useState(null);
   const node = useRef();
   const [currDocData, setCurrDocData] = useState();
+  const loading = useSelector((state) => state.process);
+
+  const { category, inProcess, status, process } = loading;
 
   const dotBtnClicked = () => {
     setBtnExpand(!btnExpand);
@@ -130,6 +134,12 @@ const Document = ({
       ) : null}
 
       <div className={styles.imageContainer}>
+        {category === "doc" && process === "delete" && inProcess === true && currDeletingDocId === doc._id &&(
+          <div className={styles.spinnerDiv}>
+            <CircleSpinner size={12} color="#0075ff" loading={true} />
+          </div>
+        )}
+
         <div className={styles.favBtnDiv}>
           <div
             className={styles.favBtn}

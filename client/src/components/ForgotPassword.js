@@ -35,9 +35,9 @@ const ForgotPassword = () => {
     setData({ ...data, [name]: value });
   };
   const handleSubmit = async (e) => {
-    e.preventDefault();
   };
-  const handleForgotPassword = () => {
+  const handleForgotPassword = (e) => {
+    e.preventDefault();
     dispatch(forgotPassword(email));
   };
 
@@ -84,7 +84,7 @@ const ForgotPassword = () => {
         <div className={styles.buttonWrapper}>
           <button type="submit">
             {place === "forgotPassword" && isLoading === true ? (
-              <CircleSpinner size={10} color="white" loading={true} />
+              <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Send email</p>
             )}

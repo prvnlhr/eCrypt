@@ -3,7 +3,7 @@ import { store } from "../store/index";
 import { logout, updateToken } from "../actions/auth";
 // import  store  from "../store/index";
 let url = process.env.REACT_APP_BASE_URL;
-console.log(process.env.REACT_APP_BASE_URL)
+console.log(process.env.REACT_APP_BASE_URL);
 const API = axios.create({
   baseURL: url,
 });
@@ -29,6 +29,8 @@ const errorHandler = (error) => {
   if (
     error.response.status === 401 &&
     error.config.url !== "/user/auth/refresh_token" &&
+    error.config.url !== "/user/auth/activation" &&
+    error.config.url !== "/user/auth/resetPassword" &&
     !originalRequest._retry
   ) {
     originalRequest._retry = true;
@@ -137,17 +139,13 @@ export const changePass = (oldPassword, newPassword, token) =>
   );
 //delete account_____
 export const deleteAccount = (password, token) =>
-  API.delete(
-    "/user/auth/deleteAccount",
-    {
-      data: {
-        oldPassword: password,
-      },
+  API.delete("/user/auth/deleteAccount", {
+    data: {
+      oldPassword: password,
     },
-    {
-      headers: { Authorization: `Bearer ${token}` },
-    }
-  );
+
+    headers: { Authorization: `Bearer ${token}` },
+  });
 
 //SIGN IN SIGNUP____________________________________________________________________
 export const signIn = (formData) => API.post("/user/auth/signin", formData);

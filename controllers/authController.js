@@ -63,7 +63,8 @@ const authController = {
   },
   activateEmail: async (req, res) => {
     try {
-      // const {activation_token} = req.body,data
+      // const { activation_token } = req.body.data;
+      console.log("activation token cntorl", req.body.data);
       const user = jwt.verify(
         req.body.data.activation_token,
         ACTIVATION_TOKEN_SECRET
@@ -83,7 +84,13 @@ const authController = {
 
       res.json({ msg: "Account has been activated!" });
     } catch (err) {
-      console.log("error at activateEmail", err);
+      if (
+        err.name === "TokenExpiredError" ||
+        err.name === "JsonWebTokenError"
+      ) {
+        return res.status(401).json({ msg: "Link Expired! Register again" });
+      }
+      console.log("error at activateEmail", err.name);
       return res.status(500).json({ msg: err.message });
     }
   },
@@ -148,7 +155,7 @@ const authController = {
       if (!user)
         return res.status(400).json({ msg: "Email Id doest not exist" });
       const access_token = createAccessToken({ id: user._id });
-      const url = `${CLIENT_URL}/user/reset/${access_token}`;
+      const url = `${CLIENT_URL}/user/auth/reset/${access_token}`;
       sendMail(email, url, "Reset your password. Click the below link");
       res.json({ msg: "Please check your email for reset link" });
     } catch (error) {
@@ -158,6 +165,7 @@ const authController = {
   },
   resetPassword: async (req, res) => {
     try {
+      console.log("reset password cntrl" ,req.body)
       const { password } = req.body;
       const passwordHash = await bcrypt.hash(password, 12);
       console.log(req.user);
@@ -225,6 +233,7 @@ const authController = {
   },
   deleteAccountPermanently: async (req, res) => {
     try {
+      console.log(req.body)
       const { oldPassword } = req.body;
       const id = req.user.id;
       const user = await UserDatabase.findById(id);
@@ -284,7 +293,7 @@ function createActivationToken(payload) {
   return jwt.sign(payload, ACTIVATION_TOKEN_SECRET, { expiresIn: "5m" });
 }
 function createAccessToken(payload) {
-  return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: "1m" });
+  return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: "15m" });
 }
 function createRefreshToken(payload) {
   return jwt.sign(payload, REFRESH_TOKEN_SECRET, { expiresIn: "2d" });
@@ -295,5 +304,4 @@ function validateEmail(email) {
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(String(email).toLowerCase());
 }
-
 module.exports = authController;

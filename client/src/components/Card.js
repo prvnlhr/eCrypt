@@ -133,7 +133,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                     {crud.inProcess &&
                     crud.itemId === card._id &&
                     crud.operation === "edit" ? (
-                      <CircleSpinner size={10} color="#1072f1" loading={true} />
+                      <CircleSpinner size={15} color="#1072f1" loading={true} />
                     ) : (
                       // <Ripples color={"blue"} during={1200}>
                         // <button type="button">
@@ -156,7 +156,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                     {crud.inProcess &&
                     crud.itemId === card._id &&
                     crud.operation === "delete" ? (
-                      <CircleSpinner size={10} color="#1072f1" loading={true} />
+                      <CircleSpinner size={15} color="#1072f1" loading={true} />
                     ) : (
                       <Icon
                         icon="feather:trash"

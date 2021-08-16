@@ -7,7 +7,7 @@
   align-items: center;
   text-align: center;
   /* height: 400px; */
-  aspect-ratio: 21/9;
+  aspect-ratio: 3/2;
   top: 25%;
   bottom: 25%;
   right: 0;
@@ -26,7 +26,7 @@
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-  padding:5px;
+  padding: 5px;
 
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
   box-sizing: border-box;
@@ -53,7 +53,7 @@
   /* left: 0; */
   display: grid;
   /* grid-template-rows: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%; */
-  grid-template-rows: 0.5fr 0.4fr 1fr 0.8fr 0.5fr;
+  grid-template-rows: 1fr 0.5fr 1fr 0.5fr;
   /* grid-template-columns: 50% 50%; */
 
   grid-template-columns: 100%;
@@ -91,17 +91,20 @@
 .HeadingText {
   font-family: "Quicksand", sans-serif;
   /* text-transform: uppercase; */
-  font-size: 20px;
+  /* font-size: 20px; */
+  width: 100%;
+
   color: black;
   font-weight: bold;
   margin: 0px 0px 0px 2px;
   letter-spacing: 0.3px;
+  white-space: nowrap;
 }
 
 .messageWrapper {
   grid-area: messageWrapper;
   width: 100%;
-  height: 100%;
+  height: 90%;
   box-sizing: border-box;
   /* border: 1px solid green; */
   display: flex;
@@ -154,7 +157,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .buttonWrapper button {
   width: 90%;
@@ -167,6 +170,8 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin: 0px 0px 0px 0px;
+
   /* outline: 2px double slategray; */
 }
 button p {

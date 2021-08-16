@@ -243,7 +243,7 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
             disabled={process.inProcess ? true : false}
           >
             {process.inProcess ? (
-              <CircleSpinner size={10} color="white" loading={true} />
+              <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>{btnText}</p>
             )}

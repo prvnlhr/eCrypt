@@ -60,7 +60,7 @@ const SignInPage = () => {
             </div>
           ) : (
             message.success &&
-            message.at === "login" && (
+            (message.at === "login" || message.at === "resetPassSuccess") && (
               <div className={styles.successDiv}>
                 <p>{message.success}</p>
               </div>
@@ -108,7 +108,7 @@ const SignInPage = () => {
         <div className={styles.buttonWrapper}>
           <button type="submit">
             {place === "login" && isLoading === true ? (
-              <CircleSpinner size={10} color="white" loading={true} />
+              <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Sign In</p>
             )}

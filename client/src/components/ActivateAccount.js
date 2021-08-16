@@ -1,7 +1,7 @@
 import React from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "../css/activateAccountComponent.module.css";
-import { useParams,Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { activationEmail } from "../actions/auth";
 import { CircleSpinner } from "react-spinners-kit";
 
@@ -13,7 +13,6 @@ const ActivateAccount = () => {
   const { place, isLoading } = loadState;
   const handleAccountActivate = () => {
     dispatch(activationEmail(activation_token));
-
   };
 
   return (
@@ -40,19 +39,25 @@ const ActivateAccount = () => {
         <div className={styles.buttonWrapper}>
           <button onClick={handleAccountActivate}>
             {place === "activateAccount" && isLoading === true ? (
-              <CircleSpinner size={10} color="white" loading={true} />
+              <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Activate account</p>
             )}
           </button>
         </div>
         <div className={styles.BottomLinkWrapper}>
-          <p>
-            Sign Up again?
-            <Link to="/register" className={styles.link}>
-               Sign Up
-            </Link>
-          </p>
+          {message.success && message.at === "activateAccount" ? (
+            <p>
+              <Link to="/login"> Login </Link>
+            </p>
+          ) : message.error && message.at === "activateAccount" ? (
+            <p>
+              Sign Up agin ?
+              <Link to="/register" className={styles.link}>
+                Sign Up
+              </Link>
+            </p>
+          ) : null}
         </div>
       </div>
     </div>

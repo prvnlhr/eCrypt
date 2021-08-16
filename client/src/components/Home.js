@@ -28,6 +28,10 @@ const Home = () => {
   const [imageData, setImageData] = useState(null);
   const [showHeaderFooter, setShowHeaderFooter] = useState(false);
 
+  // for spinner while deleting document
+  const[currDeletingDocId,setCurrentDeletingDocId] = useState(null);
+
+
 
   const handleLogout = () => {
     localStorage.removeItem("firstLogin");
@@ -59,6 +63,7 @@ const Home = () => {
           showHeaderFooter={showHeaderFooter}
           setShowHeaderFooter={setShowHeaderFooter}
           fieldLength={fieldLength}
+          setCurrentDeletingDocId={setCurrentDeletingDocId}
         />
       )}
 
@@ -84,6 +89,8 @@ const Home = () => {
         setMaximizeOrNot={setMaximizeOrNot}
         showHeaderFooter={showHeaderFooter}
         setShowHeaderFooter={setShowHeaderFooter}
+        currDeletingDocId={currDeletingDocId}
+
       />
     </div>
   );

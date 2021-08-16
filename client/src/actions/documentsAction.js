@@ -16,6 +16,8 @@ import {
   ADD_ACTIVITY,
   OPERATION_START,
   OPERATION_END,
+  PROCESS_START,
+  PROCESS_END,
 } from "./types";
 
 //FETCHING
@@ -46,18 +48,25 @@ export const fetchDocs = (user_id) => async (dispatch) => {
 
 //ADD NEW
 export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
+  dispatch({
+    type: PROCESS_START,
+    category: "doc",
+    inProcess: true,
+    process: "upload",
+    status: null,
+  });
   try {
-    dispatch({
-      type: LOADING_START,
-    });
     const backendResponse = await api.addNewDoc(data);
     const responseArray = backendResponse.data;
     const newAddedDoc = responseArray[responseArray.length - 1];
 
     dispatch({
-      type: LOADING_END,
+      type: PROCESS_END,
+      category: "doc",
+      inProcess: false,
+      process: "upload",
+      status: "success",
     });
-
     dispatch({
       type: ADD_NEW_DOC,
       payload: newAddedDoc,
@@ -77,6 +86,13 @@ export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
       payload: activity,
     });
   } catch (error) {
+    dispatch({
+      type: PROCESS_END,
+      category: "doc",
+      inProcess: false,
+      process: "upload",
+      status: "success",
+    });
     console.log(error);
   }
 };
@@ -113,12 +129,15 @@ export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
 //DELETE DOC
 export const deleteDoc =
   (cloud_id, user_id, doc_id, doc_title) => async (dispatch) => {
+
     dispatch({
-      type: OPERATION_START,
-      message: "",
-      id: doc_id,
-      operation: "delete",
+      type: PROCESS_END,
+      category: "doc",
+      inProcess: true,
+      process: "delete",
+      status: "success",
     });
+   
     console.log("deleteDoc Action", cloud_id, user_id, doc_title);
 
     try {
@@ -140,9 +159,13 @@ export const deleteDoc =
         type: DELETE_DOC,
         payload: docsArray,
       });
+    
       dispatch({
-        type: OPERATION_END,
-        message: successMsg,
+        type: PROCESS_END,
+        category: "doc",
+        inProcess: false,
+        process: "delete",
+        status: "success",
       });
 
       // console.log(response.data.data.msg);
@@ -162,6 +185,13 @@ export const deleteDoc =
       });
     } catch (error) {
       console.log(error);
+      dispatch({
+        type: PROCESS_END,
+        category: "doc",
+        inProcess: false,
+        process: "delete",
+        status: "success",
+      });
       const failureMsg = error.response.data.msg;
       dispatch({
         type: OPERATION_END,

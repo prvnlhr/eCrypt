@@ -214,7 +214,7 @@ const Settings = ({ setHeading }) => {
             <>
               <button className={styles.confirmBtn} onClick={handleEditProfile}>
                 {place === "updateProfile" && isLoading === true ? (
-                  <CircleSpinner size={10} color="white" loading={true} />
+                  <CircleSpinner size={12} color="white" loading={true} />
                 ) : (
                   "save changes"
                 )}
@@ -292,7 +292,7 @@ const Settings = ({ setHeading }) => {
                   onClick={handlePasswordChange}
                 >
                   {place === "changePassword" && isLoading === true ? (
-                    <CircleSpinner size={10} color="white" loading={true} />
+                    <CircleSpinner size={12} color="white" loading={true} />
                   ) : (
                     "confirm"
                   )}
@@ -363,7 +363,7 @@ const Settings = ({ setHeading }) => {
                   onClick={handleAccountDelete}
                 >
                   {place === "deleteAccount" && isLoading === true ? (
-                    <CircleSpinner size={10} color="white" loading={true} />
+                    <CircleSpinner size={12} color="white" loading={true} />
                   ) : (
                     "confirm"
                   )}

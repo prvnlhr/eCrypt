@@ -49,6 +49,8 @@ export const register = (formData) => async (dispatch) => {
 
 //EMAIL ACTIVATION
 export const activationEmail = (activation_token) => async (dispatch) => {
+  dispatch(loadingSetter("activateAccount", true));
+
   try {
     const response = await api.activation(activation_token);
     // dispatch({
@@ -56,15 +58,21 @@ export const activationEmail = (activation_token) => async (dispatch) => {
     //   at: "accountActivate",
     //   success: response.data.msg,
     // });
-    dispatch(authSuccessResponseHandler(response.data.msg, "activation"));
-  } catch (error) {
-    dispatch({
-      type: RESPONSE_ERROR,
-      at: "accountActivate",
-      error: error.response.data.msg,
-    });
-    dispatch(authErrorResponseHandler(error.response.data.msg, "activation"));
+    dispatch(loadingSetter("activateAccount", false));
 
+    dispatch(authSuccessResponseHandler(response.data.msg, "activateAccount"));
+  } catch (error) {
+    dispatch(loadingSetter("activateAccount", false));
+
+    // dispatch({
+    //   type: RESPONSE_ERROR,
+    //   at: "activateAccount",
+    //   error: error.response.data.msg,
+    // });
+
+    dispatch(
+      authErrorResponseHandler(error.response.data.msg, "activateAccount")
+    );
     console.log("at activate email action", error.response);
   }
 };
@@ -181,18 +189,24 @@ export const resetPassword = (token, password) => async (dispatch) => {
     //   type: SUCCESS_MESSAGE,
     //   message: successMsg,
     // });
-    dispatch(authSuccessResponseHandler(successMsg, "resetPassword"));
+    dispatch(authSuccessResponseHandler(successMsg, "resetPassSuccess"));
 
     dispatch(loadingSetter("resetPassword", false));
   } catch (error) {
+    let errorMsg;
     dispatch(loadingSetter("resetPassword", false));
     const failureMsg = error.response.data.msg;
+    if(failureMsg === 'TokenExpiredError!' || "Invalid token!"){
+      errorMsg = "Link Expired try again !"
+    }else{
+      errorMsg = failureMsg;
+    }
 
     // dispatch({
     //   type: ERROR_MESSAGE,
     //   message: failureMsg,
     // });
-    dispatch(authErrorResponseHandler(failureMsg, "resetPassword"));
+    dispatch(authErrorResponseHandler(errorMsg, "resetPassword"));
   }
 };
 //change password api
@@ -238,6 +252,8 @@ export const changePassword =
   };
 //delete account api
 export const deleteAccount = (password, token) => async (dispatch) => {
+
+  console.log("action delete",token)
   dispatch(loadingSetter("deleteAccount", true));
 
   try {

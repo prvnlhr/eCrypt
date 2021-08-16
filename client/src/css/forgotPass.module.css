@@ -120,7 +120,7 @@
   align-items: flex-end;
 }
 .errorDiv {
-  width: 90%;
+  width: 100%;
   height: 90%;
   display: flex;
   justify-content: center;
@@ -138,7 +138,7 @@
   letter-spacing: 0.3px;
 }
 .successDiv {
-  width: 90%;
+  width: 100%;
   height: 90%;
   display: flex;
   justify-content: center;

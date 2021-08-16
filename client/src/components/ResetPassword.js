@@ -2,7 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link, useParams } from "react-router-dom";
-import { resetPassword } from "../actions/auth";
+import {
+  resetPassword,
+  authSuccessResponseHandler,
+  authErrorResponseHandler,
+} from "../actions/auth";
 import TextField from "@material-ui/core/TextField";
 // import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -28,7 +32,7 @@ const ResetPassword = () => {
   const { password, confirmPassword } = data;
   // const resetSuccess = notification.success;
   useEffect(() => {
-    if (message.success && message.at === "resetPassword") {
+    if (message.success && message.at === "resetPassSuccess") {
       history.push("/login");
     }
   }, [message.success]);
@@ -40,13 +44,22 @@ const ResetPassword = () => {
     setData({ ...data, [name]: value });
   };
 
-  const handleRestPassword = () => {
+  const handleRestPassword = (e) => {
+    e.preventDefault();
+
     if (password !== confirmPassword) {
-      setValidationError("Passwords does not match !");
+      dispatch(
+        authErrorResponseHandler("Passwords does not match !", "resetPassword")
+      );
       return;
     }
     if (password.length < 6) {
-      setValidationError("Password must be at least 6 digits");
+      dispatch(
+        authErrorResponseHandler(
+          "Password must be at least 6 digits",
+          "resetPassword"
+        )
+      );
       return;
     } else {
       dispatch(resetPassword(token, password));
@@ -112,7 +125,7 @@ const ResetPassword = () => {
         <div className={styles.buttonWrapper}>
           <button type="submit">
             {place === "resetPassword" && isLoading === true ? (
-              <CircleSpinner size={10} color="white" loading={true} />
+              <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Reset now</p>
             )}

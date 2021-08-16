@@ -144,7 +144,7 @@ const SignUpPage = () => {
         <div className={styles.buttonWrapper}>
           <button type="submit">
             {place === "register" && isLoading === true ? (
-              <CircleSpinner size={10} color="white" loading={true} />
+              <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Sign In</p>
             )}

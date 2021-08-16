@@ -26,6 +26,7 @@ const ContentDisplay = ({
   setMaximizeOrNot,
   showHeaderFooter,
   setShowHeaderFooter,
+  currDeletingDocId
 }) => {
   const dispatch = useDispatch();
 
@@ -120,6 +121,7 @@ const ContentDisplay = ({
               setMaximizeOrNot={setMaximizeOrNot}
               showHeaderFooter={showHeaderFooter}
               setShowHeaderFooter={setShowHeaderFooter}
+              currDeletingDocId={currDeletingDocId}
             />
           )}
         />

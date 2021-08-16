@@ -25,6 +25,7 @@ const MaximizeDoc = ({
   showHeaderFooter,
   setShowHeaderFooter,
   fieldLength,
+  setCurrentDeletingDocId
 }) => {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -80,6 +81,7 @@ const MaximizeDoc = ({
     setDeleteModalShow(!deleteModalShow);
     setMaximizeOrNot(false);
     setDocEditMode(false);
+    setCurrentDeletingDocId(imageData._id);
   };
   useEffect(() => {
     // console.log(imageData);
