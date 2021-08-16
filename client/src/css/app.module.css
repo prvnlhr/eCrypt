@@ -31,9 +31,9 @@ body {
     #b5dce1
   );
 }
-html {
+/* html {
   height: -webkit-fill-available;
-}
+} */
 
 body::-webkit-scrollbar {
   display: none;
@@ -50,7 +50,6 @@ body::-webkit-scrollbar {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 }
 
