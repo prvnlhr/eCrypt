@@ -9,7 +9,6 @@ const {
   ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET,
   CLIENT_URL,
-  CLIENT_URL_PRODUCTION,
   SEND_GRID_API_KEY,
   SENDER_EMAIL_ADDRESS,
 } = process.env;
@@ -54,7 +53,7 @@ const authController = {
       //creating jwt Token.
       const activation_token = createActivationToken(newUser);
       const txt = "Account Activation Link";
-      const url = `${CLIENT_URL_PRODUCTION}/user/auth/activate/${activation_token}`;
+      const url = `${CLIENT_URL}/user/auth/activate/${activation_token}`;
 
       const response = sendMail(email, url, txt);
       res.status(200).json({ msg: "Check your email for activation link" });
@@ -91,16 +90,16 @@ const authController = {
   login: async (req, res) => {
     try {
       const { email, password } = req.body;
-      console.log("at login cntrl", req.body);
+      // console.log("at login cntrl", req.body);
       const user = await UserDatabase.findOne({ email });
-      console.log("user", user);
+      // console.log("user", user);
       if (!user)
         return res.status(400).json({ msg: "This email does not exist." });
-      console.log("check1");
+      // console.log("check1");
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch)
         return res.status(400).json({ msg: "Password is incorrect." });
-      console.log("check2");
+      // console.log("check2");
       const refresh_token = createRefreshToken({ id: user._id });
       res.cookie("refreshtoken", refresh_token, {
         httpOnly: true,
@@ -109,10 +108,10 @@ const authController = {
         path: "/user/auth/refresh_token",
         maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
-      console.log("check3");
+      // console.log("check3");
 
       const access_token = createAccessToken({ id: user._id });
-      console.log("check4");
+      // console.log("check4");
 
       res.status(200).json(access_token);
     } catch (err) {
@@ -123,7 +122,7 @@ const authController = {
   getAccessToken: async (req, res) => {
     try {
       const rf_token = req.cookies.refreshtoken;
-      console.log("refresh_token from cookies::", req.cookies.refreshtoken);
+      // console.log("refresh_token from cookies::", req.cookies.refreshtoken);
       if (!rf_token) {
         return res.status(401).json({ msg: "Please Login to continue !" });
       }
@@ -149,8 +148,6 @@ const authController = {
       if (!user)
         return res.status(400).json({ msg: "Email Id doest not exist" });
       const access_token = createAccessToken({ id: user._id });
-      const CLIENT_URL = client_url;
-
       const url = `${CLIENT_URL}/user/reset/${access_token}`;
       sendMail(email, url, "Reset your password. Click the below link");
       res.json({ msg: "Please check your email for reset link" });
@@ -287,7 +284,7 @@ function createActivationToken(payload) {
   return jwt.sign(payload, ACTIVATION_TOKEN_SECRET, { expiresIn: "5m" });
 }
 function createAccessToken(payload) {
-  return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: "15m" });
+  return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: "1m" });
 }
 function createRefreshToken(payload) {
   return jwt.sign(payload, REFRESH_TOKEN_SECRET, { expiresIn: "2d" });

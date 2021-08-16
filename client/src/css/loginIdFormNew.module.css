@@ -7,7 +7,7 @@
   align-items: center;
   text-align: center;
   /* height: 400px; */
-  aspect-ratio: 4/5;
+  /* aspect-ratio: 4/5; */
   top: 2%;
   right: 0;
   left: 0;
@@ -44,14 +44,14 @@
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 5px;
-
 }
 .formComponentClose {
   position: absolute;
   /* position: relative; */
-  bottom: 0%;
-  top: 0%;
-  /* right: 50%; */
+  bottom: 5%;
+  /* top: 0%; */
+  right: 5%;
+  /* left: 0; */
   width: 0px;
   height: 0px;
   margin-left: auto;
@@ -168,7 +168,7 @@
 }
 .buttonWrapper button {
   width: 80%;
-  height: 30px;
+  height: 32px;
   background-color: #0075ff;
   border: none;
   border-radius: 8px;
@@ -298,7 +298,6 @@ button p {
   }
 }
 @media screen and (max-width: 550px) {
-
   .formComponent {
     /* width: 280px; */
     width: 75%;
@@ -306,5 +305,4 @@ button p {
     /* height: 400px; */
     aspect-ratio: 4/5;
   }
-
 }

@@ -259,12 +259,17 @@
 }
 .textDiv {
   /* border: 1px solid orange; */
-  width: 90%;
+  width: 85%;
   height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
+  overflow-x: scroll;
+  padding-right:10px;
+}
+.textDiv::-webkit-scrollbar {
+  display: none;
 }
 .textDiv p {
   font-family: "Quicksand", sans-serif;

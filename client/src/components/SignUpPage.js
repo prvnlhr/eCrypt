@@ -143,7 +143,7 @@ const SignUpPage = () => {
         </div>
         <div className={styles.buttonWrapper}>
           <button type="submit">
-            {place === "login" && isLoading === true ? (
+            {place === "register" && isLoading === true ? (
               <CircleSpinner size={10} color="white" loading={true} />
             ) : (
               <p>Sign In</p>

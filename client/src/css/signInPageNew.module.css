@@ -235,13 +235,15 @@
   font-size: 13px;
   color: #071a52 !important;
   font-weight: bold;
-  margin: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 2px;
+
   letter-spacing: 0.3px;
   text-decoration: underline;
 }
 .buttonWrapper button {
   width: 90%;
-  height: 30px;
+  height:32px;
+
   background-color: #0075ff;
   border: none;
   border-radius: 5px;
@@ -323,7 +325,7 @@ button p {
 @media screen and (max-width: 550px) {
   .formComponent {
     /* width:300px; */
-    width: 75%;
+    width: 78%;
 
     /* height: 400px; */
     aspect-ratio: 4/5;

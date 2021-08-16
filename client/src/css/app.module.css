@@ -1,18 +1,20 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 body {
   /* border: 1px solid red; */
-  width: 100vw !important;
+  width: 100%;
+  min-height: 100vh;
 
   margin: 0px;
   padding: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: #e5edf2; */
-  /* object-fit: contain; */
   background-size: cover;
-
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
   background-image: linear-gradient(
     to right top,
     #e6f3ea,
@@ -28,7 +30,6 @@ body {
     #b9dee2,
     #b5dce1
   );
-  /* background-image: linear-gradient(to right top, #ced8e5, #bfd2e5, #afcce4, #9dc7e2, #88c2e0); */
 }
 html {
   height: -webkit-fill-available;
@@ -41,26 +42,15 @@ body::-webkit-scrollbar {
 .app {
   position: relative;
   width: 100vw !important;
-  /* height: 812px; */
-  /* width: 80vw; */
-  /* height: 85vh !important; */
-  /* border: 1px solid black; */
+  height: 100%;
   display: flex;
   /* display: none; */
-
-  /* grid-template-rows: 10% 90%; */
-  /* grid-template-rows: 70px 1fr; */
   border-radius: 0px 0px 0px 0px;
-  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); */
   flex-direction: row;
   justify-content: center;
   align-items: center;
-
   overflow: hidden;
-  /* background-color: #e6e5eb; */
-  /* height:calc(var(--vh,1vh)*100); */
-
-  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
 }
 
@@ -76,25 +66,23 @@ body::-webkit-scrollbar {
   height: 100%;
   display: flex;
   /* border:1px solid red; */
- 
 }
-.section1{
-  width:45%;
-  height:100%;
+.section1 {
+  width: 45%;
+  height: 100%;
   /* border:1px solid black; */
-  
+
   background-color: #fff9f9;
 }
-.section2{
-  width:35%;
-  height:100%;
+.section2 {
+  width: 35%;
+  height: 100%;
   /* border:1px solid black; */
   background-color: #f2f1fd;
-  
 }
-.section3{
-  width:20%;
-  height:100%;
+.section3 {
+  width: 20%;
+  height: 100%;
   /* border:1px solid black; */
 
   background-color: #f6fbfe;

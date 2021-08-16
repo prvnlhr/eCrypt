@@ -72,9 +72,10 @@
 .formComponentClose {
   position: absolute;
   /* position: relative; */
-  bottom: 0%;
-  top: 0%;
-  /* right: 50%; */
+  bottom: 5%;
+  /* top: 0%; */
+  right: 5%;
+  /* left: 0; */
   width: 0px;
   height: 0px;
   margin-left: auto;
@@ -235,7 +236,7 @@
 }
 .buttonWrapper button {
   width: 80%;
-  height: 30px;
+  height: 32px;
   background-color: #0075ff;
   border: none;
   border-radius: 8px;

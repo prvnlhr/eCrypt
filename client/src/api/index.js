@@ -2,9 +2,10 @@ import axios from "axios";
 import { store } from "../store/index";
 import { logout, updateToken } from "../actions/auth";
 // import  store  from "../store/index";
-
+let url = process.env.REACT_APP_BASE_URL;
+console.log(process.env.REACT_APP_BASE_URL)
 const API = axios.create({
-  baseURL: "https://ecrypt.herokuapp.com",
+  baseURL: url,
 });
 
 // const API = axios.create({ baseURL: "http://localhost:9000" });
@@ -22,10 +23,9 @@ const resHandler = (response) => {
 };
 const errorHandler = (error) => {
   const originalRequest = error.config;
-  console.log("401 error", error.response.status, error.config);
-  console.log("/user/auth/refresh_token", error.config.url);
-
-  console.log("/user/auth/refresh_token" === error.config.url);
+  // console.log("401 error", error.response.status, error.config);
+  // console.log("/user/auth/refresh_token", error.config.url);
+  // console.log("/user/auth/refresh_token" === error.config.url);
   if (
     error.response.status === 401 &&
     error.config.url !== "/user/auth/refresh_token" &&
@@ -33,23 +33,23 @@ const errorHandler = (error) => {
   ) {
     originalRequest._retry = true;
     return axios
-      .post("https://ecrypt.herokuapp.com/user/auth/refresh_token", null, {
+      .post(`${url}/user/auth/refresh_token`, null, {
         withCredentials: true,
       })
       .then((res) => {
         console.log("res", res);
         if (res.status === 200) {
-          console.log("res Hogaya", res.data);
+          // console.log("res Hogaya", res.data);
           store.dispatch(updateToken(res.data));
-          console.log("originalRequestPrev", originalRequest);
+          // console.log("originalRequestPrev", originalRequest);
           originalRequest.headers["Authorization"] = "Bearer " + res.data;
-          console.log("originalRequestModified", originalRequest);
+          // console.log("originalRequestModified", originalRequest);
           return axios(originalRequest);
         }
       })
       .catch((err) => {
         // console.log(err.response.status);
-        console.log("token refreshing error at interceptor", err.response);
+        // console.log("token refreshing error at interceptor", err.response);
         if (err.response.status === 401) {
           store.dispatch(logout());
         }
