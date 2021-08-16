@@ -60,7 +60,11 @@ const App = () => {
         <div className={styles.section3}></div>
       </div>
       <Switch>
-        <Route path="/user/auth/reset/:token" component={ResetPassword} exact />
+        <UnAuthenticatedRoutes
+          path="/user/auth/reset/:token"
+          component={ResetPassword}
+          exact
+        />
         <UnAuthenticatedRoutes exact path="/login" component={SignInPage} />
         <UnAuthenticatedRoutes exact path="/register" component={SignUpPage} />
         <UnAuthenticatedRoutes
@@ -70,7 +74,7 @@ const App = () => {
           exact
         />
 
-        <Route
+        <UnAuthenticatedRoutes
           path="/user/auth/activate/:activation_token"
           component={ActivateAccount}
           exact

@@ -305,7 +305,7 @@ button p {
 }
 .inputDiv {
   width: 100%;
-  height: 60%;
+  height: 65%;
   display: flex;
 
   flex-direction: row;
@@ -343,10 +343,10 @@ button p {
 @media screen and (max-width: 550px) {
   .formComponent {
     /* width:300px; */
-    width: 80%;
+    width: 82%;
 
     /* height: 400px; */
-    aspect-ratio: 4/5;
+    aspect-ratio: 4/4.5;
   }
   .labelText {
     font-family: "Quicksand", sans-serif;
