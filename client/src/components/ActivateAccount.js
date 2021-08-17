@@ -1,9 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+
 import styles from "../css/activateAccountComponent.module.css";
 import { useParams, Link } from "react-router-dom";
 import { activationEmail } from "../actions/auth";
 import { CircleSpinner } from "react-spinners-kit";
+import { Icon } from "@iconify/react";
+
 
 const ActivateAccount = () => {
   const dispatch = useDispatch();
@@ -14,6 +18,9 @@ const ActivateAccount = () => {
   const handleAccountActivate = () => {
     dispatch(activationEmail(activation_token));
   };
+  // useEffect(() => {
+  //   console.log(activation_token);
+  // }, [activation_token]);
 
   return (
     <div className={styles.activateComponent}>
@@ -24,12 +31,16 @@ const ActivateAccount = () => {
         <div className={styles.messageWrapper}>
           {message.error && message.at === "activateAccount" ? (
             <div className={styles.errorDiv}>
+              <Icon icon="carbon:warning" className={styles.icon} />
+
               <p>{message.error}</p>
             </div>
           ) : (
             message.success &&
             message.at === "activateAccount" && (
               <div className={styles.successDiv}>
+                <Icon  icon="akar-icons:circle-check" className={styles.icon}/>
+
                 <p>{message.success}</p>
               </div>
             )

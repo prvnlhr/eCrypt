@@ -25,7 +25,7 @@ const MaximizeDoc = ({
   showHeaderFooter,
   setShowHeaderFooter,
   fieldLength,
-  setCurrentDeletingDocId
+  setCurrentDeletingDocId,
 }) => {
   const dispatch = useDispatch();
   const location = useLocation();
@@ -37,6 +37,8 @@ const MaximizeDoc = ({
   //   const [showHeaderFooter, setShowHeaderFooter] = useState(false);
   const [docEditMode, setDocEditMode] = useState(false);
   const [deleteModalShow, setDeleteModalShow] = useState(false);
+  const loadState = useSelector((state) => state.loading);
+  const { itemId, place, isLoading, process, success } = loadState;
 
   //HANDLER_____FUNCTIONS___________________//
 
@@ -123,7 +125,10 @@ const MaximizeDoc = ({
                 confirmDelete(imageData._id);
               }}
             >
-              {crud.inProcess ? (
+              {isLoading === true &&
+              place === "doc" &&
+              itemId === imageData._id &&
+              process === "delete" ? (
                 <CircleSpinner size={12} color="white" loading={true} />
               ) : (
                 <p>Sure, Delete ! </p>

@@ -22,21 +22,23 @@ const DocsList = ({
   setMaximizeOrNot,
   showHeaderFooter,
   setShowHeaderFooter,
-  currDeletingDocId
+  currDeletingDocId,
 }) => {
-  const isLoading = useSelector((state) => state.loading.isLoading);
+  // const isLoading = useSelector((state) => state.loading.isLoading);
   const [showEditButton, setEditButton] = useState(true);
 
   const [btnExpandId, setBtnExpandId] = useState(null);
   const [btnExpand, setBtnExpand] = useState(false);
 
   const crud = useSelector((state) => state.crud);
-  const loading = useSelector((state) => state.process);
+  // const loading = useSelector((state) => state.process);
 
-  const { category, inProcess, status, process } = loading;
+  // const { category, inProcess, status, process } = loading;
 
   const [formMode, setFormMode] = useState(false);
   const [modalShow, setModalShow] = useState(false);
+  const loadState = useSelector((state) => state.loading);
+  const { itemId, place, isLoading, process, success } = loadState;
 
   useEffect(() => {
     setHeading("Documents");
@@ -127,19 +129,10 @@ const DocsList = ({
         </div>
       ) : null}
 
-      {inProcess === true && category === "doc" && process === "upload" ? (
+      {isLoading === true && place === "doc" && process === "add" ? (
         <div className={styles.loadingDiv}>
-          {status === "failed" && category === "doc" ? (
-            <>
-              <p>Error! Upload again</p>
-            </>
-          ) : (
-            <>
-              <p>Uploading in Process ..</p>
-
-              <span>This may take a while</span>
-            </>
-          )}
+          <p>Uploading in Process ..</p>
+          <span>This may take a while</span>
         </div>
       ) : null}
     </div>

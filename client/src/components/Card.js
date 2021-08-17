@@ -27,7 +27,9 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
     pin: "",
   });
   const [currCardData, setCurrCardData] = useState();
-  const process = useSelector((state) => state.process);
+  // const process = useSelector((state) => state.process);
+  const loadState = useSelector((state) => state.loading);
+  const { itemId, place, isLoading, process, success } = loadState;
 
   // determining the card type___________
   const cardNumber = card.cardNo;
@@ -130,20 +132,21 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                       setInEditMode(true);
                     }}
                   >
-                    {crud.inProcess &&
-                    crud.itemId === card._id &&
-                    crud.operation === "edit" ? (
+                    {isLoading === true &&
+                    place === "card" &&
+                    itemId === card._id &&
+                    process === "edit" ? (
                       <CircleSpinner size={15} color="#1072f1" loading={true} />
                     ) : (
                       // <Ripples color={"blue"} during={1200}>
-                        // <button type="button">
+                      // <button type="button">
 
-                        <Icon
-                          icon="akar-icons:pencil"
-                          className={styles.pencilIcon}
-                          color="#9baece"
-                        />
-                        // </button>
+                      <Icon
+                        icon="akar-icons:pencil"
+                        className={styles.pencilIcon}
+                        color="#9baece"
+                      />
+                      // </button>
                       // </Ripples>
                     )}
                   </div>
@@ -153,9 +156,10 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                       handleDeleteClick();
                     }}
                   >
-                    {crud.inProcess &&
-                    crud.itemId === card._id &&
-                    crud.operation === "delete" ? (
+                    {isLoading === true &&
+                    place === "card" &&
+                    itemId === card._id &&
+                    process === "delete" ? (
                       <CircleSpinner size={15} color="#1072f1" loading={true} />
                     ) : (
                       <Icon
@@ -206,7 +210,10 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                 confirmDelete(card._id);
               }}
             >
-              {crud.inProcess && crud.itemId === card._id ? (
+              {isLoading === true &&
+              place === "card" &&
+              itemId === card._id &&
+              process === "delete" ? (
                 <CircleSpinner size={12} color="white" loading={true} />
               ) : (
                 <p>Sure, Delete ! </p>

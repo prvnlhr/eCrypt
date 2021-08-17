@@ -10,7 +10,7 @@ import formStyles from "../css/signInPage.module.css";
 import styles from "../css/signInPageNew.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { getToken } from "../actions/auth";
-
+import { Icon } from "@iconify/react";
 const initialState = {
   email: "",
   password: "",
@@ -56,12 +56,14 @@ const SignInPage = () => {
         <div className={styles.messageWrapper}>
           {message.error && message.at === "login" ? (
             <div className={styles.errorDiv}>
+              <Icon icon="carbon:warning" className={styles.icon} />
               <p>{message.error}</p>
             </div>
           ) : (
             message.success &&
             (message.at === "login" || message.at === "resetPassSuccess") && (
               <div className={styles.successDiv}>
+                <Icon  icon="akar-icons:circle-check" className={styles.icon}/>
                 <p>{message.success}</p>
               </div>
             )

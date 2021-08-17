@@ -6,6 +6,7 @@ import {
   TOGGLE_DOCS_IS_FAV,
 } from "../actions/types";
 
+
 const initialState = {
   docs: [],
 };

@@ -10,6 +10,7 @@ const documentsController = {
     }
   },
   addDoc: async (req, res) => {
+    console.log("add doc cntrl", req.body);
     const id = req.body.userId;
     const fileName = req.body.name;
     const filePath = req.file.path;
@@ -18,7 +19,7 @@ const documentsController = {
       const cloudinaryResponse = await cloudinary.v2.uploader.upload(filePath, {
         folder: "eCrypt",
       });
-
+      console.log("cldnr resounse", cloudinaryResponse);
       const docData = {
         imageName: fileName,
         imageUrl: cloudinaryResponse.url,
@@ -72,7 +73,7 @@ const documentsController = {
   },
   editDoc: async (req, res) => {
     const id = req.params.id;
-    console.log("at edit doc controller",req.body)
+    console.log("at edit doc controller", req.body);
     const { imageName } = req.body;
     try {
       const response = await UserDatabase.findOneAndUpdate(

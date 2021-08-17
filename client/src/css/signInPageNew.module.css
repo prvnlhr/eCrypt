@@ -122,15 +122,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #d723232f;
-  border: 1px solid #d72323;
-  color: #d72323;
+  background-color: #fee4e3;
+  border: 1px solid #cf4949;
+  color: #cf4949;
   border-radius: 5px;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
   /* text-transform: uppercase; */
   font-size: 0.8em;
-  font-weight: 450;
+  font-weight: 550;
   margin: 0px 0px 0px 0px;
   letter-spacing: 0.3px;
 }
@@ -140,17 +140,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #41d7233f;
-  border: 1px solid #38d723;
-  color: #27c512;
+  background-color: #d4f9e8;
+  border: 1px solid #3bc47f;
+  color: #3bc47f;
   border-radius: 5px;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
   /* text-transform: uppercase; */
   font-size: 0.8em;
   font-weight: 450;
+  font-weight: bold;
+
   margin: 0px 0px 0px 0px;
   letter-spacing: 0.3px;
+}
+.icon {
+  font-size: 17px;
+  margin: 0px 5px 0px 0px;
 }
 
 .emailWrapper {
@@ -242,7 +248,7 @@
 }
 .buttonWrapper button {
   width: 90%;
-  height:32px;
+  height: 32px;
 
   background-color: #0075ff;
   border: none;
@@ -328,7 +334,7 @@ button p {
     width: 78%;
 
     /* height: 400px; */
-    aspect-ratio: 4/5;
+    aspect-ratio: 4/5.5;
   }
   .labelText {
     font-family: "Quicksand", sans-serif;
@@ -338,5 +344,18 @@ button p {
     font-weight: bold;
     margin: 0px 0px 0px 2px;
     letter-spacing: 0.3px;
+  }
+  .buttonWrapper button {
+    width: 90%;
+    height: 35px;
+  }
+  .BottomLinkWrapper p {
+    font-size: 15px;
+    margin: 0px 0px 0px 0px;
+    letter-spacing: 0.3px;
+  }
+  .link {
+    font-size: 15px;
+    margin: 0px 0px 0px 3px;
   }
 }

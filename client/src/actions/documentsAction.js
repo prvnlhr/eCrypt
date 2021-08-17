@@ -19,6 +19,11 @@ import {
   PROCESS_START,
   PROCESS_END,
 } from "./types";
+import {
+  loadingSetter,
+  authSuccessResponseHandler,
+  authErrorResponseHandler,
+} from "./auth";
 
 //FETCHING
 export const fetchDocs = (user_id) => async (dispatch) => {
@@ -48,6 +53,8 @@ export const fetchDocs = (user_id) => async (dispatch) => {
 
 //ADD NEW
 export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
+  dispatch(loadingSetter(true, "doc", "", "add", ""));
+
   dispatch({
     type: PROCESS_START,
     category: "doc",
@@ -67,6 +74,8 @@ export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
       process: "upload",
       status: "success",
     });
+    dispatch(loadingSetter(false, "doc", "", "add", true));
+
     dispatch({
       type: ADD_NEW_DOC,
       payload: newAddedDoc,
@@ -86,6 +95,8 @@ export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
       payload: activity,
     });
   } catch (error) {
+    dispatch(loadingSetter(false, "doc", "", "add", false));
+
     dispatch({
       type: PROCESS_END,
       category: "doc",
@@ -98,6 +109,7 @@ export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
 };
 // EDIT DOC TITLE
 export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
+  dispatch(loadingSetter(true, "doc", doc_Id, "edit", ""));
   console.log("at editDoc Action", doc_Id, userId, docData);
   try {
     const response = await api.editDoc(doc_Id, docData);
@@ -107,6 +119,7 @@ export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
       id: doc_Id,
       operation: "edit",
     });
+    dispatch(loadingSetter(false, "doc", doc_Id, "edit", true));
 
     const d = moment().format("LLL");
     const activity = {
@@ -122,6 +135,8 @@ export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
       payload: activity,
     });
   } catch (error) {
+    dispatch(loadingSetter(false, "doc", doc_Id, "edit", false));
+
     console.log(error);
   }
 };
@@ -129,6 +144,7 @@ export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
 //DELETE DOC
 export const deleteDoc =
   (cloud_id, user_id, doc_id, doc_title) => async (dispatch) => {
+    dispatch(loadingSetter(true, "doc", doc_id, "delete", ""));
 
     dispatch({
       type: PROCESS_END,
@@ -137,7 +153,7 @@ export const deleteDoc =
       process: "delete",
       status: "success",
     });
-   
+
     console.log("deleteDoc Action", cloud_id, user_id, doc_title);
 
     try {
@@ -159,7 +175,7 @@ export const deleteDoc =
         type: DELETE_DOC,
         payload: docsArray,
       });
-    
+
       dispatch({
         type: PROCESS_END,
         category: "doc",
@@ -167,6 +183,7 @@ export const deleteDoc =
         process: "delete",
         status: "success",
       });
+      dispatch(loadingSetter(false, "doc", doc_id, "delete", true));
 
       // console.log(response.data.data.msg);
 
@@ -184,6 +201,8 @@ export const deleteDoc =
         payload: activity,
       });
     } catch (error) {
+      dispatch(loadingSetter(false, "doc", doc_id, "delete", false));
+
       console.log(error);
       dispatch({
         type: PROCESS_END,

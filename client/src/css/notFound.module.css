@@ -1,0 +1,116 @@
+.notFoundComponent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+  /* background-color: aqua; */
+  z-index: 100;
+}
+
+.imgDiv {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  /* border: 1px solid black; */
+}
+.imgDiv img {
+  object-fit: contain;
+  width: 80%;
+  height: 80%;
+}
+.footerDiv {
+  position: relative;
+  width: 90%;
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+button {
+  width: 100px;
+  height: 32px;
+  background-color: #6c63fe;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.text1 {
+  /* width: 90%; */
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 40px;
+  /* font-size: 2em; */
+
+  color: #57b993;
+  font-weight: bold;
+  margin: 0px 0px 0px 2px;
+  /* letter-spacing: 0.3px; */
+}
+.text2 {
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 20px;
+  color: #2f2e40;
+  font-weight: bolder;
+  margin: 0px 0px 0px 2px;
+  letter-spacing: 0.3px;
+}
+.link {
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 15px;
+  color: rgb(238, 238, 238);
+  font-weight: bold;
+  margin: 0px 0px 0px 2px;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+}
+@media screen and (max-width: 450px) {
+  .text1 {
+    /* width: 90%; */
+    font-family: "Quicksand", sans-serif;
+    /* text-transform: uppercase; */
+    font-size: 30px;
+    /* font-size: 2em; */
+
+    color: #57b993;
+    font-weight: bold;
+    margin: 0px 0px 0px 2px;
+    white-space: nowrap;
+    /* letter-spacing: 0.3px; */
+  }
+  .text2 {
+    font-family: "Quicksand", sans-serif;
+    /* text-transform: uppercase; */
+    font-size: 20px;
+    color: #2f2e40;
+    font-weight: bolder;
+    margin: 0px 0px 0px 2px;
+    letter-spacing: 0.3px;
+  }
+  .link {
+    font-family: "Quicksand", sans-serif;
+    /* text-transform: uppercase; */
+    font-size: 15px;
+    color: rgb(238, 238, 238);
+    font-weight: bold;
+    margin: 0px 0px 0px 2px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+  }
+}

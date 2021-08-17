@@ -36,6 +36,8 @@ const LoginId = ({
   );
 
   const [currLoginIdData, setCurrLoginIdData] = useState();
+  const loadState = useSelector((state) => state.loading);
+  const { itemId, place, isLoading, process, success } = loadState;
 
   useEffect(() => {
     if (loginIdDataToEdit) {
@@ -104,7 +106,10 @@ const LoginId = ({
                 confirmDelete(loginId._id);
               }}
             >
-              {crud.inProcess && crud.itemId === loginId._id ? (
+              {isLoading === true &&
+              place === "loginId" &&
+              itemId === loginId._id &&
+              process === "delete" ? (
                 <CircleSpinner size={15} color="#1072f1" loading={true} />
               ) : (
                 <p>Sure, Delete ! </p>
@@ -226,9 +231,10 @@ const LoginId = ({
                     setCurrEditId(loginId._id);
                   }}
                 >
-                  {crud.inProcess &&
-                  crud.itemId === loginId._id &&
-                  crud.operation === "edit" ? (
+                  {isLoading === true &&
+                  place === "loginId" &&
+                  itemId === loginId._id &&
+                  process === "edit" ? (
                     <CircleSpinner size={15} color="#1072f1" loading={true} />
                   ) : (
                     <Icon
@@ -245,9 +251,10 @@ const LoginId = ({
                     setEditId(loginId._id);
                   }}
                 >
-                  {crud.inProcess &&
-                  crud.itemId === loginId._id &&
-                  crud.operation === "delete" ? (
+                  {isLoading === true &&
+                  place === "loginId" &&
+                  itemId === loginId._id &&
+                  process === "delete" ? (
                     <CircleSpinner size={15} color="#1072f1" loading={true} />
                   ) : (
                     <Icon

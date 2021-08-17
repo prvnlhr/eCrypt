@@ -44,7 +44,8 @@ export const fetchUser = (token) => async (dispatch) => {
 //Update Profile
 export const updateProfile =
   (token, profileData, userId) => async (dispatch) => {
-    dispatch(loadingSetter("updateProfile", true));
+    dispatch(loadingSetter(true, "updateProfile", "", "", ""));
+
     try {
       const response = await api.editProfile(token, profileData);
       const userData = response.data.newData;
@@ -57,7 +58,8 @@ export const updateProfile =
         email: userData.email,
       };
       dispatch(authSuccessResponseHandler(successMsg, "updateProfile"));
-      dispatch(loadingSetter("updateProfile", false));
+      dispatch(loadingSetter(false, "updateProfile", "", "", true));
+
       dispatch({
         type: UPDATE_USER_PROFILE,
         payload: data,
@@ -77,7 +79,7 @@ export const updateProfile =
         payload: activity,
       });
     } catch (error) {
-      dispatch(loadingSetter("updateProfile", false));
+      dispatch(loadingSetter(false, "updateProfile", "", "", false));
       console.log("error at edit profile action", error.response.data.msg);
       const failureMsg = error.response.data.msg;
       dispatch(authErrorResponseHandler(failureMsg, "updateProfile"));

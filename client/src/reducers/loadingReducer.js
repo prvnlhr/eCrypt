@@ -3,6 +3,9 @@ import { LOADING_START, LOADING_END, LOADING_SET } from "../actions/types";
 const initialState = {
   isLoading: false,
   place: null,
+  itemId: "",
+  process: "",
+  success: "",
 };
 
 export default function loading(state = initialState, action) {
@@ -11,6 +14,9 @@ export default function loading(state = initialState, action) {
       return {
         isLoading: action.loading,
         place: action.place,
+        itemId: action.itemId,
+        process: action.process,
+        success: action.success,
       };
     // case LOADING_END:
     //   return {

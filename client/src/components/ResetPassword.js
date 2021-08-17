@@ -13,6 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import styles from "../css/resetPage.module.css";
 import { CircleSpinner } from "react-spinners-kit";
+import { Icon } from "@iconify/react";
+
 
 const initialState = {
   password: "",
@@ -37,7 +39,7 @@ const ResetPassword = () => {
     }
   }, [message.success]);
 
-  const { token } = useParams();
+  const { reset_token } = useParams();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,11 +64,11 @@ const ResetPassword = () => {
       );
       return;
     } else {
-      dispatch(resetPassword(token, password));
+      dispatch(resetPassword(reset_token, password));
     }
   };
 
-  console.log(token);
+  console.log(reset_token);
 
   return (
     <div className={styles.formComponent}>
@@ -77,12 +79,16 @@ const ResetPassword = () => {
         <div className={styles.messageWrapper}>
           {message.error && message.at === "resetPassword" ? (
             <div className={styles.errorDiv}>
+              <Icon icon="carbon:warning" className={styles.icon} />
+
               <p>{message.error}</p>
             </div>
           ) : (
             message.success &&
             message.at === "resetPassword" && (
               <div className={styles.successDiv}>
+                <Icon  icon="akar-icons:circle-check" className={styles.icon}/>
+
                 <p>{message.success}</p>
               </div>
             )

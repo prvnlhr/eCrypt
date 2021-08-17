@@ -23,19 +23,19 @@ import {
 } from "./types";
 // REGISTER_________________________________________________________
 export const register = (formData) => async (dispatch) => {
-  dispatch(loadingSetter("register", true));
+  dispatch(loadingSetter(true, "signUp", "", "", ""));
   try {
     const response = await api.registerNewUser(formData);
     // dispatch({
     //   type: RESPONSE_SUCCESS,
     //   at: "register",
+
     //   success: response.data.msg,
     // });
     dispatch(authSuccessResponseHandler(response.data.msg, "register"));
-
-    dispatch(loadingSetter("register", false));
+    dispatch(loadingSetter(false, "signUp", "", "", true));
   } catch (error) {
-    dispatch(loadingSetter("register", false));
+    dispatch(loadingSetter(false, "signUp", "", "", false));
     dispatch(authErrorResponseHandler(error.response.data.msg, "register"));
 
     // dispatch({
@@ -49,7 +49,7 @@ export const register = (formData) => async (dispatch) => {
 
 //EMAIL ACTIVATION
 export const activationEmail = (activation_token) => async (dispatch) => {
-  dispatch(loadingSetter("activateAccount", true));
+  dispatch(loadingSetter(true, "activateAccount", "", "", ""));
 
   try {
     const response = await api.activation(activation_token);
@@ -58,11 +58,11 @@ export const activationEmail = (activation_token) => async (dispatch) => {
     //   at: "accountActivate",
     //   success: response.data.msg,
     // });
-    dispatch(loadingSetter("activateAccount", false));
+    dispatch(loadingSetter(false, "activateAccount", "", "", true));
 
     dispatch(authSuccessResponseHandler(response.data.msg, "activateAccount"));
   } catch (error) {
-    dispatch(loadingSetter("activateAccount", false));
+    dispatch(loadingSetter(false, "activateAccount", "", "", false));
 
     // dispatch({
     //   type: RESPONSE_ERROR,
@@ -78,7 +78,8 @@ export const activationEmail = (activation_token) => async (dispatch) => {
 };
 //LOGIN_________________________________________________________________
 export const login = (formData, history) => async (dispatch) => {
-  dispatch(loadingSetter("login", true));
+  dispatch(loadingSetter(true, "login", "", "", ""));
+
   try {
     const response = await api.login(formData);
     const token = response.data;
@@ -95,12 +96,13 @@ export const login = (formData, history) => async (dispatch) => {
     dispatch({
       type: USER_LOGIN,
     });
-    dispatch(loadingSetter("login", false));
+    dispatch(loadingSetter(false, "login", "", "", true));
 
     history.push("/");
   } catch (error) {
+    dispatch(loadingSetter(false, "login", "", "", false));
     dispatch(authErrorResponseHandler(error.response.data.msg, "login"));
-    dispatch(loadingSetter("login", false));
+
     console.log("at login action", error, error.response);
 
     // dispatch({
@@ -137,24 +139,26 @@ export const getToken = (history) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  dispatch(loadingSetter("logout", true));
+  dispatch(loadingSetter(true, "logout", "", "", ""));
 
   try {
     const res = await api.logoutUser();
     dispatch(tokenSetter(""));
-    dispatch(loadingSetter("logout", false));
+
     dispatch({
       type: USER_LOGOUT,
     });
     dispatch(authSuccessResponseHandler(res.data.msg, "login"));
+    dispatch(loadingSetter(false, "logout", "", "", true));
   } catch (error) {
-    dispatch(loadingSetter("logout", false));
+    dispatch(loadingSetter(false, "logout", "", "", false));
+
     console.log("at logout action", error);
   }
 };
 
 export const forgotPassword = (email) => async (dispatch) => {
-  dispatch(loadingSetter("forgotPassword", true));
+  dispatch(loadingSetter(true, "forgotPassword", "", "", ""));
 
   try {
     const res = await api.forgotPass(email);
@@ -164,9 +168,9 @@ export const forgotPassword = (email) => async (dispatch) => {
     //   message: successMsg,
     // });
     dispatch(authSuccessResponseHandler(successMsg, "forgotPassword"));
-    dispatch(loadingSetter("forgotPassword", false));
+    dispatch(loadingSetter(false, "forgotPassword", "", "", true));
   } catch (error) {
-    dispatch(loadingSetter("forgotPassword", false));
+    dispatch(loadingSetter(false, "forgotPassword", "", "", false));
     const failureMsg = error.response.data.msg;
     dispatch(authErrorResponseHandler(failureMsg, "forgotPassword"));
 
@@ -180,8 +184,8 @@ export const forgotPassword = (email) => async (dispatch) => {
   }
 };
 export const resetPassword = (token, password) => async (dispatch) => {
-  dispatch(loadingSetter("resetPassword", true));
-
+  dispatch(loadingSetter(true, "resetPassword", "", "", ""));
+console.log(token)
   try {
     const res = await api.resetPass(token, password);
     const successMsg = res.data.msg;
@@ -190,15 +194,14 @@ export const resetPassword = (token, password) => async (dispatch) => {
     //   message: successMsg,
     // });
     dispatch(authSuccessResponseHandler(successMsg, "resetPassSuccess"));
-
-    dispatch(loadingSetter("resetPassword", false));
+    dispatch(loadingSetter(false, "resetPassword", "", "", true));
   } catch (error) {
     let errorMsg;
-    dispatch(loadingSetter("resetPassword", false));
+    dispatch(loadingSetter(false, "resetPassword", "", "", false));
     const failureMsg = error.response.data.msg;
-    if(failureMsg === 'TokenExpiredError!' || "Invalid token!"){
-      errorMsg = "Link Expired try again !"
-    }else{
+    if (failureMsg === "TokenExpiredError!" || "Invalid token!") {
+      errorMsg = "Link Expired try again !";
+    } else {
       errorMsg = failureMsg;
     }
 
@@ -212,7 +215,7 @@ export const resetPassword = (token, password) => async (dispatch) => {
 //change password api
 export const changePassword =
   (oldPassword, newPassword, token, userId) => async (dispatch) => {
-    dispatch(loadingSetter("changePassword", true));
+    dispatch(loadingSetter(true, "changePassword", "", "", ""));
 
     try {
       const res = await api.changePass(oldPassword, newPassword, token);
@@ -223,7 +226,7 @@ export const changePassword =
       // });
       dispatch(authSuccessResponseHandler(successMsg, "changePassword"));
 
-      dispatch(loadingSetter("changePassword", false));
+      dispatch(loadingSetter(false, "changePassword", "", "", true));
 
       const d = moment().format("LLL");
       const activity = {
@@ -239,7 +242,7 @@ export const changePassword =
         payload: activity,
       });
     } catch (error) {
-      dispatch(loadingSetter("changePassword", false));
+      dispatch(loadingSetter(false, "changePassword", "", "", false));
       const failureMsg = error.response.data.msg;
       console.log("At change pass action", error);
 
@@ -252,9 +255,8 @@ export const changePassword =
   };
 //delete account api
 export const deleteAccount = (password, token) => async (dispatch) => {
-
-  console.log("action delete",token)
-  dispatch(loadingSetter("deleteAccount", true));
+  // console.log("action delete", token);
+  dispatch(loadingSetter(true, "deleteAccount", "", "", ""));
 
   try {
     const res = await api.deleteAccount(password, token);
@@ -265,8 +267,9 @@ export const deleteAccount = (password, token) => async (dispatch) => {
     //   message: successMsg,
     // });
     dispatch(authSuccessResponseHandler(successMsg, "login"));
-
     dispatch(loadingSetter("deleteAccount", false));
+    dispatch(loadingSetter(false, "deleteAccount", "", "", true));
+
     dispatch({
       type: USER_LOGOUT,
       msg: successMsg,
@@ -278,7 +281,7 @@ export const deleteAccount = (password, token) => async (dispatch) => {
 
     console.log(res);
   } catch (error) {
-    dispatch(loadingSetter("deleteAccount", false));
+    dispatch(loadingSetter(false, "deleteAccount", "", "", false));
     const failureMsg = error.response.data.msg;
     dispatch(authErrorResponseHandler(failureMsg, "deleteAccount"));
     // dispatch({
@@ -337,10 +340,13 @@ export const tokenSetter = (token) => {
   };
 };
 
-export const loadingSetter = (place, isLoading) => {
+export const loadingSetter = (isLoading, place, itemId, process, success) => {
   return {
     type: LOADING_SET,
     loading: isLoading,
     place: place,
+    itemId: itemId,
+    process: process,
+    success: success,
   };
 };

@@ -3,7 +3,13 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUser } from "../actions/userAction";
 
-import { Switch, Route, useHistory } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  useHistory,
+  Redirect,
+  useParams,
+} from "react-router-dom";
 
 import Home from "./Home";
 import styles from "../css/app.module.css";
@@ -15,6 +21,7 @@ import SignInPage from "./SignInPage";
 import SignUpPage from "./SignUpPage";
 import { getToken } from "../actions/auth";
 import ActivateAccount from "./ActivateAccount";
+import NotFound from "./NotFound";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -22,6 +29,7 @@ const App = () => {
   const token = useSelector((state) => state.token.token);
   const history = useHistory();
   const { isLogged } = auth;
+  const { activation_token } = useParams();
 
   const getAuthToken = async () => {
     await dispatch(getToken(history));
@@ -60,11 +68,18 @@ const App = () => {
         <div className={styles.section3}></div>
       </div>
       <Switch>
-        <UnAuthenticatedRoutes
-          path="/user/auth/reset/:token"
-          component={ResetPassword}
+        <Route
+          path="/user/auth/reset/:reset_token"
+          component={
+            isLogged === true
+              ? NotFound
+              : isLogged === false
+              ? ResetPassword
+              : null
+          }
           exact
         />
+
         <UnAuthenticatedRoutes exact path="/login" component={SignInPage} />
         <UnAuthenticatedRoutes exact path="/register" component={SignUpPage} />
         <UnAuthenticatedRoutes
@@ -74,11 +89,18 @@ const App = () => {
           exact
         />
 
-        <UnAuthenticatedRoutes
+        <Route
           path="/user/auth/activate/:activation_token"
-          component={ActivateAccount}
+          component={
+            isLogged === true
+              ? NotFound
+              : isLogged === false
+              ? ActivateAccount
+              : null
+          }
           exact
         />
+
         <AuthenticatedRoute path="/" component={Home} />
       </Switch>
     </div>

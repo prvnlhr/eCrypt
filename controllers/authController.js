@@ -152,10 +152,20 @@ const authController = {
     try {
       const { email } = req.body;
       const user = await UserDatabase.findOne({ email });
-      if (!user)
+      if (!user) {
         return res.status(400).json({ msg: "Email Id doest not exist" });
-      const access_token = createAccessToken({ id: user._id });
-      const url = `${CLIENT_URL}/user/auth/reset/${access_token}`;
+      }
+      console.log("user", user.email, user._id, user.name);
+
+      const tokenPayload = {
+        name: user.name,
+        email: user.email,
+        id: user._id,
+      };
+      const reset_token = createAccessToken(tokenPayload);
+      // const activation_token = createActivationToken(user);
+
+      const url = `${CLIENT_URL}/user/auth/reset/${reset_token}`;
       sendMail(email, url, "Reset your password. Click the below link");
       res.json({ msg: "Please check your email for reset link" });
     } catch (error) {
@@ -165,7 +175,7 @@ const authController = {
   },
   resetPassword: async (req, res) => {
     try {
-      console.log("reset password cntrl" ,req.body)
+      console.log("reset password cntrl", req.body);
       const { password } = req.body;
       const passwordHash = await bcrypt.hash(password, 12);
       console.log(req.user);
@@ -233,7 +243,7 @@ const authController = {
   },
   deleteAccountPermanently: async (req, res) => {
     try {
-      console.log(req.body)
+      console.log(req.body);
       const { oldPassword } = req.body;
       const id = req.user.id;
       const user = await UserDatabase.findById(id);

@@ -56,27 +56,32 @@
 }
 
 .notificationErrorDiv {
-  /* width: 200px; */
-  height: 20px;
-  min-width: 200px;
+  width: auto;
+  height: 25px;
+  /* min-width: 270px; */
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
 
   font-size: 12px;
-  background-color: #d7232373;
-  border: 1px solid #d72323;
-  color: #d72323;
+  background-color: #fee4e3;
+  border: 1px solid #cf4949;
+  color: #cf4949;
   border-radius: 5px;
-  color: white;
   margin: 10px 0px 0px 10px;
+  font-weight: 550;
+  box-sizing: border-box;
+  padding: 0 5px 0 5px;
+  white-space: nowrap;
 }
 .notificationSuccessDiv {
   /* width: 60%; */
+  width: auto;
+
   height: 20px;
-  min-width: 200px;
+  /* min-width: 200px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,11 +89,19 @@
   font-family: "Quicksand", sans-serif;
 
   font-size: 12px;
-  background-color: #41d7236b;
-  border: 1px solid #38d723;
+  background-color: #d4f9e8;
+  border: 1px solid #3bc47f;
+  color: #3bc47f;
   border-radius: 5px;
-  color: rgb(44, 44, 44);
+  font-weight: 550;
+  padding: 0 5px 0 5px;
+  box-sizing: border-box;
+
   margin: 10px 0px 0px 10px;
+}
+.icon {
+  font-size: 17px;
+  margin: 0px 5px 0px 0px;
 }
 
 .bodyDiv {
@@ -477,4 +490,26 @@ button {
   font-size: 13px;
   letter-spacing: 0.5px;
   -webkit-text-stroke: 0.02em;
+}
+@media screen and (max-width: 550px) {
+  .editProfileBtn {
+    width: 100px;
+    height: 30px;
+  }
+  .changePassBtn {
+    width: 120px;
+    height: 30px;
+  }
+  .deleteAccountBtn {
+    width: 120px;
+    height: 30px;
+  }
+  .confirmBtn {
+    width: 110px;
+    height: 30px;
+  }
+  .cancelBtn {
+    width: 100px;
+    height: 30px;
+  }
 }

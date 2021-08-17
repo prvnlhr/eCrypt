@@ -8,6 +8,7 @@ import formStyles from "../css/signUpPage.module.css";
 import styles from "../css/signUpPageNew.module.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { CircleSpinner } from "react-spinners-kit";
+import { Icon } from "@iconify/react";
 
 import secure from "../img/secure.svg";
 import secure1 from "../img/secure1.svg";
@@ -53,12 +54,16 @@ const SignUpPage = () => {
         <div className={styles.messageWrapper}>
           {message.error && message.at === "register" ? (
             <div className={styles.errorDiv}>
+              <Icon icon="carbon:warning" className={styles.icon} />
+
+
               <p>{message.error}</p>
             </div>
           ) : (
             message.success &&
             message.at === "register" && (
               <div className={styles.successDiv}>
+                  <Icon  icon="akar-icons:circle-check" className={styles.icon}/>
                 <p>{message.success}</p>
               </div>
             )
@@ -143,7 +148,7 @@ const SignUpPage = () => {
         </div>
         <div className={styles.buttonWrapper}>
           <button type="submit">
-            {place === "register" && isLoading === true ? (
+            {place === "signUp" && isLoading === true ? (
               <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Sign In</p>

@@ -14,7 +14,11 @@ import {
 } from "./types";
 import * as api from "../api";
 import moment from "moment";
-
+import {
+  loadingSetter,
+  authSuccessResponseHandler,
+  authErrorResponseHandler,
+} from "./auth";
 //FETCH LOGINS
 export const fetchLoginIds = (user_id) => async (dispatch) => {
   dispatch({
@@ -44,6 +48,8 @@ export const fetchLoginIds = (user_id) => async (dispatch) => {
 // ADD NEW
 
 export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
+  dispatch(loadingSetter(true, "loginId", "", "add", ""));
+
   dispatch({
     type: PROCESS_START,
     category: "loginId",
@@ -81,6 +87,7 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
         type: ADD_ACTIVITY,
         payload: activity,
       });
+      dispatch(loadingSetter(false, "loginId", "", "add", true));
     } else {
       dispatch({
         type: PROCESS_END,
@@ -91,6 +98,8 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
       });
     }
   } catch (error) {
+    dispatch(loadingSetter(false, "loginId", "", "add", false));
+
     console.log(error);
     dispatch({
       type: PROCESS_END,
@@ -105,6 +114,7 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
 // EDIT LOGIN ID
 export const editLoginId =
   (loginId_id, oldData, loginIdData, userId) => async (dispatch) => {
+    dispatch(loadingSetter(true, "loginId", loginId_id, "edit", ""));
     dispatch({
       type: OPERATION_START,
       message: "",
@@ -115,7 +125,6 @@ export const editLoginId =
     try {
       // ______________
 
-      
       // ______________
 
       const response = await api.editLoginId(loginId_id, loginIdData);
@@ -129,6 +138,7 @@ export const editLoginId =
         type: OPERATION_END,
         message: "loginIdEditSuccess",
       });
+      dispatch(loadingSetter(false, "loginId", loginId_id, "edit", true));
 
       const d = moment().format("LLL");
       const activity = {
@@ -145,6 +155,8 @@ export const editLoginId =
         payload: activity,
       });
     } catch (error) {
+      dispatch(loadingSetter(false, "loginId", loginId_id, "edit", false));
+
       console.log(error);
       const failureMsg = error.response.data.msg;
       dispatch({
@@ -157,7 +169,8 @@ export const editLoginId =
 // DELETE LOGIN ID
 export const deleteLoginId =
   (loginData, loginCardId, user_id) => async (dispatch) => {
-    console.log("at delete Login action",loginData, loginCardId, user_id)
+    console.log("at delete Login action", loginData, loginCardId, user_id);
+    dispatch(loadingSetter(true, "loginId", loginCardId, "delete", ""));
 
     try {
       dispatch({
@@ -168,7 +181,7 @@ export const deleteLoginId =
       });
       const response = await api.deleteLoginId(loginCardId, user_id);
       const loginIdsData = response.data.reverse();
-      console.log("at delete Login action Response",loginIdsData)
+      console.log("at delete Login action Response", loginIdsData);
 
       dispatch({
         type: DELETE_LOGIN_ID,
@@ -179,6 +192,8 @@ export const deleteLoginId =
         type: OPERATION_END,
         message: "loginIdDeleted",
       });
+      dispatch(loadingSetter(false, "loginId", loginCardId, "delete", true));
+
       const d = moment().format("LLL");
       const activity = {
         date: d,
@@ -194,6 +209,8 @@ export const deleteLoginId =
         payload: activity,
       });
     } catch (error) {
+      dispatch(loadingSetter(false, "loginId", loginCardId, "delete", false));
+
       const failureMsg = error.response.data.msg;
 
       dispatch({

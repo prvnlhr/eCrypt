@@ -11,7 +11,8 @@ import {
 import { updateProfile } from "../actions/userAction";
 import { CircleSpinner } from "react-spinners-kit";
 import styles from "../css/settings.module.css";
-import { authResponseClear } from "../actions/auth";
+import { authResponseClear, authErrorResponseHandler } from "../actions/auth";
+import { Icon } from "@iconify/react";
 
 const Settings = ({ setHeading }) => {
   const dispatch = useDispatch();
@@ -65,7 +66,17 @@ const Settings = ({ setHeading }) => {
   const handlePasswordChange = async (e) => {
     e.preventDefault();
     //NOTE: we are passing userId to add activity
-    dispatch(changePassword(oldPassword, newPassword, token, user._id));
+    if (oldPassword && newPassword.length >= 6) {
+      dispatch(changePassword(oldPassword, newPassword, token, user._id));
+    } else if (newPassword.length < 6) {
+      dispatch(
+        authErrorResponseHandler(
+          "New password must be at least character ",
+          "changePassword"
+        )
+      );
+      return;
+    }
   };
 
   const handleAccountDelete = () => {
@@ -80,11 +91,15 @@ const Settings = ({ setHeading }) => {
     dispatch(authResponseClear());
   };
   const switchEditMode = (isEdit, input, val) => {
-    // if (val === 0) {
-    //   setPasswordData({
-    //     oldPassword: "",
-    //     newPassword: "",
-    //   });
+    if (success) {
+      dispatch(authResponseClear());
+    }
+    if (val === 0) {
+      setPasswordData({
+        oldPassword: "",
+        newPassword: "",
+      });
+    }
     //   console.log("profileData", profileData);
     //   dispatch(clearNotification("error"));
     //   dispatch(clearNotification("success"));
@@ -137,6 +152,7 @@ const Settings = ({ setHeading }) => {
         newPassword: "",
       });
     }
+    // dispatch(authResponseClear());
   }, [success]);
 
   return (
@@ -145,12 +161,16 @@ const Settings = ({ setHeading }) => {
         <div className={styles.notificationDiv}>
           {at === "updateProfile" && error ? (
             <div className={styles.notificationErrorDiv}>
+              <Icon icon="carbon:warning" className={styles.icon} />
+
               <p>{error}</p>
             </div>
           ) : (
             at === "updateProfile" &&
             success && (
               <div className={styles.notificationSuccessDiv}>
+                <Icon icon="akar-icons:circle-check" className={styles.icon} />
+
                 <p>{success}</p>
               </div>
             )
@@ -252,12 +272,16 @@ const Settings = ({ setHeading }) => {
         <div className={styles.notificationDiv}>
           {at === "changePassword" && error ? (
             <div className={styles.notificationErrorDiv}>
+              <Icon icon="carbon:warning" className={styles.icon} />
+
               <p>{error}</p>
             </div>
           ) : (
             at === "changePassword" &&
             success && (
               <div className={styles.notificationSuccessDiv}>
+                <Icon icon="akar-icons:circle-check" className={styles.icon} />
+
                 <p>{success}</p>
               </div>
             )
@@ -328,12 +352,16 @@ const Settings = ({ setHeading }) => {
         <div className={styles.notificationDiv}>
           {at === "deleteAccount" && error ? (
             <div className={styles.notificationErrorDiv}>
+              <Icon icon="carbon:warning" className={styles.icon} />
+
               <p>{error}</p>
             </div>
           ) : (
             at === "deleteAccount" &&
             success && (
               <div className={styles.notificationSuccessDiv}>
+                <Icon icon="akar-icons:circle-check" className={styles.icon} />
+
                 <p>{success}</p>
               </div>
             )

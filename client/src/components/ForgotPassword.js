@@ -14,6 +14,8 @@ import styles from "../css/forgotPass.module.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 
 import { CircleSpinner } from "react-spinners-kit";
+import { Icon } from "@iconify/react";
+
 
 const initialState = {
   email: "",
@@ -52,12 +54,16 @@ const ForgotPassword = () => {
         <div className={styles.messageWrapper}>
           {message.error && message.at === "forgotPassword" ? (
             <div className={styles.errorDiv}>
+              <Icon icon="carbon:warning" className={styles.icon} />
+
               <p>{message.error}</p>
             </div>
           ) : (
             message.success &&
             message.at === "forgotPassword" && (
               <div className={styles.successDiv}>
+                <Icon  icon="akar-icons:circle-check" className={styles.icon}/>
+
                 <p>{message.success}</p>
               </div>
             )

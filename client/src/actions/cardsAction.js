@@ -16,6 +16,11 @@ import {
   PROCESS_END,
   PROCESS_CLEAR,
 } from "./types";
+import {
+  loadingSetter,
+  authSuccessResponseHandler,
+  authErrorResponseHandler,
+} from "./auth";
 
 //FETCHING
 export const fetchUserCards = (user_id) => async (dispatch) => {
@@ -46,6 +51,8 @@ export const fetchUserCards = (user_id) => async (dispatch) => {
 };
 //ADD NEW
 export const addNewCard = (newCardData, user_id) => async (dispatch) => {
+  dispatch(loadingSetter(true, "card", "", "add", ""));
+
   dispatch({
     type: PROCESS_START,
     category: "card",
@@ -71,6 +78,8 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
         process: "adding",
         status: "success",
       });
+      dispatch(loadingSetter(false, "card", "", "add", true));
+
       const d = moment().format("LLL");
       const activity = {
         date: d,
@@ -85,6 +94,8 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
         payload: activity,
       });
     } else {
+      dispatch(loadingSetter(false, "card", "", "add", false));
+
       dispatch({
         type: PROCESS_END,
         category: "card",
@@ -98,6 +109,8 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
       });
     }
   } catch (error) {
+    dispatch(loadingSetter(false, "card", "", "add", false));
+
     console.log(error);
     dispatch({
       type: PROCESS_END,
@@ -111,6 +124,8 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
 
 //EDIT CARD
 export const editCard = (card_id, cardData, userId) => async (dispatch) => {
+  dispatch(loadingSetter(true, "card", card_id, "edit", ""));
+
   dispatch({
     type: OPERATION_START,
     message: "",
@@ -124,6 +139,7 @@ export const editCard = (card_id, cardData, userId) => async (dispatch) => {
       type: EDIT_CARD,
       payload: cardData,
     });
+    dispatch(loadingSetter(false, "card", card_id, "edit", true));
     dispatch({
       type: OPERATION_END,
       message: "cardEditSuccess",
@@ -143,6 +159,8 @@ export const editCard = (card_id, cardData, userId) => async (dispatch) => {
       payload: activity,
     });
   } catch (error) {
+    dispatch(loadingSetter(false, "card", card_id, "edit", false));
+
     console.log(error);
     const failureMsg = error.response.data.msg;
     dispatch({
@@ -153,6 +171,8 @@ export const editCard = (card_id, cardData, userId) => async (dispatch) => {
 };
 //DELETE CARD
 export const deleteCard = (cardData, card_id, user_id) => async (dispatch) => {
+  dispatch(loadingSetter(true, "card", card_id, "delete", ""));
+
   try {
     dispatch({
       type: OPERATION_START,
@@ -179,6 +199,8 @@ export const deleteCard = (cardData, card_id, user_id) => async (dispatch) => {
       name: cardData.bank,
       item: cardData.cardNo,
     };
+    dispatch(loadingSetter(false, "card", card_id, "delete", true));
+
     const activityResponse = await api.addActivity(activity, user_id);
 
     dispatch({
@@ -186,6 +208,8 @@ export const deleteCard = (cardData, card_id, user_id) => async (dispatch) => {
       payload: activity,
     });
   } catch (error) {
+    dispatch(loadingSetter(false, "card", card_id, "delete", false));
+
     const failureMsg = error.response.data.msg;
 
     dispatch({
