@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { deleteDoc, editDoc, docFavToggle } from "../actions/documentsAction";
 import styles from "../css/docMaximize.module.css";
+import { motion } from "framer-motion";
 
 //ICONS IMPORTS_____//
 import { HiX, HiCheck, HiOutlineArrowNarrowLeft } from "react-icons/hi";
@@ -16,7 +17,16 @@ import pencilIcon from "@iconify-icons/akar-icons/pencil";
 import trashEmpty from "@iconify-icons/gg/trash-empty";
 import starSolid from "@iconify-icons/clarity/star-solid";
 import starLine from "@iconify-icons/clarity/star-line";
-
+const variants = {
+  open: {
+    opacity: 1,
+    scale: 1,
+  },
+  closed: {
+    // opacity: 0,
+    scale: 0,
+  },
+};
 const MaximizeDoc = ({
   maximizeOrNot,
   setMaximizeOrNot,
@@ -104,7 +114,13 @@ const MaximizeDoc = ({
   };
 
   return (
-    <div className={styles.maximizeImgWrapper}>
+    <motion.div
+      initial={false}
+      variants={variants}
+      transition={{ type: "spring", stiffness: 50 }}
+      animate={maximizeOrNot ? "open" : "closed"}
+      className={styles.maximizeImgWrapper}
+    >
       {deleteModalShow === true ? (
         <div className={styles.modalContainer}>
           <div className={styles.dialogDiv}>
@@ -184,7 +200,7 @@ const MaximizeDoc = ({
         )}
         <img
           className={styles.maxImage}
-          src={imageData.imageUrl}
+          src={imageData.imageUrl ? imageData.imageUrl:null }
           onClick={handleImageClick}
         ></img>
         {showHeaderFooter && (
@@ -241,7 +257,7 @@ const MaximizeDoc = ({
           </div>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

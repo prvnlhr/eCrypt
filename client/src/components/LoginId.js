@@ -8,11 +8,21 @@ import { deleteLoginId } from "../actions/loginInIdsAction";
 import LoginIdLogo from "./LoginIdLogo";
 import { loginIdFavToggle } from "../actions/loginInIdsAction";
 import { CircleSpinner } from "react-spinners-kit";
+import { motion } from "framer-motion";
+
 // icons set
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { Icon, InlineIcon } from "@iconify/react";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
-
+const variants = {
+  start: {
+    scaleX: 0,
+  },
+  end: {
+    // opacity: 0,
+    scaleY: 1,
+  },
+};
 const LoginId = ({
   loginId,
   formMode,

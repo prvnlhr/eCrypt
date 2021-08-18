@@ -48,7 +48,6 @@
   padding-right: 0px;
   padding-left: 20px;
 
-
   padding-bottom: 20px;
   transform: perspective(1px) translateZ(0);
   backface-visibility: hidden;
@@ -148,14 +147,13 @@
   top: 1%;
   left: 0;
   right: 0;
-  width: 160px;
-  height: 38px;
+  width: 170px;
+  height: 48px;
   /* border: 1px solid gray; */
-  /* border: 1px solid black; */
-  border-radius: 5px;
+  border: 1px solid white;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   background-color: white;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
@@ -163,25 +161,61 @@
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(16.5px);
   -webkit-backdrop-filter: blur(16.5px);
-  border-radius: 5px;
+  border-radius: 8px;
   z-index: 50;
+  box-sizing: border-box;
+  padding: 5px;
+  background: rgba(255, 255, 255, 0.842);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  /* border: 1px solid rgba(255, 255, 255, 0.18); */
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
-.loadingDiv p {
-  margin: 2px 0px 0px 2px;
-  font-family: "Nunito", sans-serif;
-  color: #2f89fc;
+.loadingHeader {
+  width: 100%;
+  height: 50%;
+  /* border: 1px solid gray; */
+  /* border: 1px solid black; */
+  /* border-radius: 5px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
 
+.loadingFooter {
+  width: 100%;
+  height: 50%;
+  /* border: 1px solid gray; */
+  /* border: 1px solid black; */
+  /* border-radius: 5px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.loadingHeader p {
+  margin: 0px 0px 0px 0px;
+  font-family: "Quicksand", sans-serif;
+  color: #2f89fc;
   font-weight: 550;
   letter-spacing: 0.2px;
-  font-size: 13px;
+  font-size: 14px;
 }
-.loadingDiv span {
-  margin: 0px 0px 2px 2px;
-  font-family: "Nunito", sans-serif;
+.loadingFooter p {
+  margin: 0px 0px 0px 0px;
+  font-family: "Quicksand", sans-serif;
   color: slategray;
   font-weight: 550;
   letter-spacing: 0.2px;
-  font-size: 11.5px;
+  font-size: 13px;
 }
 
 @media screen and (max-width: 650px) {

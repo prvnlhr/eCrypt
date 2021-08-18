@@ -71,7 +71,7 @@ const Settings = ({ setHeading }) => {
     } else if (newPassword.length < 6) {
       dispatch(
         authErrorResponseHandler(
-          "New password must be at least character ",
+          "New password must be at least 6 character ",
           "changePassword"
         )
       );

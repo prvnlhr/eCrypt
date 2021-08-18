@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { TextField, MenuItem } from "@material-ui/core";
 import { CircleSpinner } from "react-spinners-kit";
+import { motion } from "framer-motion";
 
 import { HiX, HiCheck, HiArrowNarrowRight } from "react-icons/hi";
 
@@ -15,6 +16,16 @@ import formStyles from "../css/loginIdForm.module.css";
 import btnStyles from "../css/buttons.module.css";
 import styles from "../css/loginIdFormNew.module.css";
 
+const variants = {
+  open: {
+    opacity: 1,
+    scale: 1,
+  },
+  closed: {
+    // opacity: 0,
+    scale: 0,
+  },
+};
 const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   const dispatch = useDispatch();
 
@@ -119,8 +130,11 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   // inProcessing();
 
   return (
-    <div
-      className={formMode ? styles.formComponent : styles.formComponentClose}
+    <motion.div
+      initial={false}
+      variants={variants}
+      animate={formMode ? "open" : "closed"}
+      className={styles.formComponent}
     >
       <form className={styles.formTag} onSubmit={handleSubmit}>
         {/* ___HEADING_________ */}
@@ -250,7 +264,7 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
           </button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 export default LoginIdForm;

@@ -25,7 +25,7 @@ const Home = () => {
   const [fieldLength, setFieldLength] = useState();
 
   const [maximizeOrNot, setMaximizeOrNot] = useState(false);
-  const [imageData, setImageData] = useState(null);
+  const [imageData, setImageData] = useState('');
   const [showHeaderFooter, setShowHeaderFooter] = useState(false);
 
   // for spinner while deleting document
@@ -54,7 +54,7 @@ const Home = () => {
         )}
       </div>
 
-      {maximizeOrNot && (
+      {/* {maximizeOrNot && ( */}
         <MaximizeDoc
           maximizeOrNot={maximizeOrNot}
           setMaximizeOrNot={setMaximizeOrNot}
@@ -65,7 +65,7 @@ const Home = () => {
           fieldLength={fieldLength}
           setCurrentDeletingDocId={setCurrentDeletingDocId}
         />
-      )}
+      {/* )} */}
 
       {/* <Sidebar /> */}
       <Navbar

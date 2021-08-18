@@ -12,6 +12,7 @@ import btnStyles from "../css/buttons.module.css";
 import { FiPlusCircle } from "react-icons/fi";
 import { CgAdd } from "react-icons/cg";
 import { HiPlus } from "react-icons/hi";
+import { CircleSpinner } from "react-spinners-kit";
 
 const DocsList = ({
   docs,
@@ -130,10 +131,15 @@ const DocsList = ({
       ) : null}
 
       {isLoading === true && place === "doc" && process === "add" ? (
-        <div className={styles.loadingDiv}>
-          <p>Uploading in Process ..</p>
-          <span>This may take a while</span>
+      <div className={styles.loadingDiv}>
+        <div className={styles.loadingHeader}>
+          <p>Upload in progress</p>
+          <CircleSpinner size={12} color="#2f89fc" loading={true} />
         </div>
+        <div className={styles.loadingFooter}>
+          <p>This may take a while</p>
+        </div>
+      </div>
       ) : null}
     </div>
   );

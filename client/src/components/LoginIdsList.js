@@ -12,10 +12,20 @@ import btnStyles from "../css/buttons.module.css";
 import { FiPlusCircle } from "react-icons/fi";
 import { CgAdd } from "react-icons/cg";
 import { HiPlus } from "react-icons/hi";
+const variants = {
+  open: {
+    visible: 1,
+    scale: 1,
+  },
+  hidden: {
+    // opacity: 0,
+    scale: 0,
+  },
+};
 const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   const [formMode, setFormMode] = useState(false);
   const [showEditButton, setEditButton] = useState(true);
-  const [currEditId , setCurrEditId]=useState(null);
+  const [currEditId, setCurrEditId] = useState(null);
 
   const crud = useSelector((state) => state.crud);
 
@@ -51,7 +61,11 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   };
 
   return (
-    <div className={styles.loginsList}>
+    <div
+      className={styles.loginsList}
+      // initial={{ scale: 0 }}
+      // variants={variants}
+    >
       <div className={styles.contentContainer} ref={node}>
         {loginIds.length === true && crud.operation === "fetching" ? (
           <div className={noContentStyles.messageContainer}>

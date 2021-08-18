@@ -5,11 +5,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { addNewCard, editCard, clearProcess } from "../actions/cardsAction";
 import { TextField } from "@material-ui/core";
 import { HiX, HiCheck, HiArrowNarrowRight } from "react-icons/hi";
+import btnStyles from "../css/buttons.module.css";
 import formStyles from "../css/cardForm.module.css";
 import styles from "../css/cardFormNew.module.css";
 import { CircleSpinner } from "react-spinners-kit";
+import { motion } from "framer-motion";
+import axios from "axios";
 
-import btnStyles from "../css/buttons.module.css";
+const variants = {
+  open: {
+    opacity: 1,
+    scale: 1,
+    width: 300,
+  },
+  closed: {
+    // opacity: 0,
+    scale: 0,
+  },
+};
 
 const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   const dispatch = useDispatch();
@@ -153,8 +166,11 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   };
 
   return (
-    <div
-      className={formMode ? styles.formComponent : styles.formComponentClose}
+    <motion.div
+      className={styles.formComponent}
+      initial={false}
+      variants={variants}
+      animate={formMode ? "open" : "closed"}
     >
       <form className={styles.formTag} onSubmit={handleSubmit}>
         {/* ___HEADING_________ */}
@@ -278,7 +294,7 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
             onClick={confirmSave}
             disabled={process.inProcess ? true : false}
           >
-            {process.inProcess===true ? (
+            {process.inProcess === true ? (
               <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>{btnText}</p>
@@ -286,7 +302,7 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
           </button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 export default CardForm;
