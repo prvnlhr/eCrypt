@@ -6,6 +6,8 @@ import { cardFavToggle } from "../actions/cardsAction";
 import CardLogo, { getCardType } from "./CardLogo";
 import styles from "../css/card.module.css";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
+import { motion } from "framer-motion";
+
 
 const FavouriteCard = ({ favItem }) => {
   const dispatch = useDispatch();
@@ -35,7 +37,12 @@ const FavouriteCard = ({ favItem }) => {
   };
 
   return (
-    <div
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{
+      opacity: [0, 1],
+    }}
+    transition={{ duration: 0.3, delay: 0.2 }}
       className={`${styles.cardContainer} ${
         cardType === "MASTER"
           ? styles.cardMaster
@@ -101,8 +108,15 @@ const FavouriteCard = ({ favItem }) => {
       </div>
 
       <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
-      <div className={styles.overlayDiv}></div>
-    </div>
+      <div className={styles.overlayDiv}>
+        <div className={styles.ring}>
+          <div></div>
+        </div>
+        <div className={styles.square}></div>
+
+        <h1 className={styles.overlayFont}>{cardType}</h1>
+      </div>
+    </motion.div>
   );
 };
 

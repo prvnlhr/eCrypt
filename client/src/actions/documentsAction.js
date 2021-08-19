@@ -27,6 +27,7 @@ import {
 
 //FETCHING
 export const fetchDocs = (user_id) => async (dispatch) => {
+  dispatch(loadingSetter(true, "docsList", "", "fetching", ""));
   dispatch({
     type: OPERATION_START,
     operation: "fetching",
@@ -38,11 +39,14 @@ export const fetchDocs = (user_id) => async (dispatch) => {
       type: FETCH_DOCS,
       payload: docsData,
     });
+  dispatch(loadingSetter(false, "docsList", "", "fetching", true));
+
     dispatch({
       type: OPERATION_END,
       message: "docsFetched",
     });
   } catch (error) {
+  dispatch(loadingSetter(false, "docsList", "", "fetching", false));
     console.log(error);
     dispatch({
       type: OPERATION_END,

@@ -72,7 +72,7 @@ const SignInPage = () => {
 
         <div className={styles.emailWrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>EMAIL ADDRESS</p>
+            <p className={styles.labelText}>Email Address</p>
           </div>
           <div className={styles.inputDiv}>
             <input
@@ -87,7 +87,7 @@ const SignInPage = () => {
         </div>
         <div className={styles.passwordWrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>PASSWORD</p>
+            <p className={styles.labelText}>Password</p>
           </div>
           <div className={styles.inputDiv}>
             <input
@@ -102,8 +102,8 @@ const SignInPage = () => {
           </div>
         </div>
         <div className={styles.forgotPasswordWrapper}>
-          <Link to="/user/auth/forgotPassword" className={styles.link}>
-            forgot password
+          <Link to="/user/auth/forgotPassword" className={styles.fPlink}>
+            forgot password?
           </Link>
         </div>
 

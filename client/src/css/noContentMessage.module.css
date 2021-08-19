@@ -8,7 +8,7 @@
   top: 10%;
   left: 0;
   right: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
   font-weight: 650;
   color: black;
   font-size: 14px;
@@ -23,10 +23,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Quicksand", sans-serif;
+
 }
 .icon {
   margin: 0px 5px 0px 5px;
   color: #0177fb;
   font-size: 20px;
-
 }

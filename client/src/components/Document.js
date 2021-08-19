@@ -7,6 +7,8 @@ import LazyLoad from "react-lazy-load";
 
 import { deleteDoc, editDoc, docFavToggle } from "../actions/documentsAction";
 import { CircleSpinner } from "react-spinners-kit";
+import { motion } from "framer-motion";
+
 
 // icons set__________________________________
 import { Icon, InlineIcon } from "@iconify/react";
@@ -104,7 +106,13 @@ const Document = ({
   // };
 
   return (
-    <div className={styles.documentCard}>
+    <motion.div  
+    initial={{ opacity: 0 }}
+    animate={{
+      opacity: [0, 1],
+    }}
+    transition={{ duration: 0.3, delay: 0.2 }}
+    className={styles.documentCard}>
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
           <div className={modalStyles.dialogDiv}>
@@ -180,7 +188,7 @@ const Document = ({
           <p className={styles.titleText}>{doc.imageName}</p>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

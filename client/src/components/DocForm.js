@@ -71,7 +71,7 @@ const DocForm = ({ formMode, setFormMode }) => {
       initial={false}
       variants={variants}
       animate={formMode ? "open" : "closed"}
-      // transition={{type:"tween"}}
+      transition={{ type: "tween", duration: 0.1 }}
       className={styles.formComponent}
     >
       <form className={styles.formTag} onSubmit={handleFormSubmit}>

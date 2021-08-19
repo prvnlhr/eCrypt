@@ -13,6 +13,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import { CgAdd } from "react-icons/cg";
 import { HiPlus } from "react-icons/hi";
 import { CircleSpinner } from "react-spinners-kit";
+import DocSkeleton from "./skeletons/DocSkeleton";
 
 const DocsList = ({
   docs,
@@ -30,7 +31,7 @@ const DocsList = ({
 
   const [btnExpandId, setBtnExpandId] = useState(null);
   const [btnExpand, setBtnExpand] = useState(false);
-
+  const loadState = useSelector((state) => state.loading);
   const crud = useSelector((state) => state.crud);
   // const loading = useSelector((state) => state.process);
 
@@ -38,7 +39,6 @@ const DocsList = ({
 
   const [formMode, setFormMode] = useState(false);
   const [modalShow, setModalShow] = useState(false);
-  const loadState = useSelector((state) => state.loading);
   const { itemId, place, isLoading, process, success } = loadState;
 
   useEffect(() => {
@@ -73,13 +73,19 @@ const DocsList = ({
   return (
     <div className={styles.docsList}>
       <div className={styles.contentContainer} ref={node}>
-        {docs.length < 1 === true && crud.operation === "fetching" ? (
+        {/* <DocSkeleton /> */}
+        {isLoading === true && place === "docsList" && docs.length < 1 ? (
+          <>
+            <DocSkeleton />
+            <DocSkeleton />
+            <DocSkeleton />
+            <DocSkeleton />
+            <DocSkeleton />
+            <DocSkeleton />
+          </>
+        ) : isLoading === false && docs.length < 1 ? (
           <div className={noContentStyles.messageContainer}>
-            <p>Fetching data...</p>
-          </div>
-        ) : docs.length < 1 && crud.operation === "" ? (
-          <div className={noContentStyles.messageContainer}>
-            <p>No Documents Added</p>
+            <p>No Logins Added</p>
 
             <div className={noContentStyles.footerDIv}>
               Click
@@ -87,27 +93,31 @@ const DocsList = ({
               to add
             </div>
           </div>
-        ) : null}
-
-        {docs.map((doc, i) => (
-          <Document
-            key={i}
-            showEditButton={showEditButton}
-            setEditButton={setEditButton}
-            doc={doc}
-            btnExpandId={btnExpandId}
-            setBtnExpandId={setBtnExpandId}
-            btnExpand={btnExpand}
-            setBtnExpand={setBtnExpand}
-            imageData={imageData}
-            setImageData={setImageData}
-            maximizeOrNot={maximizeOrNot}
-            setMaximizeOrNot={setMaximizeOrNot}
-            showHeaderFooter={showHeaderFooter}
-            setShowHeaderFooter={setShowHeaderFooter}
-            currDeletingDocId={currDeletingDocId}
-          />
-        ))}
+        ) : (
+          docs.length >= 1 && (
+            <>
+              {docs.map((doc, i) => (
+                <Document
+                  key={i}
+                  showEditButton={showEditButton}
+                  setEditButton={setEditButton}
+                  doc={doc}
+                  btnExpandId={btnExpandId}
+                  setBtnExpandId={setBtnExpandId}
+                  btnExpand={btnExpand}
+                  setBtnExpand={setBtnExpand}
+                  imageData={imageData}
+                  setImageData={setImageData}
+                  maximizeOrNot={maximizeOrNot}
+                  setMaximizeOrNot={setMaximizeOrNot}
+                  showHeaderFooter={showHeaderFooter}
+                  setShowHeaderFooter={setShowHeaderFooter}
+                  currDeletingDocId={currDeletingDocId}
+                />
+              ))}
+            </>
+          )
+        )}
       </div>
 
       <DocForm formMode={formMode} setFormMode={setFormMode} />
@@ -131,15 +141,15 @@ const DocsList = ({
       ) : null}
 
       {isLoading === true && place === "doc" && process === "add" ? (
-      <div className={styles.loadingDiv}>
-        <div className={styles.loadingHeader}>
-          <p>Upload in progress</p>
-          <CircleSpinner size={12} color="#2f89fc" loading={true} />
+        <div className={styles.loadingDiv}>
+          <div className={styles.loadingHeader}>
+            <p>Upload in progress</p>
+            <CircleSpinner size={12} color="#2f89fc" loading={true} />
+          </div>
+          <div className={styles.loadingFooter}>
+            <p>This may take a while</p>
+          </div>
         </div>
-        <div className={styles.loadingFooter}>
-          <p>This may take a while</p>
-        </div>
-      </div>
       ) : null}
     </div>
   );

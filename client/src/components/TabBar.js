@@ -112,7 +112,7 @@ const TabBar = ({ fieldLength }) => {
               className={`${tabStyles.navLink}`}
               activeStyle={{
                 fontSize: "28px",
-                color: "#15192c",
+                color: "#071a52",
                 fontWeight: "900",
                 transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
@@ -138,7 +138,7 @@ const TabBar = ({ fieldLength }) => {
               className={`${tabStyles.navLink}`}
               activeStyle={{
                 fontSize: "28px",
-                color: "#15192c",
+                color: "#071a52",
                 fontWeight: "900",
                 transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
@@ -164,7 +164,7 @@ const TabBar = ({ fieldLength }) => {
               className={`${tabStyles.navLink}`}
               activeStyle={{
                 fontSize: "28px",
-                color: "#15192c",
+                color: "#071a52",
                 fontWeight: "900",
                 transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
@@ -190,7 +190,7 @@ const TabBar = ({ fieldLength }) => {
               className={`${tabStyles.navLink}`}
               activeStyle={{
                 fontSize: "28px",
-                color: "#15192c",
+                color: "#071a52",
                 fontWeight: "900",
                 transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
@@ -224,7 +224,7 @@ const TabBar = ({ fieldLength }) => {
               className={`${tabStyles.navLink}`}
               activeStyle={{
                 fontSize: "28px",
-                color: "#15192c",
+                color: "#071a52",
                 fontWeight: "900",
                 transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
@@ -253,7 +253,7 @@ const TabBar = ({ fieldLength }) => {
               className={`${tabStyles.navLink}`}
               activeStyle={{
                 fontSize: "28px",
-                color: "#15192c",
+                color: "#071a52",
                 fontWeight: "900",
                 transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}

@@ -29,11 +29,31 @@
   scroll-snap-align: start;
   scroll-behavior: smooth;
 
-  /* overflow: visible; */
+  overflow: hidden;
+  background: hsla(198, 53%, 87%, 1);
+
+  background: linear-gradient(
+    135deg,
+    hsla(198, 53%, 87%, 0.5) 0%,
+    hsla(0, 0%, 100%, 1) 65%
+  );
+
+  background: -moz-linear-gradient(
+    135deg,
+    hsla(198, 53%, 87%, 0.5) 0%,
+    hsla(0, 0%, 100%, 1) 65%
+  );
+
+  background: -webkit-linear-gradient(
+    135deg,
+    hsla(198, 53%, 87%, 0.5) 0%,
+    hsla(0, 0%, 100%, 1) 65%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#CEE6F0", endColorstr="#FFFFFF", GradientType=1 );
   /* z-index: 4; */
   /* border: 1px solid black; */
 }
-
 
 @-webkit-keyframes scale-in-tl {
   0% {

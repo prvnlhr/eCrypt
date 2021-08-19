@@ -138,7 +138,7 @@ const authController = {
       const access_token = createAccessToken({ id: userId });
       res.status(200).json(access_token);
     } catch (error) {
-      console.log("error at get token controller", error.name);
+      // console.log("error at get token controller", error.name);
       if (
         error.name === "TokenExpiredError" ||
         error.name === "JsonWebTokenError"
@@ -155,7 +155,7 @@ const authController = {
       if (!user) {
         return res.status(400).json({ msg: "Email Id doest not exist" });
       }
-      console.log("user", user.email, user._id, user.name);
+      // console.log("user", user.email, user._id, user.name);
 
       const tokenPayload = {
         name: user.name,

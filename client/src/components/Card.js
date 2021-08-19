@@ -9,6 +9,8 @@ import styles from "../css/card.module.css";
 
 import CardLogo, { getCardType } from "./CardLogo";
 import modalStyles from "../css/modal.module.css";
+import { motion } from "framer-motion";
+
 //icons set
 import { Icon, InlineIcon } from "@iconify/react";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
@@ -80,7 +82,12 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
     setModalShow(!modalShow);
   };
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: [0, 1],
+      }}
+      transition={{ duration: 0.3, delay: 0.2 }}
       key={index}
       className={`${styles.cardContainer} ${
         inEditMode ? styles.cardContainerInEditMode : null
@@ -314,9 +321,14 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
       </div>
 
       <div className={styles.overlayDiv}>
+        <div className={styles.ring}>
+          <div></div>
+        </div>
+        <div className={styles.square}></div>
+
         <h1 className={styles.overlayFont}>{cardType}</h1>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Card;

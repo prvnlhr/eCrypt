@@ -21,6 +21,8 @@ import {
 } from "./auth";
 //FETCH LOGINS
 export const fetchLoginIds = (user_id) => async (dispatch) => {
+  dispatch(loadingSetter(true, "loginIdList", "", "fetching", ""));
+
   dispatch({
     type: OPERATION_START,
     operation: "fetching",
@@ -32,11 +34,15 @@ export const fetchLoginIds = (user_id) => async (dispatch) => {
       type: FETCH_LOGIN_IDS,
       payload: loginIdsData,
     });
+  dispatch(loadingSetter(false, "loginIdList", "", "fetching",true));
+
     dispatch({
       type: OPERATION_END,
       message: "loginIdsFetched",
     });
   } catch (error) {
+  dispatch(loadingSetter(false, "loginIdList", "", "fetching",false));
+
     console.log(error);
     dispatch({
       type: OPERATION_END,

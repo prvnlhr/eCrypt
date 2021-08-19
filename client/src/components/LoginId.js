@@ -31,6 +31,7 @@ const LoginId = ({
   showEditButton,
   setCurrEditId,
   currEditId,
+  index,
 }) => {
   const [modalShow, setModalShow] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -91,7 +92,12 @@ const LoginId = ({
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: [0, 1],
+      }}
+      transition={{ duration: 0.3, delay: 0.2 }}
       className={`${styles.loginIdContainer} ${
         inEditMode ? styles.loginIdContainerInEditMode : null
       }`}
@@ -331,7 +337,7 @@ const LoginId = ({
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default LoginId;

@@ -1,0 +1,166 @@
+.cardContainer {
+  position: relative;
+  width: 250px;
+  height: 155px;
+  aspect-ratio: 8/5 !important;
+  margin: 15px 15px 15px 15px;
+  padding: 10px;
+  display: grid;
+  object-fit: contain;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  grid-template-rows: 50px 40px 50px;
+  grid-template-rows: 20% 25% 25% 25%;
+  grid-template-areas:
+    "buttonDiv buttonDiv buttonDiv"
+    "bankName bankName cardLogo "
+    "cardNo cardNo cvv"
+    "user user cardExpiry";
+  object-fit: contain;
+  /* background-color: #ffffff; */
+  z-index: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #f2f2f215;
+  border-radius: 8px;
+  /* border: 1px solid rgba(173, 172, 172, 0.027); */
+
+  overflow: hidden;
+  background-color: #f5f3f6;
+
+  /* background-color: #ffff; */
+}
+.cardLogo {
+  position: relative;
+  grid-area: cardLogo;
+  width: 80%;
+  height: 70%;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  z-index: 3;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  /* border: 1px solid rgba(173, 172, 172, 0.075); */
+  overflow: hidden;
+  background-color: #e2e3e7;
+}
+.bankName {
+  position: relative;
+
+  grid-area: bankName;
+  /* border: 1px solid black; */
+  /* border: 1px solid rgba(173, 172, 172, 0.075); */
+
+  width: 89%;
+  height: 70%;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  z-index: 3;
+  border-radius: 5px;
+
+  /* padding: 0px 0px 0px 5%; */
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  background-color: #f1f1f1;
+  overflow: hidden;
+  background-color: #e2e3e7;
+
+  /* color: white; */
+}
+.cardNo {
+  position: relative;
+
+  grid-area: cardNo;
+  /* border: 1px solid green; */
+  /* border: 1px solid rgba(173, 172, 172, 0.075); */
+
+  width: 90%;
+  height: 70%;
+  margin: 0px 0px 0px 0px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  padding: 0px;
+  z-index: 3;
+  /* box-sizing: border-box; */
+  /* padding-left: 5%; */
+  /* padding: 0px 0px 0px 5%; */
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  background-color: #f1f1f1;
+  overflow: hidden;
+  background-color: #e2e3e7;
+
+  border-radius: 5px;
+}
+.cardUser {
+  position: relative;
+
+  grid-area: user;
+  /* border: 1px solid red; */
+  /* border: 1px solid rgba(173, 172, 172, 0.075); */
+
+  width: 90%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  /* color: white; */
+  /* z-index: 23; */
+  z-index: 3;
+  /* padding: 0px 0px 0px 5%; */
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  overflow: hidden;
+  background-color: #e2e3e7;
+}
+.cvv {
+  position: relative;
+  grid-area: cvv;
+  /* border: 1px solid black; */
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  padding-right: 0px;
+  /* z-index: 23; */
+  z-index: 3;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.cardExpiry {
+  position: relative;
+  grid-area: cardExpiry;
+  /* border: 1px solid red; */
+  width: 90%;
+  height: 70%;
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* grid-template-rows: 20px 20px; */
+  /* margin: 5px 0px 0px 0px; */
+  /* z-index: 23; */
+  z-index: 3;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #e2e3e7;
+}

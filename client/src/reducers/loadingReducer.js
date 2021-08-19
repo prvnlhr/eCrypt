@@ -1,7 +1,7 @@
 import { LOADING_START, LOADING_END, LOADING_SET } from "../actions/types";
 
 const initialState = {
-  isLoading: false,
+  isLoading: '',
   place: null,
   itemId: "",
   process: "",

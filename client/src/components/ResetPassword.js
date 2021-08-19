@@ -97,7 +97,7 @@ const ResetPassword = () => {
 
         <div className={styles.password1Wrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>PASSWORD</p>
+            <p className={styles.labelText}>New password</p>
           </div>
           <div className={styles.inputDiv}>
             <input
@@ -113,7 +113,7 @@ const ResetPassword = () => {
         </div>
         <div className={styles.password2Wrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>CONFIRM PASSWORD</p>
+            <p className={styles.labelText}>Confirm Password</p>
           </div>
           <div className={styles.inputDiv}>
             <input

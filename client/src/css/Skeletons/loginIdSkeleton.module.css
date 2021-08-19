@@ -1,0 +1,113 @@
+.loginIdContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "logoWrapper websiteWrapper buttonWrapper"
+    "logoWrapper userNameWrapper userNameWrapper"
+    "logoWrapper passwordWrapper passwordWrapper";
+  align-items: center;
+  width: 280px;
+  height: 75px;
+  padding: 5px;
+  aspect-ratio: 3.73/1 !important;
+  border-radius: 8px;
+  margin: 15px 15px 15px 15px;
+  /* transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); */
+
+  /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
+  z-index: 1;
+  overflow: hidden;
+  background-color: #f5f3f6;
+}
+.logoWrapper {
+  grid-area: logoWrapper;
+  position: relative;
+  /* border: 1px solid gray; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 2;
+  overflow: hidden;
+
+}
+.logoDiv {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* border: 1px solid rgba(19, 18, 18, 0.103); */
+  border-radius: 8px;
+  /* background-color: rgba(221, 221, 221, 0.459); */
+  background-color: #f2f2f2;
+  overflow: hidden;
+  background-color: #e2e3e7;
+  overflow: hidden;
+
+
+  /* border: 1px solid royalblue; */
+}
+.passwordWrapper {
+  grid-area: passwordWrapper;
+  position: relative;
+  /* border: 1px solid greenyellow; */
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  background-color: #e2e3e7;
+  overflow: hidden;
+
+}
+.userNameWrapper {
+  grid-area: userNameWrapper;
+  position: relative;
+  /* border: 1px solid salmon; */
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  background-color: #e2e3e7;
+  overflow: hidden;
+
+}
+.websiteWrapper {
+  grid-area: websiteWrapper;
+  position: relative;
+  /* border: 1px solid rgba(112, 128, 144, 0.336); */
+  width: 100%;
+  height: 80%;
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 2px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  background-color: #e2e3e7;
+  overflow: hidden;
+
+}

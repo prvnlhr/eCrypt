@@ -71,7 +71,7 @@ const SignUpPage = () => {
         </div>
         <div className={styles.firstNameWrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>FIRST NAME</p>
+            <p className={styles.labelText}>First name</p>
           </div>
           <div className={styles.inputDiv}>
             <input
@@ -86,7 +86,7 @@ const SignUpPage = () => {
         </div>
         <div className={styles.lastNameWrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>LAST NAME</p>
+            <p className={styles.labelText}>Last name</p>
           </div>
           <div className={styles.inputDiv}>
             <input
@@ -101,7 +101,7 @@ const SignUpPage = () => {
         </div>
         <div className={styles.emailWrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>EMAIL ADDRESS</p>
+            <p className={styles.labelText}>Email Address</p>
           </div>
           <div className={styles.inputDiv}>
             <input
@@ -116,7 +116,7 @@ const SignUpPage = () => {
         </div>
         <div className={styles.password1Wrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>PASSWORD</p>
+            <p className={styles.labelText}>Password</p>
           </div>
           <div className={styles.inputDiv}>
             <input
@@ -132,7 +132,7 @@ const SignUpPage = () => {
         </div>
         <div className={styles.password2Wrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>CONFIRM PASSWORD</p>
+            <p className={styles.labelText}>Confirm Password</p>
           </div>
           <div className={styles.inputDiv}>
             <input

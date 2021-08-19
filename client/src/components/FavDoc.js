@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { docFavToggle } from "../actions/documentsAction";
 import styles from "../css/document.module.css";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
   const dispatch = useDispatch();
@@ -39,7 +40,13 @@ const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
     setMaximizeOrNot(true);
   };
   return (
-    <div className={styles.documentCard}>
+    <motion.div
+    initial={{ opacity: 0 }}
+    animate={{
+      opacity: [0, 1],
+    }}
+    transition={{ duration: 0.3, delay: 0.2 }}
+    className={styles.documentCard}>
       <div className={styles.imageContainer}>
         <div className={styles.favBtnDiv}>
           <div
@@ -62,7 +69,7 @@ const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
       <div className={styles.titleDiv}>
         <p className={styles.titleText}>{favItem.imageName}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

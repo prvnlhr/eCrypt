@@ -26,7 +26,7 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
   box-sizing: border-box;
   z-index: 45;
- 
+
   -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
     0 15px 12px rgba(0, 0, 0, 0.22);
   -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
@@ -110,9 +110,9 @@
 .HeadingText {
   font-family: "Quicksand", sans-serif;
   /* text-transform: uppercase; */
-  font-size: 15px;
-  color: black;
-  /* font-weight: bold; */
+  font-size: 16px;
+  color: rgb(82, 81, 81);
+  font-weight: bold;
   margin: 0px 0px 0px 2px;
   letter-spacing: 0.3px;
 }
@@ -127,6 +127,7 @@
   flex-direction: column;
   justify-content: flex-start;
   /* align-items: center; */
+  border-radius: 5px;
 }
 
 .userNameWrapper {
@@ -139,6 +140,7 @@
   flex-direction: column;
   justify-content: flex-start;
   /* align-items: center; */
+  border-radius: 5px;
 }
 .passwordWrapper {
   grid-area: passwordWrapper;
@@ -200,10 +202,10 @@ button p {
 }
 .labelText {
   font-family: "Quicksand", sans-serif;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 12px;
   color: #8b8ea1;
-  /* font-weight: bold; */
+  font-weight: bold;
   margin: 0px 0px 0px 2px;
   letter-spacing: 0.3px;
 }
@@ -223,6 +225,7 @@ button p {
   display: flex;
   /* flex-direction: row; */
   /* justify-content: flex-start; */
+
   text-align: start;
   width: 100%;
   height: 90%;
@@ -239,6 +242,9 @@ button p {
   box-sizing: border-box;
   caret-color: #1072f1;
   outline: none;
+}
+.inputField::placeholder {
+  font-family: "Quicksand", sans-serif;
 }
 .inputField:focus {
   /* outline: 1px solid red; */

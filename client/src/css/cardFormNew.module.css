@@ -110,9 +110,9 @@
 .HeadingText {
   font-family: "Quicksand", sans-serif;
   /* text-transform: uppercase; */
-  font-size: 15px;
-  color: black;
-  /* font-weight: bold; */
+  font-size: 16px;
+  color: rgb(94, 93, 93);
+  font-weight: bold;
   margin: 0px 0px 0px 2px;
   letter-spacing: 0.3px;
 }
@@ -219,10 +219,10 @@ button p {
 }
 .labelText {
   font-family: "Quicksand", sans-serif;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 12px;
   color: #8b8ea1;
-  /* font-weight: bold; */
+  font-weight: bold;
   margin: 0px 0px 0px 2px;
   letter-spacing: 0.3px;
 }
@@ -258,6 +258,9 @@ button p {
   box-sizing: border-box;
   caret-color: #1072f1;
   outline: none;
+}
+.inputField::placeholder {
+  font-family: "Quicksand", sans-serif;
 }
 .inputField:focus {
   /* outline: 1px solid red; */

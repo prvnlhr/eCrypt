@@ -4,10 +4,12 @@ import { useSelector } from "react-redux";
 
 import LoginIdForm from "./LoginIdForm";
 import LoginId from "./LoginId";
+import LoginIdSkeleton from "./skeletons/LoginIdSkeleton";
 
 import styles from "../css/loginList.module.css";
 import noContentStyles from "../css/noContentMessage.module.css";
 import btnStyles from "../css/buttons.module.css";
+import { CircleSpinner } from "react-spinners-kit";
 
 import { FiPlusCircle } from "react-icons/fi";
 import { CgAdd } from "react-icons/cg";
@@ -26,6 +28,8 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   const [formMode, setFormMode] = useState(false);
   const [showEditButton, setEditButton] = useState(true);
   const [currEditId, setCurrEditId] = useState(null);
+  const loadState = useSelector((state) => state.loading);
+  const { place, isLoading, process, success } = loadState;
 
   const crud = useSelector((state) => state.crud);
 
@@ -61,17 +65,22 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   };
 
   return (
-    <div
-      className={styles.loginsList}
-      // initial={{ scale: 0 }}
-      // variants={variants}
-    >
+    <div className={styles.loginsList}>
       <div className={styles.contentContainer} ref={node}>
-        {loginIds.length === true && crud.operation === "fetching" ? (
-          <div className={noContentStyles.messageContainer}>
-            <p>Fetching data...</p>
-          </div>
-        ) : loginIds.length < 1 && crud.operation === "" ? (
+
+      {/* <LoginIdSkeleton /> */}
+
+        {isLoading === true &&
+        place === "loginIdList" &&
+        loginIds.length < 1 ? (
+          <>
+            <LoginIdSkeleton />
+            <LoginIdSkeleton />
+            <LoginIdSkeleton />
+            <LoginIdSkeleton />
+            <LoginIdSkeleton />
+          </>
+        ) : isLoading === false && loginIds.length < 1 ? (
           <div className={noContentStyles.messageContainer}>
             <p>No Logins Added</p>
 
@@ -81,22 +90,27 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
               to add
             </div>
           </div>
-        ) : null}
-
-        {loginIds.map((loginId) => (
-          <React.Fragment key={loginId._id}>
-            <LoginId
-              loginId={loginId}
-              setCurrentId={setCurrentId}
-              formMode={formMode}
-              setFormMode={setFormMode}
-              setEditButton={setEditButton}
-              showEditButton={showEditButton}
-              setCurrEditId={setCurrEditId}
-              currEditId={currEditId}
-            />
-          </React.Fragment>
-        ))}
+        ) : (
+          loginIds.length >= 1 && (
+            <>
+              {loginIds.map((loginId, index) => (
+                <React.Fragment key={loginId._id}>
+                  <LoginId
+                    index={index}
+                    loginId={loginId}
+                    setCurrentId={setCurrentId}
+                    formMode={formMode}
+                    setFormMode={setFormMode}
+                    setEditButton={setEditButton}
+                    showEditButton={showEditButton}
+                    setCurrEditId={setCurrEditId}
+                    currEditId={currEditId}
+                  />
+                </React.Fragment>
+              ))}
+            </>
+          )
+        )}
 
         <LoginIdForm
           currentId={currentId}
@@ -104,27 +118,70 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
           formMode={formMode}
           setFormMode={setFormMode}
         />
-      </div>
 
-      {formMode == false ? (
-        <div
-          className={
-            isScrolling === false
-              ? btnStyles.addBtnWrapper
-              : btnStyles.addBtnWrapperHidden
-          }
-          onClick={formToggle}
-        >
-          <div className={btnStyles.addBtnIconDIv}>
-            <HiPlus />
+        {formMode == false ? (
+          <div
+            className={
+              isScrolling === false
+                ? btnStyles.addBtnWrapper
+                : btnStyles.addBtnWrapperHidden
+            }
+            onClick={formToggle}
+          >
+            <div className={btnStyles.addBtnIconDIv}>
+              <HiPlus />
+            </div>
+            <div className={btnStyles.addBtnTextDiv}>
+              <p>Add</p>
+            </div>
           </div>
-          <div className={btnStyles.addBtnTextDiv}>
-            <p>Add</p>
-          </div>
-        </div>
-      ) : null}
+        ) : null}
+      </div>
     </div>
   );
 };
 
 export default LoginIdsList;
+
+{
+  /* <div className={styles.contentContainer} ref={node}>
+  {loginIds.length === true && crud.operation === "fetching" ? (
+    <div className={noContentStyles.messageContainer}>
+      <p>Fetching data...</p>
+    </div>
+  ) : loginIds.length < 1 && crud.operation === "" ? (
+    <div className={noContentStyles.messageContainer}>
+      <p>No Logins Added</p>
+
+      <div className={noContentStyles.footerDIv}>
+        Click
+        <FiPlusCircle className={noContentStyles.icon} fontSize="19px" />
+        to add
+      </div>
+    </div>
+  ) : null}
+
+  {loginIds.map((loginId, index) => (
+    <React.Fragment key={loginId._id}>
+      <LoginId
+        index={index}
+        loginId={loginId}
+        setCurrentId={setCurrentId}
+        formMode={formMode}
+        setFormMode={setFormMode}
+        setEditButton={setEditButton}
+        showEditButton={showEditButton}
+        setCurrEditId={setCurrEditId}
+        currEditId={currEditId}
+      />
+    </React.Fragment>
+  ))}
+
+  <LoginIdForm
+    currentId={currentId}
+    setCurrentId={setCurrentId}
+    formMode={formMode}
+    setFormMode={setFormMode}
+  />
+</div> */
+}

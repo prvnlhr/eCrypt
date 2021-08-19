@@ -244,7 +244,18 @@
   margin: 0px 0px 0px 2px;
 
   letter-spacing: 0.3px;
-  text-decoration: underline;
+  /* text-decoration: none; */
+}
+.fPlink{
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 13px;
+  color: #071a52 !important;
+  font-weight: bold;
+  margin: 0px 0px 0px 2px;
+
+  letter-spacing: 0.3px;
+  text-decoration: none;
 }
 .buttonWrapper button {
   width: 90%;
@@ -262,7 +273,7 @@
 }
 button p {
   font-family: "Quicksand", sans-serif;
-  /* text-transform: uppercase; */
+  /* text-transform: capitalize; */
   font-size: 13px;
   color: white;
   font-weight: 550;
@@ -284,8 +295,8 @@ button p {
 }
 .labelText {
   font-family: "Quicksand", sans-serif;
-  text-transform: uppercase;
-  font-size: 12px;
+  text-transform: capitalize;
+  font-size: 13px;
   color: #8b8ea1;
   font-weight: bold;
   margin: 0px 0px 0px 2px;
@@ -323,6 +334,9 @@ button p {
   box-sizing: border-box;
   caret-color: #1072f1;
   outline: none;
+}
+.inputField::placeholder {
+  font-family: "Quicksand", sans-serif;
 }
 .inputField:focus {
   /* outline: 1px solid red; */

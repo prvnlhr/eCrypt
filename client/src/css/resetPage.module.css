@@ -259,8 +259,8 @@ button p {
 }
 .labelText {
   font-family: "Quicksand", sans-serif;
-  text-transform: uppercase;
-  font-size: 12px;
+  text-transform: capitalize;
+  font-size: 13px;
   color: #8b8ea1;
   font-weight: bold;
   margin: 0px 0px 0px 2px;

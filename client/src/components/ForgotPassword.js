@@ -72,7 +72,7 @@ const ForgotPassword = () => {
 
         <div className={styles.emailWrapper}>
           <div className={styles.labelDiv}>
-            <p className={styles.labelText}>EMAIL ADDRESS</p>
+            <p className={styles.labelText}>Email Address</p>
           </div>
           <div className={styles.inputDiv}>
             <input

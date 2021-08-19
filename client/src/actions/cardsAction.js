@@ -24,6 +24,8 @@ import {
 
 //FETCHING
 export const fetchUserCards = (user_id) => async (dispatch) => {
+  dispatch(loadingSetter(true, "cardsList", "", "fetching", ""));
+
   dispatch({
     type: OPERATION_START,
     operation: "fetching",
@@ -41,7 +43,10 @@ export const fetchUserCards = (user_id) => async (dispatch) => {
       type: FETCH_CARDS,
       payload: cardsData,
     });
+    dispatch(loadingSetter(false, "cardsList", "", "fetching", true));
   } catch (error) {
+    dispatch(loadingSetter(false, "cardsList", "", "fetching", false));
+
     console.log(error);
     dispatch({
       type: OPERATION_END,

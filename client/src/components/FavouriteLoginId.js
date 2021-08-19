@@ -7,6 +7,7 @@ import { FaUserAlt, FaLock } from "react-icons/fa";
 import LoginIdLogo from "./LoginIdLogo";
 import styles from "../css/loginIdComponent.module.css";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
+import { motion } from "framer-motion";
 
 const FavouriteLoginId = ({ favItem }) => {
   const dispatch = useDispatch();
@@ -28,7 +29,13 @@ const FavouriteLoginId = ({ favItem }) => {
   };
 
   return (
-    <div className={styles.loginIdContainer}>
+    <motion.div 
+    initial={{ opacity: 0 }}
+    animate={{
+      opacity: [0, 1],
+    }}
+    transition={{ duration: 0.3, delay: 0.2 }}
+    className={styles.loginIdContainer}>
       <div className={styles.buttonWrapper}>
         <button
           className={styles.favBtn}
@@ -74,7 +81,7 @@ const FavouriteLoginId = ({ favItem }) => {
           <p>{favItem.password}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default FavouriteLoginId;

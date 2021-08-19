@@ -32,7 +32,21 @@
 
   z-index: 45;
 }
+.spinnerDiv {
+  position: absolute;
 
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
 .contentContainer {
   /* position: relative; */
   height: 100%;
@@ -62,7 +76,6 @@
   /* padding-right: auto; */
   padding-bottom: 20px;
   box-sizing: border-box;
- 
 }
 
 .contentContainerCollapse {

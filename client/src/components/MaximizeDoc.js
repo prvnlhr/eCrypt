@@ -23,7 +23,6 @@ const variants = {
     scale: 1,
   },
   closed: {
-    // opacity: 0,
     scale: 0,
   },
 };
@@ -117,7 +116,7 @@ const MaximizeDoc = ({
     <motion.div
       initial={false}
       variants={variants}
-      transition={{ type: "spring", stiffness: 50 }}
+      transition={{ type: "tween", stiffness: 100, duration: 0.2 }}
       animate={maximizeOrNot ? "open" : "closed"}
       className={styles.maximizeImgWrapper}
     >
@@ -200,7 +199,7 @@ const MaximizeDoc = ({
         )}
         <img
           className={styles.maxImage}
-          src={imageData.imageUrl ? imageData.imageUrl:null }
+          src={imageData.imageUrl ? imageData.imageUrl : null}
           onClick={handleImageClick}
         ></img>
         {showHeaderFooter && (

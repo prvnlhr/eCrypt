@@ -109,7 +109,14 @@ const SearchItem = ({ item, setImageData, setMaximizeOrNot }) => {
               <p className={cardStyles.expiryText}>{item.expiry}</p>
             </div>
             <h1 className={cardStyles.overlayFont}>{cardType.toLowerCase()}</h1>
-            <div className={cardStyles.overlayDiv}></div>
+            <div className={styles.overlayDiv}>
+              <div className={styles.ring}>
+                <div></div>
+              </div>
+              <div className={styles.square}></div>
+
+              <h1 className={styles.overlayFont}>{cardType}</h1>
+            </div>
           </div>
         </>
       ) : item.imageName ? (

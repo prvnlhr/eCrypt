@@ -9,6 +9,7 @@ import { FiPlusCircle } from "react-icons/fi";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { CgAdd } from "react-icons/cg";
 import { HiPlus } from "react-icons/hi";
+import CardSkeleton from "./skeletons/CardSkeleton";
 
 import styles from "../css/cardsList.module.css";
 import noContentStyles from "../css/noContentMessage.module.css";
@@ -20,6 +21,9 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
   const [showEditButton, setEditButton] = useState(true);
 
   const crud = useSelector((state) => state.crud);
+  const loadState = useSelector((state) => state.loading);
+
+  const { itemId, place, isLoading, process, success } = loadState;
 
   useEffect(() => {
     setHeading("Cards");
@@ -57,13 +61,20 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
   return (
     <div className={`${styles.cardList} `}>
       <div className={styles.contentContainer} ref={node}>
-        {cards.length < 1 && crud.operation === "fetching" ? (
+        {/* <CardSkeleton /> */}
+
+        {isLoading === true && place === "cardsList" && cards.length < 1 ? (
+          <>
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+            <CardSkeleton />
+          </>
+        ) : isLoading === false && cards.length < 1 ? (
           <div className={noContentStyles.messageContainer}>
-            <p>Fetching data...</p>
-          </div>
-        ) : cards.length < 1 && crud.operation === "" ? (
-          <div className={noContentStyles.messageContainer}>
-            <p>No Cards Added</p>
+            <p>No Logins Added</p>
 
             <div className={noContentStyles.footerDIv}>
               Click
@@ -71,21 +82,25 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
               to add
             </div>
           </div>
-        ) : null}
-
-        {cards.map((card, index) => (
-          <>
-            <Card
-              index={index}
-              card={card}
-              setCurrentId={setCurrentId}
-              formMode={formMode}
-              setFormMode={setFormMode}
-              setEditButton={setEditButton}
-              showEditButton={showEditButton}
-            />
-          </>
-        ))}
+        ) : (
+          cards.length >= 1 && (
+            <>
+              {cards.map((card, index) => (
+                <>
+                  <Card
+                    index={index}
+                    card={card}
+                    setCurrentId={setCurrentId}
+                    formMode={formMode}
+                    setFormMode={setFormMode}
+                    setEditButton={setEditButton}
+                    showEditButton={showEditButton}
+                  />
+                </>
+              ))}
+            </>
+          )
+        )}
       </div>
 
       <CardForm
