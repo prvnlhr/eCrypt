@@ -111,7 +111,7 @@ export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
     );
     dispatch({
       type: ADD_ACTIVITY,
-      payload: activity,
+      payload: dynamicActivity,
     });
   } catch (error) {
     dispatch(loadingSetter(false, "doc", "", "add", false));
