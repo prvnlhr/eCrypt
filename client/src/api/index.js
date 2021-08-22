@@ -264,8 +264,9 @@ export const fetchUserActivities = (user_id) =>
     },
   });
 //add activity___
-export const addActivity = (activity, user_id) =>
+export const addActivity = (activity, user_id, dynamicActivity) =>
   API.post("/user/activity/addActivity", {
     data: activity,
     user_id: user_id,
+    dynamicActivity: dynamicActivity,
   });

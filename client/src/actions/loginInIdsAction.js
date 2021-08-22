@@ -34,14 +34,14 @@ export const fetchLoginIds = (user_id) => async (dispatch) => {
       type: FETCH_LOGIN_IDS,
       payload: loginIdsData,
     });
-  dispatch(loadingSetter(false, "loginIdList", "", "fetching",true));
+    dispatch(loadingSetter(false, "loginIdList", "", "fetching", true));
 
     dispatch({
       type: OPERATION_END,
       message: "loginIdsFetched",
     });
   } catch (error) {
-  dispatch(loadingSetter(false, "loginIdList", "", "fetching",false));
+    dispatch(loadingSetter(false, "loginIdList", "", "fetching", false));
 
     console.log(error);
     dispatch({
@@ -55,31 +55,20 @@ export const fetchLoginIds = (user_id) => async (dispatch) => {
 
 export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
   dispatch(loadingSetter(true, "loginId", "", "add", ""));
-
-  dispatch({
-    type: PROCESS_START,
-    category: "loginId",
-    inProcess: true,
-    process: "adding",
-    status: null,
-  });
+  console.log("add login id action", newLoginData);
   try {
     const response = await api.addNewLoginId(newLoginData, user_id);
     const responseArray = response.data.loginIdsArray;
     const newAddedLoginId = responseArray[responseArray.length - 1];
     console.log("loginId Response", response);
-    if (response.status === 201) {
+    if (response.status === 200) {
+      dispatch(loadingSetter(false, "loginId", "", "add", true));
       dispatch({
         type: ADD_NEW_LOGIN_ID,
         payload: newAddedLoginId,
       });
-      dispatch({
-        type: PROCESS_END,
-        category: "loginId",
-        inProcess: false,
-        process: "adding",
-        status: "success",
-      });
+      console.log("add login id action check 1");
+
       const d = moment().format("LLL");
       const activity = {
         date: d,
@@ -88,38 +77,47 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
         name: newLoginData.website,
         item: newLoginData.username,
       };
-      const activityResponse = await api.addActivity(activity, user_id);
+
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "loginId",
+        action: "add",
+        website: newLoginData.website,
+        username: newLoginData.username,
+        password: newLoginData.password,
+      };
+      console.log("add login id action check 2");
+
+      const activityResponse = await api.addActivity(
+        activity,
+        user_id,
+        dynamicActivity
+      );
+      console.log("add login id action check 3");
+
       dispatch({
         type: ADD_ACTIVITY,
-        payload: activity,
+        payload: dynamicActivity,
       });
-      dispatch(loadingSetter(false, "loginId", "", "add", true));
     } else {
-      dispatch({
-        type: PROCESS_END,
-        category: "loginId",
-        inProcess: false,
-        process: "adding",
-        status: "failed",
-      });
+      console.log("add login id action check 4 error");
+
+      dispatch(loadingSetter(false, "loginId", "", "add", false));
     }
   } catch (error) {
     dispatch(loadingSetter(false, "loginId", "", "add", false));
-
     console.log(error);
-    dispatch({
-      type: PROCESS_END,
-      category: "loginId",
-      inProcess: false,
-      process: "adding",
-      status: "failed",
-    });
   }
 };
 
 // EDIT LOGIN ID
 export const editLoginId =
-  (loginId_id, oldData, loginIdData, userId) => async (dispatch) => {
+  (loginId_id, oldLoginIdData, loginIdData, userId) => async (dispatch) => {
     dispatch(loadingSetter(true, "loginId", loginId_id, "edit", ""));
     dispatch({
       type: OPERATION_START,
@@ -154,11 +152,32 @@ export const editLoginId =
         name: loginIdData.website,
         item: loginIdData.username,
       };
-      const activityResponse = await api.addActivity(activity, userId);
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "loginId",
+        action: "edit",
+        oldWebsite: oldLoginIdData.website,
+        newWebsite: loginIdData.website,
+        oldUsername: oldLoginIdData.username,
+        newUsername: loginIdData.username,
+        oldPassword: oldLoginIdData.password,
+        newPassword: loginIdData.password,
+      };
+
+      const activityResponse = await api.addActivity(
+        activity,
+        userId,
+        dynamicActivity
+      );
 
       dispatch({
         type: ADD_ACTIVITY,
-        payload: activity,
+        payload: dynamicActivity,
       });
     } catch (error) {
       dispatch(loadingSetter(false, "loginId", loginId_id, "edit", false));
@@ -208,11 +227,28 @@ export const deleteLoginId =
         name: loginData.website,
         item: loginData.username,
       };
-      const activityResponse = await api.addActivity(activity, user_id);
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "loginId",
+        action: "delete",
+        website: loginData.website,
+        username: loginData.username,
+        password: loginData.password,
+      };
+      const activityResponse = await api.addActivity(
+        activity,
+        user_id,
+        dynamicActivity
+      );
 
       dispatch({
         type: ADD_ACTIVITY,
-        payload: activity,
+        payload: dynamicActivity,
       });
     } catch (error) {
       dispatch(loadingSetter(false, "loginId", loginCardId, "delete", false));

@@ -39,14 +39,14 @@ export const fetchDocs = (user_id) => async (dispatch) => {
       type: FETCH_DOCS,
       payload: docsData,
     });
-  dispatch(loadingSetter(false, "docsList", "", "fetching", true));
+    dispatch(loadingSetter(false, "docsList", "", "fetching", true));
 
     dispatch({
       type: OPERATION_END,
       message: "docsFetched",
     });
   } catch (error) {
-  dispatch(loadingSetter(false, "docsList", "", "fetching", false));
+    dispatch(loadingSetter(false, "docsList", "", "fetching", false));
     console.log(error);
     dispatch({
       type: OPERATION_END,
@@ -93,7 +93,22 @@ export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
       name: doc_title,
       item: doc_title,
     };
-    const activityResponse = await api.addActivity(activity, userId);
+    const day = moment().format("DD");
+    const month = moment().format("MMM");
+    const time = moment().format("h:mma");
+    const dynamicActivity = {
+      date: day,
+      month: month,
+      time: time,
+      type: "doc",
+      action: "add",
+      title: doc_title,
+    };
+    const activityResponse = await api.addActivity(
+      activity,
+      userId,
+      dynamicActivity
+    );
     dispatch({
       type: ADD_ACTIVITY,
       payload: activity,
@@ -112,38 +127,56 @@ export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
   }
 };
 // EDIT DOC TITLE
-export const editDoc = (doc_Id, userId, docData) => async (dispatch) => {
-  dispatch(loadingSetter(true, "doc", doc_Id, "edit", ""));
-  console.log("at editDoc Action", doc_Id, userId, docData);
-  try {
-    const response = await api.editDoc(doc_Id, docData);
-    dispatch({
-      type: EDIT_DOC,
-      payload: docData,
-      id: doc_Id,
-      operation: "edit",
-    });
-    dispatch(loadingSetter(false, "doc", doc_Id, "edit", true));
+export const editDoc =
+  (doc_Id, userId, docData, oldDocData) => async (dispatch) => {
+    dispatch(loadingSetter(true, "doc", doc_Id, "edit", ""));
+    console.log("at editDoc Action", doc_Id, userId, docData, oldDocData);
+    try {
+      const response = await api.editDoc(doc_Id, docData);
+      dispatch({
+        type: EDIT_DOC,
+        payload: docData,
+        id: doc_Id,
+        operation: "edit",
+      });
+      dispatch(loadingSetter(false, "doc", doc_Id, "edit", true));
 
-    const d = moment().format("LLL");
-    const activity = {
-      date: d,
-      task: "Edited",
-      type: "Doc",
-      name: docData.imageName,
-      item: docData.imageName,
-    };
-    const activityResponse = await api.addActivity(activity, userId);
-    dispatch({
-      type: ADD_ACTIVITY,
-      payload: activity,
-    });
-  } catch (error) {
-    dispatch(loadingSetter(false, "doc", doc_Id, "edit", false));
+      const d = moment().format("LLL");
+      const activity = {
+        date: d,
+        task: "Edited",
+        type: "Doc",
+        name: docData.imageName,
+        item: docData.imageName,
+      };
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "doc",
+        action: "edit",
+        oldTitle: oldDocData.imageName,
+        newTitle: docData.imageName,
+      };
 
-    console.log(error);
-  }
-};
+      const activityResponse = await api.addActivity(
+        activity,
+        userId,
+        dynamicActivity
+      );
+      dispatch({
+        type: ADD_ACTIVITY,
+        payload: dynamicActivity,
+      });
+    } catch (error) {
+      dispatch(loadingSetter(false, "doc", doc_Id, "edit", false));
+
+      console.log(error);
+    }
+  };
 
 //DELETE DOC
 export const deleteDoc =
@@ -199,10 +232,25 @@ export const deleteDoc =
         name: doc_title,
         item: doc_title,
       };
-      const activityResponse = await api.addActivity(activity, user_id);
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "doc",
+        action: "delete",
+        title: doc_title,
+      };
+      const activityResponse = await api.addActivity(
+        activity,
+        user_id,
+        dynamicActivity
+      );
       dispatch({
         type: ADD_ACTIVITY,
-        payload: activity,
+        payload: dynamicActivity,
       });
     } catch (error) {
       dispatch(loadingSetter(false, "doc", doc_id, "delete", false));

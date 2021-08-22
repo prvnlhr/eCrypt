@@ -45,6 +45,7 @@ const MaximizeDoc = ({
 
   //   const [showHeaderFooter, setShowHeaderFooter] = useState(false);
   const [docEditMode, setDocEditMode] = useState(false);
+  const [oldDocData, setOldDocData] = useState();
   const [deleteModalShow, setDeleteModalShow] = useState(false);
   const loadState = useSelector((state) => state.loading);
   const { itemId, place, isLoading, process, success } = loadState;
@@ -65,7 +66,7 @@ const MaximizeDoc = ({
   };
 
   const handleImageSave = () => {
-    dispatch(editDoc(imageData._id, user._id, imageData));
+    dispatch(editDoc(imageData._id, user._id, imageData, oldDocData));
     setDocEditMode(false);
   };
   const handleCancelBtnClicked = () => {
@@ -96,6 +97,7 @@ const MaximizeDoc = ({
   };
   useEffect(() => {
     // console.log(imageData);
+    setOldDocData(imageData);
   }, [imageData]);
 
   const handleFavToggle = (docId, favValue) => {

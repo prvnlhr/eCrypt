@@ -9,7 +9,6 @@ import { deleteDoc, editDoc, docFavToggle } from "../actions/documentsAction";
 import { CircleSpinner } from "react-spinners-kit";
 import { motion } from "framer-motion";
 
-
 // icons set__________________________________
 import { Icon, InlineIcon } from "@iconify/react";
 
@@ -43,6 +42,7 @@ const Document = ({
   const [thisDocRefIndex, setThisDocRefIndex] = useState(null);
   const node = useRef();
   const [currDocData, setCurrDocData] = useState();
+  const [oldDocData, setOldDocData] = useState();
   // const loading = useSelector((state) => state.process);
 
   // const { category, inProcess, status, process } = loading;
@@ -60,13 +60,14 @@ const Document = ({
   );
 
   useEffect(() => {
-    // console.log(doc , docData);
+    console.log(doc);
     setCurrDocData(doc);
+    setOldDocData(doc);
     // console.log(currDocData);
     // if (docDataToEdit) {
     //   setDocData(docDataToEdit);
     // }
-  }, []);
+  }, [doc]);
 
   const handleFavToggle = (docId) => {
     var favValue = currDocData.isFavourite;
@@ -81,7 +82,8 @@ const Document = ({
   };
 
   const save = (id) => {
-    dispatch(editDoc(id, userId, currDocData));
+    console.log(oldDocData)
+    dispatch(editDoc(id, userId, currDocData, oldDocData));
   };
   const handleMaximize = () => {
     setImageData(docData);
@@ -106,13 +108,14 @@ const Document = ({
   // };
 
   return (
-    <motion.div  
-    initial={{ opacity: 0 }}
-    animate={{
-      opacity: [0, 1],
-    }}
-    transition={{ duration: 0.3, delay: 0.2 }}
-    className={styles.documentCard}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: [0, 1],
+      }}
+      transition={{ duration: 0.3, delay: 0.2 }}
+      className={styles.documentCard}
+    >
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
           <div className={modalStyles.dialogDiv}>

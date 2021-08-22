@@ -37,6 +37,7 @@ const LoginId = ({
   const [editId, setEditId] = useState(null);
   const [oldData, setOldData] = useState(null);
   const [inEditMode, setInEditMode] = useState(false);
+  const [oldLoginIdData, setOldLoginIdData] = useState();
   const [loginData, setLoginData] = useState({
     website: "",
     username: "",
@@ -59,7 +60,8 @@ const LoginId = ({
   useEffect(() => {
     setCurrLoginIdData(loginId);
     setOldData(loginId);
-  }, []);
+    setOldLoginIdData(loginId);
+  }, [loginId]);
 
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.user.user._id);
@@ -78,7 +80,7 @@ const LoginId = ({
     dispatch(loginIdFavToggle(loginCardId, isFav));
   };
   const save = (id) => {
-    dispatch(editLoginId(id, oldData, loginData, userId));
+    dispatch(editLoginId(id, oldLoginIdData, loginData, userId));
   };
 
   const confirmDelete = (loginCardId) => {

@@ -86,6 +86,7 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
       dispatch(loadingSetter(false, "card", "", "add", true));
 
       const d = moment().format("LLL");
+
       const activity = {
         date: d,
         task: "Added",
@@ -93,10 +94,29 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
         name: newCardData.bank,
         item: newCardData.cardNo,
       };
-      const activityResponse = await api.addActivity(activity, user_id);
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "card",
+        action: "add",
+        CNo: newCardData.cardNo,
+        bank: newCardData.bank,
+        cvv: newCardData.cvv,
+        user: newCardData.user,
+        expiry: newCardData.expiry,
+      };
+      const activityResponse = await api.addActivity(
+        activity,
+        user_id,
+        dynamicActivity
+      );
       dispatch({
         type: ADD_ACTIVITY,
-        payload: activity,
+        payload: dynamicActivity,
       });
     } else {
       dispatch(loadingSetter(false, "card", "", "add", false));
@@ -128,52 +148,77 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
 };
 
 //EDIT CARD
-export const editCard = (card_id, cardData, userId) => async (dispatch) => {
-  dispatch(loadingSetter(true, "card", card_id, "edit", ""));
-
-  dispatch({
-    type: OPERATION_START,
-    message: "",
-    id: card_id,
-    operation: "edit",
-  });
-  try {
-    const response = await api.editCard(card_id, cardData);
+export const editCard =
+  (card_id, cardData, userId, oldCardData) => async (dispatch) => {
+    dispatch(loadingSetter(true, "card", card_id, "edit", ""));
 
     dispatch({
-      type: EDIT_CARD,
-      payload: cardData,
+      type: OPERATION_START,
+      message: "",
+      id: card_id,
+      operation: "edit",
     });
-    dispatch(loadingSetter(false, "card", card_id, "edit", true));
-    dispatch({
-      type: OPERATION_END,
-      message: "cardEditSuccess",
-    });
+    try {
+      const response = await api.editCard(card_id, cardData);
 
-    const d = moment().format("LLL");
-    const activity = {
-      date: d,
-      task: "Edited",
-      type: "Card",
-      name: cardData.bank,
-      item: cardData.cardNo,
-    };
-    const activityResponse = await api.addActivity(activity, userId);
-    dispatch({
-      type: ADD_ACTIVITY,
-      payload: activity,
-    });
-  } catch (error) {
-    dispatch(loadingSetter(false, "card", card_id, "edit", false));
+      dispatch({
+        type: EDIT_CARD,
+        payload: cardData,
+      });
+      dispatch(loadingSetter(false, "card", card_id, "edit", true));
+      dispatch({
+        type: OPERATION_END,
+        message: "cardEditSuccess",
+      });
 
-    console.log(error);
-    const failureMsg = error.response.data.msg;
-    dispatch({
-      type: OPERATION_END,
-      message: failureMsg,
-    });
-  }
-};
+      const d = moment().format("LLL");
+      const activity = {
+        date: d,
+        task: "Edited",
+        type: "Card",
+        name: cardData.bank,
+        item: cardData.cardNo,
+      };
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "card",
+        action: "edit",
+        oldCNo: oldCardData.cardNo,
+        newCNo: cardData.cardNo,
+        oldBank: oldCardData.bank,
+        newBank: cardData.bank,
+        oldCvv: oldCardData.cvv,
+        newCvv: cardData.cvv,
+        oldUser: oldCardData.user,
+        newUser: cardData.user,
+        oldExpiry: oldCardData.expiry,
+        newExpiry: cardData.expiry,
+      };
+      const activityResponse = await api.addActivity(
+        activity,
+        userId,
+        dynamicActivity
+      );
+      dispatch({
+        type: ADD_ACTIVITY,
+        payload: dynamicActivity,
+      });
+    } catch (error) {
+      dispatch(loadingSetter(false, "card", card_id, "edit", false));
+
+      console.log(error);
+      const failureMsg = error.response.data.msg;
+      dispatch({
+        type: OPERATION_END,
+        message: failureMsg,
+      });
+    }
+  };
 //DELETE CARD
 export const deleteCard = (cardData, card_id, user_id) => async (dispatch) => {
   dispatch(loadingSetter(true, "card", card_id, "delete", ""));
@@ -204,13 +249,32 @@ export const deleteCard = (cardData, card_id, user_id) => async (dispatch) => {
       name: cardData.bank,
       item: cardData.cardNo,
     };
+    const day = moment().format("DD");
+    const month = moment().format("MMM");
+    const time = moment().format("h:mma");
+    const dynamicActivity = {
+      date: day,
+      month: month,
+      time: time,
+      type: "card",
+      action: "delete",
+      CNo: cardData.cardNo,
+      bank: cardData.bank,
+      cvv: cardData.cvv,
+      user: cardData.user,
+      expiry: cardData.expiry,
+    };
     dispatch(loadingSetter(false, "card", card_id, "delete", true));
 
-    const activityResponse = await api.addActivity(activity, user_id);
+    const activityResponse = await api.addActivity(
+      activity,
+      user_id,
+      dynamicActivity
+    );
 
     dispatch({
       type: ADD_ACTIVITY,
-      payload: activity,
+      payload: dynamicActivity,
     });
   } catch (error) {
     dispatch(loadingSetter(false, "card", card_id, "delete", false));

@@ -20,6 +20,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
   const [modalShow, setModalShow] = useState(false);
   const [editId, setEditId] = useState(null);
   const [inEditMode, setInEditMode] = useState(false);
+  const [oldCardData, setOldCardData] = useState("");
   const [cardData, setCardData] = useState({
     user: "",
     bank: "",
@@ -56,7 +57,8 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
 
   useEffect(() => {
     setCurrCardData(card);
-  }, []);
+    setOldCardData(card);
+  }, [card]);
 
   const handleFavToggle = (cardId) => {
     var favValue = currCardData.isFavourite;
@@ -71,7 +73,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
     dispatch(cardFavToggle(cardId, isFav));
   };
   const save = (id) => {
-    dispatch(editCard(id, cardData, userId));
+    dispatch(editCard(id, cardData, userId, oldCardData));
   };
 
   const confirmDelete = (cardId) => {

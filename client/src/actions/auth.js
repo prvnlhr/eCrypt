@@ -185,7 +185,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 };
 export const resetPassword = (token, password) => async (dispatch) => {
   dispatch(loadingSetter(true, "resetPassword", "", "", ""));
-console.log(token)
+  console.log(token);
   try {
     const res = await api.resetPass(token, password);
     const successMsg = res.data.msg;
@@ -236,10 +236,26 @@ export const changePassword =
         name: "Password settings",
         item: "Password changed",
       };
-      const activityResponse = await api.addActivity(activity, userId);
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "settings",
+        action: "passwordChange",
+        oldPassword: oldPassword,
+        newPassword: newPassword,
+      };
+      const activityResponse = await api.addActivity(
+        activity,
+        userId,
+        dynamicActivity
+      );
       dispatch({
         type: ADD_ACTIVITY,
-        payload: activity,
+        payload: dynamicActivity,
       });
     } catch (error) {
       dispatch(loadingSetter(false, "changePassword", "", "", false));

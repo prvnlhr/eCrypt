@@ -1,0 +1,42 @@
+.activityList {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 1px solid black; */
+  /* background-color: rgb(136, 182, 182); */
+  z-index: 3;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding: 20px 0px 20px 0px;
+  width: 100%;
+  height: 60%;
+  height: 100%;
+
+  /* border: 1px solid black; */
+
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  /* background-color: rgb(136, 182, 182); */
+  z-index: 3;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding: 20px 0px 20px 0px;
+}
+.activityList::-webkit-scrollbar {
+  display: none;
+}
+/* .activityList::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 1px;
+  background-color: rgb(223, 222, 222);
+  left: 20%;
+} */

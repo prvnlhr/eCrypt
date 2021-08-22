@@ -114,7 +114,6 @@ const TabBar = ({ fieldLength }) => {
                 fontSize: "28px",
                 color: "#071a52",
                 fontWeight: "900",
-                transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
               // onClick={handleNavClick}
             >
@@ -140,7 +139,6 @@ const TabBar = ({ fieldLength }) => {
                 fontSize: "28px",
                 color: "#071a52",
                 fontWeight: "900",
-                transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
               // onClick={handleNavClick}
             >
@@ -166,7 +164,6 @@ const TabBar = ({ fieldLength }) => {
                 fontSize: "28px",
                 color: "#071a52",
                 fontWeight: "900",
-                transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
               // onClick={handleNavClick}
             >
@@ -226,7 +223,6 @@ const TabBar = ({ fieldLength }) => {
                 fontSize: "28px",
                 color: "#071a52",
                 fontWeight: "900",
-                transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
               // onClick={handleNavClick}
             >
@@ -255,7 +251,6 @@ const TabBar = ({ fieldLength }) => {
                 fontSize: "28px",
                 color: "#071a52",
                 fontWeight: "900",
-                transition: "all 1s cubic-bezier(0.25, 0.8, 0.25, 1)",
               }}
               // onClick={handleNavClick}
             >

@@ -43,7 +43,7 @@ export const fetchUser = (token) => async (dispatch) => {
 
 //Update Profile
 export const updateProfile =
-  (token, profileData, userId) => async (dispatch) => {
+  (token, profileData, userId, oldProfileData) => async (dispatch) => {
     dispatch(loadingSetter(true, "updateProfile", "", "", ""));
 
     try {
@@ -73,10 +73,30 @@ export const updateProfile =
         name: "Profile settings",
         item: "Profile updated",
       };
-      const activityResponse = await api.addActivity(activity, userId);
+      const day = moment().format("DD");
+      const month = moment().format("MMM");
+      const time = moment().format("h:mma");
+      const dynamicActivity = {
+        date: day,
+        month: month,
+        time: time,
+        type: "settings",
+        action: "profileUpdate",
+        oldEmail: oldProfileData.email,
+        newEmail: userData.email,
+        oldFirstName: oldProfileData.firstName,
+        newFirstName: nameString[0],
+        oldLastName: oldProfileData.lastName,
+        newLastName: nameString[1],
+      };
+      const activityResponse = await api.addActivity(
+        activity,
+        userId,
+        dynamicActivity
+      );
       dispatch({
         type: ADD_ACTIVITY,
-        payload: activity,
+        payload: dynamicActivity,
       });
     } catch (error) {
       dispatch(loadingSetter(false, "updateProfile", "", "", false));

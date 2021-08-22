@@ -36,8 +36,10 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   });
 
   const userId = useSelector((state) => state.user.user._id);
-  const process = useSelector((state) => state.process);
+  // const process = useSelector((state) => state.process);
   const [btnText, setBtnText] = useState("Add LoginId");
+  const loadState = useSelector((state) => state.loading);
+  const { place, isLoading, process, success } = loadState;
 
   const websiteInputRef = useRef();
   const userNameInputRef = useRef();
@@ -55,14 +57,12 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
 
   //___This useEffect keeps track of process state after dispatching
   useEffect(() => {
-    if (process.category === "loginId") {
-      if (process.status === "success") {
-        successHandler();
-      } else if (process.status === "failed") {
-        failureHandler();
-      }
+    if (success === true && place === "loginId" && process === "add") {
+      successHandler();
+    } else if (success === false && place === "loginId" && process === "add") {
+      failureHandler();
     }
-  }, [process]);
+  }, [success]);
 
   const formValidator = () => {
     if (loginData.website.length === 0) {
@@ -254,9 +254,9 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
           <button
             type="submit"
             onClick={confirmSave}
-            disabled={process.inProcess ? true : false}
+            disabled={isLoading === true ? true : false}
           >
-            {process.inProcess ? (
+            {isLoading === true ? (
               <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>{btnText}</p>

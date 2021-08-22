@@ -22,6 +22,9 @@ const Settings = ({ setHeading }) => {
   const notification = useSelector((state) => state.notification);
 
   const loadState = useSelector((state) => state.loading);
+  const [oldProfileData, setOldProfileData] = useState();
+  const [oldPasswordData, setOldPasswordData] = useState();
+
 
   const { place, isLoading } = loadState;
 
@@ -84,7 +87,7 @@ const Settings = ({ setHeading }) => {
   };
   const handleEditProfile = () => {
     //NOTE: we are passing userId to add activity
-    dispatch(updateProfile(token, profileData, user._id));
+    dispatch(updateProfile(token, profileData, user._id,oldProfileData));
   };
 
   const notificationClear = () => {
@@ -123,6 +126,11 @@ const Settings = ({ setHeading }) => {
   useEffect(() => {
     setHeading("Settings");
     setProfileData({
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+    });
+    setOldProfileData({
       firstName: user.firstName,
       lastName: user.lastName,
       email: user.email,

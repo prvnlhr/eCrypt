@@ -54,20 +54,22 @@ const ContentDisplay = ({
   const loginIdsArray = useSelector((state) => state.logins.loginIds);
   const cardsArray = useSelector((state) => state.cards.cards);
   const docsArray = useSelector((state) => state.docs.docs);
-  const activitiesArray = useSelector((state) => state.activities.activities);
+  const activitiesArray = useSelector((state) => state.activities);
 
+  
   const favoritesLoginsArray = useSelector(
     (state) => state.favorites.favoriteLoginsIds
   );
   const favoritesCardsArray = useSelector(
     (state) => state.favorites.favoriteCards
   );
-
+  
   const favoritesDocsArray = useSelector(
     (state) => state.favorites.favoriteDocs
-  );
-  const searchResultArray = useSelector((state) => state.search.searchResults);
-
+    );
+    const searchResultArray = useSelector((state) => state.search.searchResults);
+    
+    console.log(activitiesArray)
   return (
     <div className={styles.contentDisplay}>
       {searchResultArray.length > 0 && fieldLength > 0 ? (
