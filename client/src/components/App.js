@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUser } from "../actions/userAction";
 
 import {
   Switch,
@@ -11,17 +10,18 @@ import {
   useParams,
 } from "react-router-dom";
 
-import Home from "./Home";
-import styles from "../css/app.module.css";
-import AuthenticatedRoute from "./AuthenticatedRoute";
-import UnAuthenticatedRoutes from "./UnAuthenticatedRoutes";
-import ForgotPassword from "./ForgotPassword";
-import ResetPassword from "./ResetPassword";
-import SignInPage from "./SignInPage";
-import SignUpPage from "./SignUpPage";
+import Home from "./app_layout/Home";
+import AuthenticatedRoute from "./app_layout/AuthenticatedRoute";
+import UnAuthenticatedRoutes from "./app_layout/UnAuthenticatedRoutes";
+import ForgotPassword from "./auth/ForgotPassword";
+import ResetPassword from "./auth/ResetPassword";
+import SignUpPage from "./auth/SignUpPage";
+import SignInPage from "./auth/SignInPage";
+import NotFound from "./app_layout/NotFound";
+import ActivateAccount from "./auth/ActivateAccount";
+import styles from "../css/app_layout/app.module.css";
+import { fetchUser } from "../actions/userAction";
 import { getToken } from "../actions/auth";
-import ActivateAccount from "./ActivateAccount";
-import NotFound from "./NotFound";
 
 const App = () => {
   const dispatch = useDispatch();

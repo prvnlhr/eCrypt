@@ -1,0 +1,526 @@
+.settingsComponent {
+  /* border: 1px solid rgb(192, 189, 189); */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  align-content: center;
+  /* overflow: hidden; */
+  /* margin: 1px 0px 0px 0px; */
+  overflow-y: scroll;
+  /* background-color: #dae5eb; */
+  border-radius: 0px 0px 0px 0px;
+  /* background: rgba(255, 255, 255, 0.589);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px); */
+  /* background-color: #f4fff9; */
+}
+
+.settingsComponent::-webkit-scrollbar {
+  display: none;
+}
+
+.headerDiv {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #4cd7f6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  z-index: 10;
+  /* margin: 0px 0px 10% 0px; */
+}
+.headingText {
+  margin: 0px 0px 0px 10px;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  color: black;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+  font-size: 15px;
+}
+.notificationDiv {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.notificationErrorDiv {
+  width: auto;
+  height: 25px;
+  /* min-width: 270px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  font-size: 12px;
+  background-color: #fee4e3;
+  border: 1px solid #cf4949;
+  color: #cf4949;
+  border-radius: 5px;
+  margin: 10px 0px 0px 10px;
+  font-weight: 550;
+  box-sizing: border-box;
+  padding: 0 5px 0 5px;
+  white-space: nowrap;
+}
+.notificationSuccessDiv {
+  /* width: 60%; */
+  width: auto;
+
+  height: 20px;
+  /* min-width: 200px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  font-size: 12px;
+  background-color: #d4f9e8;
+  border: 1px solid #3bc47f;
+  color: #3bc47f;
+  border-radius: 5px;
+  font-weight: 550;
+  padding: 0 5px 0 5px;
+  box-sizing: border-box;
+
+  margin: 10px 0px 0px 10px;
+}
+.icon {
+  font-size: 17px;
+  margin: 0px 5px 0px 0px;
+}
+
+.bodyDiv {
+  grid-row-start: 3;
+  grid-row-end: 4;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid pink; */
+  /* background-color: #dae5eb; */
+  border-radius: 5px;
+  z-index: 9;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+}
+/* __PROFILE_____________________________________________________________________ */
+.profileContainer {
+  /* border: 1px solid rgba(182, 131, 131, 0.18); */
+  width: 90%;
+  height: 300px;
+  min-height: 300px;
+  margin: 10px 0px 10px 0px;
+  display: grid;
+  grid-template-rows: 30px 40px 160px 70px;
+  border-radius: 10px;
+  /* background-color: white; */
+}
+
+.formContainer {
+  display: grid;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  margin: 0px 0px 0px 10px;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 25% 25% 25% 25%;
+  /* grid-gap: 2px; */
+  /* border: 1px solid red; */
+
+  grid-template-areas:
+    " firstNameLabel lastNameLabel"
+    " firstNameInput lastNameInput"
+    " emailLabel emailLabel"
+    " emailInput emailInput";
+}
+
+.firstNameLabel {
+  grid-area: firstNameLabel;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 650;
+  color: gray;
+}
+.lastNameLabel {
+  grid-area: lastNameLabel;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 650;
+  color: gray;
+
+  /* margin: 0px 0px 0px 2px; */
+}
+.firstNameInput {
+  grid-area: firstNameInput;
+  width: 88%;
+  height: 90%;
+  /* border: 1px solid black; */
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+  margin: 0px 0px 0px 0px;
+  padding-left: 2%;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  color: slategray;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  /* border: 1px solid rgb(241, 241, 241); */
+  border-radius: 5px;
+  border: none;
+}
+.lastNameInput {
+  grid-area: lastNameInput;
+  width: 88%;
+  height: 90%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 2%;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  color: slategray;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  border: 1px solid rgb(201, 200, 200);
+  border-radius: 5px;
+
+  border: none;
+}
+.emailLabel {
+  grid-area: emailLabel;
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 650;
+  color: gray;
+}
+.emailInput {
+  grid-area: emailInput;
+  width: 93%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 2%;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  border: 1px solid rgb(201, 200, 200);
+
+  border: 1px dashed #00b7fd;
+
+  border-radius: 5px;
+
+  border: none;
+}
+
+.activeInput {
+  border: 2px dotted #b8e2d6;
+  border: 1px dashed #00b7fd;
+
+  color: black;
+}
+.inactiveInput {
+  background-color: rgba(245, 245, 245, 0.404);
+  color: slategray;
+}
+.profileButtonContainer {
+  grid-row-start: 4;
+  grid-row-end: 5;
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+button {
+  margin: 0px 0px 0px 10px;
+}
+
+.editProfileBtn {
+  width: 100px;
+  height: 25px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #4cd7f6;
+  border-radius: 5px;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  color: white;
+  /* font-weight: 550; */
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.02em;
+}
+
+/*_______CHANGE PASSWORD______________________________________________________________ */
+
+.changePasswordContainer {
+  /* border: 1px solid blue; */
+  /* border: 1px solid rgba(182, 131, 131, 0.18); */
+
+  width: 90%;
+  height: 200px;
+  min-height: 200px;
+  margin: 10px 0px 10px 0px;
+  display: grid;
+  grid-template-rows: 30px 30px 140px;
+  /* background-color: white; */
+  border-radius: 10px;
+  /* grid-gap: 10%; */
+}
+
+.changePasswordDiv {
+  width: 100%;
+  max-width: 500px;
+  height: 75%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.changePasswordDiv input {
+  width: 200px;
+  height: 30px;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid #b8e2d6;
+  border: 2px dotted #b8e2d6;
+  border: 1px dashed #00b7fd;
+
+  border-radius: 5px;
+  padding-left: 2%;
+}
+.passwordChangeButtonDiv {
+  width: 100%;
+  max-width: 500px;
+  height: 20%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.changePassBtn {
+  width: 120px;
+  height: 25px;
+  background: none;
+  border: 1px solid black;
+  border: none;
+  /* border: 2px solid #1072f1; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4cd7f6;
+  border-radius: 5px;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  color: white;
+  /* font-weight: 550; */
+  font-size: 12px;
+  margin: 10px 10px 10px 10px;
+  /* color: black; */
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.02em;
+}
+
+/* ____DELETE ACCOUNT________________________________________________________________ */
+.deleteAccountContainer {
+  /* border: 1px solid green; */
+  /* border: 1px solid rgba(182, 131, 131, 0.18); */
+
+  width: 90%;
+  height: 250px;
+  min-height: 250px;
+  margin: 0px 0px 30px 0px;
+  display: grid;
+  grid-template-rows: 30px 30px 190px;
+  /* background-color: white; */
+  border-radius: 10px;
+  /* grid-gap: 10px; */
+}
+
+.deleteInputDiv {
+  width: 100%;
+  max-width: 500px;
+  height: 50%;
+  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+.deleteInputDiv input {
+  width: 200px;
+  height: 30px;
+  margin: 10px 10px 10px 10px;
+  border: 1px solid #b8e2d6;
+  border: 2px dotted #b8e2d6;
+  border: 1px dashed #00b7fd;
+
+  border-radius: 5px;
+  padding-left: 2%;
+}
+.deleteInputDiv p {
+  margin: 10px 0px 0px 10px;
+}
+.deleteBtnDiv {
+  width: 100%;
+  max-width: 500px;
+  height: 50%;
+  /* border: 1px solid black; */
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: flex-start;
+}
+.deleteBtnDiv button {
+  margin: 10px 10px 10px 10px;
+}
+
+.deleteAccountBtn {
+  width: 120px;
+  height: 25px;
+  background: none;
+  border: 1px solid black;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4cd7f6;
+
+  border-radius: 5px;
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  color: white;
+  /* font-weight: 550; */
+  letter-spacing: 0.2px;
+  font-size: 12px;
+  /* color: black; */
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.02em;
+}
+.confirmBtn {
+  width: 110px;
+  height: 25px;
+  background: none;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #b8e2d6;
+  background: #4cd7f6;
+
+  border: none;
+  color: white;
+  /* color: black; */
+  font-family: "Quicksand", sans-serif;
+  /* font-weight: 550; */
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.02em;
+  /* border: 1px solid black; */
+}
+.cancelBtn {
+  width: 100px;
+  height: 25px;
+  background: none;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background: #afafaf41;
+  color: black;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+  /* font-weight: 550; */
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.02em;
+}
+::placeholder {
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  color: rgb(175, 175, 175);
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  font-size: 12px;
+}
+.disclaimer {
+  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
+
+  color: rgb(139, 139, 139);
+  /* font-weight: 550; */
+  letter-spacing: 0.2px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.02em;
+}
+input:focus {
+  border: 2px solid #1072f1;
+}
+@media screen and (max-width: 550px) {
+  .editProfileBtn {
+    width: 100px;
+    height: 30px;
+  }
+  .changePassBtn {
+    width: 120px;
+    height: 30px;
+  }
+  .deleteAccountBtn {
+    width: 120px;
+    height: 30px;
+  }
+  .confirmBtn {
+    width: 110px;
+    height: 30px;
+  }
+  .cancelBtn {
+    width: 100px;
+    height: 30px;
+  }
+}

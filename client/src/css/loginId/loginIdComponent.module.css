@@ -1,0 +1,348 @@
+/* ___NEW CSS RULES ________________________________________________*/
+
+.loginIdContainer {
+  position: relative;
+  display: grid;
+  /* display: none; */
+  grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas:
+    "logoWrapper websiteWrapper buttonWrapper"
+    "logoWrapper userNameWrapper userNameWrapper"
+    "logoWrapper passwordWrapper passwordWrapper";
+  /* justify-content: center; */
+  align-items: center;
+  width: 280px;
+  /* min-width: 250px; */
+  height: 75px;
+  /* max-height: 75px; */
+  /* max-height: auto; */
+  padding-right: 5px;
+
+  aspect-ratio: 3.73/1 !important;
+  border-radius: 8px;
+  margin: 15px 15px 15px 15px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  background-color: #ffffff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
+
+  /* border: 1px solid black; */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* border: 2px solid #1072f1; */
+  box-sizing: border-box;
+}
+.loginIdContainerInEditMode {
+  -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -moz-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -ms-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
+    0 15px 12px rgba(0, 0, 0, 0.22);
+  -o-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.logoWrapper {
+  grid-area: logoWrapper;
+  position: relative;
+  /* border: 1px solid gray; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.logoDiv {
+  position: relative;
+
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid rgba(19, 18, 18, 0.103);
+  border-radius: 8px;
+  /* border: 1px solid royalblue; */
+}
+
+.websiteWrapper {
+  grid-area: websiteWrapper;
+  position: relative;
+  /* border: 1px solid rgba(112, 128, 144, 0.336); */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* justify-content: flex-start; */
+  align-items: center;
+  box-sizing: border-box;
+  padding-top: 2px;
+}
+
+.websiteDiv {
+  position: relative;
+  border-bottom: 1px solid rgba(112, 128, 144, 0.336);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-x: scroll;
+  white-space: nowrap;
+  /* padding-left: 0px; */
+}
+.websiteDiv::-webkit-scrollbar {
+  display: none;
+}
+.websiteDiv p {
+  margin: 0px 0px 0px 5px;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: black;
+  font-size: 13px;
+}
+.buttonWrapper {
+  grid-area: buttonWrapper;
+  position: relative;
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.favBtn {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background: none;
+  outline: none;
+  border: none;
+  /* border: 1px solid blue; */
+  color: #b3bac3;
+  margin: 0px 0px 0px 0px;
+  padding: 0px;
+}
+.favIcon {
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.editBtnContainer {
+  position: relative;
+  /* border: 1px solid blue; */
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+.editIconDiv {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border-radius: 50%; */
+  /* border: 1px solid rgb(214, 214, 214); */
+
+  /* border: 1px solid black; */
+  /* background: white; */
+}
+.deleteIconDiv {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: gray;
+  /* border-radius: 50%; */
+  /* border: 1px solid rgb(214, 214, 214); */
+
+  /* border: 1px solid black; */
+  /* background: white; */
+}
+.checkIconDiv {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: gray;
+  /* border-radius: 50%; */
+  /* border: 1px solid rgb(214, 214, 214); */
+
+  /* border: 1px solid black; */
+  /* background: white; */
+}
+.cancelIconDiv {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: gray;
+  /* border-radius: 50%; */
+  /* border: 1px solid rgb(214, 214, 214); */
+
+  /* border: 1px solid black; */
+  /* background: white; */
+}
+
+.trashIcon {
+  font-size: 17px;
+  cursor: pointer;
+}
+.pencilIcon {
+  font-size: 17px;
+  cursor: pointer;
+}
+.cancelIcon {
+  font-size: 17px;
+  cursor: pointer;
+}
+.checkIcon {
+  font-size: 17px;
+  cursor: pointer;
+}
+.userNameWrapper {
+  grid-area: userNameWrapper;
+  position: relative;
+  /* border: 1px solid salmon; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+.passwordWrapper {
+  grid-area: passwordWrapper;
+  position: relative;
+  /* border: 1px solid greenyellow; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+}
+.iconDiv {
+  /* border: 1px solid green; */
+  width: 10%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  color: #9baece;
+  font-size: 0.8em;
+}
+.textDiv {
+  /* border: 1px solid orange; */
+  width: 85%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
+  overflow-x: scroll;
+  padding-right: 10px;
+}
+.textDiv::-webkit-scrollbar {
+  display: none;
+}
+.textDiv p {
+  font-family: "Quicksand", sans-serif;
+  margin: 0px 0px 0px 5px;
+  font-weight: 650;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  /* color: rgb(112, 112, 112); */
+  color: slategray;
+}
+
+.inputField {
+  width: 100%;
+  height: 85%;
+  outline: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 550;
+  letter-spacing: 0.2px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 0px 5px 0px 5px;
+  margin: 0px 0px 0px 0px;
+  border: 1px dashed #00b7fd;
+  background: #00b5fd11;
+  color: #00b7fd;
+}
+.inputField:focus {
+  border: 2px solid #1072f1;
+}
+/*____NEW CSS RULES END_____  */
+
+/* ____MEDIA QUERIES___ */
+@media screen and (max-width: 650px) {
+  .loginIdContainer {
+    position: relative;
+    display: grid;
+    width: 83% !important;
+    aspect-ratio: 3.73/1 !important;
+    min-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .trashIcon {
+    font-size: 17px;
+    cursor: pointer;
+    font-size: 1.3em;
+  }
+  .pencilIcon {
+    font-size: 17px;
+    cursor: pointer;
+    font-size: 1.3em;
+  }
+  .cancelIcon {
+    font-size: 17px;
+    cursor: pointer;
+    font-size: 1.3em;
+  }
+  .checkIcon {
+    font-size: 17px;
+    cursor: pointer;
+    font-size: 1.3em;
+  }
+  .favIcon {
+    font-size: 17px;
+    cursor: pointer;
+    font-size: 1.5em;
+  }
+}
