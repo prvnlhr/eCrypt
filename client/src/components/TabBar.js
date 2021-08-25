@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import tabStyles from "../css/tabBar.module.css";
 
 const TabBar = ({ fieldLength }) => {
-  const searchResultArray = useSelector((state) => state.search.searchResults);
+  const searchResultArray = useSelector((state) => state.searchResults.searchResults);
   const location = useLocation();
   const indicatorRef = useRef(null);
   const nav1 = useRef(null);
@@ -21,7 +21,7 @@ const TabBar = ({ fieldLength }) => {
   // const [currActiveLink, setCurrActiveLink] = useState();
 
   useEffect(() => {
-    console.log(location.pathname);
+    // console.log(location.pathname);
     // console.log(nav1.current);
     // console.log(nav2.current);
     // console.log(nav3.current);

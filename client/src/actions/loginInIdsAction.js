@@ -11,6 +11,9 @@ import {
   PROCESS_START,
   PROCESS_END,
   PROCESS_CLEAR,
+  EDIT_SEARCH_ITEM,
+  DELETE_SEARCH_ITEM,
+  TOGGLE_SEARCH_FAV,
 } from "./types";
 import * as api from "../api";
 import moment from "moment";
@@ -117,7 +120,8 @@ export const addNewLoginId = (newLoginData, user_id) => async (dispatch) => {
 
 // EDIT LOGIN ID
 export const editLoginId =
-  (loginId_id, oldLoginIdData, loginIdData, userId) => async (dispatch) => {
+  (loginId_id, oldLoginIdData, loginIdData, userId, searchListArrayLength) =>
+  async (dispatch) => {
     dispatch(loadingSetter(true, "loginId", loginId_id, "edit", ""));
     dispatch({
       type: OPERATION_START,
@@ -127,17 +131,17 @@ export const editLoginId =
     });
 
     try {
-      // ______________
-
-      // ______________
-
       const response = await api.editLoginId(loginId_id, loginIdData);
-
       dispatch({
         type: EDIT_LOGIN_ID,
         payload: loginIdData,
       });
-
+      if (searchListArrayLength > 0) {
+        dispatch({
+          type: EDIT_SEARCH_ITEM,
+          payload: loginIdData,
+        });
+      }
       dispatch({
         type: OPERATION_END,
         message: "loginIdEditSuccess",
@@ -212,6 +216,11 @@ export const deleteLoginId =
         type: DELETE_LOGIN_ID,
         payload: loginIdsData,
       });
+      dispatch({
+        type: DELETE_SEARCH_ITEM,
+        payload: loginData,
+      });
+
 
       dispatch({
         type: OPERATION_END,
@@ -251,6 +260,7 @@ export const deleteLoginId =
         payload: dynamicActivity,
       });
     } catch (error) {
+      console.log(error)
       dispatch(loadingSetter(false, "loginId", loginCardId, "delete", false));
 
       const failureMsg = error.response.data.msg;

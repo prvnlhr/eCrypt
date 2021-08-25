@@ -11,14 +11,14 @@ const API = axios.create({
 // const API = axios.create({ baseURL: "http://localhost:9000" });
 
 const reqHandler = (request) => {
-  console.log("request", request);
+  // console.log("request", request);
   return request;
 };
 const resHandler = (response) => {
   if (response.status === 401) {
     console.log("401 error");
   }
-  console.log("response", response);
+  // console.log("response", response);
   return response;
 };
 const errorHandler = (error) => {
@@ -39,7 +39,7 @@ const errorHandler = (error) => {
         withCredentials: true,
       })
       .then((res) => {
-        console.log("res", res);
+        // console.log("res", res);
         if (res.status === 200) {
           // console.log("res Hogaya", res.data);
           store.dispatch(updateToken(res.data));

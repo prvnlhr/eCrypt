@@ -15,6 +15,9 @@ import {
   PROCESS_START,
   PROCESS_END,
   PROCESS_CLEAR,
+  EDIT_SEARCH_ITEM,
+  DELETE_SEARCH_ITEM,
+  TOGGLE_SEARCH_FAV,
 } from "./types";
 import {
   loadingSetter,
@@ -149,7 +152,8 @@ export const addNewCard = (newCardData, user_id) => async (dispatch) => {
 
 //EDIT CARD
 export const editCard =
-  (card_id, cardData, userId, oldCardData) => async (dispatch) => {
+  (card_id, cardData, userId, oldCardData, searchListArrayLength) =>
+  async (dispatch) => {
     dispatch(loadingSetter(true, "card", card_id, "edit", ""));
 
     dispatch({
@@ -165,6 +169,12 @@ export const editCard =
         type: EDIT_CARD,
         payload: cardData,
       });
+      if (searchListArrayLength > 0) {
+        dispatch({
+          type: EDIT_SEARCH_ITEM,
+          payload: cardData,
+        });
+      }
       dispatch(loadingSetter(false, "card", card_id, "edit", true));
       dispatch({
         type: OPERATION_END,
@@ -236,6 +246,10 @@ export const deleteCard = (cardData, card_id, user_id) => async (dispatch) => {
     dispatch({
       type: DELETE_CARD,
       payload: cardsData,
+    });
+    dispatch({
+      type: DELETE_SEARCH_ITEM,
+      payload: cardData,
     });
     dispatch({
       type: OPERATION_END,

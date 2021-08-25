@@ -50,6 +50,9 @@ const LoginId = ({
   const [currLoginIdData, setCurrLoginIdData] = useState();
   const loadState = useSelector((state) => state.loading);
   const { itemId, place, isLoading, process, success } = loadState;
+  const searchResultArray = useSelector(
+    (state) => state.searchResults.searchResults
+  );
 
   useEffect(() => {
     if (loginIdDataToEdit) {
@@ -80,7 +83,15 @@ const LoginId = ({
     dispatch(loginIdFavToggle(loginCardId, isFav));
   };
   const save = (id) => {
-    dispatch(editLoginId(id, oldLoginIdData, loginData, userId));
+    dispatch(
+      editLoginId(
+        id,
+        oldLoginIdData,
+        loginData,
+        userId,
+        searchResultArray.length
+      )
+    );
   };
 
   const confirmDelete = (loginCardId) => {

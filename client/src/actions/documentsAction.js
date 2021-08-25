@@ -18,6 +18,9 @@ import {
   OPERATION_END,
   PROCESS_START,
   PROCESS_END,
+  EDIT_SEARCH_ITEM,
+  DELETE_SEARCH_ITEM,
+  TOGGLE_SEARCH_FAV,
 } from "./types";
 import {
   loadingSetter,
@@ -128,7 +131,8 @@ export const addNewDoc = (data, doc_title, userId) => async (dispatch) => {
 };
 // EDIT DOC TITLE
 export const editDoc =
-  (doc_Id, userId, docData, oldDocData) => async (dispatch) => {
+  (doc_Id, userId, docData, oldDocData, searchListArrayLength) =>
+  async (dispatch) => {
     dispatch(loadingSetter(true, "doc", doc_Id, "edit", ""));
     console.log("at editDoc Action", doc_Id, userId, docData, oldDocData);
     try {
@@ -139,6 +143,12 @@ export const editDoc =
         id: doc_Id,
         operation: "edit",
       });
+      if (searchListArrayLength > 0) {
+        dispatch({
+          type: EDIT_SEARCH_ITEM,
+          payload: docData,
+        });
+      }
       dispatch(loadingSetter(false, "doc", doc_Id, "edit", true));
 
       const d = moment().format("LLL");
@@ -180,7 +190,7 @@ export const editDoc =
 
 //DELETE DOC
 export const deleteDoc =
-  (cloud_id, user_id, doc_id, doc_title) => async (dispatch) => {
+  (cloud_id, user_id, doc_id, doc_title,docData) => async (dispatch) => {
     dispatch(loadingSetter(true, "doc", doc_id, "delete", ""));
 
     dispatch({
@@ -212,6 +222,11 @@ export const deleteDoc =
         type: DELETE_DOC,
         payload: docsArray,
       });
+      dispatch({
+        type: DELETE_SEARCH_ITEM,
+        payload: docData,
+      });
+
 
       dispatch({
         type: PROCESS_END,

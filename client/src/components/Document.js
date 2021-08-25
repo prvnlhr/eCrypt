@@ -60,7 +60,7 @@ const Document = ({
   );
 
   useEffect(() => {
-    console.log(doc);
+    // console.log(doc);
     setCurrDocData(doc);
     setOldDocData(doc);
     // console.log(currDocData);
@@ -82,7 +82,7 @@ const Document = ({
   };
 
   const save = (id) => {
-    console.log(oldDocData)
+    console.log(oldDocData);
     dispatch(editDoc(id, userId, currDocData, oldDocData));
   };
   const handleMaximize = () => {

@@ -349,7 +349,7 @@ export const authResponseClear = () => {
 };
 
 export const tokenSetter = (token) => {
-  console.log("token", token);
+  // console.log("token", token);
   return {
     type: TOKEN_SET,
     token: token,

@@ -71,6 +71,12 @@ export const PROCESS_CLEAR = "PROCESS_CLEAR";
 //FOR RECENT ACTIVITY LIST
 export const ADD_ACTIVITY = "ADD_ACTIVITY";
 export const FETCH_ACTIVITIES = "FETCH_ACTIVITIES";
+
+//FOR SEARCHI_TEM CRUD
+export const EDIT_SEARCH_ITEM = "EDIT_SEARCH_ITEM";
+export const TOGGLE_SEARCH_FAV = "TOGGLE_SEARCH_FAV";
+export const DELETE_SEARCH_ITEM = "DELETE_SEARCH_ITEM";
+
 //______________________________________________________________________________
 //
 //

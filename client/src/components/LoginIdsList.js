@@ -67,8 +67,7 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
   return (
     <div className={styles.loginsList}>
       <div className={styles.contentContainer} ref={node}>
-
-      {/* <LoginIdSkeleton /> */}
+        {/* <LoginIdSkeleton /> */}
 
         {isLoading === true &&
         place === "loginIdList" &&

@@ -19,7 +19,6 @@ export default function cards(state = initialState, action) {
         cards: action.payload,
       };
     case FETCH_CARDS:
-
       return {
         ...state,
         cards: action.payload,

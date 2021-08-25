@@ -27,7 +27,7 @@
   z-index: 3;
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 10px 20px 0px;
 }
 .activityList::-webkit-scrollbar {
   display: none;

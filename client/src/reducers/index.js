@@ -25,7 +25,7 @@ export default combineReducers({
   auth: authReducer,
   token: tokenReducer,
   notification: notificationReducer,
-  search: searchReducer,
+  searchResults: searchReducer,
   activities: activityReducer,
   crud: crudReducer,
   process: processReducer,

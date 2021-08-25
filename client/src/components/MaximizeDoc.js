@@ -41,7 +41,9 @@ const MaximizeDoc = ({
 
   const crud = useSelector((state) => state.crud);
   const user = useSelector((state) => state.user.user);
-  const searchResultArray = useSelector((state) => state.search.searchResults);
+  const searchResultArray = useSelector(
+    (state) => state.searchResults.searchResults
+  );
 
   //   const [showHeaderFooter, setShowHeaderFooter] = useState(false);
   const [docEditMode, setDocEditMode] = useState(false);
@@ -54,19 +56,18 @@ const MaximizeDoc = ({
 
   const handleImageClick = () => {
     // console.log(fieldLength);
-    if (location.pathname === "/documents" && fieldLength <= 0) {
-      setShowHeaderFooter(!showHeaderFooter);
+    if (location.pathname === "/favorites/favoritesDocs" && fieldLength <= 0) {
       //   console.log("img clicked", showHeaderFooter);
-    } else {
       return;
     }
+    setShowHeaderFooter(!showHeaderFooter);
   };
   const handleEditButtonClicked = () => {
     setDocEditMode(true);
   };
 
   const handleImageSave = () => {
-    dispatch(editDoc(imageData._id, user._id, imageData, oldDocData));
+    dispatch(editDoc(imageData._id, user._id, imageData, oldDocData, searchResultArray.length));
     setDocEditMode(false);
   };
   const handleCancelBtnClicked = () => {
@@ -87,7 +88,8 @@ const MaximizeDoc = ({
         imageData.cloudinary_id,
         user._id,
         imageData._id,
-        imageData.imageName
+        imageData.imageName,
+        imageData
       )
     );
     setDeleteModalShow(!deleteModalShow);

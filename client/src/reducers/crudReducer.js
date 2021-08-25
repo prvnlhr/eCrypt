@@ -18,7 +18,7 @@ const operation = (state = initialAuthState, action) => {
         operation: action.operation,
       };
     case OPERATION_END:
-      console.log(action);
+      // console.log(action);
       return {
         ...state,
         message: action.message,

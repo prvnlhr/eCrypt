@@ -5,8 +5,8 @@ const ActivityList = ({ activities }) => {
   // console.log(activities.activities);
   return (
     <div className={styles.activityList}>
-      {activities.activities.map((activity) => (
-        <ActivityComponent activity={activity} />
+      {activities.activities.map((activity, index) => (
+        <ActivityComponent key={index} activity={activity} />
       ))}
     </div>
   );

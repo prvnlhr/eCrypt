@@ -6,13 +6,14 @@ export const fetchActivity = (user_id) => async (dispatch) => {
   try {
     const response = await api.fetchUserActivities(user_id);
     const activitiesData = response.data.reverse();
-    console.log("Actvity action get", activitiesData);
+    // console.log("Actvity action get", activitiesData);
 
     dispatch({
       type: FETCH_ACTIVITIES,
       payload: activitiesData,
     });
   } catch (error) {
+    console.log("Activity action get",error)
     const failureMsg = error.response.data.msg;
     dispatch({
       type: ERROR_MESSAGE,

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const AuthenticatedRoute = ({ component }) => {
   const auth = useSelector((state) => state.auth);
   const { isLogged } = auth;
-  console.log(isLogged);
+  // console.log(isLogged);
   const Component = component;
   return isLogged === true ? (
     <Component />

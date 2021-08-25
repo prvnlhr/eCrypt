@@ -31,15 +31,13 @@ export default function loginsIds(state = initialState, action) {
       };
     //Editing
     case EDIT_LOGIN_ID:
-      const newArray = state.loginIds.map(
-        (loginId) => {
-          if (loginId._id === action.payload._id) {
-            return action.payload;
-          } else {
-            return loginId;
-          }
+      const newArray = state.loginIds.map((loginId) => {
+        if (loginId._id === action.payload._id) {
+          return action.payload;
+        } else {
+          return loginId;
         }
-      );
+      });
       return {
         loginIds: newArray,
       };

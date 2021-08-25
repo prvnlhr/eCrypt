@@ -26,7 +26,7 @@ const ContentDisplay = ({
   setMaximizeOrNot,
   showHeaderFooter,
   setShowHeaderFooter,
-  currDeletingDocId
+  currDeletingDocId,
 }) => {
   const dispatch = useDispatch();
 
@@ -48,7 +48,7 @@ const ContentDisplay = ({
   }, [currentId, dispatch, userId]);
 
   useEffect(() => {
-    console.log(fieldLength);
+    // console.log(fieldLength);
   }, [fieldLength]);
 
   const loginIdsArray = useSelector((state) => state.logins.loginIds);
@@ -56,20 +56,21 @@ const ContentDisplay = ({
   const docsArray = useSelector((state) => state.docs.docs);
   const activitiesArray = useSelector((state) => state.activities);
 
-  
   const favoritesLoginsArray = useSelector(
     (state) => state.favorites.favoriteLoginsIds
   );
   const favoritesCardsArray = useSelector(
     (state) => state.favorites.favoriteCards
   );
-  
+
   const favoritesDocsArray = useSelector(
     (state) => state.favorites.favoriteDocs
-    );
-    const searchResultArray = useSelector((state) => state.search.searchResults);
-    
-    console.log(activitiesArray)
+  );
+  const searchResultArray = useSelector(
+    (state) => state.searchResults.searchResults
+  );
+
+  // console.log(activitiesArray);
   return (
     <div className={styles.contentDisplay}>
       {searchResultArray.length > 0 && fieldLength > 0 ? (
@@ -78,6 +79,12 @@ const ContentDisplay = ({
           setHeading={setHeading}
           setImageData={setImageData}
           setMaximizeOrNot={setMaximizeOrNot}
+          imageData={imageData}
+          setImageData={setImageData}
+          maximizeOrNot={maximizeOrNot}
+          setMaximizeOrNot={setMaximizeOrNot}
+          showHeaderFooter={showHeaderFooter}
+          setShowHeaderFooter={setShowHeaderFooter}
           // maxImg={maxImg}
           // setMaxImg={setMaxImg}
         />

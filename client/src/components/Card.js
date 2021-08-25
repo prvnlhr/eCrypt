@@ -33,6 +33,9 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
   // const process = useSelector((state) => state.process);
   const loadState = useSelector((state) => state.loading);
   const { itemId, place, isLoading, process, success } = loadState;
+  const searchResultArray = useSelector(
+    (state) => state.searchResults.searchResults
+  );
 
   // determining the card type___________
   const cardNumber = card.cardNo;
@@ -73,7 +76,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
     dispatch(cardFavToggle(cardId, isFav));
   };
   const save = (id) => {
-    dispatch(editCard(id, cardData, userId, oldCardData));
+    dispatch(editCard(id, cardData, userId, oldCardData,searchResultArray.length));
   };
 
   const confirmDelete = (cardId) => {
