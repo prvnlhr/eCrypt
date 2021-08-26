@@ -11,6 +11,8 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import styles from "../../css/auth/resetPage.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
+
 const initialState = {
   password: "",
   confirmPassword: "",
@@ -124,13 +126,17 @@ const ResetPassword = () => {
         </div>
 
         <div className={styles.buttonWrapper}>
-          <button type="submit">
+          <motion.button 
+          whileTap={{ scale: 0.95 }}
+
+          type="submit"
+          >
             {place === "resetPassword" && isLoading === true ? (
               <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Reset now</p>
             )}
-          </button>
+          </motion.button>
         </div>
         <div className={styles.BottomLinkWrapper}>
           <p>

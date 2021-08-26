@@ -6,6 +6,8 @@ import styles from "../../css/auth/signInPageNew.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { getToken } from "../../actions/auth";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
+
 const initialState = {
   email: "",
   password: "",
@@ -103,13 +105,16 @@ const SignInPage = () => {
         </div>
 
         <div className={styles.buttonWrapper}>
-          <button type="submit">
+          <motion.button 
+          whileTap={{ scale: 0.95 }}
+          type="submit"
+          >
             {place === "login" && isLoading === true ? (
               <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Sign In</p>
             )}
-          </button>
+          </motion.button>
         </div>
         <div className={styles.BottomLinkWrapper}>
           <p>

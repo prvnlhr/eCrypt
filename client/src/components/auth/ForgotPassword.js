@@ -11,6 +11,8 @@ import { forgotPassword } from "../../actions/auth";
 import styles from "../../css/auth/forgotPass.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
+
 
 const initialState = {
   email: "",
@@ -82,13 +84,17 @@ const ForgotPassword = () => {
         </div>
 
         <div className={styles.buttonWrapper}>
-          <button type="submit">
+          <motion.button 
+          whileTap={{ scale: 0.95 }}
+
+          type="submit"
+          >
             {place === "forgotPassword" && isLoading === true ? (
               <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Send email</p>
             )}
-          </button>
+          </motion.button>
         </div>
         <div className={styles.BottomLinkWrapper}>
           <p>

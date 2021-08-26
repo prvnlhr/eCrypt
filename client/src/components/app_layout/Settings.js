@@ -11,8 +11,12 @@ import {
 import { updateProfile } from "../../actions/userAction";
 import { CircleSpinner } from "react-spinners-kit";
 import styles from "../../css/app_layout/settings.module.css";
-import { authResponseClear, authErrorResponseHandler } from "../../actions/auth";
+import {
+  authResponseClear,
+  authErrorResponseHandler,
+} from "../../actions/auth";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
 
 const Settings = ({ setHeading }) => {
   const dispatch = useDispatch();
@@ -239,14 +243,18 @@ const Settings = ({ setHeading }) => {
         <div className={styles.profileButtonContainer}>
           {editState.inputState && editState.value === 1 ? (
             <>
-              <button className={styles.confirmBtn} onClick={handleEditProfile}>
+          
+              <motion.button  
+              whileTap={{ scale: 0.95 }}
+              className={styles.confirmBtn} onClick={handleEditProfile}>
                 {place === "updateProfile" && isLoading === true ? (
                   <CircleSpinner size={12} color="white" loading={true} />
                 ) : (
                   "save changes"
                 )}
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+              whileTap={{ scale: 0.95 }}
                 className={styles.cancelBtn}
                 onClick={() => {
                   switchEditMode(false, false, 0);
@@ -255,18 +263,19 @@ const Settings = ({ setHeading }) => {
                 }}
               >
                 cancel
-              </button>
+              </motion.button>
             </>
           ) : (
             <>
-              <button
+              <motion.button
+              whileTap={{ scale: 0.95 }}
                 className={styles.editProfileBtn}
                 onClick={() => {
                   switchEditMode(true, true, 1);
                 }}
               >
                 Edit Profile
-              </button>
+              </motion.button>
             </>
           )}
         </div>
@@ -318,7 +327,8 @@ const Settings = ({ setHeading }) => {
                 ></input>
               </div>
               <div className={styles.passwordChangeButtonDiv}>
-                <button
+                <motion.button
+                whileTap={{ scale: 0.95 }}
                   className={styles.confirmBtn}
                   onClick={handlePasswordChange}
                 >
@@ -327,8 +337,9 @@ const Settings = ({ setHeading }) => {
                   ) : (
                     "confirm"
                   )}
-                </button>
-                <button
+                </motion.button>
+                <motion.button
+                whileTap={{ scale: 0.95 }}
                   className={styles.cancelBtn}
                   onClick={() => {
                     switchEditMode(false, false, 0);
@@ -336,18 +347,19 @@ const Settings = ({ setHeading }) => {
                   }}
                 >
                   cancel
-                </button>
+                </motion.button>
               </div>
             </>
           ) : (
-            <button
+            <motion.button
+            whileTap={{ scale: 0.95 }}
               className={styles.changePassBtn}
               onClick={() => {
                 switchEditMode(true, true, 2);
               }}
             >
               Change password
-            </button>
+            </motion.button>
           )}
         </div>
       </div>
@@ -393,7 +405,8 @@ const Settings = ({ setHeading }) => {
               </div>
 
               <div className={styles.deleteBtnDiv}>
-                <button
+                <motion.button
+                whileTap={{ scale: 0.95 }}
                   className={styles.confirmBtn}
                   onClick={handleAccountDelete}
                 >
@@ -402,8 +415,9 @@ const Settings = ({ setHeading }) => {
                   ) : (
                     "confirm"
                   )}
-                </button>
-                <button
+                </motion.button>
+                <motion.button
+                whileTap={{ scale: 0.95 }}
                   className={styles.cancelBtn}
                   onClick={() => {
                     switchEditMode(false, false, 0);
@@ -411,7 +425,7 @@ const Settings = ({ setHeading }) => {
                   }}
                 >
                   cancel
-                </button>
+                </motion.button>
                 <br />
               </div>
             </>
@@ -426,12 +440,13 @@ const Settings = ({ setHeading }) => {
                 You will be logged out after deleting your account
               </p>
               <br />
-              <button
+              <motion.button
+              whileTap={{ scale: 0.95 }}
                 className={styles.deleteAccountBtn}
                 onClick={() => switchEditMode(true, true, 3)}
               >
                 Delete Account
-              </button>
+              </motion.button>
             </>
           )}
         </div>

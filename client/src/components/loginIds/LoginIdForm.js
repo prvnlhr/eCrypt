@@ -250,7 +250,8 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
         </div>
         {/* ___BUTTON_________ */}
         <div className={styles.buttonWrapper}>
-          <button
+          <motion.button
+          whileTap={{ scale: 0.95 }}
             type="submit"
             onClick={confirmSave}
             disabled={isLoading === true ? true : false}
@@ -260,7 +261,7 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
             ) : (
               <p>{btnText}</p>
             )}
-          </button>
+          </motion.button>
         </div>
       </form>
     </motion.div>

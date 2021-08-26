@@ -287,7 +287,9 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
         </div>
         {/* ___BUTTON_________ */}
         <div className={styles.buttonWrapper}>
-          <button
+          <motion.button
+          whileTap={{ scale: 0.95 }}
+
             type="submit"
             onClick={confirmSave}
             disabled={process.inProcess ? true : false}
@@ -297,7 +299,7 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
             ) : (
               <p>{btnText}</p>
             )}
-          </button>
+          </motion.button>
         </div>
       </form>
     </motion.div>

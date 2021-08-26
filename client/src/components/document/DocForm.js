@@ -70,7 +70,7 @@ const DocForm = ({ formMode, setFormMode }) => {
       initial={false}
       variants={variants}
       animate={formMode ? "open" : "closed"}
-      transition={{ type: "tween", duration: 0.1 }}
+      transition={{ duration: 0.1 }}
       className={styles.formComponent}
     >
       <form className={styles.formTag} onSubmit={handleFormSubmit}>
@@ -114,6 +114,7 @@ const DocForm = ({ formMode, setFormMode }) => {
           <div className={styles.inputDiv}>
             <input
               className={styles.inputField}
+              required
               type="text"
               id="name"
               onChange={(e) => setName(e.target.value)}
@@ -121,14 +122,14 @@ const DocForm = ({ formMode, setFormMode }) => {
           </div>
         </div>
         <div className={styles.buttonWrapper}>
-          <button type="submit">
+          <motion.button whileTap={{ scale: 0.95 }} type="submit">
             <Icon
               icon="eva:arrow-circle-up-outline"
               color="white"
               className={styles.btnIcon}
             />
             <p>Upload</p>
-          </button>
+          </motion.button>
         </div>
       </form>
     </motion.div>

@@ -292,7 +292,6 @@
   font-family: "Quicksand", sans-serif;
   /* font-family: 'Montserrat', sans-serif; */
 
-
   /* font-family: "Share Tech Mono", monospace; */
   /* font-family: 'Archivo', sans-serif; */
 
@@ -567,6 +566,7 @@
 }
 
 .checkIconDiv {
+  position: relative;
   width: 50%;
   height: 100%;
   display: flex;
@@ -577,8 +577,20 @@
   /* z-index: 23; */
   /* border: 1px solid black; */
   background: none;
+  /* border-radius: 50%; */
   /*  */
+  /* z-index: 1; */
 }
+/* .checkIconDiv::before {
+  position: absolute;
+  content: "";
+
+  width: 60%;
+  height: 60%;
+  background-color: red;
+  border-radius: 50%;
+  z-index: -1;
+} */
 
 .favIcon {
   font-size: 17px;

@@ -11,13 +11,9 @@
   z-index: 3;
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 20px 0px 20px 0px;
-  width: 100%;
   height: 60%;
   height: 100%;
-
   /* border: 1px solid black; */
-
   overflow-y: scroll;
   display: flex;
   flex-direction: column;

@@ -7,6 +7,8 @@ import styles from "../../css/auth/signUpPageNew.module.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon } from "@iconify/react";
+import { motion } from "framer-motion";
+
 
 const initialState = {
   firstName: "",
@@ -138,13 +140,16 @@ const SignUpPage = () => {
           </div>
         </div>
         <div className={styles.buttonWrapper}>
-          <button type="submit">
+          <motion.button 
+          whileTap={{ scale: 0.95 }}
+          type="submit"
+          >
             {place === "signUp" && isLoading === true ? (
               <CircleSpinner size={15} color="white" loading={true} />
             ) : (
               <p>Sign In</p>
             )}
-          </button>
+          </motion.button>
         </div>
         <div className={styles.BottomLinkWrapper}>
           <p to="/login">

@@ -392,10 +392,10 @@
 .inputContainer {
   width: 200px;
   /* min-width: 100px; */
-  height: 25px;
+  height: 28px;
   /* border: 1px solid #9baece96; */
   /* border: 1.5px solid black; */
-  border: 1px solid #dbdbe3;
+  border: 1px solid #dbdbe35e;
 
   margin: 5px 5px 5px 5px;
   display: flex;

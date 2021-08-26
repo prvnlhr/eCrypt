@@ -29,19 +29,18 @@
   margin: 0px 0px 0px 0px;
   z-index: 2;
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   align-items: flex-start;
 }
 .rightPortion {
   grid-area: rightPortion;
-
   position: relative;
   width: 100%;
   height: 100%;
   min-width: 100%;
   min-height: 100%;
 
-  border-bottom: 1px solid rgba(158, 157, 157, 0.514);
+  /* border-bottom: 1px solid rgba(158, 157, 157, 0.514); */
 
   /* border: 1px solid rgba(112, 128, 144, 0.336); */
   /* background-color: blue; */
@@ -59,6 +58,16 @@
     "bottomWrapper";
   box-sizing: border-box;
   grid-row-gap: 0px;
+}
+.rightPortion::after {
+  position: absolute;
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: rgba(112, 128, 144, 0.336);
+  left: -30px;
+  bottom: 0px;
+  z-index: 1;
 }
 .dateContainer {
   position: relative;
@@ -120,7 +129,7 @@
   height: 100%;
   width: 1px;
   background-color: rgba(112, 128, 144, 0.336);
-  right: 20px;
+  left: 20px;
   top: 0px;
   z-index: 1;
 }
@@ -143,7 +152,7 @@
   justify-content: flex-start;
   align-items: flex-end;
   box-sizing: border-box;
-  padding: 0px 0px 0px 10px;
+  padding: 0px 0px 0px 0px;
 }
 .timeDiv {
   position: relative;
@@ -183,7 +192,7 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 0px 0px 0px 10px;
+  padding: 0px 0px 0px 0px;
 }
 .categoryDiv {
   position: relative;
@@ -260,7 +269,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   overflow-y: scroll;
-  padding: 5px 0px 10px 10px;
+  padding: 5px 0px 10px 0px;
 }
 .bottomWrapper::-webkit-scrollbar {
   display: none;
@@ -291,7 +300,7 @@
   justify-content: flex-start;
   align-items: center;
   /* margin: 0px 5px 0px 5px; */
-  padding: 0px 0px 0px 5px;
+  padding: 0px 0px 0px px;
   box-sizing: border-box;
   /* border: 1px solid gray; */
   /* border-radius: 5px; */
