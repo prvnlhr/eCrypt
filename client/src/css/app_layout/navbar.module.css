@@ -103,7 +103,7 @@
   font-weight: 650;
   font-family: "Quicksand", sans-serif;
   font-size: 16px;
-  color: #4cd7f6;
+  color: #00b7fd;
   margin: 0px 0px 0px 0px;
 }
 .lgBtn {
@@ -355,7 +355,7 @@
   font-weight: 650;
 }
 .logoText span {
-  color: #4cd7f6;
+  color: #00b7fd;
   font-size: 23px;
   /* font-weight: 700; */
   /* margin: 0px 0px -10px 0px; */
@@ -521,10 +521,10 @@
   cursor: pointer;
 }
 ::placeholder {
-  font-family: "Nunito", sans-serif;
+  font-family: "Quicksand", sans-serif;
   color: rgb(214, 215, 216);
   /* font-weight: 550; */
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
   font-size: 13px;
 }
 
@@ -554,6 +554,6 @@
     /* border: 1px solid red; */
   }
   .leftPortion {
-    padding-left: 5px;
+    padding-left: 8px;
   }
 }

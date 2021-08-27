@@ -105,6 +105,7 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
           {searchMode ? (
             <div className={styles.inputDiv}>
               <input
+              className={styles.searchInput}
                 value={searchQuery}
                 placeholder="Search"
                 onChange={(e) => setQuery(e.target.value)}
@@ -118,7 +119,7 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
             </div>
           ) : (
             <div onClick={switchSearchMode} className={styles.searchIconDiv}>
-              <RiSearch2Line fontSize="16px" color="#4CD7F6" />
+              <RiSearch2Line fontSize="16px" color="#00b7fd" />
             </div>
           )}
         </div>

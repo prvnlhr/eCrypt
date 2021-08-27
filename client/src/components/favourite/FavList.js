@@ -43,7 +43,7 @@ const FavList = ({
       <div className={styles.navHeaderContainer}>
         <NavLink
           activeStyle={{
-            backgroundColor: "#4CD7F6",
+            backgroundColor: "#00b7fd",
             color: "white",
             borderRadius: "20px",
             width: "100px",
@@ -56,7 +56,7 @@ const FavList = ({
         </NavLink>
         <NavLink
           activeStyle={{
-            backgroundColor: "#4CD7F6",
+            backgroundColor: "#00b7fd",
             color: "white",
             width: "100px",
           }}
@@ -67,7 +67,7 @@ const FavList = ({
         </NavLink>
         <NavLink
           activeStyle={{
-            backgroundColor: "#4CD7F6",
+            backgroundColor: "#00b7fd",
             color: "white",
             width: "110px",
           }}

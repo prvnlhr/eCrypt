@@ -16,6 +16,14 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(4px); */
   /* background-color: #f4fff9; */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  box-sizing: border-box;
 }
 
 .settingsComponent::-webkit-scrollbar {
@@ -23,26 +31,37 @@
 }
 
 .headerDiv {
+  position: relative;
   grid-row-start: 1;
   grid-row-end: 2;
   width: 100%;
   height: 100%;
-  border-bottom: 1px solid #4cd7f6;
+  /* border: 1px solid #00b7fd; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
   z-index: 10;
   /* margin: 0px 0px 10% 0px; */
 }
+.headerDiv::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  height: 1px;
+  background-color: #00b7fd;
+  border-radius: 10px;
+  left: 10px;
+  margin: 0px 10px 0px 0px;
+}
 .headingText {
   margin: 0px 0px 0px 10px;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
   color: black;
   font-weight: 650;
   letter-spacing: 0.2px;
-  font-size: 15px;
+  font-size: 19px;
 }
 .notificationDiv {
   grid-row-start: 2;
@@ -115,18 +134,21 @@
   z-index: 9;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
+  box-sizing: border-box;
 }
 /* __PROFILE_____________________________________________________________________ */
 .profileContainer {
-  /* border: 1px solid rgba(182, 131, 131, 0.18); */
+  /* border-bottom: 1px solid rgba(112, 128, 144, 0.295); */
   width: 90%;
   height: 300px;
   min-height: 300px;
   margin: 10px 0px 10px 0px;
   display: grid;
   grid-template-rows: 30px 40px 160px 70px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* background-color: white; */
+  box-sizing: border-box;
+  /* padding-left: 20px; */
 }
 
 .formContainer {
@@ -155,7 +177,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 650;
   color: gray;
 }
@@ -167,7 +189,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 650;
   color: gray;
 
@@ -177,7 +199,6 @@
   grid-area: firstNameInput;
   width: 88%;
   height: 90%;
-  /* border: 1px solid black; */
   display: flex;
   /* justify-content: flex-start; */
   align-items: center;
@@ -185,14 +206,14 @@
   padding-left: 2%;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
   color: slategray;
   font-weight: 550;
   letter-spacing: 0.2px;
-  font-size: 13px;
+  font-size: 14px;
   /* border: 1px solid rgb(241, 241, 241); */
   border-radius: 5px;
   border: none;
+  box-sizing: border-box;
 }
 .lastNameInput {
   grid-area: lastNameInput;
@@ -204,15 +225,13 @@
   padding-left: 2%;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
   color: slategray;
   font-weight: 550;
   letter-spacing: 0.2px;
-  font-size: 13px;
-  border: 1px solid rgb(201, 200, 200);
+  font-size: 14px;
   border-radius: 5px;
-
   border: none;
+  box-sizing: border-box;
 }
 .emailLabel {
   grid-area: emailLabel;
@@ -222,7 +241,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 650;
   color: gray;
 }
@@ -239,20 +258,13 @@
 
   font-weight: 550;
   letter-spacing: 0.2px;
-  font-size: 13px;
-  border: 1px solid rgb(201, 200, 200);
-
-  border: 1px dashed #00b7fd;
-
+  font-size: 14px;
   border-radius: 5px;
-
   border: none;
 }
 
 .activeInput {
-  border: 2px dotted #b8e2d6;
   border: 1px dashed #00b7fd;
-
   color: black;
 }
 .inactiveInput {
@@ -280,17 +292,17 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background: #4cd7f6;
+  background: #00b7fd;
+  /* background-color: #0075ff; */
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
   color: white;
   /* font-weight: 550; */
   font-size: 13px;
   letter-spacing: 0.5px;
   -webkit-text-stroke: 0.02em;
+  text-transform: capitalize;
 }
 
 /*_______CHANGE PASSWORD______________________________________________________________ */
@@ -298,15 +310,16 @@ button {
 .changePasswordContainer {
   /* border: 1px solid blue; */
   /* border: 1px solid rgba(182, 131, 131, 0.18); */
-
   width: 90%;
   height: 200px;
   min-height: 200px;
+  /* height: auto; */
   margin: 10px 0px 10px 0px;
   display: grid;
   grid-template-rows: 30px 30px 140px;
   /* background-color: white; */
-  border-radius: 10px;
+  /* border-radius: 10px; */
+  /* border-bottom: 1px solid rgba(112, 128, 144, 0.295); */
   /* grid-gap: 10%; */
 }
 
@@ -324,12 +337,15 @@ button {
   width: 200px;
   height: 30px;
   margin: 10px 10px 10px 10px;
-  border: 1px solid #b8e2d6;
-  border: 2px dotted #b8e2d6;
   border: 1px dashed #00b7fd;
-
   border-radius: 5px;
   padding-left: 2%;
+  font-family: "Quicksand", sans-serif;
+  color: black;
+  font-weight: 550;
+  letter-spacing: 0.3px;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 .passwordChangeButtonDiv {
   width: 100%;
@@ -345,18 +361,15 @@ button {
   width: 120px;
   height: 25px;
   background: none;
-  border: 1px solid black;
   border: none;
   /* border: 2px solid #1072f1; */
-
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #4cd7f6;
+  background: #00b7fd;
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
   color: white;
   /* font-weight: 550; */
   font-size: 12px;
@@ -370,7 +383,6 @@ button {
 .deleteAccountContainer {
   /* border: 1px solid green; */
   /* border: 1px solid rgba(182, 131, 131, 0.18); */
-
   width: 90%;
   height: 250px;
   min-height: 250px;
@@ -395,12 +407,14 @@ button {
   width: 200px;
   height: 30px;
   margin: 10px 10px 10px 10px;
-  border: 1px solid #b8e2d6;
-  border: 2px dotted #b8e2d6;
   border: 1px dashed #00b7fd;
-
   border-radius: 5px;
   padding-left: 2%;
+  font-family: "Quicksand", sans-serif;
+  color: black;
+  font-weight: 550;
+  letter-spacing: 0.3px;
+  font-size: 14px;
 }
 .deleteInputDiv p {
   margin: 10px 0px 0px 10px;
@@ -422,17 +436,14 @@ button {
   width: 120px;
   height: 25px;
   background: none;
-  border: 1px solid black;
   border: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #4cd7f6;
-
+  background: #00b7fd;
   border-radius: 5px;
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
   color: white;
   /* font-weight: 550; */
   letter-spacing: 0.2px;
@@ -451,8 +462,7 @@ button {
   align-items: center;
   border-radius: 5px;
   background: #b8e2d6;
-  background: #4cd7f6;
-
+  background: #00b7fd;
   border: none;
   color: white;
   /* color: black; */
@@ -482,30 +492,96 @@ button {
 ::placeholder {
   font-family: "Nunito", sans-serif;
   font-family: "Quicksand", sans-serif;
-
   color: rgb(175, 175, 175);
   font-weight: 550;
   letter-spacing: 0.2px;
   font-size: 12px;
 }
-.disclaimer {
-  font-family: "Nunito", sans-serif;
+.disclaimerDiv {
+  position: relative;
+  width: 300px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: auto;
+  padding: 5px 0px 5px 0px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  text-align: flex-start;
+  flex-direction: column;
+  /* background-color: #fee4e3; */
+  /* border: 1px solid #cf4949; */
+}
+.disclaimerText {
+  position: relative;
   font-family: "Quicksand", sans-serif;
-
-  color: rgb(139, 139, 139);
-  /* font-weight: 550; */
-  letter-spacing: 0.2px;
+  margin: 5px 0px 5px 18px;
+  /* font-weight: 500; */
   font-size: 13px;
   letter-spacing: 0.5px;
   -webkit-text-stroke: 0.02em;
+  color: #cf4949;
+  color: slategray;
+
+  text-align: flex-start;
+  /* width: auto; */
+  height: 30px;
 }
-input:focus {
-  border: 2px solid #1072f1;
+.disclaimerText1Div {
+  position: relative;
+  width: 300px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: auto;
+  padding: 0px;
+  box-sizing: border-box;
+  /* border-radius: 5px; */
+  flex-direction: row;
+  /* background-color: #fee4e3; */
+  /* border: 1px solid #cf4949; */
+  margin: 0px 0px 5px 0px;
+}
+.deleteAccIcon {
+  color: #cf4949;
+  margin: 0px 5px 0px 0px;
+}
+.disclaimerText1 {
+  position: relative;
+  font-family: "Quicksand", sans-serif;
+  margin: 0px 0px 0px 0px;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  -webkit-text-stroke: 0.02em;
+  color: black;
+  color: #cf4949;
+  text-align: flex-start;
+  /* width: auto; */
+  /* height: 30px; */
+}
+.disclaimerText::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  background-color: slategray;
+  border-radius: 50%;
+  left: -12px;
+  margin: 0px 10px 0px 0px;
+}
+
+.inputField:focus {
+  border: 2px solid #1072f1 !important;
+  /* background-color: red; */
+  outline: none;
 }
 @media screen and (max-width: 550px) {
   .editProfileBtn {
     width: 100px;
     height: 30px;
+    border: none;
   }
   .changePassBtn {
     width: 120px;
@@ -518,9 +594,11 @@ input:focus {
   .confirmBtn {
     width: 110px;
     height: 30px;
+    border: none;
   }
   .cancelBtn {
     width: 100px;
     height: 30px;
+    border: none;
   }
 }

@@ -196,7 +196,7 @@ const Settings = ({ setHeading }) => {
             <p className={styles.lastNameLabel}>Last Name</p>
 
             <input
-              className={` ${styles.firstNameInput}  ${
+              className={` ${styles.firstNameInput} ${styles.inputField} ${
                 editState.inputState === true && editState.value === 1
                   ? styles.activeInput
                   : styles.inactiveInput
@@ -209,6 +209,7 @@ const Settings = ({ setHeading }) => {
             ></input>
             <input
               className={`${styles.lastNameInput} 
+              ${styles.inputField}
                ${
                  editState.inputState === true && editState.value === 1
                    ? styles.activeInput
@@ -225,6 +226,7 @@ const Settings = ({ setHeading }) => {
             <p className={styles.emailLabel}>Email Address</p>
             <input
               className={`${styles.emailInput}
+              ${styles.inputField}
               ${
                 editState.inputState === true && editState.value === 1
                   ? styles.activeInput
@@ -243,10 +245,11 @@ const Settings = ({ setHeading }) => {
         <div className={styles.profileButtonContainer}>
           {editState.inputState && editState.value === 1 ? (
             <>
-          
-              <motion.button  
-              whileTap={{ scale: 0.95 }}
-              className={styles.confirmBtn} onClick={handleEditProfile}>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                className={styles.confirmBtn}
+                onClick={handleEditProfile}
+              >
                 {place === "updateProfile" && isLoading === true ? (
                   <CircleSpinner size={12} color="white" loading={true} />
                 ) : (
@@ -254,7 +257,7 @@ const Settings = ({ setHeading }) => {
                 )}
               </motion.button>
               <motion.button
-              whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.95 }}
                 className={styles.cancelBtn}
                 onClick={() => {
                   switchEditMode(false, false, 0);
@@ -268,7 +271,7 @@ const Settings = ({ setHeading }) => {
           ) : (
             <>
               <motion.button
-              whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.95 }}
                 className={styles.editProfileBtn}
                 onClick={() => {
                   switchEditMode(true, true, 1);
@@ -310,6 +313,7 @@ const Settings = ({ setHeading }) => {
             <>
               <div className={styles.changePasswordDiv}>
                 <input
+                className={styles.inputField}
                   name="oldPassword"
                   placeholder="Enter your old password"
                   id="oldPassword"
@@ -318,6 +322,8 @@ const Settings = ({ setHeading }) => {
                   onChange={handlePassInputChange}
                 ></input>
                 <input
+                className={styles.inputField}
+
                   name="newPassword"
                   placeholder="Enter your new password"
                   id="newPassword"
@@ -328,7 +334,7 @@ const Settings = ({ setHeading }) => {
               </div>
               <div className={styles.passwordChangeButtonDiv}>
                 <motion.button
-                whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95 }}
                   className={styles.confirmBtn}
                   onClick={handlePasswordChange}
                 >
@@ -339,7 +345,7 @@ const Settings = ({ setHeading }) => {
                   )}
                 </motion.button>
                 <motion.button
-                whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95 }}
                   className={styles.cancelBtn}
                   onClick={() => {
                     switchEditMode(false, false, 0);
@@ -352,7 +358,7 @@ const Settings = ({ setHeading }) => {
             </>
           ) : (
             <motion.button
-            whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.95 }}
               className={styles.changePassBtn}
               onClick={() => {
                 switchEditMode(true, true, 2);
@@ -395,6 +401,8 @@ const Settings = ({ setHeading }) => {
                 <p className={styles.disclaimer}>Confirm your password</p>
 
                 <input
+                className={styles.inputField}
+
                   name="oldPassword"
                   placeholder="Enter your old password"
                   id="oldPassword"
@@ -406,7 +414,7 @@ const Settings = ({ setHeading }) => {
 
               <div className={styles.deleteBtnDiv}>
                 <motion.button
-                whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95 }}
                   className={styles.confirmBtn}
                   onClick={handleAccountDelete}
                 >
@@ -417,7 +425,7 @@ const Settings = ({ setHeading }) => {
                   )}
                 </motion.button>
                 <motion.button
-                whileTap={{ scale: 0.95 }}
+                  whileTap={{ scale: 0.95 }}
                   className={styles.cancelBtn}
                   onClick={() => {
                     switchEditMode(false, false, 0);
@@ -431,17 +439,27 @@ const Settings = ({ setHeading }) => {
             </>
           ) : (
             <>
-              <p className={styles.disclaimer}>Delete account permanently</p>
-              <p className={styles.disclaimer}>
-                Deleting your account will delete your profile and all the
-                associated data
-              </p>
-              <p className={styles.disclaimer}>
-                You will be logged out after deleting your account
-              </p>
+              <div className={styles.disclaimerDiv}>
+                <div className={styles.disclaimerText1Div}>
+
+                <Icon icon="carbon:warning" className={styles.deleteAccIcon} />
+                <p className={styles.disclaimerText1}>
+                  Delete account permanently
+                </p>
+                </div>
+             
+                <p className={styles.disclaimerText}>
+                  Deleting your account will delete your profile and all the
+                  associated data
+                </p>
+                <p className={styles.disclaimerText}>
+                  You will be logged out after deleting your account
+                </p>
+              </div>
+
               <br />
               <motion.button
-              whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.95 }}
                 className={styles.deleteAccountBtn}
                 onClick={() => switchEditMode(true, true, 3)}
               >

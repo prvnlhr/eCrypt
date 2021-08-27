@@ -23,7 +23,7 @@
   z-index: 3;
   overflow-y: scroll;
   box-sizing: border-box;
-  padding: 20px 10px 20px 0px;
+  padding: 20px 10px 20px 10px;
 }
 .activityList::-webkit-scrollbar {
   display: none;
@@ -36,3 +36,8 @@
   background-color: rgb(223, 222, 222);
   left: 20%;
 } */
+@media screen and (max-width: 650px) {
+  .activityList {
+    padding: 20px 10px 20px 5px;
+  }
+}
