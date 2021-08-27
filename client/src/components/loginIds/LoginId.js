@@ -38,6 +38,8 @@ const LoginId = ({
   const [oldData, setOldData] = useState(null);
   const [inEditMode, setInEditMode] = useState(false);
   const [oldLoginIdData, setOldLoginIdData] = useState();
+  const [mode, setMode] = useState('dark');
+
   const [loginData, setLoginData] = useState({
     website: "",
     username: "",

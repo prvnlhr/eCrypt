@@ -1,6 +1,188 @@
-.formComponent {
+.formPage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  z-index: 40;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+.formPage::-webkit-scrollbar {
+  display: none;
+}
+.leftSection {
+  position: relative;
+
+  width: 50%;
+  height: 100%;
+  display: none;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  z-index: 40;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.appLogoWrapper {
   position: absolute;
-  /* position: relative; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  z-index: 45;
+  top: 50px;
+}
+.logoDiv {
+  position: relative;
+  width: 200px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+
+  box-sizing: border-box;
+  z-index: 45;
+  white-space: nowrap;
+  margin: 0px 0px 0px 0px;
+}
+.appAboutWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  z-index: 45;
+}
+
+.lineOneDiv {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+
+  box-sizing: border-box;
+  z-index: 45;
+  /* white-space: nowrap; */
+  margin: 10px 0px 0px 0px;
+}
+.lineOneDiv p {
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 30px;
+  color: #071a52;
+  font-weight: bold;
+  margin: 0px 0px 0px 0px;
+  letter-spacing: 0.3px;
+}
+.lineTwoDiv {
+  position: relative;
+  width: 100%;
+  /* height: 50px; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+
+  box-sizing: border-box;
+  z-index: 45;
+  white-space: normal;
+  margin: 10px 0px 0px 0px;
+  /* overflow-wrap: break-word; */
+  flex-wrap: wrap;
+}
+.lineTwoDiv p {
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 30px;
+  color: #071a52;
+  font-weight: bold;
+  margin: 0px 0px 0px 0px;
+  letter-spacing: 0.3px;
+}
+.lineThreeDiv {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  z-index: 45;
+  /* white-space: nowrap; */
+  margin: 10px 0px 0px 0px;
+}
+.dot {
+  color: #0075ff !important;
+  margin: 0px 1px 0px 1px !important;
+}
+.lineThreeDiv p {
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 30px;
+  color: #071a52;
+  font-weight: 900;
+  margin: 0px 0px 0px 0px;
+  letter-spacing: 0.3px;
+}
+.textOne {
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 30px;
+  color: #0075ff;
+  font-weight: bold;
+  margin: 0px 0px 0px 0px;
+  letter-spacing: 0.3px;
+}
+.textTwo {
+  font-family: "Quicksand", sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+  margin: 0px 0px 0px 0px;
+  letter-spacing: 0.3px;
+}
+
+.rightSection {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  box-sizing: border-box;
+  z-index: 40;
+  padding-top: 0px;
+}
+.formComponent {
+  /* position: absolute; */
+  position: relative;
   width: 350px;
   display: flex;
   justify-content: center;
@@ -10,14 +192,14 @@
   aspect-ratio: 4/5;
   /* top: 10%; */
   /* bottom: 0; */
-  right: 0;
-  left: 0;
+  /* right: 0; */
+  /* left: 0; */
   /* border: 1px solid rgba(114, 114, 114, 0.164); */
   border-radius: 8px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
   overflow: hidden;
   background-color: white;
   /* background-color: rgb(255, 255, 255); */
@@ -344,6 +526,9 @@ button p {
 .inputField:focus {
   /* outline: 1px solid red; */
   border: 2px solid #1072f1;
+}
+.inputField::placeholder {
+  font-family: "Quicksand", sans-serif;
 }
 @media screen and (max-width: 550px) {
   .formComponent {

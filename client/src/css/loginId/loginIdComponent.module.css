@@ -299,6 +299,12 @@
   background: #00b5fd11;
   color: #00b7fd;
 }
+.light {
+  background-color: white;
+}
+.dark {
+  background-color: #2b2c3e;
+}
 .inputField:focus {
   border: 2px solid #1072f1;
 }
