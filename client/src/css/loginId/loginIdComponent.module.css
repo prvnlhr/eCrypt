@@ -13,12 +13,7 @@
   /* justify-content: center; */
   align-items: center;
   width: 280px;
-  /* max-width: auto; */
-
-  /* min-width: 250px; */
-  /* height: auto; */
-  /* max-height: 75px; */
-  max-height: 75px;
+  height: 75px;
   padding-right: 5px;
   aspect-ratio: 3.73/1 !important;
   border-radius: 8px;
@@ -318,8 +313,7 @@
     display: grid;
     width: 83% !important;
     aspect-ratio: 3.73/1 !important;
-    min-width: 250px;
-    /* height: auto; */
+    height: auto;
     border-radius: 8px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     background-color: #ffffff;
