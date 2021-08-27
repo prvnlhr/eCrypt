@@ -10,10 +10,10 @@
 
     },
     {
-      "src": "/images/logo192.png",
+      "src": "/images/logo192.2.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "maskable"
 
     },
     {
