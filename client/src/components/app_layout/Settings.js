@@ -123,7 +123,7 @@ const Settings = ({ setHeading }) => {
       lastName: user.lastName,
       email: user.email,
     });
-    console.log(profileData);
+    // console.log(profileData);
   }, [user]);
 
   useEffect(() => {

@@ -106,7 +106,6 @@ const FavouriteCard = ({ favItem }) => {
         </button>
       </div>
 
-      <h1 className={styles.overlayFont}>{cardType.toLowerCase()}</h1>
       <div className={styles.overlayDiv}>
         <div className={styles.ring}>
           <div></div>

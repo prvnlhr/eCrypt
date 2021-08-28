@@ -252,13 +252,13 @@ export const changePassword =
     } catch (error) {
       dispatch(loadingSetter(false, "changePassword", "", "", false));
       const failureMsg = error.response.data.msg;
-      console.log("At change pass action", error);
+      dispatch(authErrorResponseHandler(failureMsg, "changePassword"));
+      console.log("At change pass action", error.response,failureMsg);
 
       // dispatch({
       //   type: ERROR_MESSAGE,
       //   message: error,
       // });
-      dispatch(authErrorResponseHandler(failureMsg, "changePassword"));
     }
   };
 //delete account api

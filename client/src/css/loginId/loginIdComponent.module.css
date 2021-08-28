@@ -347,3 +347,62 @@
     font-size: 1.5em;
   }
 }
+@media screen and (max-width: 345px) {
+  .favIcon {
+    font-size: 19px;
+    font-size: 1.3em;
+  }
+  .pencilIcon {
+    /* font-size: 17px; */
+    font-size: 1.1em;
+  }
+  .trashIcon {
+    font-size: 20px;
+    font-size: 1.1em;
+  }
+
+  .checkIcon {
+    font-size: 20px;
+    font-size: 1.2em;
+  }
+  .cancelIcon {
+    font-size: 20px;
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 300px) {
+  .favIcon {
+    font-size: 19px;
+    font-size: 1em;
+  }
+  .pencilIcon {
+    font-size: 0.8em;
+  }
+
+  .trashIcon {
+    font-size: 0.8em;
+  }
+
+  .checkIcon {
+    font-size: 20px;
+    font-size: 1.2em;
+  }
+  .cancelIcon {
+    font-size: 20px;
+    font-size: 1.2em;
+  }
+  .textDiv p {
+    font-family: "Quicksand", sans-serif;
+    margin: 0px 0px 0px 5px;
+    font-weight: 650;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+  .websiteDiv p {
+    margin: 0px 0px 0px 5px;
+    font-family: "Quicksand", sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}

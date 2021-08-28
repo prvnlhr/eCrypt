@@ -55,7 +55,7 @@ const errorHandler = (error) => {
         if (err.response.status === 401) {
           store.dispatch(logout());
         }
-        return Promise.reject(error);
+        return Promise.reject(err);
       });
   }
   return Promise.reject(error);

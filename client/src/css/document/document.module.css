@@ -156,7 +156,7 @@ backdrop-filter: blur(1px);
   /* overflow-wrap: normal; */
   /* border-radius: 0px 0px 10px 10px; */
   box-sizing: border-box;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 10px 0px 5px;
 
   /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
   /* box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048); */

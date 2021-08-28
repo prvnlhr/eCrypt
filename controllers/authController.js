@@ -190,6 +190,7 @@ const authController = {
     }
   },
   changePassword: async (req, res) => {
+    // console.log("at change PAss controller",req.body)
     try {
       const { oldPassword, newPassword } = req.body;
       const id = req.user.id;
