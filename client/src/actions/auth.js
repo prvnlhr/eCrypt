@@ -133,7 +133,6 @@ export const getToken = (history) => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
   dispatch(loadingSetter(true, "logout", "", "", ""));
-
   try {
     const res = await api.logoutUser();
     dispatch(tokenSetter(""));

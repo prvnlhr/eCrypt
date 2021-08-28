@@ -9,6 +9,7 @@ import { logout } from "../../actions/auth";
 import Navbar from "./Navbar";
 import TabBar from "./TabBar";
 import MaximizeDoc from "../document/MaximizeDoc";
+import { CircleSpinner } from "react-spinners-kit";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,8 @@ const Home = () => {
   const [maximizeOrNot, setMaximizeOrNot] = useState(false);
   const [imageData, setImageData] = useState("");
   const [showHeaderFooter, setShowHeaderFooter] = useState(false);
+  const loadState = useSelector((state) => state.loading);
+  const { place, isLoading } = loadState;
 
   // for spinner while deleting document
   const [currDeletingDocId, setCurrentDeletingDocId] = useState(null);
@@ -41,7 +44,11 @@ const Home = () => {
               <p>{user.firstName + " " + user.lastName}</p>
             </div>
             <div className={navStyles.lgOutBtnDiv} onClick={handleLogout}>
-              <p>Log Out</p>
+              {place === "logout" && isLoading === true ? (
+                <CircleSpinner size={15} color="white" loading={true} />
+              ) : (
+                <p>Log Out</p>
+              )}
             </div>
           </div>
         )}
