@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteCard, editCard } from "../../actions/cardsAction";
 import { cardFavToggle } from "../../actions/cardsAction";
 import { CircleSpinner } from "react-spinners-kit";
-import Ripples from "react-ripples";
 import styles from "../../css/card/card.module.css";
 import CardLogo, { getCardType } from "./CardLogo";
 import modalStyles from "../../css/modal/modal.module.css";
@@ -30,7 +29,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
   const [currCardData, setCurrCardData] = useState();
   // const process = useSelector((state) => state.process);
   const loadState = useSelector((state) => state.loading);
-  const { itemId, place, isLoading, process, success } = loadState;
+  const { itemId, place, isLoading, process } = loadState;
   const searchResultArray = useSelector(
     (state) => state.searchResults.searchResults
   );
@@ -54,7 +53,6 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
   }, [cardDataToEdit]);
 
   const userId = useSelector((state) => state.user.user._id);
-  const crud = useSelector((state) => state.crud);
 
   useEffect(() => {
     setCurrCardData(card);
@@ -205,6 +203,8 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
           <div className={modalStyles.dialogDiv}>
+          <Icon icon="carbon:warning" className={modalStyles.icon} />
+
             <p>Are you sure you want to delete this item permanently ?</p>
           </div>
           <div className={modalStyles.modalBtnDiv}>
@@ -228,7 +228,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
               process === "delete" ? (
                 <CircleSpinner size={12} color="white" loading={true} />
               ) : (
-                <p>Sure, Delete ! </p>
+                <p>Delete</p>
               )}
             </div>
           </div>
@@ -326,10 +326,10 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
       </div>
 
       <div className={styles.overlayDiv}>
+        <div className={styles.square}></div>
         <div className={styles.ring}>
           <div></div>
         </div>
-        <div className={styles.square}></div>
 
         <h1 className={styles.overlayFont}>{cardType}</h1>
       </div>

@@ -1,17 +1,12 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TextField, MenuItem } from "@material-ui/core";
 import { CircleSpinner } from "react-spinners-kit";
 import { motion } from "framer-motion";
 
-import { HiX, HiCheck, HiArrowNarrowRight } from "react-icons/hi";
+import { HiX } from "react-icons/hi";
 
-import {
-  addNewLoginId,
-  editLoginId,
-  clearProcess,
-} from "../../actions/loginInIdsAction";
+import { addNewLoginId, clearProcess } from "../../actions/loginInIdsAction";
 import btnStyles from "../../css/add_button/buttons.module.css";
 import styles from "../../css/loginId/loginIdFormNew.module.css";
 
@@ -251,7 +246,7 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
         {/* ___BUTTON_________ */}
         <div className={styles.buttonWrapper}>
           <motion.button
-          whileTap={{ scale: 0.95 }}
+            whileTap={{ scale: 0.95 }}
             type="submit"
             onClick={confirmSave}
             disabled={isLoading === true ? true : false}
@@ -268,101 +263,3 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   );
 };
 export default LoginIdForm;
-
-{
-  /* <div className={formStyles.formHeadingDiv}>
-        {currentId ? <p>Edit</p> : <p>Create New</p>}
-      </div>
-      <div className={formStyles.formDiv}>
-        <form className={formStyles.form} onSubmit={handleSubmit}>
-          <div className={formStyles.inputContainer}>
-            <TextField
-              select
-              fullWidth
-              name="website"
-              variant="outlined"
-              label="website"
-              size="small"
-              value={loginData.website}
-              onChange={(e) =>
-                setLoginData({ ...loginData, website: e.target.value })
-              }
-            >
-              <MenuItem classes={{ root: "MenuItem" }} value={"Amazon"}>
-                Amazon
-              </MenuItem>
-              <MenuItem value={"Apple"}>Apple</MenuItem>
-              <MenuItem value={"Apple Music"}>Apple Music</MenuItem>
-              <MenuItem value={"Dribble"}>Dribble</MenuItem>
-              <MenuItem value={"Dropbox"}>Dropbox</MenuItem>
-              <MenuItem value={"Facebook"}>Facebook</MenuItem>
-              <MenuItem value={"Google"}>Google</MenuItem>
-              <MenuItem value={"Google Drive"}>Google Drive</MenuItem>
-              <MenuItem value={"Github"}>Github</MenuItem>
-              <MenuItem value={"Instagram"}>Instagram</MenuItem>
-              <MenuItem value={"LinkedIn"}>LinkedIn</MenuItem>
-              <MenuItem value={"Netflix"}>Netflix</MenuItem>
-              <MenuItem value={"PayPal"}>PayPal</MenuItem>
-              <MenuItem value={"Pinterest"}>Pinterest</MenuItem>
-              <MenuItem value={"Quora"}>Quora</MenuItem>
-              <MenuItem value={"Slack"}>Slack</MenuItem>
-              <MenuItem value={"Snapchat"}>Snapchat</MenuItem>
-              <MenuItem value={"Spotify"}>Spotify</MenuItem>
-              <MenuItem value={"Stackoverflow"}>Stackoverflow</MenuItem>
-              <MenuItem value={"Twitter"}>Twitter</MenuItem>
-              <MenuItem value={"Youtube"}>Youtube</MenuItem>
-              <MenuItem value={"Other"}>Other</MenuItem>
-            </TextField>
-          </div>
-          <div className={formStyles.inputContainer}>
-            <TextField
-              fullWidth
-              name="username"
-              variant="outlined"
-              label="username"
-              size="small"
-              value={loginData.username}
-              onChange={(e) =>
-                setLoginData({ ...loginData, username: e.target.value })
-              }
-            />
-          </div>
-          <div className={formStyles.inputContainer}>
-            <TextField
-              fullWidth
-              name="password"
-              variant="outlined"
-              label="password"
-              size="small"
-              value={loginData.password}
-              onChange={(e) =>
-                setLoginData({ ...loginData, password: e.target.value })
-              }
-            />
-          </div>
-
-          {inProcess === false ? (
-            <button type="submit" className={btnStyles.submitBtn}>
-              <HiArrowNarrowRight fontSize="20px" />
-            </button>
-          ) : null}
-        </form>
-      </div>
-
-      <div className={formStyles.formBtnDiv}>
-        {inProcess === true ? (
-          <div className={btnStyles.save_cancel_Div}>
-            <div className={btnStyles.saveBtnDiv} onClick={confirmSave}>
-              <HiCheck fontSize="24px" />
-            </div>
-            <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
-              <HiX fontSize="16px" />
-            </div>
-          </div>
-        ) : (
-          <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
-            <HiX fontSize="15px" />
-          </div>
-        )}
-      </div> */
-}

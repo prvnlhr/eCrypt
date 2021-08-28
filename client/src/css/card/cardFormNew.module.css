@@ -275,10 +275,7 @@ button p {
 }
 @media screen and (max-width: 550px) {
   .formComponent {
-    /* width:300px; */
     width: 78%;
-
-    /* height: 400px; */
     aspect-ratio: 4/5;
   }
 }

@@ -1,8 +1,6 @@
 import {
   USER_LOGIN,
-  LOGIN_SUCCESSFUL,
   LOGIN_FAILURE,
-  GET_USER,
   USER_LOGOUT,
   DESTROY_SESSION,
 } from "../actions/types";

@@ -1,10 +1,9 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 import FavDoc from "./FavDoc";
 import listStyles from "../../css/favourite/favList.module.css";
 import noContentStyles from "../../css/document/noContentMessage.module.css";
-import { FiPlusCircle } from "react-icons/fi";
 
 const FavDocsList = ({
   favoritesDocsArray,

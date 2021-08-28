@@ -2,7 +2,6 @@ import React from "react";
 import FavouriteCard from "./FavouriteCard";
 import listStyles from "../../css/favourite/favList.module.css";
 import noContentStyles from "../../css/document/noContentMessage.module.css";
-import { FiPlusCircle } from "react-icons/fi";
 
 const FavCardList = ({ favoritesCardsArray }) => {
   return (

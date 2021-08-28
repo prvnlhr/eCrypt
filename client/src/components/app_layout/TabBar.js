@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 import { useSelector } from "react-redux";
 import tabStyles from "../../css/app_layout/tabBar.module.css";

@@ -2,19 +2,16 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { addNewCard, editCard, clearProcess } from "../../actions/cardsAction";
-import { TextField } from "@material-ui/core";
-import { HiX, HiCheck, HiArrowNarrowRight } from "react-icons/hi";
+import { addNewCard, clearProcess } from "../../actions/cardsAction";
+import { HiX } from "react-icons/hi";
 import btnStyles from "../../css/add_button/buttons.module.css";
 import styles from "../../css/card/cardFormNew.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { motion } from "framer-motion";
-import axios from "axios";
 const variants = {
   open: {
     opacity: 1,
     scale: 1,
-    width: 300,
   },
   closed: {
     // opacity: 0,
@@ -277,7 +274,7 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
               required
               type="text"
               name="user"
-              placeholder="Enter cardholder's full name"
+              placeholder="Enter cardholders full name"
               value={cardData.user}
               onChange={(e) =>
                 setCardData({ ...cardData, user: e.target.value })
@@ -288,8 +285,7 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
         {/* ___BUTTON_________ */}
         <div className={styles.buttonWrapper}>
           <motion.button
-          whileTap={{ scale: 0.95 }}
-
+            whileTap={{ scale: 0.95 }}
             type="submit"
             onClick={confirmSave}
             disabled={process.inProcess ? true : false}
@@ -306,123 +302,3 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   );
 };
 export default CardForm;
-
-{
-  /* <div className={formStyles.formHeadingDiv}>
-        {currentId ? <p>Edit</p> : <p>Create New</p>}
-      </div>
-
-      <div className={formStyles.formDiv}>
-        <form className={formStyles.form} onSubmit={handleSubmit}>
-          <div className={formStyles.inputContainer}>
-            <TextField
-              variant="outlined"
-              name="user"
-              label="user"
-              size="small"
-              value={cardData.user}
-              placeholder="user"
-              InputLabelProps={{
-                shrink: true,
-              }}
-              onChange={(e) =>
-                setCardData({ ...cardData, user: e.target.value })
-              }
-            />
-          </div>
-
-          <div className={formStyles.inputContainer}>
-            <TextField
-              variant="outlined"
-              name="bank"
-              label="bank"
-              size="small"
-              value={cardData.bank}
-              placeholder="bank"
-              onChange={(e) =>
-                setCardData({ ...cardData, bank: e.target.value })
-              }
-            />
-          </div>
-
-          <div className={formStyles.inputContainer}>
-            <TextField
-              variant="outlined"
-              name="cardNo"
-              label="cardNo"
-              size="small"
-              value={cardData.cardNo}
-              placeholder="cardNo"
-              onChange={(e) =>
-                setCardData({ ...cardData, cardNo: e.target.value })
-              }
-            />
-          </div>
-
-          <div className={formStyles.inputContainer}>
-            <TextField
-              variant="outlined"
-              name="expiry"
-              label="expiry"
-              size="small"
-              value={cardData.expiry}
-              placeholder="expiry"
-              onChange={(e) =>
-                setCardData({ ...cardData, expiry: e.target.value })
-              }
-            />
-          </div>
-
-          <div className={formStyles.inputContainer}>
-            <TextField
-              variant="outlined"
-              name="cvv"
-              label="cvv"
-              size="small"
-              value={cardData.cvv}
-              placeholder="cvv"
-              onChange={(e) =>
-                setCardData({ ...cardData, cvv: e.target.value })
-              }
-            />
-          </div>
-          <div className={formStyles.inputContainer}>
-            <TextField
-              variant="outlined"
-              name="pin"
-              label="pin"
-              size="small"
-              value={cardData.pin}
-              placeholder="pin"
-              onChange={(e) =>
-                setCardData({ ...cardData, pin: e.target.value })
-              }
-            />
-          </div>
-
-          {inProcess === false ? (
-            <button type="submit" className={btnStyles.submitBtn}>
-              <HiArrowNarrowRight fontSize="20px" />
-            </button>
-          ) : null}
-        </form>
-      </div>
-
-      <div className={formStyles.formBtnDiv}>
-        {inProcess === true ? (
-          <div className={btnStyles.save_cancel_Div}>
-            <div className={btnStyles.saveBtnDiv} onClick={confirmSave}>
-              <HiCheck fontSize="24px" />
-            </div>
-
-            <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
-              <HiX fontSize="16px" />
-            </div>
-          </div>
-        ) : (
-          <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
-            <HiX fontSize="15px" />
-          </div>
-        )}
-      </div> */
-}

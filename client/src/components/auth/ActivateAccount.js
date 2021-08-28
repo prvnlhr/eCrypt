@@ -1,14 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect } from "react";
-
 import styles from "../../css/auth/activateAccountComponent.module.css";
 import { useParams, Link } from "react-router-dom";
 import { activationEmail } from "../../actions/auth";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-
 
 const ActivateAccount = () => {
   const dispatch = useDispatch();
@@ -49,9 +46,9 @@ const ActivateAccount = () => {
         </div>
 
         <div className={styles.buttonWrapper}>
-          <motion.button 
-          whileTap={{ scale: 0.95 }}
-          onClick={handleAccountActivate}
+          <motion.button
+            whileTap={{ scale: 0.95 }}
+            onClick={handleAccountActivate}
           >
             {place === "activateAccount" && isLoading === true ? (
               <CircleSpinner size={15} color="white" loading={true} />

@@ -1,4 +1,4 @@
-import { TOKEN_ADD, TOKEN_REMOVE ,TOKEN_SET} from "../actions/types";
+import { TOKEN_SET } from "../actions/types";
 
 const initialAuthState = {
   token: "",
@@ -12,7 +12,7 @@ const token = (state = initialAuthState, action) => {
         ...state,
         token: action.token,
       };
-   
+
     default:
       return state;
   }

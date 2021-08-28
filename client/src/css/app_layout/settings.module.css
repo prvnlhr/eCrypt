@@ -476,7 +476,6 @@ button {
   width: 100px;
   height: 25px;
   background: none;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -484,7 +483,10 @@ button {
   background: #afafaf41;
   color: black;
   border: none;
+  /* border: 1px solid black; */
   font-family: "Quicksand", sans-serif;
+  background-color: #d9e9f7;
+
   /* font-weight: 550; */
   letter-spacing: 0.5px;
   -webkit-text-stroke: 0.02em;

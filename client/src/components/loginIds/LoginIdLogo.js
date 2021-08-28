@@ -1,8 +1,5 @@
 import React from "react";
-import { BiGlobe } from "react-icons/bi";
 import { FcGoogle } from "react-icons/fc";
-import { FaSnapchatSquare } from "react-icons/fa";
-import { RiSnapchatLine } from "react-icons/ri";
 import styles from "../../css/loginId/icons.module.css";
 import { Icon } from "@iconify/react";
 // import googleDrive from "@iconify/icons-logos/google-drive";
@@ -14,23 +11,15 @@ import {
   SiDribbble,
   SiDropbox,
   SiFacebook,
-  SiGoogle,
-  SiGoogledrive,
   SiGithub,
   SiInstagram,
   SiLinkedin,
-  SiPaypal,
   SiPinterest,
   SiQuora,
-  SiSlack,
-  SiSnapchat,
   SiSpotify,
-  SiStackoverflow,
   SiTwitter,
   SiYoutube,
   SiNetflix,
-  SiMicrosoft,
-  SiBlogger,
 } from "react-icons/si";
 
 const LoginIdLogo = ({ website }) => {

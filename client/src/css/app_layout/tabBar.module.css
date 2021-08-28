@@ -96,22 +96,23 @@
 }
 
 .indicator {
+  /* border-bottom: 4px solid #00b7fd; */
   /* border: 3px solid black; */
-  border-bottom: 4px solid #00b7fd;
-  /* background-color: rgba(128, 128, 128, 0.541); */
-  width: 30px !important;
-  height: 80%;
+  width: 35px !important;
+  height: 4.2px;
   position: absolute;
   /* left: 30px !important; */
-  bottom: 0px;
-  top: 0px;
-  margin-top: auto;
-  margin-bottom: auto;
+  /* top: 0px; */
+  bottom: 2px;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
   /* transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1); */
   -webkit-transition: all 0.5s linear;
   -moz-transition: all 0.5s linear;
   -o-transition: all 0.5s linear;
   transition: all 0.5s linear;
+  background-color: #00b7fd;
+  border-radius: 50px;
 }
 
 .bottomBorderDiv {

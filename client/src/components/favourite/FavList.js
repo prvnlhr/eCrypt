@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { Route, NavLink, Redirect, useHistory } from "react-router-dom";
+import { Route, NavLink, useHistory } from "react-router-dom";
 import { fetchFavorites } from "../../actions/favouriteAction";
 
 import FavCardList from "./FavCardList";
@@ -20,8 +20,6 @@ const FavList = ({
   setImageData,
   setMaximizeOrNot,
 }) => {
-  const history = useHistory();
-
   const userId = useSelector((state) => state.user.user._id);
 
   const dispatch = useDispatch();

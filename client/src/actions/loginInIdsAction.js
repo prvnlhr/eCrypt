@@ -8,20 +8,13 @@ import {
   ADD_ACTIVITY,
   OPERATION_START,
   OPERATION_END,
-  PROCESS_START,
-  PROCESS_END,
   PROCESS_CLEAR,
   EDIT_SEARCH_ITEM,
   DELETE_SEARCH_ITEM,
-  TOGGLE_SEARCH_FAV,
 } from "./types";
 import * as api from "../api";
 import moment from "moment";
-import {
-  loadingSetter,
-  authSuccessResponseHandler,
-  authErrorResponseHandler,
-} from "./auth";
+import { loadingSetter } from "./auth";
 //FETCH LOGINS
 export const fetchLoginIds = (user_id) => async (dispatch) => {
   dispatch(loadingSetter(true, "loginIdList", "", "fetching", ""));
@@ -221,7 +214,6 @@ export const deleteLoginId =
         payload: loginData,
       });
 
-
       dispatch({
         type: OPERATION_END,
         message: "loginIdDeleted",
@@ -260,7 +252,7 @@ export const deleteLoginId =
         payload: dynamicActivity,
       });
     } catch (error) {
-      console.log(error)
+      console.log(error);
       dispatch(loadingSetter(false, "loginId", loginCardId, "delete", false));
 
       const failureMsg = error.response.data.msg;

@@ -17,7 +17,6 @@ import crudReducer from "./crudReducer";
 export default combineReducers({
   cards: cardsReducer,
   user: userReducer,
-  auth: authReducer,
   logins: loginIdsReducer,
   favorites: favoritesReducer,
   docs: docsReducer,

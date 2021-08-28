@@ -1,7 +1,7 @@
-import { LOADING_START, LOADING_END, LOADING_SET } from "../actions/types";
+import { LOADING_SET } from "../actions/types";
 
 const initialState = {
-  isLoading: '',
+  isLoading: "",
   place: null,
   itemId: "",
   process: "",
@@ -26,8 +26,4 @@ export default function loading(state = initialState, action) {
     default:
       return state;
   }
-}
-
-{
-  /* <CircleSpinner size={10} color="#1072f1" loading={true} /> */
 }

@@ -1,6 +1,4 @@
 import React from "react";
-import uuid from "react-uuid";
-
 import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import Document from "./Document";
@@ -11,7 +9,6 @@ import noContentStyles from "../../css/document/noContentMessage.module.css";
 import btnStyles from "../../css/add_button/buttons.module.css";
 import DocSkeleton from "../skeletons/DocSkeleton";
 import { FiPlusCircle } from "react-icons/fi";
-import { CgAdd } from "react-icons/cg";
 import { HiPlus } from "react-icons/hi";
 import { CircleSpinner } from "react-spinners-kit";
 
@@ -32,14 +29,12 @@ const DocsList = ({
   const [btnExpandId, setBtnExpandId] = useState(null);
   const [btnExpand, setBtnExpand] = useState(false);
   const loadState = useSelector((state) => state.loading);
-  const crud = useSelector((state) => state.crud);
   // const loading = useSelector((state) => state.process);
 
   // const { category, inProcess, status, process } = loading;
 
   const [formMode, setFormMode] = useState(false);
-  const [modalShow, setModalShow] = useState(false);
-  const { itemId, place, isLoading, process, success } = loadState;
+  const { place, isLoading, process } = loadState;
 
   useEffect(() => {
     setHeading("Documents");

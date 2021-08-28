@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, Link } from "react-router-dom";
-import { FiLogOut } from "react-icons/fi";
-import { HiSearch, HiX, HiChevronDown, HiChevronUp } from "react-icons/hi";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import OutsideClickHandler from "react-outside-click-handler";
+import { useHistory } from "react-router-dom";
+import { HiX, HiChevronDown, HiChevronUp } from "react-icons/hi";
 
-import { RiSettings3Fill, RiSearch2Line } from "react-icons/ri";
-import { CgCloseO } from "react-icons/cg";
+import { RiSearch2Line } from "react-icons/ri";
 import styles from "../../css/app_layout/navbar.module.css";
 import { logout } from "../../actions/auth";
 import { search } from "../../actions/searchAction";
@@ -18,16 +14,8 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
   const handleSearch = (val) => {
     dispatch(search(val));
   };
-
-  // if (user.firstName) {
-  //   console.log(user.firstName.charAt(0));
-  // }
-
   const [searchQuery, setQuery] = useState("");
   const [searchMode, setSearchMode] = useState(false);
-  const [showPopup, setShowPopup] = useState(false);
-
-  // const node = useRef();
 
   const switchSearchMode = () => {
     setSearchMode(!searchMode);
@@ -42,23 +30,6 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
 
   useEffect(() => {}, [user.firstName]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("isAuthenticated");
-    dispatch(logout());
-    history.push("/login");
-  };
-  // Logout Button Outside click functionality_____________________________
-  // const [open, setOpen] = useState(false);
-
-  // const handleClick=()=>{
-  //   if(open){
-  //     document.addEventListener('click',handleClickOutside,false)
-  //   }else{
-  //     document.addEventListener('click',handleClickOutside,false)
-
-  //   }
-  //   setOpen(!open)
-  // }
   useEffect(() => {
     // add when mounted
     document.addEventListener("mousedown", handleClick);
@@ -105,7 +76,7 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
           {searchMode ? (
             <div className={styles.inputDiv}>
               <input
-              className={styles.searchInput}
+                className={styles.searchInput}
                 value={searchQuery}
                 placeholder="Search"
                 onChange={(e) => setQuery(e.target.value)}

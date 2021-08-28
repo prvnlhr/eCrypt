@@ -2,13 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  Switch,
-  Route,
-  useHistory,
-  Redirect,
-  useParams,
-} from "react-router-dom";
+import { Switch, Route, useHistory, useParams } from "react-router-dom";
 
 import Home from "./app_layout/Home";
 import AuthenticatedRoute from "./app_layout/AuthenticatedRoute";
@@ -29,7 +23,6 @@ const App = () => {
   const token = useSelector((state) => state.token.token);
   const history = useHistory();
   const { isLogged } = auth;
-  const { activation_token } = useParams();
 
   const getAuthToken = async () => {
     await dispatch(getToken(history));

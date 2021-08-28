@@ -1,7 +1,7 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -13,14 +13,11 @@ import styles from "../../css/document/docMaximize.module.css";
 import { motion } from "framer-motion";
 
 //ICONS IMPORTS_____//
-import { HiX, HiCheck, HiOutlineArrowNarrowLeft } from "react-icons/hi";
+import { HiX, HiCheck } from "react-icons/hi";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon, InlineIcon } from "@iconify/react";
-import pencilIcon from "@iconify-icons/akar-icons/pencil";
-import trashEmpty from "@iconify-icons/gg/trash-empty";
-import starSolid from "@iconify-icons/clarity/star-solid";
-import starLine from "@iconify-icons/clarity/star-line";
+
 const variants = {
   open: {
     opacity: 1,
@@ -42,8 +39,6 @@ const MaximizeDoc = ({
 }) => {
   const dispatch = useDispatch();
   const location = useLocation();
-
-  const crud = useSelector((state) => state.crud);
   const user = useSelector((state) => state.user.user);
   const searchResultArray = useSelector(
     (state) => state.searchResults.searchResults
@@ -162,7 +157,7 @@ const MaximizeDoc = ({
               process === "delete" ? (
                 <CircleSpinner size={12} color="white" loading={true} />
               ) : (
-                <p>Sure, Delete ! </p>
+                <p>Delete</p>
               )}
             </div>
           </div>

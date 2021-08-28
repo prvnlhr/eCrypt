@@ -58,11 +58,11 @@ export default function loginsIds(state = initialState, action) {
         loginIds: newLoginsArray,
       };
 
-    case DELETE_LOGIN_ID:
-      return {
-        ...state,
-        loginIds: action.payload,
-      };
+    // case DELETE_LOGIN_ID:
+    //   return {
+    //     ...state,
+    //     loginIds: action.payload,
+    //   };
 
     default:
       return state;

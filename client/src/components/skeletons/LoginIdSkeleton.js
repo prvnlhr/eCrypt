@@ -25,37 +25,3 @@ const LoginIdSkeleton = () => {
 };
 
 export default LoginIdSkeleton;
-{
-  /* { isLoading === true &&
-        place === "loginIdList" &&
-        loginIds.length < 1 ? (
-          <>
-            <LoginIdSkeleton />
-            <LoginIdSkeleton />
-            <LoginIdSkeleton />
-            <LoginIdSkeleton />
-            <LoginIdSkeleton />
-          </>
-        ) : (
-          isLoading === false &&
-          loginIds.length < 1 ? (
-            <div className={noContentStyles.messageContainer}>
-              <p>No Logins Added</p>
-
-              <div className={noContentStyles.footerDIv}>
-                Click
-                <FiPlusCircle
-                  className={noContentStyles.icon}
-                  fontSize="19px"
-                />
-                to add
-              </div>
-            </div>
-          )
-        ) :  loginIds.length >= 1 &&(
-
-          <div></div>
-        )
-        
-        } */
-}

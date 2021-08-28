@@ -2,12 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link, useParams } from "react-router-dom";
-import {
-  resetPassword,
-  authSuccessResponseHandler,
-  authErrorResponseHandler,
-} from "../../actions/auth";
-import { HiArrowNarrowRight } from "react-icons/hi";
+import { resetPassword, authErrorResponseHandler } from "../../actions/auth";
 import styles from "../../css/auth/resetPage.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon } from "@iconify/react";
@@ -23,8 +18,6 @@ const ResetPassword = () => {
   const history = useHistory();
   const [data, setData] = useState(initialState);
   // const isLoading = useSelector((state) => state.loading.isLoading);
-  const notification = useSelector((state) => state.notification);
-  const [validationError, setValidationError] = useState("");
   const loadState = useSelector((state) => state.loading);
   const { place, isLoading } = loadState;
   const message = useSelector((state) => state.authResponseHandler);
@@ -126,11 +119,7 @@ const ResetPassword = () => {
         </div>
 
         <div className={styles.buttonWrapper}>
-          <motion.button 
-          whileTap={{ scale: 0.95 }}
-
-          type="submit"
-          >
+          <motion.button whileTap={{ scale: 0.95 }} type="submit">
             {place === "resetPassword" && isLoading === true ? (
               <CircleSpinner size={15} color="white" loading={true} />
             ) : (

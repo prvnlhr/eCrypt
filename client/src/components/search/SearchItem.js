@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import LoginId from "../loginIds/LoginId";
 import Card from "../card/Card";
 import Document from "../document/Document";
-import CardLogo, { getCardType } from "../card/CardLogo";
+import { getCardType } from "../card/CardLogo";
 
 const SearchItem = ({
   item,
@@ -18,15 +18,6 @@ const SearchItem = ({
   const [maximize, setEnlarge] = useState(false);
   const [editId, setEditId] = useState(null);
 
-  const maximizeImg = (docId) => {
-    setEditId(item._id);
-    setEnlarge(!maximize);
-  };
-  const handleMaximize = (docData) => {
-    console.log(docData);
-    setImageData(docData);
-    setMaximizeOrNot(true);
-  };
   let formattedCardNo;
   let cNo;
   let cardType;

@@ -17,13 +17,8 @@ import {
   PROCESS_CLEAR,
   EDIT_SEARCH_ITEM,
   DELETE_SEARCH_ITEM,
-  TOGGLE_SEARCH_FAV,
 } from "./types";
-import {
-  loadingSetter,
-  authSuccessResponseHandler,
-  authErrorResponseHandler,
-} from "./auth";
+import { loadingSetter } from "./auth";
 
 //FETCHING
 export const fetchUserCards = (user_id) => async (dispatch) => {

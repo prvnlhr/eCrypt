@@ -4,7 +4,7 @@ import styles from "../../css/activity/activityWrapper.module.css";
 const LoginIdActivity = ({ activity }) => {
   return (
     <>
-      {activity.action == "edit" ? (
+      {activity.action === "edit" ? (
         <>
           <div className={styles.activityItemWrapper}>
             <div className={styles.oldValueWrapper}>
@@ -34,7 +34,7 @@ const LoginIdActivity = ({ activity }) => {
             </div>
           </div>
         </>
-      ) : activity.action == "add" ? (
+      ) : activity.action === "add" ? (
         <>
           <div className={styles.activityItemWrapper}>
             <div className={styles.oldValueWrapper}>
@@ -62,7 +62,7 @@ const LoginIdActivity = ({ activity }) => {
           </div>
         </>
       ) : (
-        activity.action == "delete" && (
+        activity.action === "delete" && (
           <>
             <div className={styles.activityItemWrapper}>
               <div className={styles.oldValueWrapper}>

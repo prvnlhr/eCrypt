@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookiesParser = require("cookie-parser");
 const path = require("path");
-
 const app = express();
 
 // app.use(cors({ credentials: true, origin: "http://localhost:3000" }));

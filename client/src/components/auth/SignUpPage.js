@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { register } from "../../actions/auth";
 
 import styles from "../../css/auth/signUpPageNew.module.css";
-import { HiArrowNarrowRight } from "react-icons/hi";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
@@ -24,7 +23,6 @@ const SignUpPage = () => {
   // const isLoading = useSelector((state) => state.loading.isLoading);
   const loadState = useSelector((state) => state.loading);
 
-  const notification = useSelector((state) => state.notification);
   const message = useSelector((state) => state.authResponseHandler);
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,7 +39,6 @@ const SignUpPage = () => {
   return (
     <div className={styles.formPage}>
       <div className={styles.leftSection}>
-       
         {/* <div className={styles.appAboutWrapper}>
           <div className={styles.lineOneDiv}>
             <p>A Digital solution for all your important data</p>
@@ -60,7 +57,7 @@ const SignUpPage = () => {
         </div> */}
       </div>
       <div className={styles.rightSection}>
-      <div className={styles.appLogoWrapper}>
+        <div className={styles.appLogoWrapper}>
           <div className={styles.logoDiv}>
             <p className={styles.textOne}>e</p>
             <p className={styles.textTwo}>Crypt</p>

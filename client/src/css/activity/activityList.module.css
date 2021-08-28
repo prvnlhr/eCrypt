@@ -38,6 +38,6 @@
 } */
 @media screen and (max-width: 650px) {
   .activityList {
-    padding: 20px 10px 20px 5px;
+    padding: 20px 10px 20px 0px;
   }
 }

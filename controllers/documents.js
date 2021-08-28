@@ -10,7 +10,7 @@ const documentsController = {
     }
   },
   addDoc: async (req, res) => {
-    console.log("add doc cntrl", req.body);
+    // console.log("add doc cntrl", req.body);
     const id = req.body.userId;
     const fileName = req.body.name;
     const filePath = req.file.path;
@@ -19,7 +19,7 @@ const documentsController = {
       const cloudinaryResponse = await cloudinary.v2.uploader.upload(filePath, {
         folder: "eCrypt",
       });
-      console.log("cldnr resounse", cloudinaryResponse);
+      // console.log("cldnr resounse", cloudinaryResponse);
       const docData = {
         imageName: fileName,
         imageUrl: cloudinaryResponse.url,

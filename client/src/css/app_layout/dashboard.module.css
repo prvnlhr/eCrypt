@@ -101,32 +101,39 @@
 .underLineDiv1 {
   position: absolute;
   left: 6%;
-  height: 35px;
+  height: 4px;
   width: 25px;
-  border-bottom: 3px solid #f56e28;
+  /* border-bottom: 4px solid #f56e28; */
   box-sizing: border-box;
   /* border: 1px solid black; */
+  bottom: -5px;
+  background-color: #f56e28;
+  border-radius: 50px;
 }
 .underLineDiv2 {
   position: absolute;
   left: 6%;
-
-  height: 35px;
-
+  height: 4px;
   width: 25px;
-  border-bottom: 3px solid #453df1;
+  /* border-bottom: 4px solid #453df1; */
   box-sizing: border-box;
+  /* border: 1px solid black; */
+  bottom: -5px;
+  background-color: #453df1;
+  border-radius: 50px;
 }
 
 .underLineDiv3 {
   position: absolute;
-  height: 35px;
-
+  height: 4px;
   left: 6%;
-
   width: 25px;
-  border-bottom: 3px solid #00b7fd;
+  /* border-bottom: 4px solid #00b7fd; */
   box-sizing: border-box;
+  /* border: 1px solid black; */
+  bottom: -5px;
+  background-color: #00b7fd;
+  border-radius: 50px;
 }
 
 .recentActivityListHeadingDiv {

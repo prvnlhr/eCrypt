@@ -13,8 +13,7 @@ const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
   const docData = useSelector((state) =>
     favItem._id ? state.docs.docs.find((d) => d._id === favItem._id) : null
   );
-  const [maximize, setEnlarge] = useState(false);
-  const [editId, setEditId] = useState(null);
+
   const [currDocData, setCurrDocData] = useState();
 
   useEffect(() => {
@@ -64,7 +63,7 @@ const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
           </div>
         </div>
         <LazyLoad offset={0}>
-          <img src={favItem.imageUrl} onClick={handleMaximize}></img>
+          <img src={favItem.imageUrl} onClick={handleMaximize} alt="doc"></img>
         </LazyLoad>
       </div>
       <div className={styles.titleDiv}>

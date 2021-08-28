@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewDoc } from "../../actions/documentsAction";
 import styles from "../../css/document/docFormNew.module.css";
-import { HiX, HiArrowNarrowRight } from "react-icons/hi";
+import { HiX } from "react-icons/hi";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -87,7 +87,7 @@ const DocForm = ({ formMode, setFormMode }) => {
           <label htmlFor="file">
             {previewImg ? (
               <div className={styles.imgPreviewContainer}>
-                <img src={previewImg} />
+                <img src={previewImg} alt="doc" />
               </div>
             ) : (
               <div className={styles.uploadContainer}>

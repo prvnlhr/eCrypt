@@ -1,5 +1,4 @@
 import * as api from "../api";
-import axios from "axios";
 import moment from "moment";
 
 import {
@@ -7,10 +6,6 @@ import {
   EDIT_DOC,
   DELETE_DOC,
   FETCH_DOCS,
-  LOADING_START,
-  LOADING_END,
-  ERROR_MESSAGE,
-  SUCCESS_MESSAGE,
   TOGGLE_DOCS_IS_FAV,
   ADD_TO_FAVOURITE_DOCS,
   ADD_ACTIVITY,
@@ -20,13 +15,8 @@ import {
   PROCESS_END,
   EDIT_SEARCH_ITEM,
   DELETE_SEARCH_ITEM,
-  TOGGLE_SEARCH_FAV,
 } from "./types";
-import {
-  loadingSetter,
-  authSuccessResponseHandler,
-  authErrorResponseHandler,
-} from "./auth";
+import { loadingSetter } from "./auth";
 
 //FETCHING
 export const fetchDocs = (user_id) => async (dispatch) => {
@@ -190,7 +180,7 @@ export const editDoc =
 
 //DELETE DOC
 export const deleteDoc =
-  (cloud_id, user_id, doc_id, doc_title,docData) => async (dispatch) => {
+  (cloud_id, user_id, doc_id, doc_title, docData) => async (dispatch) => {
     dispatch(loadingSetter(true, "doc", doc_id, "delete", ""));
 
     dispatch({
@@ -215,9 +205,9 @@ export const deleteDoc =
       //   }
       // );
       const response = await api.deleteDoc(doc_id, user_id, cloud_id);
-      console.log(response.data.msg);
+      // console.log(response.data.msg);
       const docsArray = response.data.data.reverse();
-      const successMsg = response.data.msg;
+      // const successMsg = response.data.msg;
       dispatch({
         type: DELETE_DOC,
         payload: docsArray,
@@ -226,7 +216,6 @@ export const deleteDoc =
         type: DELETE_SEARCH_ITEM,
         payload: docData,
       });
-
 
       dispatch({
         type: PROCESS_END,

@@ -2,11 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import {
-  changePassword,
-  deleteAccount,
-  clearNotification,
-} from "../../actions/auth";
+import { changePassword, deleteAccount } from "../../actions/auth";
 
 import { updateProfile } from "../../actions/userAction";
 import { CircleSpinner } from "react-spinners-kit";
@@ -22,23 +18,12 @@ const Settings = ({ setHeading }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.user);
   const token = useSelector((state) => state.token.token);
-  // const isLoading = useSelector((state) => state.loading.isLoading);
-  const notification = useSelector((state) => state.notification);
-
   const loadState = useSelector((state) => state.loading);
   const [oldProfileData, setOldProfileData] = useState();
-  const [oldPasswordData, setOldPasswordData] = useState();
-
   const { place, isLoading } = loadState;
-
   const responseHandler = useSelector((state) => state.authResponseHandler);
-
   const { at, error, success } = responseHandler;
 
-  const [editMode, setEditMode] = useState({
-    isEditing: false,
-    value: null,
-  });
   const [inputState, setInputState] = useState(false);
   const [profileData, setProfileData] = useState({
     firstName: "",
@@ -313,7 +298,7 @@ const Settings = ({ setHeading }) => {
             <>
               <div className={styles.changePasswordDiv}>
                 <input
-                className={styles.inputField}
+                  className={styles.inputField}
                   name="oldPassword"
                   placeholder="Enter your old password"
                   id="oldPassword"
@@ -322,8 +307,7 @@ const Settings = ({ setHeading }) => {
                   onChange={handlePassInputChange}
                 ></input>
                 <input
-                className={styles.inputField}
-
+                  className={styles.inputField}
                   name="newPassword"
                   placeholder="Enter your new password"
                   id="newPassword"
@@ -401,8 +385,7 @@ const Settings = ({ setHeading }) => {
                 <p className={styles.disclaimer}>Confirm your password</p>
 
                 <input
-                className={styles.inputField}
-
+                  className={styles.inputField}
                   name="oldPassword"
                   placeholder="Enter your old password"
                   id="oldPassword"
@@ -441,13 +424,15 @@ const Settings = ({ setHeading }) => {
             <>
               <div className={styles.disclaimerDiv}>
                 <div className={styles.disclaimerText1Div}>
-
-                <Icon icon="carbon:warning" className={styles.deleteAccIcon} />
-                <p className={styles.disclaimerText1}>
-                  Delete account permanently
-                </p>
+                  <Icon
+                    icon="carbon:warning"
+                    className={styles.deleteAccIcon}
+                  />
+                  <p className={styles.disclaimerText1}>
+                    Delete account permanently
+                  </p>
                 </div>
-             
+
                 <p className={styles.disclaimerText}>
                   Deleting your account will delete your profile and all the
                   associated data

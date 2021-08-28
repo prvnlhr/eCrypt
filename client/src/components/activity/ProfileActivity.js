@@ -4,7 +4,7 @@ import styles from "../../css/activity/activityWrapper.module.css";
 const ProfileActivity = ({ activity }) => {
   return (
     <>
-      {activity.action == "passwordChange" ? (
+      {activity.action === "passwordChange" ? (
         <>
           <div className={styles.activityItemWrapper}>
             <div className={styles.oldValueWrapper}>
@@ -17,7 +17,7 @@ const ProfileActivity = ({ activity }) => {
           </div>
         </>
       ) : (
-        activity.action == "profileUpdate" && (
+        activity.action === "profileUpdate" && (
           <>
             <div className={styles.activityItemWrapper}>
               <div className={styles.oldValueWrapper}>

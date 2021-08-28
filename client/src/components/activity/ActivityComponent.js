@@ -30,7 +30,7 @@ const ActivityComponent = ({ activity }) => {
                   ? styles.catDoc
                   : activity.type === "loginId"
                   ? styles.catLoginId
-                  : activity.type == "settings" && styles.catSettings
+                  : activity.type === "settings" && styles.catSettings
               } `}
             >
               <p>{activity.type}</p>
@@ -41,14 +41,14 @@ const ActivityComponent = ({ activity }) => {
           </div>
         </div>
         <div className={styles.bottomWrapper}>
-          {activity.type == "card" ? (
+          {activity.type === "card" ? (
             <CardActivity activity={activity} />
-          ) : activity.type == "loginId" ? (
+          ) : activity.type === "loginId" ? (
             <LoginIdActivity activity={activity} />
-          ) : activity.type == "doc" ? (
+          ) : activity.type === "doc" ? (
             <DocActivity activity={activity} />
           ) : (
-            activity.type == "settings" && (
+            activity.type === "settings" && (
               <ProfileActivity activity={activity} />
             )
           )}

@@ -12,7 +12,6 @@ export default function search(state = initialState, action) {
   switch (action.type) {
     case SEARCH:
       const key = action.payload.query;
-      const dataArray = action.payload.data;
       // console.log(dataArray);
       const newDataArray = action.payload.data.filter(
         (item) =>

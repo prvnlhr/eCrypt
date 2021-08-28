@@ -4,8 +4,6 @@ import { useSelector } from "react-redux";
 import Card from "./Card";
 import CardForm from "./CardForm";
 import { FiPlusCircle } from "react-icons/fi";
-import { IoIosAddCircleOutline } from "react-icons/io";
-import { CgAdd } from "react-icons/cg";
 import { HiPlus } from "react-icons/hi";
 import CardSkeleton from "../skeletons/CardSkeleton";
 
@@ -17,10 +15,9 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
   const [formMode, setFormMode] = useState(false);
   const [showEditButton, setEditButton] = useState(true);
 
-  const crud = useSelector((state) => state.crud);
   const loadState = useSelector((state) => state.loading);
 
-  const { itemId, place, isLoading, process, success } = loadState;
+  const { place, isLoading } = loadState;
 
   useEffect(() => {
     setHeading("Cards");

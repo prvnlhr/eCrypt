@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../../css/search/searchList.module.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SearchItem from "./SearchItem";
 const SearchList = ({
   searchResultArray,

@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, Link, Redirect } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { login } from "../../actions/auth";
 import styles from "../../css/auth/signInPageNew.module.css";
 import { CircleSpinner } from "react-spinners-kit";
-import { getToken } from "../../actions/auth";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-
-import loginSvg from "../../img/login.svg";
 
 const initialState = {
   email: "",
@@ -16,13 +13,11 @@ const initialState = {
 };
 
 const SignInPage = () => {
-  const auth = useSelector((state) => state.auth);
   const loadState = useSelector((state) => state.loading);
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
   const history = useHistory();
   // const isLoading = useSelector((state) => state.loading.isLoading);
-  const notification = useSelector((state) => state.notification);
   const message = useSelector((state) => state.authResponseHandler);
 
   // const { isLogged } = auth;
@@ -50,9 +45,8 @@ const SignInPage = () => {
     <div className={styles.formPage}>
       <div className={styles.appLogoWrapper}>
         <div className={styles.logoDiv}>
-
-        <p className={styles.textOne}>e</p>
-        <p className={styles.textTwo}>Crypt</p>
+          <p className={styles.textOne}>e</p>
+          <p className={styles.textTwo}>Crypt</p>
         </div>
       </div>
       <div className={styles.formComponent}>

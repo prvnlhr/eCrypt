@@ -33,7 +33,6 @@ const ContentDisplay = ({
   const userId = useSelector((state) => state.user.user._id);
 
   const [currentId, setCurrentId] = useState(null);
-  const token = useSelector((state) => state.token.token);
 
   // useEffect(() => {
 
@@ -77,8 +76,6 @@ const ContentDisplay = ({
         <SearchList
           searchResultArray={searchResultArray}
           setHeading={setHeading}
-          setImageData={setImageData}
-          setMaximizeOrNot={setMaximizeOrNot}
           imageData={imageData}
           setImageData={setImageData}
           maximizeOrNot={maximizeOrNot}

@@ -9,10 +9,7 @@ import {
 import {
   FETCH_USER,
   ERROR_MESSAGE,
-  SUCCESS_MESSAGE,
   UPDATE_USER_PROFILE,
-  LOADING_START,
-  LOADING_END,
   ADD_ACTIVITY,
 } from "./types";
 

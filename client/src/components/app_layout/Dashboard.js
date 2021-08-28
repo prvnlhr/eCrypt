@@ -21,7 +21,7 @@ const Dashboard = ({ setHeading, activities }) => {
           <div className={styles.countDiv}>
             <p>{cardsArray.length}</p>
           </div>
-          <div className={styles.footer}>
+          <div className={ `  ${styles.footer} ${styles.footerOne} ` }>
             <div className={styles.underLineDiv1}></div>
             <p>Cards</p>
           </div>
@@ -30,7 +30,7 @@ const Dashboard = ({ setHeading, activities }) => {
           <div className={styles.countDiv}>
             <p>{loginIdsArray.length}</p>
           </div>
-          <div className={styles.footer}>
+          <div className={`  ${styles.footer} ${styles.footerOne} `}>
             <div className={styles.underLineDiv2}></div>
             <p>Logins</p>
           </div>
@@ -39,7 +39,7 @@ const Dashboard = ({ setHeading, activities }) => {
           <div className={styles.countDiv}>
             <p>{docsArray.length}</p>
           </div>
-          <div className={styles.footer}>
+          <div className={`  ${styles.footer} ${styles.footerOne} `}>
             <div className={styles.underLineDiv3}></div>
             <p>Docs</p>
           </div>

@@ -25,8 +25,8 @@ const getCardType = (number) => {
     DISCOVERY: /^6(?:011|5[0-9]{2})[0-9]{12}$/,
     HIPERCARD: /^(606282\d{10}(\d{3})?)|(3841\d{15})$/,
     MAESTRO:
-    /^(5018|5081|5044|5020|5038|603845|6304|6759|676[1-3]|6799|6220|504834|504817|504645)[0-9]{8,15}$/,
-      // /^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d+$/,
+      /^(5018|5081|5044|5020|5038|603845|6304|6759|676[1-3]|6799|6220|504834|504817|504645)[0-9]{8,15}$/,
+    // /^(5018|5020|5038|5612|5893|6304|6759|6761|6762|6763|0604|6390)\d+$/,
     UNIONPAY: /^(62|88)\d+$/,
     RUPAY: /^6(?!011)(?:0[0-9]{14}|52[12][0-9]{12})$/,
     SOLO: /^(6334|6767)[0-9]{12}|(6334|6767)[0-9]{14}|(6334|6767)[0-9]{15}$/,
@@ -48,7 +48,11 @@ const CardLogo = ({ cardNo }) => {
   let logo;
   if (cardType === "VISA") {
     logo = (
-      <img className={`${styles.logo} ${cardLogoStyles.visaLogo}`} src={visa} />
+      <img
+        className={`${styles.logo} ${cardLogoStyles.visaLogo}`}
+        src={visa}
+        alt="visa"
+      />
     );
   }
   if (cardType === "MASTER") {
@@ -56,6 +60,7 @@ const CardLogo = ({ cardNo }) => {
       <img
         className={`${styles.logo} ${cardLogoStyles.masterLogo}`}
         src={mastercard}
+        alt="master"
       />
     );
   }
@@ -64,6 +69,7 @@ const CardLogo = ({ cardNo }) => {
       <img
         className={`${styles.logo} ${cardLogoStyles.rupayLogo}`}
         src={rupay}
+        alt="rupay"
       />
     );
   }
@@ -72,18 +78,26 @@ const CardLogo = ({ cardNo }) => {
       <img
         className={`${styles.logo} ${cardLogoStyles.maestroLogo}`}
         src={maestro}
-        alt='maestro'
+        alt="maestro"
       />
     );
   }
   if (cardType === "AMEX") {
     logo = (
-      <img className={`${styles.logo} ${cardLogoStyles.amexLogo}`} src={amex} />
+      <img
+        className={`${styles.logo} ${cardLogoStyles.amexLogo}`}
+        src={amex}
+        alt="amex"
+      />
     );
   }
   if (cardType === "JCB") {
     logo = (
-      <img className={`${styles.logo} ${cardLogoStyles.jcbLogo}`} src={jcb} />
+      <img
+        className={`${styles.logo} ${cardLogoStyles.jcbLogo}`}
+        src={jcb}
+        alt="jcb"
+      />
     );
   }
   if (cardType === "DISCOVERY") {
@@ -91,6 +105,7 @@ const CardLogo = ({ cardNo }) => {
       <img
         className={`${styles.logo} ${cardLogoStyles.discoverLogo}`}
         src={discover}
+        alt="discovery"
       />
     );
   }
@@ -99,6 +114,7 @@ const CardLogo = ({ cardNo }) => {
       <img
         className={`${styles.logo} ${cardLogoStyles.unionLogo}`}
         src={unionpay}
+        alt="unionpay"
       />
     );
   }
@@ -107,6 +123,7 @@ const CardLogo = ({ cardNo }) => {
       <img
         className={`${styles.logo} ${cardLogoStyles.dinersLogo}`}
         src={diners}
+        alt="diners"
       />
     );
   }
@@ -115,12 +132,17 @@ const CardLogo = ({ cardNo }) => {
       <img
         className={`${styles.logo} ${cardLogoStyles.hiperLogo}`}
         src={hipercard}
+        alt="hipercard"
       />
     );
   }
   if (cardType === "SOLO") {
     logo = (
-      <img className={`${styles.logo} ${cardLogoStyles.soloLogo}`} src={solo} />
+      <img
+        className={`${styles.logo} ${cardLogoStyles.soloLogo}`}
+        src={solo}
+        alt="solo"
+      />
     );
   }
   if (cardType === "SWITCH") {
@@ -128,6 +150,7 @@ const CardLogo = ({ cardNo }) => {
       <img
         className={`${styles.logo} ${cardLogoStyles.switchLogo}`}
         src={switchLogo}
+        alt="switch"
       />
     );
   }
