@@ -123,6 +123,7 @@
   left: 0px;
   bottom: 1px;
   border-bottom: 3px solid #00b7fd;
+  /* background-color: #00b7fd; */
 }
 .searchHeadingContainer {
   position: relative;
@@ -143,17 +144,19 @@
   font-weight: 550;
 }
 .bottomBorderDivSearch {
-  width: 20px;
-  height: 70%;
+  width: 30px;
+  height: 4px;
   position: absolute;
   /* left: 0px; */
-  /* bottom: 1px; */
+  bottom: 5px;
   left: 0px;
   right: 0px;
   margin-left: auto;
   margin-right: auto;
-  border-bottom: 3px solid #00b7fd;
+  /* border-bottom: 3px solid #00b7fd; */
   /* border: 1px solid black; */
+  background-color: #00b7fd;
+  border-radius: 50px;
 }
 
 .bottomBorderDivNone {

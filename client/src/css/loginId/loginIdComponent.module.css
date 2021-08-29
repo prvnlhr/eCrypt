@@ -104,7 +104,8 @@
   letter-spacing: 0.5px;
   font-weight: bold;
   color: black;
-  font-size: 13px;
+  font-size: 0.85rem;
+  /* font-size: 13px; */
 }
 .buttonWrapper {
   grid-area: buttonWrapper;
@@ -133,10 +134,6 @@
   color: #b3bac3;
   margin: 0px 0px 0px 0px;
   padding: 0px;
-}
-.favIcon {
-  font-size: 17px;
-  cursor: pointer;
 }
 
 .editBtnContainer {
@@ -167,7 +164,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  /* font-size: 15px; */
   color: gray;
   /* border-radius: 50%; */
   /* border: 1px solid rgb(214, 214, 214); */
@@ -181,7 +178,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  /* font-size: 15px; */
   color: gray;
   /* border-radius: 50%; */
   /* border: 1px solid rgb(214, 214, 214); */
@@ -195,7 +192,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 15px;
+  /* font-size: 15px; */
   color: gray;
   /* border-radius: 50%; */
   /* border: 1px solid rgb(214, 214, 214); */
@@ -204,20 +201,34 @@
   /* background: white; */
 }
 
+.favIcon {
+  /* font-size: 17px; */
+  font-size: 1rem;
+
+  cursor: pointer;
+}
 .trashIcon {
-  font-size: 17px;
+  /* font-size: 17px; */
+  font-size: 1rem;
+
   cursor: pointer;
 }
 .pencilIcon {
-  font-size: 17px;
+  /* font-size: 17px; */
+  font-size: 1rem;
+
   cursor: pointer;
 }
 .cancelIcon {
-  font-size: 17px;
+  /* font-size: 17px; */
+  font-size: 1rem;
+
   cursor: pointer;
 }
 .checkIcon {
-  font-size: 17px;
+  /* font-size: 17px; */
+  font-size: 1rem;
+
   cursor: pointer;
 }
 .userNameWrapper {
@@ -250,8 +261,13 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  /* font-size: 0.8em; */
+}
+.textIcon {
   color: #9baece;
-  font-size: 0.8em;
+  padding: 0px;
+  margin: 0px;
+  font-size: 0.8rem;
 }
 .textDiv {
   /* border: 1px solid orange; */
@@ -275,6 +291,7 @@
   letter-spacing: 0.5px;
   /* color: rgb(112, 112, 112); */
   color: slategray;
+  font-size: 0.81rem;
 }
 
 .inputField {
@@ -294,6 +311,7 @@
   border: 1px dashed #00b7fd;
   background: #00b5fd11;
   color: #00b7fd;
+  /* font-size: 0.82rem; */
 }
 .light {
   background-color: white;
@@ -307,7 +325,7 @@
 /*____NEW CSS RULES END_____  */
 
 /* ____MEDIA QUERIES___ */
-@media screen and (max-width: 650px) {
+/* @media screen and (max-width: 650px) {
   .loginIdContainer {
     position: relative;
     display: grid;
@@ -353,7 +371,6 @@
     font-size: 1.3em;
   }
   .pencilIcon {
-    /* font-size: 17px; */
     font-size: 1.1em;
   }
   .trashIcon {
@@ -404,5 +421,108 @@
     letter-spacing: 0.5px;
     font-weight: bold;
     font-size: 12px;
+  }
+} */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .loginIdContainer {
+    position: relative;
+    display: grid;
+    width: 83% !important;
+    /* aspect-ratio: 3.73/1 !important; */
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 25% minmax(0, 1fr) minmax(0, 1fr) !important;
+    /* grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr) !important; */
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .inputField {
+    font-size: clamp(0.81rem, 0.23rem + 2.9vw, 1.1rem) !important;
+  }
+  .textIcon {
+    font-size: 0.8rem;
+    font-size: 1.1rem;
+    font-size: clamp(0.8rem, 0.2rem + 3vw, 1.1rem) !important;
+  }
+  .textDiv p {
+    font-size: clamp(0.81rem, 0.23rem + 2.9vw, 1.1rem) !important;
+  }
+  .websiteDiv p {
+    font-size: clamp(0.85rem, 0.15rem + 3.5vw, 1.2rem) !important;
+  }
+  .favIcon {
+    font-size: clamp(1.4rem, 0.6rem + 4vw, 1.8rem) !important;
+    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
+  }
+  .pencilIcon {
+    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
+    /* font-size: 1.1em; */
+  }
+  .trashIcon {
+    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
+  }
+  .checkIcon {
+    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
+  }
+  .cancelIcon {
+    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
+  }
+  /* STYLES GO HERE */
+}
+@media only screen and (max-width: 320px) {
+  .loginIdContainer {
+    position: relative;
+    display: grid;
+    width: 83% !important;
+    /* aspect-ratio: 3.73/1 !important; */
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 25% minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .textIcon {
+    font-size: 0.8rem;
+    font-size: 0.5rem;
+    font-size: clamp(0.5rem, 0rem + 4vw, 0.8rem) !important;
+  }
+  .textDiv p {
+    font-size: 0.81rem;
+    font-size: 0.65rem;
+    font-size: clamp(0.65rem, 0.3833rem + 2.133vw, 0.81rem) !important;
+  }
+  .websiteDiv p {
+    font-size: 0.85rem;
+    font-size: 0.7rem;
+    font-size: clamp(0.7rem, 0.45rem + 2vw, 0.85rem) !important;
+  }
+  .favIcon {
+    /* font-size: clamp(1.4rem, 0.6rem + 4vw, 1.8rem) !important; */
+    /* font-size: 0.9em; */
+    font-size: clamp(0.9rem, 0.5675rem + 2.6vw, 1.1rem) !important;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
+  .pencilIcon {
+    font-size: 0.7em;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
+  .trashIcon {
+    font-size: 1.1em;
+    font-size: 0.7em;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
+  .checkIcon {
+    font-size: 1.1em;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
+  .cancelIcon {
+    font-size: 1.1em;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
   }
 }

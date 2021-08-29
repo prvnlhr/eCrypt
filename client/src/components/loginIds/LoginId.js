@@ -308,7 +308,7 @@ const LoginId = ({
       </div>
       <div className={styles.userNameWrapper}>
         <div className={styles.iconDiv}>
-          <FaUserAlt />
+        <Icon icon="fa-solid:user" className={styles.textIcon} />
         </div>
         <div className={styles.textDiv}>
           {inEditMode ? (
@@ -327,7 +327,7 @@ const LoginId = ({
 
       <div className={styles.passwordWrapper}>
         <div className={styles.iconDiv}>
-          <FaLock />
+        <Icon icon="fa-solid:lock" className={styles.textIcon}/>
         </div>
         <div className={styles.textDiv}>
           {inEditMode ? (
