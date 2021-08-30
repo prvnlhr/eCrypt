@@ -8,6 +8,8 @@ import LoginIdLogo from "../loginIds/LoginIdLogo";
 import styles from "../../css/loginId/loginIdComponent.module.css";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 import { motion } from "framer-motion";
+import { Icon, InlineIcon } from "@iconify/react";
+
 
 const FavouriteLoginId = ({ favItem }) => {
   const dispatch = useDispatch();
@@ -68,7 +70,7 @@ const FavouriteLoginId = ({ favItem }) => {
 
       <div className={styles.userNameWrapper}>
         <div className={styles.iconDiv}>
-          <FaUserAlt />
+        <Icon icon="fa-solid:user" className={styles.textIcon} />
         </div>
         <div className={styles.textDiv}>
           <p>{favItem.username}</p>
@@ -76,7 +78,7 @@ const FavouriteLoginId = ({ favItem }) => {
       </div>
       <div className={styles.passwordWrapper}>
         <div className={styles.iconDiv}>
-          <FaLock />
+        <Icon icon="fa-solid:lock" className={styles.textIcon}/>
         </div>
         <div className={styles.textDiv}>
           <p>{favItem.password}</p>

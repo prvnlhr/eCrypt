@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { HiX, HiChevronDown, HiChevronUp } from "react-icons/hi";
+import logo from "../../img/ecryptLogo.svg";
 
 import { RiSearch2Line } from "react-icons/ri";
 import styles from "../../css/app_layout/navbar.module.css";
@@ -62,9 +63,11 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
 
       <div className={styles.leftPortion}>
         <div className={styles.logoContainer}>
-          <p className={styles.logoText}>
-            <span>e</span>Crypt
-          </p>
+          <img src={logo} />
+          {/* <p className={styles.logoText}>
+            <span>e</span>
+            rypt
+          </p> */}
         </div>
       </div>
       <div className={styles.rightPortion}>
