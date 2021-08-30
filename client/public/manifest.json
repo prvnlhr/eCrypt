@@ -3,17 +3,9 @@
   "name": "eCrypt",
   "icons": [
     {
-      "src": "/images/logo16.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon",
-      "purpose": "any maskable"
-
-    },
-    {
       "src": "/images/logo192.png",
       "type": "image/png",
-      "sizes": "192x192",
-      "purpose": "maskable"
+      "sizes": "192x192"
 
     },
     {
