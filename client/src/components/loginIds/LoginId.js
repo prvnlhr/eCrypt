@@ -11,6 +11,9 @@ import { CircleSpinner } from "react-spinners-kit";
 import { motion } from "framer-motion";
 
 import trash from "../../img/trashIcon.svg";
+import TrashIcon from "../icons/TrashIcon";
+import FavIconInactive from "../icons/FavIconInactive";
+
 
 // icons set
 import { FaUserAlt, FaLock } from "react-icons/fa";
@@ -111,7 +114,7 @@ const LoginId = ({
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
           <div className={modalStyles.dialogDiv}>
-          <Icon icon="carbon:warning" className={modalStyles.icon} />
+            <Icon icon="carbon:warning" className={modalStyles.icon} />
 
             <p>Are you sure you want to delete this item permanently ?</p>
           </div>
@@ -261,11 +264,13 @@ const LoginId = ({
                   process === "edit" ? (
                     <CircleSpinner size={15} color="#1072f1" loading={true} />
                   ) : (
-                    <Icon
-                      icon="akar-icons:pencil"
-                      className={styles.pencilIcon}
-                      color="#9baece"
-                    />
+                    // <Icon
+                    //   icon="akar-icons:pencil"
+                    //   className={styles.pencilIcon}
+                    //   color="#9baece"
+                    // />
+                    <Icon icon="octicon:pencil-16"   className={styles.pencilIcon}
+                    color="#9baece" />
                   )}
                 </div>
                 <div
@@ -286,7 +291,9 @@ const LoginId = ({
                     //   className={styles.trashIcon}
                     //   color="#9baece"
                     // />
-                    <img src={trash}/>
+                    // <img src={trash} className={styles.trashIcon} />
+                    <TrashIcon className={styles.trashIcon} />
+                    // <Icon icon="octicon:trash-16" color="#9baece" className={styles.trashIcon}/>
                   )}
                 </div>
               </>
@@ -305,13 +312,14 @@ const LoginId = ({
           ) ? (
             <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
           ) : (
-            <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+            // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+            <FavIconInactive className={styles.favIcon}/>
           )}
         </button>
       </div>
       <div className={styles.userNameWrapper}>
         <div className={styles.iconDiv}>
-        <Icon icon="fa-solid:user" className={styles.textIcon} />
+          <Icon icon="fa-solid:user" className={styles.textIcon} />
         </div>
         <div className={styles.textDiv}>
           {inEditMode ? (
@@ -330,7 +338,7 @@ const LoginId = ({
 
       <div className={styles.passwordWrapper}>
         <div className={styles.iconDiv}>
-        <Icon icon="fa-solid:lock" className={styles.textIcon}/>
+          <Icon icon="fa-solid:lock" className={styles.textIcon} />
         </div>
         <div className={styles.textDiv}>
           {inEditMode ? (

@@ -203,13 +203,16 @@
 
 .favIcon {
   /* font-size: 17px; */
-  font-size: 1rem;
-
+  /* font-size: 1rem; */
+  height: 1rem;
   cursor: pointer;
 }
 .trashIcon {
   /* font-size: 17px; */
-  font-size: 1rem;
+  height: 1rem;
+  /* font-size: 1rem; */
+
+  /* border: 1px solid black; */
 
   cursor: pointer;
 }
