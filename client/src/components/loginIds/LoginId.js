@@ -10,6 +10,8 @@ import modalStyles from "../../css/modal/modal.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { motion } from "framer-motion";
 
+import trash from "../../img/trashIcon.svg";
+
 // icons set
 import { FaUserAlt, FaLock } from "react-icons/fa";
 import { Icon, InlineIcon } from "@iconify/react";
@@ -279,11 +281,12 @@ const LoginId = ({
                   process === "delete" ? (
                     <CircleSpinner size={15} color="#1072f1" loading={true} />
                   ) : (
-                    <Icon
-                      icon="feather:trash"
-                      className={styles.trashIcon}
-                      color="#9baece"
-                    />
+                    // <Icon
+                    //   icon="feather:trash"
+                    //   className={styles.trashIcon}
+                    //   color="#9baece"
+                    // />
+                    <img src={trash}/>
                   )}
                 </div>
               </>
