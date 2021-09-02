@@ -475,18 +475,19 @@
   .favIcon {
     /* font-size: clamp(1.4rem, 0.6rem + 4vw, 1.8rem) !important; */
     /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
-    height: 1rem;
+    /* height: 1rem; */
     /* height: 1.5rem; */
     /* height:clamp( 1.0rem , -1.0rem + 10.0vw, 2.0rem) !important; */
     /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
-    height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important;
+    /* height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important; */
 
-    height: clamp(1.0rem , 0.0rem + 5.0vw, 1.5rem) !important;
+    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
+
 
   }
   .pencilIcon {
     /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
-    height: 1rem;
+    /* height: 1rem; */
     /* height: 2rem; */
     /* height: 1.1rem; */
     /* height: 1.2rem; */
@@ -500,18 +501,19 @@
 
     /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
     /* height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important; */
-    height: clamp(1.0rem , 0.0rem + 5.0vw, 1.5rem) !important;
+    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
 
 
 
   }
   .trashIcon {
     /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
-    height: 1rem;
+    /* height: 1rem; */
     /* height: 1.5rem; */
     /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
-    height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important;
-    height: clamp(1.0rem , 0.0rem + 5.0vw, 1.5rem) !important;
+    /* height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important; */
+    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
+
 
 
   }
