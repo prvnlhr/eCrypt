@@ -134,6 +134,8 @@
   color: #b3bac3;
   margin: 0px 0px 0px 0px;
   padding: 0px;
+  border-radius:0px;
+  
 }
 
 .editBtnContainer {
@@ -157,6 +159,10 @@
 
   /* border: 1px solid black; */
   /* background: white; */
+  box-sizing: border-box;
+  /* padding-top:2%; */
+  /* padding-bottom:2%; */
+
 }
 .deleteIconDiv {
   width: 50%;
@@ -171,6 +177,9 @@
 
   /* border: 1px solid black; */
   /* background: white; */
+  box-sizing: border-box;
+  padding:2%;
+
 }
 .checkIconDiv {
   width: 50%;
@@ -204,21 +213,28 @@
 .favIcon {
   /* font-size: 17px; */
   /* font-size: 1rem; */
-  height: 1rem;
+  /* height: 1.2rem; */
   cursor: pointer;
+  /* height: 1.2rem; */
+  height: 70%;
 }
 .trashIcon {
   /* font-size: 17px; */
-  height: 1rem;
+  /* height: 100%; */
   /* font-size: 1rem; */
 
   /* border: 1px solid black; */
+  height: 70%;
 
   cursor: pointer;
 }
 .pencilIcon {
   /* font-size: 17px; */
-  font-size: 1rem;
+  /* font-size: 1rem; */
+  /* height: 1.2rem; */
+  height: 70%;
+
+
 
   cursor: pointer;
 }
@@ -457,15 +473,37 @@
     font-size: clamp(0.85rem, 0.15rem + 3.5vw, 1.2rem) !important;
   }
   .favIcon {
-    font-size: clamp(1.4rem, 0.6rem + 4vw, 1.8rem) !important;
-    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
+    /* font-size: clamp(1.4rem, 0.6rem + 4vw, 1.8rem) !important; */
+    /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
+    height: 1rem;
+    /* height: 1.5rem; */
+    /* height:clamp( 1.0rem , -1.0rem + 10.0vw, 2.0rem) !important; */
+    /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
+    height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important;
+
+
   }
   .pencilIcon {
-    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
-    /* font-size: 1.1em; */
+    /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
+    height: 1rem;
+    /* height: 1.5rem; */
+    /* height:clamp( 1.0rem , -1.0rem + 10.0vw, 2.0rem) !important; */
+    /* height:clamp( 0.9rem , -1.3000000000000003rem + 11.000000000000002vw, 2.0rem) !important; */
+
+    /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
+    height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important;
+
+
+
   }
   .trashIcon {
-    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
+    /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
+    height: 1rem;
+    /* height: 1.5rem; */
+    /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
+    height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important;
+
+
   }
   .checkIcon {
     font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;

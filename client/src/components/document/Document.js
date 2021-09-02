@@ -12,6 +12,10 @@ import {
 } from "../../actions/documentsAction";
 import { CircleSpinner } from "react-spinners-kit";
 import { motion } from "framer-motion";
+import TrashIcon from "../icons/TrashIcon";
+import BookmarkPlus from "../icons/BookmarkPlus";
+import BookmarkFill from "../icons/BookmarkFill";
+import PencilIcon from "../icons/PencilIcon";
 
 // icons set__________________________________
 import { Icon, InlineIcon } from "@iconify/react";
@@ -167,9 +171,19 @@ const Document = ({
             }}
           >
             {(currDocData ? currDocData.isFavourite : doc.isFavourite) ? (
-              <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+                         // <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+            <BookmarkFill
+            className={styles.favIcon}
+            primaryColor={"#9baece"}
+            secondaryColor={"#0075ff"}
+          />
             ) : (
-              <BsBookmarkPlus className={styles.favIcon} color="gray" />
+             // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+             <BookmarkPlus
+             className={styles.favIcon}
+             primaryColor={"#9baece"}
+             secondaryColor={"#0075ff"}
+           />
             )}
           </div>
         </div>

@@ -367,18 +367,20 @@ backdrop-filter: blur(1px);
   font-size: 17px;
   cursor: pointer;
 }
-.deleteIcon {
+.trashIcon {
   font-size: 17px;
   cursor: pointer;
 }
 
-.editIcon {
+.pencilIcon {
   font-size: 17px;
   cursor: pointer;
 }
 .favIcon {
   font-size: 17px;
   cursor: pointer;
+  height: 1.2rem;
+  
 }
 
 .titleInput {

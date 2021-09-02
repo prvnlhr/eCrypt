@@ -11,6 +11,10 @@ import { motion } from "framer-motion";
 //icons set
 import { Icon, InlineIcon } from "@iconify/react";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
+import TrashIcon from "../icons/TrashIcon";
+import BookmarkPlus from "../icons/BookmarkPlus";
+import BookmarkFill from "../icons/BookmarkFill";
+import PencilIcon from "../icons/PencilIcon";
 
 const Card = ({ card, setEditButton, showEditButton, index }) => {
   const dispatch = useDispatch();
@@ -151,11 +155,16 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                       // <Ripples color={"blue"} during={1200}>
                       // <button type="button">
 
-                      <Icon
-                        icon="akar-icons:pencil"
-                        className={styles.pencilIcon}
-                        color="#9baece"
-                      />
+                      // <Icon
+                      //   icon="akar-icons:pencil"
+                      //   className={styles.pencilIcon}
+                      //   color="#9baece"
+                      // />
+                      <PencilIcon
+                      className={styles.pencilIcon}
+                      primaryColor={"#9baece"}
+                      secondaryColor={"#9baece"}
+                    />
                       // </button>
                       // </Ripples>
                     )}
@@ -172,12 +181,17 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                     process === "delete" ? (
                       <CircleSpinner size={15} color="#1072f1" loading={true} />
                     ) : (
-                      <Icon
-                        icon="feather:trash"
-                        // icon="eva:trash-fill"
-                        className={styles.trashIcon}
-                        color="#9baece"
-                      />
+                      // <Icon
+                      //   icon="feather:trash"
+                      //   // icon="eva:trash-fill"
+                      //   className={styles.trashIcon}
+                      //   color="#9baece"
+                      // />
+                      <TrashIcon
+                      className={styles.trashIcon}
+                      primaryColor={"#9baece"}
+                      secondaryColor={"#9baece"}
+                    />
                     )}
                   </div>
                 </>
@@ -193,10 +207,22 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
           }}
         >
           {(currCardData ? currCardData.isFavourite : card.isFavourite) ? (
-            <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+            // <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+            <BookmarkFill
+            className={styles.favIcon}
+            primaryColor={"#9baece"}
+            secondaryColor={"#00b7fd"}
+          />
+
           ) : (
-            <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
-          )}
+            // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+            <BookmarkPlus
+              className={styles.favIcon}
+              primaryColor={"#9baece"}
+              secondaryColor={"#9baece"}
+            />
+         
+         )}
         </button>
       </div>
 

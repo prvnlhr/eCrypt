@@ -17,6 +17,10 @@ import { HiX, HiCheck } from "react-icons/hi";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon, InlineIcon } from "@iconify/react";
+import TrashIcon from "../icons/TrashIcon";
+import BookmarkPlus from "../icons/BookmarkPlus";
+import BookmarkFill from "../icons/BookmarkFill";
+import PencilIcon from "../icons/PencilIcon";
 
 const variants = {
   open: {
@@ -185,7 +189,11 @@ const MaximizeDoc = ({
                     handleDeleteClick();
                   }}
                 >
-                  <Icon icon="feather:trash" className={styles.deleteIcon} />
+                    <TrashIcon
+                      className={styles.trashIcon}
+                      primaryColor={"white"}
+                      secondaryColor={"white"}
+                    />
                 </div>
               )}
               <div className={styles.maxImgFavBtnContainer}>
@@ -196,12 +204,17 @@ const MaximizeDoc = ({
                   }}
                 >
                   {imageData.isFavourite ? (
-                    <BsBookmarkFill
-                      className={styles.favIcon}
-                      color="#00b7fd"
-                    />
+                    <BookmarkFill
+                    className={styles.favIcon}
+                    primaryColor={"#9baece"}
+                    secondaryColor={"#00b7fd"}
+                  />
                   ) : (
-                    <BsBookmarkPlus className={styles.favIcon} color="white" />
+                    <BookmarkPlus
+                    className={styles.favIcon}
+                    primaryColor={"white"}
+                    secondaryColor={"white"}
+                  />
                   )}
                 </div>
               </div>
@@ -241,9 +254,10 @@ const MaximizeDoc = ({
                     className={styles.maxImgEditDiv}
                     onClick={handleEditButtonClicked}
                   >
-                    <Icon
-                      icon="akar-icons:pencil"
+                     <PencilIcon
                       className={styles.pencilIcon}
+                      primaryColor={"white"}
+                      secondaryColor={"white"}
                     />
                   </div>
                 ) : (

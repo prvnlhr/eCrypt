@@ -55,8 +55,10 @@
   height: 45px;
   /* border: 1px solid red; */
   background-color: rgba(0, 0, 0, 0.452);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: black;
+
+  /* backdrop-filter: blur(20px); */
+  /* -webkit-backdrop-filter: blur(20px); */
   display: flex;
   /* flex-flow: row; */
   /* justify-content: space-between; */
@@ -148,15 +150,15 @@
   height: 40px;
   bottom: 0;
   /* border: 1px solid rgba(221, 40, 40, 0.541); */
-  background-color: rgba(0, 0, 0, 0.466);
+  background-color: black;
   display: flex;
   justify-content: center;
   /* -webkit-animation: fade-in-bottom 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both; */
   /* animation: fade-in-bottom 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both; */
   /* filter: blur(50px); */
-  backdrop-filter: blur(20px);
+  /* backdrop-filter: blur(20px); */
 
-  -webkit-backdrop-filter: blur(20px);
+  /* -webkit-backdrop-filter: blur(20px); */
 }
 .docTitleContainer {
   position: absolute;
@@ -308,10 +310,11 @@
   cursor: pointer;
   color: white;
 }
-.deleteIcon {
+.trashIcon {
   font-size: 17px;
   cursor: pointer;
   color: white;
+  height: 2rem;
   /* color: black; */
 }
 
@@ -319,11 +322,15 @@
   font-size: 17px;
   cursor: pointer;
   color: white;
+  height: 2rem;
+
 }
 .favIcon {
   font-size: 17px;
   cursor: pointer;
   color: white;
+  height: 2rem;
+
 }
 /* _____________________________DELETE MODAL_______________ */
 .modalContainer {

@@ -12,8 +12,9 @@ import { motion } from "framer-motion";
 
 import trash from "../../img/trashIcon.svg";
 import TrashIcon from "../icons/TrashIcon";
-import FavIconInactive from "../icons/FavIconInactive";
-
+import BookmarkPlus from "../icons/BookmarkPlus";
+import BookmarkFill from "../icons/BookmarkFill";
+import PencilIcon from "../icons/PencilIcon";
 
 // icons set
 import { FaUserAlt, FaLock } from "react-icons/fa";
@@ -269,8 +270,16 @@ const LoginId = ({
                     //   className={styles.pencilIcon}
                     //   color="#9baece"
                     // />
-                    <Icon icon="octicon:pencil-16"   className={styles.pencilIcon}
-                    color="#9baece" />
+                    // <Icon
+                    //   icon="octicon:pencil-16"
+                    //   className={styles.pencilIcon}
+                    //   color="#9baece"
+                    // />
+                    <PencilIcon
+                      className={styles.pencilIcon}
+                      primaryColor={"#9baece"}
+                      secondaryColor={"#9baece"}
+                    />
                   )}
                 </div>
                 <div
@@ -292,7 +301,11 @@ const LoginId = ({
                     //   color="#9baece"
                     // />
                     // <img src={trash} className={styles.trashIcon} />
-                    <TrashIcon className={styles.trashIcon} />
+                    <TrashIcon
+                      className={styles.trashIcon}
+                      primaryColor={"#9baece"}
+                      secondaryColor={"#9baece"}
+                    />
                     // <Icon icon="octicon:trash-16" color="#9baece" className={styles.trashIcon}/>
                   )}
                 </div>
@@ -310,10 +323,19 @@ const LoginId = ({
           {(
             currLoginIdData ? currLoginIdData.isFavourite : loginId.isFavourite
           ) ? (
-            <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+            // <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+            <BookmarkFill
+              className={styles.favIcon}
+              primaryColor={"#9baece"}
+              secondaryColor={"#00b7fd"}
+            />
           ) : (
             // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
-            <FavIconInactive className={styles.favIcon}/>
+            <BookmarkPlus
+              className={styles.favIcon}
+              primaryColor={"#9baece"}
+              secondaryColor={"#9baece"}
+            />
           )}
         </button>
       </div>
