@@ -99,6 +99,14 @@
 
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 5px 5px rgba(0, 0, 0, 0.034);
 }
+.pencilIcon{
+  height: 32px;
+  border: 1px solid #4cd7f6;
+  /* width: 32px; */
+
+
+
+}
 .nameLetterDiv p {
   font-weight: 650;
   font-family: "Quicksand", sans-serif;

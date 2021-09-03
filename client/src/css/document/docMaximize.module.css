@@ -300,21 +300,27 @@
 }
 /* _____________MAXIMIZE IMAGE STYLES END___________________________________________________________ */
 
-.saveIcon {
+.checkIcon {
   font-size: 17px;
   cursor: pointer;
   color: white;
+  height:1.2rem;
+
 }
 .cancelIcon {
   font-size: 17px;
   cursor: pointer;
   color: white;
+  height:1.2rem;
+
 }
 .trashIcon {
   font-size: 17px;
   cursor: pointer;
   color: white;
   height: 2rem;
+  height:1.2rem;
+
   /* color: black; */
 }
 
@@ -323,6 +329,8 @@
   cursor: pointer;
   color: white;
   height: 2rem;
+  height:1.2rem;
+
 
 }
 .favIcon {
@@ -330,6 +338,8 @@
   cursor: pointer;
   color: white;
   height: 2rem;
+  height:1.2rem;
+
 
 }
 /* _____________________________DELETE MODAL_______________ */

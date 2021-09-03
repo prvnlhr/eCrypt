@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { HiX, HiChevronDown, HiChevronUp } from "react-icons/hi";
 import logo from "../../img/ecryptLogo.svg";
+import PencilIcon from "../icons/PencilIcon";
+
 
 import { RiSearch2Line } from "react-icons/ri";
 import styles from "../../css/app_layout/navbar.module.css";
@@ -71,6 +73,11 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
         </div>
       </div>
       <div className={styles.rightPortion}>
+      {/* <PencilIcon
+                      className={styles.pencilIcon}
+                      primaryColor={"#9baece"}
+                      secondaryColor={"#9baece"}
+                    /> */}
         <div
           className={
             searchMode ? styles.inputContainer : styles.inputContainerSmall

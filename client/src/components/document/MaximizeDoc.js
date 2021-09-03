@@ -21,6 +21,8 @@ import TrashIcon from "../icons/TrashIcon";
 import BookmarkPlus from "../icons/BookmarkPlus";
 import BookmarkFill from "../icons/BookmarkFill";
 import PencilIcon from "../icons/PencilIcon";
+import CancelIcon from "../icons/CancelIcon";
+import CheckIcon from "../icons/CheckIcon";
 
 const variants = {
   open: {
@@ -189,11 +191,11 @@ const MaximizeDoc = ({
                     handleDeleteClick();
                   }}
                 >
-                    <TrashIcon
-                      className={styles.trashIcon}
-                      primaryColor={"white"}
-                      secondaryColor={"white"}
-                    />
+                  <TrashIcon
+                    className={styles.trashIcon}
+                    primaryColor={"white"}
+                    secondaryColor={"#2882FF"}
+                  />
                 </div>
               )}
               <div className={styles.maxImgFavBtnContainer}>
@@ -205,16 +207,16 @@ const MaximizeDoc = ({
                 >
                   {imageData.isFavourite ? (
                     <BookmarkFill
-                    className={styles.favIcon}
-                    primaryColor={"#9baece"}
-                    secondaryColor={"#00b7fd"}
-                  />
+                      className={styles.favIcon}
+                      primaryColor={"#2882FF"}
+            secondaryColor={"#2882FF"}
+                    />
                   ) : (
                     <BookmarkPlus
-                    className={styles.favIcon}
-                    primaryColor={"white"}
-                    secondaryColor={"white"}
-                  />
+                      className={styles.favIcon}
+                      primaryColor={"white"}
+                      secondaryColor={"#2882FF"}
+                    />
                   )}
                 </div>
               </div>
@@ -254,10 +256,10 @@ const MaximizeDoc = ({
                     className={styles.maxImgEditDiv}
                     onClick={handleEditButtonClicked}
                   >
-                     <PencilIcon
+                    <PencilIcon
                       className={styles.pencilIcon}
                       primaryColor={"white"}
-                      secondaryColor={"white"}
+                      secondaryColor={"#2882FF"}
                     />
                   </div>
                 ) : (
@@ -266,13 +268,16 @@ const MaximizeDoc = ({
                       className={styles.maxImgSaveDiv}
                       onClick={handleImageSave}
                     >
-                      <HiCheck className={styles.saveIcon} />
+                      {/* <HiCheck className={styles.saveIcon} /> */}
+                      <CheckIcon className={styles.checkIcon} primaryColor={"white"}
+                      secondaryColor={"#2882FF"} />
                     </div>
                     <div
                       className={styles.maxImgCancelDiv}
                       onClick={handleCancelBtnClicked}
                     >
-                      <HiX className={styles.cancelIcon} />
+                      <CancelIcon className={styles.cancelIcon} primaryColor={"white"}
+                      secondaryColor={"#2882FF"}/>
                     </div>
                   </>
                 )}

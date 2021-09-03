@@ -211,43 +211,24 @@
 }
 
 .favIcon {
-  /* font-size: 17px; */
-  /* font-size: 1rem; */
-  /* height: 1.2rem; */
   cursor: pointer;
-  /* height: 1.2rem; */
-  height: 70%;
+  height:1.2rem;
+
 }
 .trashIcon {
-  /* font-size: 17px; */
-  /* height: 100%; */
-  /* font-size: 1rem; */
-
-  /* border: 1px solid black; */
-  height: 70%;
-
   cursor: pointer;
+  height:1.2rem;
 }
 .pencilIcon {
-  /* font-size: 17px; */
-  /* font-size: 1rem; */
-  /* height: 1.2rem; */
-  height: 70%;
-
-
-
   cursor: pointer;
+  height:1.2rem;
 }
 .cancelIcon {
-  /* font-size: 17px; */
-  font-size: 1rem;
-
+  height:1.2rem;
   cursor: pointer;
 }
 .checkIcon {
-  /* font-size: 17px; */
-  font-size: 1rem;
-
+  height:1.2rem;
   cursor: pointer;
 }
 .userNameWrapper {
@@ -340,6 +321,131 @@
 }
 .inputField:focus {
   border: 2px solid #1072f1;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .loginIdContainer {
+    position: relative;
+    display: grid;
+    width: 83% !important;
+    /* aspect-ratio: 3.73/1 !important; */
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 25% minmax(0, 1fr) minmax(0, 1fr) !important;
+    /* grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr) !important; */
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .inputField {
+    font-size: clamp(0.81rem, 0.23rem + 2.9vw, 1.1rem) !important;
+  }
+  .textIcon {
+    font-size: clamp(0.8rem, 0.2rem + 3vw, 1.1rem) !important;
+  }
+  .textDiv p {
+    font-size: clamp(0.81rem, 0.23rem + 2.9vw, 1.1rem) !important;
+  }
+  .websiteDiv p {
+    font-size: clamp(0.85rem, 0.15rem + 3.5vw, 1.2rem) !important;
+  }
+  .favIcon {
+    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
+    /* height: 1.1rem; */
+    /* height: 1.5rem; */
+
+
+  }
+  .pencilIcon {
+    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
+    /* height: 1.1rem; */
+    /* height: 0.9rem; */
+    /* height: 1rem; */
+    /* height: 1.1rem; */
+    /* height: 1.2rem; */
+    /* height: 1.3rem; */
+    /* height: 1.4rem; */
+    /* height: 1.5rem; */
+    /* height: 1.6rem; */
+    /* height: 1.7rem; */
+    /* height: 1.8rem; */
+    /* height: 1.9rem; */
+    /* height: 2rem; */
+    /* height: 1.5rem; */
+
+
+
+
+  }
+  .trashIcon {
+    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
+    /* height: 1.1rem; */
+    /* height: 1.5rem; */
+
+
+  }
+  .checkIcon {
+    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
+  }
+  .cancelIcon {
+    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
+  }
+  /* STYLES GO HERE */
+}
+@media only screen and (max-width: 320px) {
+  .loginIdContainer {
+    position: relative;
+    display: grid;
+    width: 83% !important;
+    /* aspect-ratio: 3.73/1 !important; */
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 25% minmax(0, 1fr) minmax(0, 1fr) !important;
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .textIcon {
+    font-size: 0.8rem;
+    font-size: 0.5rem;
+    font-size: clamp(0.5rem, 0rem + 4vw, 0.8rem) !important;
+  }
+  .textDiv p {
+    font-size: 0.81rem;
+    font-size: 0.65rem;
+    font-size: clamp(0.65rem, 0.3833rem + 2.133vw, 0.81rem) !important;
+  }
+  .websiteDiv p {
+    font-size: 0.85rem;
+    font-size: 0.7rem;
+    font-size: clamp(0.7rem, 0.45rem + 2vw, 0.85rem) !important;
+  }
+  .favIcon {
+ 
+    font-size: clamp(0.9rem, 0.5675rem + 2.6vw, 1.1rem) !important;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
+  .pencilIcon {
+    font-size: 0.7em;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
+  .trashIcon {
+    font-size: 1.1em;
+    font-size: 0.7em;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
+  .checkIcon {
+    font-size: 1.1em;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
+  .cancelIcon {
+    font-size: 1.1em;
+    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
+  }
 }
 /*____NEW CSS RULES END_____  */
 
@@ -442,140 +548,3 @@
     font-size: 12px;
   }
 } */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  .loginIdContainer {
-    position: relative;
-    display: grid;
-    width: 83% !important;
-    /* aspect-ratio: 3.73/1 !important; */
-    height: auto;
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background-color: #ffffff;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 25% minmax(0, 1fr) minmax(0, 1fr) !important;
-    /* grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr) !important; */
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  }
-  .inputField {
-    font-size: clamp(0.81rem, 0.23rem + 2.9vw, 1.1rem) !important;
-  }
-  .textIcon {
-    font-size: 0.8rem;
-    font-size: 1.1rem;
-    font-size: clamp(0.8rem, 0.2rem + 3vw, 1.1rem) !important;
-  }
-  .textDiv p {
-    font-size: clamp(0.81rem, 0.23rem + 2.9vw, 1.1rem) !important;
-  }
-  .websiteDiv p {
-    font-size: clamp(0.85rem, 0.15rem + 3.5vw, 1.2rem) !important;
-  }
-  .favIcon {
-    /* font-size: clamp(1.4rem, 0.6rem + 4vw, 1.8rem) !important; */
-    /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
-    /* height: 1rem; */
-    /* height: 1.5rem; */
-    /* height:clamp( 1.0rem , -1.0rem + 10.0vw, 2.0rem) !important; */
-    /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
-    /* height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important; */
-
-    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
-
-
-  }
-  .pencilIcon {
-    /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
-    /* height: 1rem; */
-    /* height: 2rem; */
-    /* height: 1.1rem; */
-    /* height: 1.2rem; */
-    /* height: 1.3rem; */
-    /* height: 1.4rem; */
-    /* height: 1.5rem; */
-   
-
-    /* height:clamp( 1.0rem , -1.0rem + 10.0vw, 2.0rem) !important; */
-    /* height:clamp( 0.9rem , -1.3000000000000003rem + 11.000000000000002vw, 2.0rem) !important; */
-
-    /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
-    /* height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important; */
-    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
-
-
-
-  }
-  .trashIcon {
-    /* font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important; */
-    /* height: 1rem; */
-    /* height: 1.5rem; */
-    /* height:clamp( 1.0rem , 0.0rem + 5.0vw, 1.5rem) !important; */
-    /* height:clamp( 0.8rem , 0.13333333333333353rem + 5.333333333333332vw, 1.2rem) !important; */
-    height: clamp(1.1rem , 0.30000000000000027rem + 3.9999999999999996vw, 1.5rem) !important;
-
-
-
-  }
-  .checkIcon {
-    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
-  }
-  .cancelIcon {
-    font-size: clamp(1.1rem, 0.5rem + 3vw, 1.4rem) !important;
-  }
-  /* STYLES GO HERE */
-}
-@media only screen and (max-width: 320px) {
-  .loginIdContainer {
-    position: relative;
-    display: grid;
-    width: 83% !important;
-    /* aspect-ratio: 3.73/1 !important; */
-    height: auto;
-    border-radius: 8px;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    background-color: #ffffff;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 25% minmax(0, 1fr) minmax(0, 1fr) !important;
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
-  }
-  .textIcon {
-    font-size: 0.8rem;
-    font-size: 0.5rem;
-    font-size: clamp(0.5rem, 0rem + 4vw, 0.8rem) !important;
-  }
-  .textDiv p {
-    font-size: 0.81rem;
-    font-size: 0.65rem;
-    font-size: clamp(0.65rem, 0.3833rem + 2.133vw, 0.81rem) !important;
-  }
-  .websiteDiv p {
-    font-size: 0.85rem;
-    font-size: 0.7rem;
-    font-size: clamp(0.7rem, 0.45rem + 2vw, 0.85rem) !important;
-  }
-  .favIcon {
-    /* font-size: clamp(1.4rem, 0.6rem + 4vw, 1.8rem) !important; */
-    /* font-size: 0.9em; */
-    font-size: clamp(0.9rem, 0.5675rem + 2.6vw, 1.1rem) !important;
-    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
-  }
-  .pencilIcon {
-    font-size: 0.7em;
-    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
-  }
-  .trashIcon {
-    font-size: 1.1em;
-    font-size: 0.7em;
-    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
-  }
-  .checkIcon {
-    font-size: 1.1em;
-    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
-  }
-  .cancelIcon {
-    font-size: 1.1em;
-    font-size: clamp(0.7rem, 0.03375rem + 5.33vw, 1.1rem) !important;
-  }
-}

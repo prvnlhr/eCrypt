@@ -15,6 +15,10 @@ import TrashIcon from "../icons/TrashIcon";
 import BookmarkPlus from "../icons/BookmarkPlus";
 import BookmarkFill from "../icons/BookmarkFill";
 import PencilIcon from "../icons/PencilIcon";
+import CancelIcon from "../icons/CancelIcon";
+import CheckIcon from "../icons/CheckIcon";
+
+
 
 // icons set
 import { FaUserAlt, FaLock } from "react-icons/fa";
@@ -228,11 +232,10 @@ const LoginId = ({
                     setEditId(null);
                   }}
                 >
-                  <Icon
-                    icon="heroicons-solid:x"
-                    color="#9baece"
-                    className={styles.cancelIcon}
-                  />
+                <CancelIcon className={styles.cancelIcon}  
+                 primaryColor={"#9baece"}
+                 secondaryColor={"#2882FF"}
+                        />
                 </div>
                 <div
                   className={styles.checkIconDiv}
@@ -242,11 +245,10 @@ const LoginId = ({
                     setCurrEditId(null);
                   }}
                 >
-                  <Icon
-                    icon="heroicons-solid:check"
-                    color="#9baece"
-                    className={styles.checkIcon}
-                  />
+               <CheckIcon className={styles.checkIcon}   
+               primaryColor={"#9baece"}
+               secondaryColor={"#2882FF"}
+                        />
                 </div>
               </>
             ) : (
@@ -278,7 +280,7 @@ const LoginId = ({
                     <PencilIcon
                       className={styles.pencilIcon}
                       primaryColor={"#9baece"}
-                      secondaryColor={"#9baece"}
+                      secondaryColor={"#2882FF"}
                     />
                   )}
                 </div>
@@ -304,7 +306,7 @@ const LoginId = ({
                     <TrashIcon
                       className={styles.trashIcon}
                       primaryColor={"#9baece"}
-                      secondaryColor={"#9baece"}
+                 secondaryColor={"#2882FF"}
                     />
                     // <Icon icon="octicon:trash-16" color="#9baece" className={styles.trashIcon}/>
                   )}
@@ -326,15 +328,15 @@ const LoginId = ({
             // <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
             <BookmarkFill
               className={styles.favIcon}
-              primaryColor={"#9baece"}
-              secondaryColor={"#00b7fd"}
+              primaryColor={"#2882FF"}
+              secondaryColor={"white"}
             />
           ) : (
             // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
             <BookmarkPlus
               className={styles.favIcon}
               primaryColor={"#9baece"}
-              secondaryColor={"#9baece"}
+                 secondaryColor={"#2882FF"}
             />
           )}
         </button>

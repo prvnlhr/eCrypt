@@ -163,9 +163,9 @@ const Document = ({
             </div>
           )}
 
-        <div className={styles.favBtnDiv}>
+        <div className={styles.favBtnContainer}>
           <div
-            className={styles.favBtn}
+            className={styles.favBtnDiv}
             onClick={() => {
               handleFavToggle(doc._id);
             }}
@@ -174,15 +174,15 @@ const Document = ({
                          // <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
             <BookmarkFill
             className={styles.favIcon}
-            primaryColor={"#9baece"}
-            secondaryColor={"#0075ff"}
+            primaryColor={"#2882FF"}
+            secondaryColor={"white"}
           />
             ) : (
              // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
              <BookmarkPlus
              className={styles.favIcon}
-             primaryColor={"#9baece"}
-             secondaryColor={"#0075ff"}
+             primaryColor={"gray"}
+             secondaryColor={"#2882FF"}
            />
             )}
           </div>

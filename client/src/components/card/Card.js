@@ -15,6 +15,8 @@ import TrashIcon from "../icons/TrashIcon";
 import BookmarkPlus from "../icons/BookmarkPlus";
 import BookmarkFill from "../icons/BookmarkFill";
 import PencilIcon from "../icons/PencilIcon";
+import CancelIcon from "../icons/CancelIcon";
+import CheckIcon from "../icons/CheckIcon";
 
 const Card = ({ card, setEditButton, showEditButton, index }) => {
   const dispatch = useDispatch();
@@ -112,11 +114,10 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                   setEditButton(true);
                 }}
               >
-                <Icon
-                  icon="heroicons-solid:x"
-                  color="#9baece"
-                  className={styles.cancelIcon}
-                />
+                   <CancelIcon className={styles.cancelIcon}  
+                 primaryColor={"#9baece"}
+                 secondaryColor={"#2882FF"}
+                        />
               </div>
               <div
                 className={styles.checkIconDiv}
@@ -127,11 +128,10 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                   setEditButton(true);
                 }}
               >
-                <Icon
-                  icon="heroicons-solid:check"
-                  color="#9baece"
-                  className={styles.checkIcon}
-                />
+                 <CheckIcon className={styles.checkIcon}   
+               primaryColor={"#9baece"}
+               secondaryColor={"#2882FF"}
+                        />
               </div>
             </>
           ) : (
@@ -163,7 +163,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                       <PencilIcon
                       className={styles.pencilIcon}
                       primaryColor={"#9baece"}
-                      secondaryColor={"#9baece"}
+                      secondaryColor={"#2882FF"}
                     />
                       // </button>
                       // </Ripples>
@@ -188,10 +188,10 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
                       //   color="#9baece"
                       // />
                       <TrashIcon
-                      className={styles.trashIcon}
-                      primaryColor={"#9baece"}
-                      secondaryColor={"#9baece"}
-                    />
+                        className={styles.trashIcon}
+                        primaryColor={"#9baece"}
+                        secondaryColor={"#2882FF"}
+                      />
                     )}
                   </div>
                 </>
@@ -210,26 +210,24 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
             // <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
             <BookmarkFill
             className={styles.favIcon}
-            primaryColor={"#9baece"}
-            secondaryColor={"#00b7fd"}
+            primaryColor={"#2882FF"}
+            secondaryColor={"white"}
           />
-
           ) : (
             // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
             <BookmarkPlus
-              className={styles.favIcon}
-              primaryColor={"#9baece"}
-              secondaryColor={"#9baece"}
-            />
-         
-         )}
+            className={styles.favIcon}
+            primaryColor={"#9baece"}
+               secondaryColor={"#2882FF"}
+          />
+          )}
         </button>
       </div>
 
       {modalShow === true ? (
         <div className={modalStyles.modalContainer}>
           <div className={modalStyles.dialogDiv}>
-          <Icon icon="carbon:warning" className={modalStyles.icon} />
+            <Icon icon="carbon:warning" className={modalStyles.icon} />
 
             <p>Are you sure you want to delete this item permanently ?</p>
           </div>
