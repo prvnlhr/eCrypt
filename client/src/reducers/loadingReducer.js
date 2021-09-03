@@ -6,6 +6,7 @@ const initialState = {
   itemId: "",
   process: "",
   success: "",
+ 
 };
 
 export default function loading(state = initialState, action) {
@@ -18,10 +19,7 @@ export default function loading(state = initialState, action) {
         process: action.process,
         success: action.success,
       };
-    // case LOADING_END:
-    //   return {
-    //     isLoading: false,
-    //   };
+  
 
     default:
       return state;

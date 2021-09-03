@@ -3,7 +3,7 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   /* border: 1px solid black; */
@@ -12,7 +12,7 @@
 }
 
 .appLogoWrapper {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: auto;
   display: flex;
@@ -22,7 +22,8 @@
   /* border: 1px solid black; */
   box-sizing: border-box;
   z-index: 45;
-  top: 50px;
+  /* top: 50px; */
+  margin: 2% 0px 0px 0px;
 }
 .logoDiv {
   position: relative;
@@ -33,10 +34,13 @@
   align-items: center;
   flex-direction: row;
   /* border: 1px solid black; */
-
   box-sizing: border-box;
   z-index: 45;
   white-space: nowrap;
+}
+.logoDiv img {
+  width: 100px;
+  height: 100px;
 }
 .textOne {
   font-family: "Quicksand", sans-serif;
@@ -174,8 +178,8 @@
   align-items: flex-end;
 }
 .errorDiv {
-  width: 90%;
-  height: 90%;
+  width: auto;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,10 +194,11 @@
   font-weight: 550;
   margin: 0px 0px 0px 0px;
   letter-spacing: 0.3px;
+  padding: 2px 2px 2px 2px;
 }
 .successDiv {
-  width: 90%;
-  height: 90%;
+  width: auto;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,6 +212,7 @@
   font-size: 0.8em;
   font-weight: 450;
   font-weight: bold;
+  padding: 2px 2px 2px 2px;
 
   margin: 0px 0px 0px 0px;
   letter-spacing: 0.3px;
@@ -399,7 +405,8 @@ button p {
   /* outline: 1px solid red; */
   border: 2px solid #1072f1;
 }
-@media screen and (max-width: 550px) {
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .formComponent {
     /* width:300px; */
     width: 78%;
@@ -410,7 +417,12 @@ button p {
   .labelText {
     font-family: "Quicksand", sans-serif;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: clamp(
+      0.6rem,
+      -1.1102230246251565e-16rem + 3.0000000000000004vw,
+      0.9rem
+    ) !important;
+
     color: #8b8ea1;
     font-weight: bold;
     margin: 0px 0px 0px 2px;
@@ -418,15 +430,32 @@ button p {
   }
   .buttonWrapper button {
     width: 90%;
-    height: 35px;
+    height: clamp(1.4rem , -0.20000000000000062rem + 8.000000000000004vw, 2.2rem) !important;
+
   }
   .BottomLinkWrapper p {
-    font-size: 15px;
     margin: 0px 0px 0px 0px;
     letter-spacing: 0.3px;
+    font-size: clamp(
+      0.7rem,
+      -0.10000000000000031rem + 4.000000000000002vw,
+      1.1rem
+    ) !important;
   }
   .link {
-    font-size: 15px;
     margin: 0px 0px 0px 3px;
+    font-size: clamp(
+      0.7rem,
+      -0.10000000000000031rem + 4.000000000000002vw,
+      1.1rem
+    ) !important;
+  }
+  .inputField::placeholder {
+    font-family: "Quicksand", sans-serif;
+    font-size: clamp(
+      0.7rem,
+      -0.10000000000000031rem + 4.000000000000002vw,
+      1.1rem
+    ) !important;
   }
 }

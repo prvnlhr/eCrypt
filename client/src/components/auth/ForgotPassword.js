@@ -12,6 +12,7 @@ import styles from "../../css/auth/forgotPass.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
+import logo from "../../img/ecryptLogo.svg";
 
 const initialState = {
   email: "",

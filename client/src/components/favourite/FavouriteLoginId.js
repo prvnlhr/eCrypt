@@ -9,7 +9,8 @@ import styles from "../../css/loginId/loginIdComponent.module.css";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import { Icon, InlineIcon } from "@iconify/react";
-
+import BookmarkPlus from "../icons/BookmarkPlus";
+import BookmarkFill from "../icons/BookmarkFill";
 
 const FavouriteLoginId = ({ favItem }) => {
   const dispatch = useDispatch();
@@ -49,9 +50,17 @@ const FavouriteLoginId = ({ favItem }) => {
           {(
             currLoginIdData ? currLoginIdData.isFavourite : favItem.isFavourite
           ) ? (
-            <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+            <BookmarkFill
+            className={styles.favIcon}
+            primaryColor={"#2882FF"}
+            secondaryColor={"white"}
+          />
           ) : (
-            <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+            <BookmarkPlus
+            className={styles.favIcon}
+            primaryColor={"#9baece"}
+               secondaryColor={"#2882FF"}
+          />
           )}
         </button>
       </div>

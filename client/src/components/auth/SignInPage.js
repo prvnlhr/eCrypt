@@ -6,6 +6,7 @@ import styles from "../../css/auth/signInPageNew.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
+import logo from "../../img/ecryptLogo.svg";
 
 const initialState = {
   email: "",
@@ -45,8 +46,9 @@ const SignInPage = () => {
     <div className={styles.formPage}>
       <div className={styles.appLogoWrapper}>
         <div className={styles.logoDiv}>
-          <p className={styles.textOne}>e</p>
-          <p className={styles.textTwo}>Crypt</p>
+          {/* <p className={styles.textOne}>e</p>
+          <p className={styles.textTwo}>Crypt</p> */}
+           <img src={logo} />
         </div>
       </div>
       <div className={styles.formComponent}>

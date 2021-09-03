@@ -7,6 +7,8 @@ import CardLogo, { getCardType } from "../card/CardLogo";
 import styles from "../../css/card/card.module.css";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 import { motion } from "framer-motion";
+import BookmarkPlus from "../icons/BookmarkPlus";
+import BookmarkFill from "../icons/BookmarkFill";
 
 const FavouriteCard = ({ favItem }) => {
   const dispatch = useDispatch();
@@ -99,9 +101,17 @@ const FavouriteCard = ({ favItem }) => {
           }}
         >
           {(currCardData ? currCardData.isFavourite : favItem.isFavourite) ? (
-            <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+             <BookmarkFill
+             className={styles.favIcon}
+             primaryColor={"#2882FF"}
+             secondaryColor={"white"}
+           />
           ) : (
-            <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+            <BookmarkPlus
+            className={styles.favIcon}
+            primaryColor={"#9baece"}
+               secondaryColor={"#2882FF"}
+          />
           )}
         </button>
       </div>

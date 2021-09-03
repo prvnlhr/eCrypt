@@ -87,8 +87,7 @@
 
   font-weight: bold;
   color: slategray;
-  font-size: 0.85em;
-
+  font-size: 0.8rem;
   white-space: nowrap;
   /* margin: 0px 10px 0px 20px; */
   backface-visibility: hidden;
@@ -251,10 +250,9 @@
     font-family: "Quicksand", sans-serif;
     font-weight: bold;
     color: slategray;
-    font-size: 0.7rem;
-    /* font-size: 1rem; */
-
-    
+    font-size: 0.6rem;
+    font-size: clamp(0.6rem , 0.19999999999999984rem + 2.000000000000001vw, 0.8rem);
+    /* 0.6rem , 0.19999999999999984rem + 2.000000000000001vw, 0.8rem */
     white-space: nowrap;
     /* margin: 0px 10px 0px 20px; */
   }

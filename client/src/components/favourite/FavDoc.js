@@ -7,6 +7,8 @@ import { docFavToggle } from "../../actions/documentsAction";
 import styles from "../../css/document/document.module.css";
 import { BsBookmarkPlus, BsBookmarkFill } from "react-icons/bs";
 import { motion } from "framer-motion";
+import BookmarkPlus from "../icons/BookmarkPlus";
+import BookmarkFill from "../icons/BookmarkFill";
 
 const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
   const dispatch = useDispatch();
@@ -48,17 +50,25 @@ const FavDoc = ({ favItem, setImageData, setMaximizeOrNot }) => {
       className={styles.documentCard}
     >
       <div className={styles.imageContainer}>
-        <div className={styles.favBtnDiv}>
+        <div className={styles.favBtnContainer}>
           <div
-            className={styles.favBtn}
+            className={styles.favBtnDiv}
             onClick={() => {
               handleFavToggle(favItem._id, favItem.isFavourite);
             }}
           >
             {(currDocData ? currDocData.isFavourite : favItem.isFavourite) ? (
-              <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+               <BookmarkFill
+               className={styles.favIcon}
+               primaryColor={"#2882FF"}
+               secondaryColor={"white"}
+             />
             ) : (
-              <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+              <BookmarkPlus
+              className={styles.favIcon}
+              primaryColor={"#9baece"}
+                 secondaryColor={"#2882FF"}
+            />
             )}
           </div>
         </div>

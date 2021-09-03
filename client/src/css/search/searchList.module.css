@@ -52,6 +52,33 @@
   padding-left: 0px;
   padding-right: 0px;
 }
+.appBgDiv1 {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* border:1px solid red; */
+}
+.section1 {
+  width: 45%;
+  height: 100%;
+  /* border:1px solid black; */
+  background-color: #fff9f9;
+}
+.section2 {
+  width: 35%;
+  height: 100%;
+  /* border:1px solid black; */
+  background-color: #f2f1fd;
+}
+.section3 {
+  width: 20%;
+  height: 100%;
+  /* border:1px solid black; */
+  background-color: #f6fbfe;
+}
 
 .searchList::-webkit-scrollbar {
   background-color: #fff;
