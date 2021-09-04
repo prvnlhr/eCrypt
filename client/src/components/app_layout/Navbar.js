@@ -65,7 +65,7 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
 
       <div className={styles.leftPortion}>
         <div className={styles.logoContainer}>
-          <img src={logo} />
+          <img width="1600" height="900" src={logo} />
           {/* <p className={styles.logoText}>
             <span>e</span>
             rypt

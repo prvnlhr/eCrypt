@@ -15,12 +15,13 @@ import {
   PROCESS_END,
   EDIT_SEARCH_ITEM,
   DELETE_SEARCH_ITEM,
+  DOCS_FETCH_LOADING,
 } from "./types";
 import { loadingSetter } from "./auth";
 
 //FETCHING
 export const fetchDocs = (user_id) => async (dispatch) => {
-  dispatch(loadingSetter(true, "docsList", "", "fetching", ""));
+  dispatch(docsFetchLoadingSetter(true));
   dispatch({
     type: OPERATION_START,
     operation: "fetching",
@@ -32,14 +33,14 @@ export const fetchDocs = (user_id) => async (dispatch) => {
       type: FETCH_DOCS,
       payload: docsData,
     });
-    dispatch(loadingSetter(false, "docsList", "", "fetching", true));
+    dispatch(docsFetchLoadingSetter(false));
 
     dispatch({
       type: OPERATION_END,
       message: "docsFetched",
     });
   } catch (error) {
-    dispatch(loadingSetter(false, "docsList", "", "fetching", false));
+    dispatch(docsFetchLoadingSetter(false));
     console.log(error);
     dispatch({
       type: OPERATION_END,
@@ -295,4 +296,10 @@ export const docFavToggle = (doc_id, isFav) => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+export const docsFetchLoadingSetter = (value) => {
+  return {
+    type: DOCS_FETCH_LOADING,
+    docsFetching: value,
+  };
 };

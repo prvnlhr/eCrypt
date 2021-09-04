@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Switch, Route } from "react-router-dom";
@@ -7,14 +7,23 @@ import { fetchUserCards } from "../../actions/cardsAction";
 import { fetchLoginIds } from "../../actions/loginInIdsAction";
 import { fetchDocs } from "../../actions/documentsAction";
 import { fetchActivity } from "../../actions/activityAction";
-import LoginIdsList from "../loginIds/LoginIdsList";
-import CardsList from "../card/CardsList";
-import Dashboard from "./Dashboard";
-import Settings from "./Settings";
+// import LoginIdsList from "../loginIds/LoginIdsList";
+// import CardsList from "../card/CardsList";
+// import Dashboard from "./Dashboard";
+// import Settings from "./Settings";
 import styles from "../../css/app_layout/contentDisplay.module.css";
-import DocsList from "../document/DocsList";
-import FavList from "../favourite/FavList";
+// import DocsList from "../document/DocsList";
+// import FavList from "../favourite/FavList";
 import SearchList from "../search/SearchList";
+import { CircleSpinner } from "react-spinners-kit";
+
+const FavList = lazy(() => import("../favourite/FavList"));
+const CardsList = lazy(() => import("../card/CardsList"));
+const Dashboard = lazy(() => import("./Dashboard"));
+const Settings = lazy(() => import("./Settings"));
+const LoginIdsList = lazy(() => import("../loginIds/LoginIdsList"));
+const DocsList = lazy(() => import("../document/DocsList"));
+
 const ContentDisplay = ({
   heading,
   setHeading,
@@ -43,6 +52,7 @@ const ContentDisplay = ({
       dispatch(fetchUserCards(userId));
       dispatch(fetchLoginIds(userId));
       dispatch(fetchDocs(userId));
+      // console.log("hello");
     }
   }, [currentId, dispatch, userId]);
 
@@ -72,6 +82,9 @@ const ContentDisplay = ({
   // console.log(activitiesArray);
   return (
     <div className={styles.contentDisplay}>
+        {/* <div className={styles.lazySuspenseFallBackDiv}>
+            <CircleSpinner size={12} color="gray" loading={true} />
+          </div> */}
       {searchResultArray.length > 0 && fieldLength > 0 ? (
         <SearchList
           searchResultArray={searchResultArray}
@@ -82,89 +95,95 @@ const ContentDisplay = ({
           setMaximizeOrNot={setMaximizeOrNot}
           showHeaderFooter={showHeaderFooter}
           setShowHeaderFooter={setShowHeaderFooter}
-          // maxImg={maxImg}
-          // setMaxImg={setMaxImg}
+ 
         />
       ) : null}
 
-      <Switch>
-        <Route
-          exact
-          path="/displayCards"
-          render={(props) => (
-            <CardsList
-              {...props}
-              cards={cardsArray}
-              currentId={currentId}
-              setCurrentId={setCurrentId}
-              setHeading={setHeading}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/displayLogins"
-          render={(props) => (
-            <LoginIdsList
-              {...props}
-              loginIds={loginIdsArray}
-              currentId={currentId}
-              setCurrentId={setCurrentId}
-              setHeading={setHeading}
-            />
-          )}
-        />
-        <Route
-          path="/documents"
-          render={(props) => (
-            <DocsList
-              {...props}
-              docs={docsArray}
-              setHeading={setHeading}
-              imageData={imageData}
-              setImageData={setImageData}
-              maximizeOrNot={maximizeOrNot}
-              setMaximizeOrNot={setMaximizeOrNot}
-              showHeaderFooter={showHeaderFooter}
-              setShowHeaderFooter={setShowHeaderFooter}
-              currDeletingDocId={currDeletingDocId}
-            />
-          )}
-        />
+      <Suspense
+        fallback={
+          <div className={styles.lazySuspenseFallBackDiv}>
+            <CircleSpinner size={12} color="gray" loading={true} />
+          </div>
+        }
+      >
+        <Switch>
+          <Route
+            exact
+            path="/displayCards"
+            render={(props) => (
+              <CardsList
+                {...props}
+                cards={cardsArray}
+                currentId={currentId}
+                setCurrentId={setCurrentId}
+                setHeading={setHeading}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/displayLogins"
+            render={(props) => (
+              <LoginIdsList
+                {...props}
+                loginIds={loginIdsArray}
+                currentId={currentId}
+                setCurrentId={setCurrentId}
+                setHeading={setHeading}
+              />
+            )}
+          />
+          <Route
+            path="/documents"
+            render={(props) => (
+              <DocsList
+                {...props}
+                docs={docsArray}
+                setHeading={setHeading}
+                imageData={imageData}
+                setImageData={setImageData}
+                maximizeOrNot={maximizeOrNot}
+                setMaximizeOrNot={setMaximizeOrNot}
+                showHeaderFooter={showHeaderFooter}
+                setShowHeaderFooter={setShowHeaderFooter}
+                currDeletingDocId={currDeletingDocId}
+              />
+            )}
+          />
 
-        <Route
-          path="/settings"
-          render={(props) => <Settings {...props} setHeading={setHeading} />}
-        />
+          <Route
+            path="/settings"
+            render={(props) => <Settings {...props} setHeading={setHeading} />}
+          />
 
-        <Route
-          path="/favorites"
-          render={(props) => (
-            <FavList
-              {...props}
-              setHeading={setHeading}
-              favoritesCardsArray={favoritesCardsArray}
-              favoritesDocsArray={favoritesDocsArray}
-              favoritesLoginsArray={favoritesLoginsArray}
-              setImageData={setImageData}
-              setMaximizeOrNot={setMaximizeOrNot}
-              // maxImg={maxImg}
-              // setMaxImg={setMaxImg}
-            />
-          )}
-        />
+          <Route
+            path="/favorites"
+            render={(props) => (
+              <FavList
+                {...props}
+                setHeading={setHeading}
+                favoritesCardsArray={favoritesCardsArray}
+                favoritesDocsArray={favoritesDocsArray}
+                favoritesLoginsArray={favoritesLoginsArray}
+                setImageData={setImageData}
+                setMaximizeOrNot={setMaximizeOrNot}
+            
+              />
+            )}
+          />
 
-        <Route
-          path="/"
-          render={(props) => (
-            <Dashboard
-              {...props}
-              setHeading={setHeading}
-              activities={activitiesArray}
-            />
-          )}
-        />
-      </Switch>
+          <Route
+            path="/"
+            render={(props) => (
+              <Dashboard
+                {...props}
+                setHeading={setHeading}
+                activities={activitiesArray}
+              />
+            )}
+          />
+        </Switch>
+      </Suspense>
     </div>
   );
 };

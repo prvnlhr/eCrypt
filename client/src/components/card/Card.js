@@ -96,7 +96,7 @@ const Card = ({ card, setEditButton, showEditButton, index }) => {
       animate={{
         opacity: [0, 1],
       }}
-      transition={{ duration: 0.3, delay: 0.2 }}
+      transition={{ duration: 0.3}}
       key={index}
       className={`${styles.cardContainer} ${
         inEditMode ? styles.cardContainerInEditMode : null

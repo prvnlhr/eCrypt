@@ -17,12 +17,13 @@ import {
   PROCESS_CLEAR,
   EDIT_SEARCH_ITEM,
   DELETE_SEARCH_ITEM,
+  CARDS_FETCH_LOADING,
 } from "./types";
 import { loadingSetter } from "./auth";
 
 //FETCHING
 export const fetchUserCards = (user_id) => async (dispatch) => {
-  dispatch(loadingSetter(true, "cardsList", "", "fetching", ""));
+  dispatch(cardsFetchLoadingSetter(true));
 
   dispatch({
     type: OPERATION_START,
@@ -41,10 +42,9 @@ export const fetchUserCards = (user_id) => async (dispatch) => {
       type: FETCH_CARDS,
       payload: cardsData,
     });
-    dispatch(loadingSetter(false, "cardsList", "", "fetching", true));
+    dispatch(cardsFetchLoadingSetter(false));
   } catch (error) {
-    dispatch(loadingSetter(false, "cardsList", "", "fetching", false));
-
+    dispatch(cardsFetchLoadingSetter(false));
     console.log(error);
     dispatch({
       type: OPERATION_END,
@@ -327,4 +327,11 @@ export const clearProcess = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+export const cardsFetchLoadingSetter = (value) => {
+  return {
+    type: CARDS_FETCH_LOADING,
+    cardFetching: value,
+  };
 };

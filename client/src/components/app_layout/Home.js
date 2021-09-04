@@ -1,15 +1,18 @@
 import React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, lazy, Suspense } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import homeStyles from "../../css/app_layout/home.module.css";
 import ContentDisplay from "./ContentDisplay";
 import navStyles from "../../css/app_layout/navbar.module.css";
+import contentDisplayStyles from "../../css/app_layout/contentDisplay.module.css";
+
 import { logout } from "../../actions/auth";
 import Navbar from "./Navbar";
 import TabBar from "./TabBar";
 import MaximizeDoc from "../document/MaximizeDoc";
 import { CircleSpinner } from "react-spinners-kit";
+// const MaximizeDoc = lazy(() => import("../document/MaximizeDoc"));
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -54,7 +57,13 @@ const Home = () => {
         )}
       </div>
 
-      {/* {maximizeOrNot && ( */}
+      {/* <Suspense
+        fallback={
+          <div className={contentDisplayStyles.lazySuspenseFallDocMaxMizeDiv}>
+            <CircleSpinner size={12} color="gray" loading={true} />
+          </div>
+        }
+      >
       <MaximizeDoc
         maximizeOrNot={maximizeOrNot}
         setMaximizeOrNot={setMaximizeOrNot}
@@ -65,9 +74,17 @@ const Home = () => {
         fieldLength={fieldLength}
         setCurrentDeletingDocId={setCurrentDeletingDocId}
       />
-      {/* )} */}
-
-      {/* <Sidebar /> */}
+      </Suspense> */}
+      <MaximizeDoc
+        maximizeOrNot={maximizeOrNot}
+        setMaximizeOrNot={setMaximizeOrNot}
+        imageData={imageData}
+        setImageData={setImageData}
+        showHeaderFooter={showHeaderFooter}
+        setShowHeaderFooter={setShowHeaderFooter}
+        fieldLength={fieldLength}
+        setCurrentDeletingDocId={setCurrentDeletingDocId}
+      />
       <Navbar
         fieldLength={fieldLength}
         setFieldLength={setFieldLength}

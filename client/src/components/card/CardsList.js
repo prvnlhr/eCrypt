@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
 import Card from "./Card";
-import CardForm from "./CardForm";
+// import CardForm from "./CardForm";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiPlus } from "react-icons/hi";
 import CardSkeleton from "../skeletons/CardSkeleton";
@@ -10,6 +10,8 @@ import CardSkeleton from "../skeletons/CardSkeleton";
 import styles from "../../css/card/cardsList.module.css";
 import noContentStyles from "../../css/document/noContentMessage.module.css";
 import btnStyles from "../../css/add_button/buttons.module.css";
+import { CircleSpinner } from "react-spinners-kit";
+const CardForm = lazy(() => import("./CardForm"));
 
 const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
   const [formMode, setFormMode] = useState(false);
@@ -17,7 +19,7 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
 
   const loadState = useSelector((state) => state.loading);
 
-  const { place, isLoading } = loadState;
+  const { place, isLoading, cardFetching } = loadState;
 
   useEffect(() => {
     setHeading("Cards");
@@ -57,7 +59,7 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
       <div className={styles.contentContainer} ref={node}>
         {/* <CardSkeleton /> */}
 
-        {isLoading === true && place === "cardsList" && cards.length < 1 ? (
+        {cardFetching === true && cards.length < 1 ? (
           <>
             <CardSkeleton />
             <CardSkeleton />
@@ -66,7 +68,7 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
             <CardSkeleton />
             <CardSkeleton />
           </>
-        ) : isLoading === false && cards.length < 1 ? (
+        ) : cardFetching === false && cards.length < 1 ? (
           <div className={noContentStyles.messageContainer}>
             <p>No Logins Added</p>
 
@@ -77,6 +79,7 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
             </div>
           </div>
         ) : (
+          cardFetching === false &&
           cards.length >= 1 && (
             <>
               {cards.map((card, index) => (
@@ -96,13 +99,20 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
           )
         )}
       </div>
-
-      <CardForm
-        currentId={currentId}
-        setCurrentId={setCurrentId}
-        formMode={formMode}
-        setFormMode={setFormMode}
-      />
+      <Suspense
+        fallback={
+          <div>
+            <CircleSpinner size={12} color="gray" loading={true} />
+          </div>
+        }
+      >
+        <CardForm
+          currentId={currentId}
+          setCurrentId={setCurrentId}
+          formMode={formMode}
+          setFormMode={setFormMode}
+        />
+      </Suspense>
 
       {formMode === false ? (
         // <div className={btnStyles.addBtnWrapper}>

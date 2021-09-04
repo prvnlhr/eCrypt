@@ -111,3 +111,21 @@
   overflow: hidden;
 
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .loginIdContainer {
+    position: relative;
+    display: grid;
+    width: 83% !important;
+    /* aspect-ratio: 3.73/1 !important; */
+    height: auto;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 25% minmax(0, 1fr) minmax(0, 1fr) !important;
+    /* grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1fr) !important; */
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+  
+}

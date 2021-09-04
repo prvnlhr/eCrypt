@@ -10,7 +10,6 @@ import modalStyles from "../../css/modal/modal.module.css";
 import { CircleSpinner } from "react-spinners-kit";
 import { motion } from "framer-motion";
 
-import trash from "../../img/trashIcon.svg";
 import TrashIcon from "../icons/TrashIcon";
 import BookmarkPlus from "../icons/BookmarkPlus";
 import BookmarkFill from "../icons/BookmarkFill";
@@ -18,7 +17,7 @@ import PencilIcon from "../icons/PencilIcon";
 import CancelIcon from "../icons/CancelIcon";
 import CheckIcon from "../icons/CheckIcon";
 
-
+import LazyLoad from "react-lazy-load";
 
 // icons set
 import { FaUserAlt, FaLock } from "react-icons/fa";
@@ -106,279 +105,286 @@ const LoginId = ({
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: [0, 1],
-      }}
-      transition={{ duration: 0.3, delay: 0.2 }}
-      className={`${styles.loginIdContainer} ${
-        inEditMode ? styles.loginIdContainerInEditMode : null
-      }`}
-    >
-      {modalShow === true ? (
-        <div className={modalStyles.modalContainer}>
-          <div className={modalStyles.dialogDiv}>
-            <Icon icon="carbon:warning" className={modalStyles.icon} />
+    
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: [0, 1],
+        }}
+        transition={{ duration: 0.3 }}
+        className={`${styles.loginIdContainer} ${
+          inEditMode ? styles.loginIdContainerInEditMode : null
+        }`}
+      >
+        {modalShow === true ? (
+          <div className={modalStyles.modalContainer}>
+            <div className={modalStyles.dialogDiv}>
+              <Icon icon="carbon:warning" className={modalStyles.icon} />
 
-            <p>Are you sure you want to delete this item permanently ?</p>
-          </div>
-          <div className={modalStyles.modalBtnDiv}>
-            <div
-              className={modalStyles.modalCancelBtn}
-              onClick={() => {
-                setModalShow(!modalShow);
-              }}
-            >
-              <p>Cancel</p>
+              <p>Are you sure you want to delete this item permanently ?</p>
             </div>
-            <div
-              className={modalStyles.modalConfirmBtn}
-              onClick={() => {
-                confirmDelete(loginId._id);
-              }}
-            >
-              {isLoading === true &&
-              place === "loginId" &&
-              itemId === loginId._id &&
-              process === "delete" ? (
-                <CircleSpinner size={15} color="#1072f1" loading={true} />
-              ) : (
-                <p>Delete</p>
-              )}
+            <div className={modalStyles.modalBtnDiv}>
+              <div
+                className={modalStyles.modalCancelBtn}
+                onClick={() => {
+                  setModalShow(!modalShow);
+                }}
+              >
+                <p>Cancel</p>
+              </div>
+              <div
+                className={modalStyles.modalConfirmBtn}
+                onClick={() => {
+                  confirmDelete(loginId._id);
+                }}
+              >
+                {isLoading === true &&
+                place === "loginId" &&
+                itemId === loginId._id &&
+                process === "delete" ? (
+                  <CircleSpinner size={15} color="#1072f1" loading={true} />
+                ) : (
+                  <p>Delete</p>
+                )}
+              </div>
             </div>
-          </div>
-        </div>
-      ) : null}
-
-      <div className={styles.logoWrapper}>
-        <div className={styles.logoDiv}>
-          <LoginIdLogo website={loginId.website} />
-        </div>
-      </div>
-      <div className={styles.websiteWrapper}>
-        <div className={styles.websiteDiv}>
-          {inEditMode ? (
-            <>
-              <input
-                list="websites"
-                className={styles.inputField}
-                value={loginData.website}
-                onChange={(e) =>
-                  setLoginData({ ...loginData, website: e.target.value })
-                }
-              />
-              <datalist id="websites">
-                <option value="Amazon" />
-                <option value="Apple" />
-                <option value="Apple Music" />
-                <option value="Apple Pay" />
-                <option value="Adobe" />
-                <option value="AWS" />
-                <option value="Airbnb" />
-                <option value="Dribble" />
-                <option value="Dell" />
-                <option value="Dropbox" />
-                <option value="Facebook" />
-                <option value="Flipkart" />
-                <option value="Google" />
-                <option value="Gmail" />
-                <option value="Google Pay" />
-                <option value="Google Photos" />
-                <option value="GeeksforGeeks" />
-                <option value="Google Drive" />
-                <option value="Github" />
-                <option value="Heroku" />
-                <option value="Hp" />
-                <option value="Instagram" />
-                <option value="Imdb" />
-                <option value="LinkedIn" />
-                <option value="Medium" />
-                <option value="Microsoft" />
-                <option value="Netflix" />
-                <option value="Netlify" />
-                <option value="Oracle" />
-                <option value="PayPal" />
-                <option value="Pinterest" />
-                <option value="Phonepe" />
-                <option value="Paytm" />
-                <option value="Playstore" />
-                <option value="Quora" />
-                <option value="Samsung" />
-                <option value="Slack" />
-                <option value="Snapchat" />
-                <option value="Spotify" />
-                <option value="Stackoverflow" />
-                <option value="Twitter" />
-                <option value="Youtube" />
-              </datalist>
-            </>
-          ) : (
-            <p>{loginId.website}</p>
-          )}
-        </div>
-      </div>
-
-      <div className={styles.buttonWrapper}>
-        {(currEditId === loginId._id && inEditMode) || currEditId === null ? (
-          <div className={styles.editBtnContainer}>
-            {inEditMode ? (
-              <>
-                <div
-                  className={styles.cancelIconDiv}
-                  onClick={() => {
-                    setInEditMode(false);
-                    setCurrEditId(null);
-                    setEditId(null);
-                  }}
-                >
-                <CancelIcon className={styles.cancelIcon}  
-                 primaryColor={"#9baece"}
-                 secondaryColor={"#2882FF"}
-                        />
-                </div>
-                <div
-                  className={styles.checkIconDiv}
-                  onClick={() => {
-                    save(loginId._id);
-                    setInEditMode(false);
-                    setCurrEditId(null);
-                  }}
-                >
-               <CheckIcon className={styles.checkIcon}   
-               primaryColor={"#9baece"}
-               secondaryColor={"#2882FF"}
-                        />
-                </div>
-              </>
-            ) : (
-              <>
-                <div
-                  className={styles.editIconDiv}
-                  onClick={() => {
-                    setEditId(loginId._id);
-                    setInEditMode(true);
-                    setCurrEditId(loginId._id);
-                  }}
-                >
-                  {isLoading === true &&
-                  place === "loginId" &&
-                  itemId === loginId._id &&
-                  process === "edit" ? (
-                    <CircleSpinner size={15} color="#1072f1" loading={true} />
-                  ) : (
-                    // <Icon
-                    //   icon="akar-icons:pencil"
-                    //   className={styles.pencilIcon}
-                    //   color="#9baece"
-                    // />
-                    // <Icon
-                    //   icon="octicon:pencil-16"
-                    //   className={styles.pencilIcon}
-                    //   color="#9baece"
-                    // />
-                    <PencilIcon
-                      className={styles.pencilIcon}
-                      primaryColor={"#9baece"}
-                      secondaryColor={"#2882FF"}
-                    />
-                  )}
-                </div>
-                <div
-                  className={styles.deleteIconDiv}
-                  onClick={() => {
-                    handleDeleteClick();
-                    setEditId(loginId._id);
-                  }}
-                >
-                  {isLoading === true &&
-                  place === "loginId" &&
-                  itemId === loginId._id &&
-                  process === "delete" ? (
-                    <CircleSpinner size={15} color="#1072f1" loading={true} />
-                  ) : (
-                    // <Icon
-                    //   icon="feather:trash"
-                    //   className={styles.trashIcon}
-                    //   color="#9baece"
-                    // />
-                    // <img src={trash} className={styles.trashIcon} />
-                    <TrashIcon
-                      className={styles.trashIcon}
-                      primaryColor={"#9baece"}
-                 secondaryColor={"#2882FF"}
-                    />
-                    // <Icon icon="octicon:trash-16" color="#9baece" className={styles.trashIcon}/>
-                  )}
-                </div>
-              </>
-            )}
           </div>
         ) : null}
 
-        <button
-          className={styles.favBtn}
-          onClick={() => {
-            handleFavToggle(loginId._id, loginId.isFavourite);
-          }}
-        >
-          {(
-            currLoginIdData ? currLoginIdData.isFavourite : loginId.isFavourite
-          ) ? (
-            // <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
-            <BookmarkFill
-              className={styles.favIcon}
-              primaryColor={"#2882FF"}
-              secondaryColor={"white"}
-            />
-          ) : (
-            // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
-            <BookmarkPlus
-              className={styles.favIcon}
-              primaryColor={"#9baece"}
-                 secondaryColor={"#2882FF"}
-            />
-          )}
-        </button>
-      </div>
-      <div className={styles.userNameWrapper}>
-        <div className={styles.iconDiv}>
-          <Icon icon="fa-solid:user" className={styles.textIcon} />
+        <div className={styles.logoWrapper}>
+          <div className={styles.logoDiv}>
+            <LoginIdLogo website={loginId.website} />
+          </div>
         </div>
-        <div className={styles.textDiv}>
-          {inEditMode ? (
-            <input
-              className={styles.inputField}
-              value={loginData.username}
-              onChange={(e) =>
-                setLoginData({ ...loginData, username: e.target.value })
-              }
-            ></input>
-          ) : (
-            <p>{loginId.username}</p>
-          )}
+        <div className={styles.websiteWrapper}>
+          <div className={styles.websiteDiv}>
+            {inEditMode ? (
+              <>
+                <input
+                  list="websites"
+                  className={styles.inputField}
+                  value={loginData.website}
+                  onChange={(e) =>
+                    setLoginData({ ...loginData, website: e.target.value })
+                  }
+                />
+                <datalist id="websites">
+                  <option value="Amazon" />
+                  <option value="Apple" />
+                  <option value="Apple Music" />
+                  <option value="Apple Pay" />
+                  <option value="Adobe" />
+                  <option value="AWS" />
+                  <option value="Airbnb" />
+                  <option value="Dribble" />
+                  <option value="Dell" />
+                  <option value="Dropbox" />
+                  <option value="Facebook" />
+                  <option value="Flipkart" />
+                  <option value="Google" />
+                  <option value="Gmail" />
+                  <option value="Google Pay" />
+                  <option value="Google Photos" />
+                  <option value="GeeksforGeeks" />
+                  <option value="Google Drive" />
+                  <option value="Github" />
+                  <option value="Heroku" />
+                  <option value="Hp" />
+                  <option value="Instagram" />
+                  <option value="Imdb" />
+                  <option value="LinkedIn" />
+                  <option value="Medium" />
+                  <option value="Microsoft" />
+                  <option value="Netflix" />
+                  <option value="Netlify" />
+                  <option value="Oracle" />
+                  <option value="PayPal" />
+                  <option value="Pinterest" />
+                  <option value="Phonepe" />
+                  <option value="Paytm" />
+                  <option value="Playstore" />
+                  <option value="Quora" />
+                  <option value="Samsung" />
+                  <option value="Slack" />
+                  <option value="Snapchat" />
+                  <option value="Spotify" />
+                  <option value="Stackoverflow" />
+                  <option value="Twitter" />
+                  <option value="Youtube" />
+                </datalist>
+              </>
+            ) : (
+              <p>{loginId.website}</p>
+            )}
+          </div>
         </div>
-      </div>
 
-      <div className={styles.passwordWrapper}>
-        <div className={styles.iconDiv}>
-          <Icon icon="fa-solid:lock" className={styles.textIcon} />
+        <div className={styles.buttonWrapper}>
+          {(currEditId === loginId._id && inEditMode) || currEditId === null ? (
+            <div className={styles.editBtnContainer}>
+              {inEditMode ? (
+                <>
+                  <div
+                    className={styles.cancelIconDiv}
+                    onClick={() => {
+                      setInEditMode(false);
+                      setCurrEditId(null);
+                      setEditId(null);
+                    }}
+                  >
+                    <CancelIcon
+                      className={styles.cancelIcon}
+                      primaryColor={"#9baece"}
+                      secondaryColor={"#2882FF"}
+                    />
+                  </div>
+                  <div
+                    className={styles.checkIconDiv}
+                    onClick={() => {
+                      save(loginId._id);
+                      setInEditMode(false);
+                      setCurrEditId(null);
+                    }}
+                  >
+                    <CheckIcon
+                      className={styles.checkIcon}
+                      primaryColor={"#9baece"}
+                      secondaryColor={"#2882FF"}
+                    />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div
+                    className={styles.editIconDiv}
+                    onClick={() => {
+                      setEditId(loginId._id);
+                      setInEditMode(true);
+                      setCurrEditId(loginId._id);
+                    }}
+                  >
+                    {isLoading === true &&
+                    place === "loginId" &&
+                    itemId === loginId._id &&
+                    process === "edit" ? (
+                      <CircleSpinner size={15} color="#1072f1" loading={true} />
+                    ) : (
+                      // <Icon
+                      //   icon="akar-icons:pencil"
+                      //   className={styles.pencilIcon}
+                      //   color="#9baece"
+                      // />
+                      // <Icon
+                      //   icon="octicon:pencil-16"
+                      //   className={styles.pencilIcon}
+                      //   color="#9baece"
+                      // />
+                      <PencilIcon
+                        className={styles.pencilIcon}
+                        primaryColor={"#9baece"}
+                        secondaryColor={"#2882FF"}
+                      />
+                    )}
+                  </div>
+                  <div
+                    className={styles.deleteIconDiv}
+                    onClick={() => {
+                      handleDeleteClick();
+                      setEditId(loginId._id);
+                    }}
+                  >
+                    {isLoading === true &&
+                    place === "loginId" &&
+                    itemId === loginId._id &&
+                    process === "delete" ? (
+                      <CircleSpinner size={15} color="#1072f1" loading={true} />
+                    ) : (
+                      // <Icon
+                      //   icon="feather:trash"
+                      //   className={styles.trashIcon}
+                      //   color="#9baece"
+                      // />
+                      // <img src={trash} className={styles.trashIcon} />
+                      <TrashIcon
+                        className={styles.trashIcon}
+                        primaryColor={"#9baece"}
+                        secondaryColor={"#2882FF"}
+                      />
+                      // <Icon icon="octicon:trash-16" color="#9baece" className={styles.trashIcon}/>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          ) : null}
+
+          <button
+            className={styles.favBtn}
+            onClick={() => {
+              handleFavToggle(loginId._id, loginId.isFavourite);
+            }}
+          >
+            {(
+              currLoginIdData
+                ? currLoginIdData.isFavourite
+                : loginId.isFavourite
+            ) ? (
+              // <BsBookmarkFill className={styles.favIcon} color="#00b7fd" />
+              <BookmarkFill
+                className={styles.favIcon}
+                primaryColor={"#2882FF"}
+                secondaryColor={"white"}
+              />
+            ) : (
+              // <BsBookmarkPlus className={styles.favIcon} color="#9baece" />
+              <BookmarkPlus
+                className={styles.favIcon}
+                primaryColor={"#9baece"}
+                secondaryColor={"#2882FF"}
+              />
+            )}
+          </button>
         </div>
-        <div className={styles.textDiv}>
-          {inEditMode ? (
-            <input
-              className={styles.inputField}
-              value={loginData.password}
-              onChange={(e) =>
-                setLoginData({ ...loginData, password: e.target.value })
-              }
-            ></input>
-          ) : (
-            <p>{loginId.password}</p>
-          )}
+        <div className={styles.userNameWrapper}>
+          <div className={styles.iconDiv}>
+            <Icon icon="fa-solid:user" className={styles.textIcon} />
+          </div>
+          <div className={styles.textDiv}>
+            {inEditMode ? (
+              <input
+                className={styles.inputField}
+                value={loginData.username}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, username: e.target.value })
+                }
+              ></input>
+            ) : (
+              <p>{loginId.username}</p>
+            )}
+          </div>
         </div>
-      </div>
-    </motion.div>
+
+        <div className={styles.passwordWrapper}>
+          <div className={styles.iconDiv}>
+            <Icon icon="fa-solid:lock" className={styles.textIcon} />
+          </div>
+          <div className={styles.textDiv}>
+            {inEditMode ? (
+              <input
+                className={styles.inputField}
+                value={loginData.password}
+                onChange={(e) =>
+                  setLoginData({ ...loginData, password: e.target.value })
+                }
+              ></input>
+            ) : (
+              <p>{loginId.password}</p>
+            )}
+          </div>
+        </div>
+    
+      </motion.div>
+   
   );
 };
 export default LoginId;

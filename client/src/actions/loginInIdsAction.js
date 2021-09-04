@@ -11,13 +11,14 @@ import {
   PROCESS_CLEAR,
   EDIT_SEARCH_ITEM,
   DELETE_SEARCH_ITEM,
+  LOGINIDS_FETCH_LOADING,
 } from "./types";
 import * as api from "../api";
 import moment from "moment";
 import { loadingSetter } from "./auth";
 //FETCH LOGINS
 export const fetchLoginIds = (user_id) => async (dispatch) => {
-  dispatch(loadingSetter(true, "loginIdList", "", "fetching", ""));
+  dispatch(loginIdsFetchLoadingSetter(true));
 
   dispatch({
     type: OPERATION_START,
@@ -30,15 +31,14 @@ export const fetchLoginIds = (user_id) => async (dispatch) => {
       type: FETCH_LOGIN_IDS,
       payload: loginIdsData,
     });
-    dispatch(loadingSetter(false, "loginIdList", "", "fetching", true));
+    dispatch(loginIdsFetchLoadingSetter(false));
 
     dispatch({
       type: OPERATION_END,
       message: "loginIdsFetched",
     });
   } catch (error) {
-    dispatch(loadingSetter(false, "loginIdList", "", "fetching", false));
-
+    dispatch(loginIdsFetchLoadingSetter(false));
     console.log(error);
     dispatch({
       type: OPERATION_END,
@@ -294,4 +294,10 @@ export const clearProcess = () => async (dispatch) => {
   } catch (error) {
     console.log(error);
   }
+};
+export const loginIdsFetchLoadingSetter = (value) => {
+  return {
+    type: LOGINIDS_FETCH_LOADING,
+    loginsFetching: value,
+  };
 };

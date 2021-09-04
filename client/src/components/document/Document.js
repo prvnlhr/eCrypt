@@ -117,7 +117,7 @@ const Document = ({
       animate={{
         opacity: [0, 1],
       }}
-      transition={{ duration: 0.3, delay: 0.2 }}
+      transition={{ duration: 0.3}}
       className={styles.documentCard}
     >
       {modalShow === true ? (

@@ -164,3 +164,14 @@
   overflow: hidden;
   background-color: #e2e3e7;
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .cardContainer {
+    width: 79%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+ 
+}

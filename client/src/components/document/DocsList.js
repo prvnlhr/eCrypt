@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
 import Document from "./Document";
-import DocForm from "./DocForm";
+// import DocForm from "./DocForm";
 
 import styles from "../../css/document/docsList.module.css";
 import noContentStyles from "../../css/document/noContentMessage.module.css";
@@ -11,6 +11,7 @@ import DocSkeleton from "../skeletons/DocSkeleton";
 import { FiPlusCircle } from "react-icons/fi";
 import { HiPlus } from "react-icons/hi";
 import { CircleSpinner } from "react-spinners-kit";
+const DocForm = lazy(() => import("./DocForm"));
 
 const DocsList = ({
   docs,
@@ -34,7 +35,7 @@ const DocsList = ({
   // const { category, inProcess, status, process } = loading;
 
   const [formMode, setFormMode] = useState(false);
-  const { place, isLoading, process } = loadState;
+  const { place, isLoading, process, docsFetching } = loadState;
 
   useEffect(() => {
     setHeading("Documents");
@@ -69,7 +70,7 @@ const DocsList = ({
     <div className={styles.docsList}>
       <div className={styles.contentContainer} ref={node}>
         {/* <DocSkeleton /> */}
-        {isLoading === true && place === "docsList" && docs.length < 1 ? (
+        {docsFetching === true && docs.length < 1 ? (
           <>
             <DocSkeleton />
             <DocSkeleton />
@@ -78,7 +79,7 @@ const DocsList = ({
             <DocSkeleton />
             <DocSkeleton />
           </>
-        ) : isLoading === false && docs.length < 1 ? (
+        ) : docsFetching === false && docs.length < 1 ? (
           <div className={noContentStyles.messageContainer}>
             <p>No Logins Added</p>
 
@@ -89,6 +90,7 @@ const DocsList = ({
             </div>
           </div>
         ) : (
+          docsFetching === false &&
           docs.length >= 1 && (
             <>
               {docs.map((doc, i) => (
@@ -114,8 +116,15 @@ const DocsList = ({
           )
         )}
       </div>
-
-      <DocForm formMode={formMode} setFormMode={setFormMode} />
+      <Suspense
+        fallback={
+          <div>
+            <CircleSpinner size={12} color="gray" loading={true} />
+          </div>
+        }
+      >
+        <DocForm formMode={formMode} setFormMode={setFormMode} />
+      </Suspense>
 
       {formMode === false ? (
         <div

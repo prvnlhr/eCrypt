@@ -1,4 +1,9 @@
-import { LOADING_SET } from "../actions/types";
+import {
+  LOADING_SET,
+  CARDS_FETCH_LOADING,
+  LOGINIDS_FETCH_LOADING,
+  DOCS_FETCH_LOADING,
+} from "../actions/types";
 
 const initialState = {
   isLoading: "",
@@ -6,7 +11,9 @@ const initialState = {
   itemId: "",
   process: "",
   success: "",
- 
+  cardFetching: "",
+  loginsFetching: "",
+  docsFetching: "",
 };
 
 export default function loading(state = initialState, action) {
@@ -19,7 +26,21 @@ export default function loading(state = initialState, action) {
         process: action.process,
         success: action.success,
       };
-  
+    case CARDS_FETCH_LOADING:
+      return {
+        ...state,
+        cardFetching: action.cardFetching,
+      };
+    case LOGINIDS_FETCH_LOADING:
+      return {
+        ...state,
+        loginsFetching: action.loginsFetching,
+      };
+    case DOCS_FETCH_LOADING:
+      return {
+        ...state,
+        docsFetching: action.docsFetching,
+      };
 
     default:
       return state;
