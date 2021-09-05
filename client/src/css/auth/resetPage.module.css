@@ -303,33 +303,53 @@ button p {
   /* outline: 1px solid red; */
   border: 2px solid #1072f1;
 }
-@media screen and (max-width: 550px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .formComponent {
     /* width:300px; */
-    width: 82%;
+    width: 78%;
     /* height: 400px; */
     aspect-ratio: 4/5;
   }
   .labelText {
     font-family: "Quicksand", sans-serif;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: clamp(0.6rem , -1.1102230246251565e-16rem + 3.0000000000000004vw, 0.9rem) !important;
     color: #8b8ea1;
     font-weight: bold;
     margin: 0px 0px 0px 2px;
     letter-spacing: 0.3px;
   }
   .buttonWrapper button {
-    width: 90%;
-    height: 35px;
+    width: 80%;
+    height: clamp(1.4rem , -0.20000000000000062rem + 8.000000000000004vw, 2.2rem) !important;
+  }
+  button p {
+    font-size: 1rem !important;
+    font-size: clamp(
+      0.7rem , 0.09999999999999987rem + 3.0000000000000004vw, 1.0rem
+    ) !important;
   }
   .BottomLinkWrapper p {
-    font-size: 15px;
+    font-size: 1.1rem;
     margin: 0px 0px 0px 0px;
     letter-spacing: 0.3px;
+    font-size: clamp(0.7rem , -0.10000000000000031rem + 4.000000000000002vw, 1.1rem) !important;
   }
   .link {
-    font-size: 15px;
     margin: 0px 0px 0px 3px;
+    font-size: clamp(
+      0.7rem,
+      -0.10000000000000031rem + 4.000000000000002vw,
+      1.1rem
+    ) !important;
+  }
+  .inputField::placeholder {
+    font-family: "Quicksand", sans-serif;
+    font-size: clamp(
+      0.7rem,
+      -0.10000000000000031rem + 4.000000000000002vw,
+      1.1rem
+    ) !important;
   }
 }
+

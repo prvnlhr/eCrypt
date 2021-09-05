@@ -80,6 +80,8 @@
   box-sizing: border-box;
   padding: 0px 10px 0px 5px;
   backface-visibility: hidden;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 
 }
 .titleDiv p {
@@ -91,6 +93,7 @@
   white-space: nowrap;
   /* margin: 0px 10px 0px 20px; */
   backface-visibility: hidden;
+
 
 }
 .titleDiv::-webkit-scrollbar {

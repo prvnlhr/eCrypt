@@ -76,7 +76,8 @@ const LoginIdsList = ({ loginIds, currentId, setCurrentId, setHeading }) => {
           </div>
         ) : (
           loginsFetching === false &&
-          loginIds.length > 1 && (
+          loginIds.length > 1 &&
+           (
             <>
               {loginIds.map((loginId, index) => (
                 <React.Fragment key={loginId._id}>

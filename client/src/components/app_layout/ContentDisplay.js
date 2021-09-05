@@ -11,9 +11,9 @@ import { fetchActivity } from "../../actions/activityAction";
 // import CardsList from "../card/CardsList";
 // import Dashboard from "./Dashboard";
 // import Settings from "./Settings";
-import styles from "../../css/app_layout/contentDisplay.module.css";
 // import DocsList from "../document/DocsList";
 // import FavList from "../favourite/FavList";
+import styles from "../../css/app_layout/contentDisplay.module.css";
 import SearchList from "../search/SearchList";
 import { CircleSpinner } from "react-spinners-kit";
 

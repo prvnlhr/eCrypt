@@ -79,6 +79,8 @@
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 20px;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 
 .contentContainerCollapse {

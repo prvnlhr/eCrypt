@@ -28,6 +28,8 @@
   overflow-x: scroll;
   padding: 0px 5px 0px 5px;
   box-sizing: border-box;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 .navHeaderContainer::-webkit-scrollbar {
   display: none;
@@ -67,6 +69,8 @@
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 20px;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 
 .favList::-webkit-scrollbar {
@@ -101,6 +105,8 @@
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 20px;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 .favDocList::-webkit-scrollbar {
   background-color: #fff;

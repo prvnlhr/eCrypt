@@ -24,6 +24,8 @@
   -ms-user-select: none;
   user-select: none;
   box-sizing: border-box;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 
 .settingsComponent::-webkit-scrollbar {

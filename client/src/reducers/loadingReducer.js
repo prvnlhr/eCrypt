@@ -20,6 +20,7 @@ export default function loading(state = initialState, action) {
   switch (action.type) {
     case LOADING_SET:
       return {
+        ...state,
         isLoading: action.loading,
         place: action.place,
         itemId: action.itemId,

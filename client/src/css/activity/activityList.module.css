@@ -24,6 +24,8 @@
   overflow-y: scroll;
   box-sizing: border-box;
   padding: 20px 10px 20px 10px;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 .activityList::-webkit-scrollbar {
   display: none;

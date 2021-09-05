@@ -272,6 +272,8 @@
   align-items: flex-start;
   overflow-y: scroll;
   padding: 5px 0px 10px 0px;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 .bottomWrapper::-webkit-scrollbar {
   display: none;

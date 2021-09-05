@@ -111,11 +111,11 @@ const Navbar = ({ fieldLength, setFieldLength, open, setOpen, node }) => {
               {user.firstName ? <p>{user.firstName.charAt(0)}</p> : null}
             </div>
 
-            <div className={styles.lgBtn} onClick={chevronClicked}>
+            <div className={styles.lgBtn} >
               {!open ? (
-                <HiChevronDown className={styles.downChevron} />
+                <HiChevronDown className={styles.downChevron} onClick={chevronClicked}/>
               ) : (
-                <HiChevronUp className={styles.downChevron} />
+                <HiChevronUp className={styles.downChevron} onClick={chevronClicked}/>
               )}
             </div>
           </div>

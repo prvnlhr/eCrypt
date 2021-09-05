@@ -80,7 +80,8 @@ const CardsList = ({ cards, currentId, setCurrentId, setHeading }) => {
           </div>
         ) : (
           cardFetching === false &&
-          cards.length >= 1 && (
+          cards.length >= 1 && 
+          (
             <>
               {cards.map((card, index) => (
                 <>

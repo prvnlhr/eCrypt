@@ -19,10 +19,10 @@ const documentsController = {
       const cloudinaryResponse = await cloudinary.v2.uploader.upload(filePath, {
         folder: "eCrypt",
       });
-      // console.log("cldnr resounse", cloudinaryResponse);
+      console.log("cldnr resounse", cloudinaryResponse);
       const docData = {
         imageName: fileName,
-        imageUrl: cloudinaryResponse.url,
+        imageUrl: cloudinaryResponse.secure_url,
         cloudinary_id: cloudinaryResponse.public_id,
       };
       // console.log("cloudinaryResponseAdd", cloudinaryResponse);

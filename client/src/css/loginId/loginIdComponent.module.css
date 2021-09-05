@@ -94,6 +94,8 @@
   overflow-x: scroll;
   white-space: nowrap;
   /* padding-left: 0px; */
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 .websiteDiv::-webkit-scrollbar {
   display: none;
@@ -279,6 +281,8 @@
   box-sizing: border-box;
   overflow-x: scroll;
   padding-right: 10px;
+  scrollbar-width: none;   /* firefox hide scrollbar  */
+  -ms-overflow-style: none;   /* firefox hide scrollbar  */
 }
 .textDiv::-webkit-scrollbar {
   display: none;

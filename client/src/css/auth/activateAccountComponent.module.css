@@ -219,3 +219,28 @@ button p {
   letter-spacing: 0.3px;
   text-decoration: underline;
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .activateComponent {
+    /* width:300px; */
+    width: 78%;
+    /* height: 400px; */
+    aspect-ratio: 3/2;
+  }
+
+  .buttonWrapper button {
+    width: 80%;
+    height: clamp(
+      1.4rem,
+      -0.20000000000000062rem + 8.000000000000004vw,
+      2.2rem
+    ) !important;
+  }
+  button p {
+    font-size: 1rem !important;
+    font-size: clamp(
+      0.7rem,
+      0.09999999999999987rem + 3.0000000000000004vw,
+      1rem
+    ) !important;
+  }
+}

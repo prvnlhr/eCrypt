@@ -429,9 +429,15 @@ button p {
     letter-spacing: 0.3px;
   }
   .buttonWrapper button {
-    width: 90%;
+    width:80%;
     height: clamp(1.4rem , -0.20000000000000062rem + 8.000000000000004vw, 2.2rem) !important;
-
+    padding: 0px 0px 0px 2px;
+  }
+  button p {
+    font-size: 1rem !important;
+    font-size: clamp(
+      0.7rem , 0.09999999999999987rem + 3.0000000000000004vw, 1.0rem
+    ) !important;
   }
   .BottomLinkWrapper p {
     margin: 0px 0px 0px 0px;
