@@ -89,9 +89,7 @@ const DocForm = ({ formMode, setFormMode }) => {
               <p className={styles.heading1}>Upload your file</p>
               <p className={styles.heading2}>File should be image</p>
             </div>
-            {/* ___________________________________ */}
             <div className={styles.uploadImgWrapper}>
-              {/* <div className={styles.uploadContainer}> */}
               <label htmlFor="file">
                 {previewImg ? (
                   <div className={styles.imgPreviewContainer}>
@@ -110,10 +108,8 @@ const DocForm = ({ formMode, setFormMode }) => {
                 className={styles.imgFileInput}
                 onChange={handleChange}
               />
-              {/* </div> */}
             </div>
 
-            {/* ___________________________________ */}
             <div className={styles.titleWrapper}>
               <div className={styles.labelDiv}>
                 <p className={styles.labelText}>Image title</p>
