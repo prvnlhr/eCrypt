@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CircleSpinner } from "react-spinners-kit";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import { HiX } from "react-icons/hi";
 
@@ -124,142 +124,157 @@ const LoginIdForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   // inProcessing();
 
   return (
-    <motion.div
-      initial={false}
-      variants={variants}
-      animate={formMode ? "open" : "closed"}
-      className={styles.formComponent}
-    >
-      <form className={styles.formTag} onSubmit={handleSubmit}>
-        {/* ___HEADING_________ */}
-        <div className={styles.headingWrapper}>
-          <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
-            <HiX fontSize="15px" />
-          </div>
-          <p className={styles.HeadingText}>Add new loginId</p>
-        </div>
-        {/* ___WEBSITE WRAPPER__________ */}
-        <div className={styles.websiteWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>Website</p>
-          </div>
-          <div className={styles.inputDiv}>
-            <input
-              ref={websiteInputRef}
-              list="websites"
-              required
-              name="website"
-              className={styles.inputField}
-              type="text"
-              placeholder="Enter website or app"
-              value={loginData.website}
-              onChange={(e) =>
-                setLoginData({ ...loginData, website: e.target.value })
-              }
-            />
-            <datalist id="websites">
-              <option value="Amazon" />
-              <option value="Apple" />
-              <option value="Apple Music" />
-              <option value="Apple Pay" />
-              <option value="Adobe" />
-              <option value="AWS" />
-              <option value="Airbnb" />
-              <option value="Dribble" />
-              <option value="Dell" />
-              <option value="Dropbox" />
-              <option value="Facebook" />
-              <option value="Flipkart" />
-              <option value="Google" />
-              <option value="Gmail" />
-              <option value="Google Pay" />
-              <option value="Google Photos" />
-              <option value="GeeksforGeeks" />
-              <option value="Google Drive" />
-              <option value="Github" />
-              <option value="Heroku" />
-              <option value="Hp" />
-              <option value="Instagram" />
-              <option value="Imdb" />
-              <option value="LinkedIn" />
-              <option value="Medium" />
-              <option value="Microsoft" />
-              <option value="Netflix" />
-              <option value="Netlify" />
-              <option value="Oracle" />
-              <option value="PayPal" />
-              <option value="Pinterest" />
-              <option value="Phonepe" />
-              <option value="Paytm" />
-              <option value="Playstore" />
-              <option value="Quora" />
-              <option value="Samsung" />
-              <option value="Slack" />
-              <option value="Snapchat" />
-              <option value="Spotify" />
-              <option value="Stackoverflow" />
-              <option value="Twitter" />
-              <option value="Youtube" />
-            </datalist>
-          </div>
-        </div>
-        {/* USERNAME WRAPPER__________ */}
-        <div className={styles.userNameWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>Username</p>
-          </div>
-          <div className={styles.inputDiv}>
-            <input
-              ref={userNameInputRef}
-              required
-              name="username"
-              className={styles.inputField}
-              type="text"
-              placeholder="Enter username"
-              value={loginData.username}
-              onChange={(e) =>
-                setLoginData({ ...loginData, username: e.target.value })
-              }
-            />
-          </div>
-        </div>
-        {/* PASSWORD WRAPPER__________ */}
-        <div className={styles.passwordWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>Password</p>
-          </div>
-          <div className={styles.inputDiv}>
-            <input
-              ref={passwordInputRef}
-              required
-              name="password"
-              className={styles.inputField}
-              type="text"
-              placeholder="Enter password"
-              value={loginData.password}
-              onChange={(e) =>
-                setLoginData({ ...loginData, password: e.target.value })
-              }
-            />
-          </div>
-        </div>
-        {/* ___BUTTON_________ */}
-        <div className={styles.buttonWrapper}>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            type="submit"
-            onClick={confirmSave}
-            disabled={isLoading === true ? true : false}
-          >
-            {isLoading === true ? (
-              <CircleSpinner size={15} color="white" loading={true} />
-            ) : (
-              <p>{btnText}</p>
-            )}
-          </motion.button>
-        </div>
-      </form>
-    </motion.div>
+    <AnimatePresence>
+      {formMode === true && (
+        <motion.div
+          className={styles.formComponent}
+          initial={{ scale: 0 }}
+          variants={variants}
+          animate={{
+            scale: 1,
+            transition: {
+              duration: 0.2,
+            },
+          }}
+          exit={{
+            scale: 0,
+            transition: {
+              duration: 0.2,
+            },
+          }}
+        >
+          <form className={styles.formTag} onSubmit={handleSubmit}>
+            {/* ___HEADING_________ */}
+            <div className={styles.headingWrapper}>
+              <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
+                <HiX fontSize="15px" />
+              </div>
+              <p className={styles.HeadingText}>Add new loginId</p>
+            </div>
+            {/* ___WEBSITE WRAPPER__________ */}
+            <div className={styles.websiteWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>Website</p>
+              </div>
+              <div className={styles.inputDiv}>
+                <input
+                  ref={websiteInputRef}
+                  list="websites"
+                  required
+                  name="website"
+                  className={styles.inputField}
+                  type="text"
+                  placeholder="Enter website or app"
+                  value={loginData.website}
+                  onChange={(e) =>
+                    setLoginData({ ...loginData, website: e.target.value })
+                  }
+                />
+                <datalist id="websites">
+                  <option value="Amazon" />
+                  <option value="Apple" />
+                  <option value="Apple Music" />
+                  <option value="Apple Pay" />
+                  <option value="Adobe" />
+                  <option value="AWS" />
+                  <option value="Airbnb" />
+                  <option value="Dribble" />
+                  <option value="Dell" />
+                  <option value="Dropbox" />
+                  <option value="Facebook" />
+                  <option value="Flipkart" />
+                  <option value="Google" />
+                  <option value="Gmail" />
+                  <option value="Google Pay" />
+                  <option value="Google Photos" />
+                  <option value="GeeksforGeeks" />
+                  <option value="Google Drive" />
+                  <option value="Github" />
+                  <option value="Heroku" />
+                  <option value="Hp" />
+                  <option value="Instagram" />
+                  <option value="Imdb" />
+                  <option value="LinkedIn" />
+                  <option value="Medium" />
+                  <option value="Microsoft" />
+                  <option value="Netflix" />
+                  <option value="Netlify" />
+                  <option value="Oracle" />
+                  <option value="PayPal" />
+                  <option value="Pinterest" />
+                  <option value="Phonepe" />
+                  <option value="Paytm" />
+                  <option value="Playstore" />
+                  <option value="Quora" />
+                  <option value="Samsung" />
+                  <option value="Slack" />
+                  <option value="Snapchat" />
+                  <option value="Spotify" />
+                  <option value="Stackoverflow" />
+                  <option value="Twitter" />
+                  <option value="Youtube" />
+                </datalist>
+              </div>
+            </div>
+            {/* USERNAME WRAPPER__________ */}
+            <div className={styles.userNameWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>Username</p>
+              </div>
+              <div className={styles.inputDiv}>
+                <input
+                  ref={userNameInputRef}
+                  required
+                  name="username"
+                  className={styles.inputField}
+                  type="text"
+                  placeholder="Enter username"
+                  value={loginData.username}
+                  onChange={(e) =>
+                    setLoginData({ ...loginData, username: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            {/* PASSWORD WRAPPER__________ */}
+            <div className={styles.passwordWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>Password</p>
+              </div>
+              <div className={styles.inputDiv}>
+                <input
+                  ref={passwordInputRef}
+                  required
+                  name="password"
+                  className={styles.inputField}
+                  type="text"
+                  placeholder="Enter password"
+                  value={loginData.password}
+                  onChange={(e) =>
+                    setLoginData({ ...loginData, password: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            {/* ___BUTTON_________ */}
+            <div className={styles.buttonWrapper}>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                onClick={confirmSave}
+                disabled={isLoading === true ? true : false}
+              >
+                {isLoading === true ? (
+                  <CircleSpinner size={15} color="white" loading={true} />
+                ) : (
+                  <p>{btnText}</p>
+                )}
+              </motion.button>
+            </div>
+          </form>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 export default LoginIdForm;

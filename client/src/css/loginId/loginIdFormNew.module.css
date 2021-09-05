@@ -26,6 +26,7 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
   box-sizing: border-box;
   z-index: 45;
+  will-change:transform;
 
   -webkit-box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3),
     0 15px 12px rgba(0, 0, 0, 0.22);
@@ -49,25 +50,7 @@
   -ms-user-select: none;
   user-select: none;
 }
-.formComponentClose {
-  position: absolute;
-  /* position: relative; */
-  bottom: 5%;
-  /* top: 0%; */
-  right: 5%;
-  /* left: 0; */
-  width: 0px;
-  height: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-  overflow: hidden;
-  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-  -webkit-animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    both;
-  animation: scale-out-center 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
-}
+
 .formTag {
   border: 1px solid rgba(0, 0, 0, 0.062);
   position: relative;

@@ -18,7 +18,7 @@
   aspect-ratio: 3.73/1 !important;
   border-radius: 8px;
   margin: 15px 15px 15px 15px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+ 
   background-color: #ffffff;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
 

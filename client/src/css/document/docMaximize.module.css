@@ -31,7 +31,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
+  will-change:transform;
   /* -webkit-animation: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     both;
   animation: scale-in-center 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; */
@@ -196,8 +196,8 @@
   overflow-x: scroll;
   white-space: nowrap;
   padding: 0px 0px 0px 0px;
-  scrollbar-width: none;   /* firefox hide scrollbar  */
-  -ms-overflow-style: none;   /* firefox hide scrollbar  */
+  scrollbar-width: none; /* firefox hide scrollbar  */
+  -ms-overflow-style: none; /* firefox hide scrollbar  */
 }
 .docTitleDiv::-webkit-scrollbar {
   display: none;
@@ -307,22 +307,20 @@
   font-size: 17px;
   cursor: pointer;
   color: white;
-  height:1.2rem;
-
+  height: 1.2rem;
 }
 .cancelIcon {
   font-size: 17px;
   cursor: pointer;
   color: white;
-  height:1.2rem;
-
+  height: 1.2rem;
 }
 .trashIcon {
   font-size: 17px;
   cursor: pointer;
   color: white;
   height: 2rem;
-  height:1.2rem;
+  height: 1.2rem;
 
   /* color: black; */
 }
@@ -332,18 +330,14 @@
   cursor: pointer;
   color: white;
   height: 2rem;
-  height:1.2rem;
-
-
+  height: 1.2rem;
 }
 .favIcon {
   font-size: 17px;
   cursor: pointer;
   color: white;
   height: 2rem;
-  height:1.2rem;
-
-
+  height: 1.2rem;
 }
 /* _____________________________DELETE MODAL_______________ */
 .modalContainer {

@@ -4,7 +4,6 @@
   height: 155px;
   aspect-ratio: 8/5 !important;
   border-radius: 8px;
-  margin: 20px 0px 5px 30px;
   margin: 15px 15px 15px 15px;
   padding-left: 5px;
   display: grid;
@@ -17,12 +16,12 @@
     "bankName bankName cardLogo "
     "cardNo cardNo cvv"
     "user user cardExpiry";
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+ 
   padding-right: 5px;
   object-fit: contain;
   background-color: #ffffff;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
 
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.041), 0 10px 10px rgba(0, 0, 0, 0.082);
   scroll-behavior: smooth;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
@@ -33,7 +32,6 @@
   -ms-user-select: none;
   user-select: none;
   /* font-size: 16px; */
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.075), 0 5px 5px rgba(0, 0, 0, 0.048);
 }
 
 .cardContainerInEditMode {

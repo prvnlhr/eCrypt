@@ -10,7 +10,7 @@ import {
   docFavToggle,
 } from "../../actions/documentsAction";
 import styles from "../../css/document/docMaximize.module.css";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 //ICONS IMPORTS_____//
 import { HiX, HiCheck } from "react-icons/hi";
@@ -26,7 +26,6 @@ import CheckIcon from "../icons/CheckIcon";
 
 const variants = {
   open: {
-    opacity: 1,
     scale: 1,
   },
   closed: {
@@ -130,164 +129,340 @@ const MaximizeDoc = ({
   };
 
   return (
-    <motion.div
-      initial={false}
-      variants={variants}
-      transition={{ type: "tween", stiffness: 100, duration: 0.2 }}
-      animate={maximizeOrNot ? "open" : "closed"}
-      className={styles.maximizeImgWrapper}
-    >
-      {deleteModalShow === true ? (
-        <div className={styles.modalContainer}>
-          <div className={styles.dialogDiv}>
-            <p>Are you sure you want to delete this item permanently ?</p>
-          </div>
-          <div className={styles.modalBtnDiv}>
-            <div
-              className={styles.modalCancelBtn}
-              onClick={() => {
-                setDeleteModalShow(!deleteModalShow);
-              }}
-            >
-              <p>Cancel</p>
-            </div>
-            <div
-              className={styles.modalConfirmBtn}
-              onClick={() => {
-                confirmDelete(imageData._id);
-              }}
-            >
-              {isLoading === true &&
-              place === "doc" &&
-              itemId === imageData._id &&
-              process === "delete" ? (
-                <CircleSpinner size={12} color="white" loading={true} />
-              ) : (
-                <p>Delete</p>
-              )}
-            </div>
-          </div>
-        </div>
-      ) : null}
-
-      <div className={styles.maximizeImgContainer}>
-        {!showHeaderFooter && (
-          <div className={styles.maxImgCloseBtnDiv} onClick={minimizeImg}>
-            {/* <HiOutlineArrowNarrowLeft className={styles.minimizeIcon} /> */}
-            <Icon
-              icon="entypo:chevron-left"
-              color="white"
-              className={styles.minimizeIcon}
-            />
-          </div>
-        )}
-        {showHeaderFooter && (
-          <div className={styles.docHeaderBtnWrapper}>
-            <div className={styles.docHeaderBtnContainer}>
-              {!docEditMode && (
+    <AnimatePresence>
+      {maximizeOrNot === true && (
+        <motion.div
+          initial={{ scale: 0 }}
+          variants={variants}
+          animate={{
+            scale: 1,
+            transition: {
+              duration: 0.2
+            },
+          }}
+          exit={{ scale: 0 ,transition: {
+            duration: 0.2
+          },}}
+          className={styles.maximizeImgWrapper}
+        >
+          {deleteModalShow === true ? (
+            <div className={styles.modalContainer}>
+              <div className={styles.dialogDiv}>
+                <p>Are you sure you want to delete this item permanently ?</p>
+              </div>
+              <div className={styles.modalBtnDiv}>
                 <div
-                  className={styles.maxImgDeleteDiv}
+                  className={styles.modalCancelBtn}
                   onClick={() => {
-                    handleDeleteClick();
+                    setDeleteModalShow(!deleteModalShow);
                   }}
                 >
-                  <TrashIcon
-                    className={styles.trashIcon}
-                    primaryColor={"white"}
-                    secondaryColor={"#2882FF"}
-                  />
+                  <p>Cancel</p>
                 </div>
-              )}
-              <div className={styles.maxImgFavBtnContainer}>
                 <div
-                  className={styles.maxImgFavBtnDiv}
+                  className={styles.modalConfirmBtn}
                   onClick={() => {
-                    handleFavToggle(imageData._id, imageData.isFavourite);
+                    confirmDelete(imageData._id);
                   }}
                 >
-                  {imageData.isFavourite ? (
-                    <BookmarkFill
-                      className={styles.favIcon}
-                      primaryColor={"#2882FF"}
-            secondaryColor={"#2882FF"}
-                    />
+                  {isLoading === true &&
+                  place === "doc" &&
+                  itemId === imageData._id &&
+                  process === "delete" ? (
+                    <CircleSpinner size={12} color="white" loading={true} />
                   ) : (
-                    <BookmarkPlus
-                      className={styles.favIcon}
-                      primaryColor={"white"}
-                      secondaryColor={"#2882FF"}
-                    />
+                    <p>Delete</p>
                   )}
                 </div>
               </div>
             </div>
-          </div>
-        )}
-        <img
-          className={styles.maxImage}
-          src={imageData.imageUrl ? imageData.imageUrl : null}
-          onClick={handleImageClick}
-        ></img>
-        {showHeaderFooter && (
-          <div className={styles.docTitleWrapper}>
-            <div className={styles.docTitleContainer}>
-              <div className={styles.docTitleDiv}>
-                {!docEditMode ? (
-                  <p className={styles.maxImgTitleText}>
-                    {imageData.imageName}
-                  </p>
-                ) : (
-                  <input
-                    className={styles.maxImgTitleInput}
-                    value={imageData.imageName}
-                    onChange={(e) =>
-                      setImageData({
-                        ...imageData,
-                        imageName: e.target.value,
-                      })
-                    }
-                  ></input>
-                )}
-              </div>
+          ) : null}
 
-              <div className={styles.docEditBtnContainer}>
-                {!docEditMode ? (
-                  <div
-                    className={styles.maxImgEditDiv}
-                    onClick={handleEditButtonClicked}
-                  >
-                    <PencilIcon
-                      className={styles.pencilIcon}
-                      primaryColor={"white"}
-                      secondaryColor={"#2882FF"}
-                    />
-                  </div>
-                ) : (
-                  <>
-                    <div
-                      className={styles.maxImgSaveDiv}
-                      onClick={handleImageSave}
-                    >
-                      {/* <HiCheck className={styles.saveIcon} /> */}
-                      <CheckIcon className={styles.checkIcon} primaryColor={"white"}
-                      secondaryColor={"#2882FF"} />
-                    </div>
-                    <div
-                      className={styles.maxImgCancelDiv}
-                      onClick={handleCancelBtnClicked}
-                    >
-                      <CancelIcon className={styles.cancelIcon} primaryColor={"white"}
-                      secondaryColor={"#2882FF"}/>
-                    </div>
-                  </>
-                )}
+          <div className={styles.maximizeImgContainer}>
+            {!showHeaderFooter && (
+              <div className={styles.maxImgCloseBtnDiv} onClick={minimizeImg}>
+                {/* <HiOutlineArrowNarrowLeft className={styles.minimizeIcon} /> */}
+                <Icon
+                  icon="entypo:chevron-left"
+                  color="white"
+                  className={styles.minimizeIcon}
+                />
               </div>
-            </div>
+            )}
+            {showHeaderFooter && (
+              <div className={styles.docHeaderBtnWrapper}>
+                <div className={styles.docHeaderBtnContainer}>
+                  {!docEditMode && (
+                    <div
+                      className={styles.maxImgDeleteDiv}
+                      onClick={() => {
+                        handleDeleteClick();
+                      }}
+                    >
+                      <TrashIcon
+                        className={styles.trashIcon}
+                        primaryColor={"white"}
+                        secondaryColor={"#2882FF"}
+                      />
+                    </div>
+                  )}
+                  <div className={styles.maxImgFavBtnContainer}>
+                    <div
+                      className={styles.maxImgFavBtnDiv}
+                      onClick={() => {
+                        handleFavToggle(imageData._id, imageData.isFavourite);
+                      }}
+                    >
+                      {imageData.isFavourite ? (
+                        <BookmarkFill
+                          className={styles.favIcon}
+                          primaryColor={"#2882FF"}
+                          secondaryColor={"#2882FF"}
+                        />
+                      ) : (
+                        <BookmarkPlus
+                          className={styles.favIcon}
+                          primaryColor={"white"}
+                          secondaryColor={"#2882FF"}
+                        />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            <img
+              className={styles.maxImage}
+              src={imageData.imageUrl ? imageData.imageUrl : null}
+              onClick={handleImageClick}
+            ></img>
+            {showHeaderFooter && (
+              <div className={styles.docTitleWrapper}>
+                <div className={styles.docTitleContainer}>
+                  <div className={styles.docTitleDiv}>
+                    {!docEditMode ? (
+                      <p className={styles.maxImgTitleText}>
+                        {imageData.imageName}
+                      </p>
+                    ) : (
+                      <input
+                        className={styles.maxImgTitleInput}
+                        value={imageData.imageName}
+                        onChange={(e) =>
+                          setImageData({
+                            ...imageData,
+                            imageName: e.target.value,
+                          })
+                        }
+                      ></input>
+                    )}
+                  </div>
+
+                  <div className={styles.docEditBtnContainer}>
+                    {!docEditMode ? (
+                      <div
+                        className={styles.maxImgEditDiv}
+                        onClick={handleEditButtonClicked}
+                      >
+                        <PencilIcon
+                          className={styles.pencilIcon}
+                          primaryColor={"white"}
+                          secondaryColor={"#2882FF"}
+                        />
+                      </div>
+                    ) : (
+                      <>
+                        <div
+                          className={styles.maxImgSaveDiv}
+                          onClick={handleImageSave}
+                        >
+                          {/* <HiCheck className={styles.saveIcon} /> */}
+                          <CheckIcon
+                            className={styles.checkIcon}
+                            primaryColor={"white"}
+                            secondaryColor={"#2882FF"}
+                          />
+                        </div>
+                        <div
+                          className={styles.maxImgCancelDiv}
+                          onClick={handleCancelBtnClicked}
+                        >
+                          <CancelIcon
+                            className={styles.cancelIcon}
+                            primaryColor={"white"}
+                            secondaryColor={"#2882FF"}
+                          />
+                        </div>
+                      </>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
-        )}
-      </div>
-    </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
 export default MaximizeDoc;
+
+// (
+//   <motion.div
+//     initial={false}
+//     variants={variants}
+//     animate={maximizeOrNot ? "open" : "closed"}
+//     className={styles.maximizeImgWrapper}
+//   >
+//     {deleteModalShow === true ? (
+//       <div className={styles.modalContainer}>
+//         <div className={styles.dialogDiv}>
+//           <p>Are you sure you want to delete this item permanently ?</p>
+//         </div>
+//         <div className={styles.modalBtnDiv}>
+//           <div
+//             className={styles.modalCancelBtn}
+//             onClick={() => {
+//               setDeleteModalShow(!deleteModalShow);
+//             }}
+//           >
+//             <p>Cancel</p>
+//           </div>
+//           <div
+//             className={styles.modalConfirmBtn}
+//             onClick={() => {
+//               confirmDelete(imageData._id);
+//             }}
+//           >
+//             {isLoading === true &&
+//             place === "doc" &&
+//             itemId === imageData._id &&
+//             process === "delete" ? (
+//               <CircleSpinner size={12} color="white" loading={true} />
+//             ) : (
+//               <p>Delete</p>
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     ) : null}
+
+//     <div className={styles.maximizeImgContainer}>
+//       {!showHeaderFooter && (
+//         <div className={styles.maxImgCloseBtnDiv} onClick={minimizeImg}>
+//           {/* <HiOutlineArrowNarrowLeft className={styles.minimizeIcon} /> */}
+//           <Icon
+//             icon="entypo:chevron-left"
+//             color="white"
+//             className={styles.minimizeIcon}
+//           />
+//         </div>
+//       )}
+//       {showHeaderFooter && (
+//         <div className={styles.docHeaderBtnWrapper}>
+//           <div className={styles.docHeaderBtnContainer}>
+//             {!docEditMode && (
+//               <div
+//                 className={styles.maxImgDeleteDiv}
+//                 onClick={() => {
+//                   handleDeleteClick();
+//                 }}
+//               >
+//                 <TrashIcon
+//                   className={styles.trashIcon}
+//                   primaryColor={"white"}
+//                   secondaryColor={"#2882FF"}
+//                 />
+//               </div>
+//             )}
+//             <div className={styles.maxImgFavBtnContainer}>
+//               <div
+//                 className={styles.maxImgFavBtnDiv}
+//                 onClick={() => {
+//                   handleFavToggle(imageData._id, imageData.isFavourite);
+//                 }}
+//               >
+//                 {imageData.isFavourite ? (
+//                   <BookmarkFill
+//                     className={styles.favIcon}
+//                     primaryColor={"#2882FF"}
+//           secondaryColor={"#2882FF"}
+//                   />
+//                 ) : (
+//                   <BookmarkPlus
+//                     className={styles.favIcon}
+//                     primaryColor={"white"}
+//                     secondaryColor={"#2882FF"}
+//                   />
+//                 )}
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//       <img
+//         className={styles.maxImage}
+//         src={imageData.imageUrl ? imageData.imageUrl : null}
+//         onClick={handleImageClick}
+//       ></img>
+//       {showHeaderFooter && (
+//         <div className={styles.docTitleWrapper}>
+//           <div className={styles.docTitleContainer}>
+//             <div className={styles.docTitleDiv}>
+//               {!docEditMode ? (
+//                 <p className={styles.maxImgTitleText}>
+//                   {imageData.imageName}
+//                 </p>
+//               ) : (
+//                 <input
+//                   className={styles.maxImgTitleInput}
+//                   value={imageData.imageName}
+//                   onChange={(e) =>
+//                     setImageData({
+//                       ...imageData,
+//                       imageName: e.target.value,
+//                     })
+//                   }
+//                 ></input>
+//               )}
+//             </div>
+
+//             <div className={styles.docEditBtnContainer}>
+//               {!docEditMode ? (
+//                 <div
+//                   className={styles.maxImgEditDiv}
+//                   onClick={handleEditButtonClicked}
+//                 >
+//                   <PencilIcon
+//                     className={styles.pencilIcon}
+//                     primaryColor={"white"}
+//                     secondaryColor={"#2882FF"}
+//                   />
+//                 </div>
+//               ) : (
+//                 <>
+//                   <div
+//                     className={styles.maxImgSaveDiv}
+//                     onClick={handleImageSave}
+//                   >
+//                     {/* <HiCheck className={styles.saveIcon} /> */}
+//                     <CheckIcon className={styles.checkIcon} primaryColor={"white"}
+//                     secondaryColor={"#2882FF"} />
+//                   </div>
+//                   <div
+//                     className={styles.maxImgCancelDiv}
+//                     onClick={handleCancelBtnClicked}
+//                   >
+//                     <CancelIcon className={styles.cancelIcon} primaryColor={"white"}
+//                     secondaryColor={"#2882FF"}/>
+//                   </div>
+//                 </>
+//               )}
+//             </div>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   </motion.div>
+// );

@@ -7,7 +7,7 @@ import { HiX } from "react-icons/hi";
 import btnStyles from "../../css/add_button/buttons.module.css";
 import styles from "../../css/card/cardFormNew.module.css";
 import { CircleSpinner } from "react-spinners-kit";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 const variants = {
   open: {
     opacity: 1,
@@ -161,144 +161,159 @@ const CardForm = ({ currentId, setCurrentId, formMode, setFormMode }) => {
   };
 
   return (
-    <motion.div
-      className={styles.formComponent}
-      initial={false}
-      variants={variants}
-      animate={formMode ? "open" : "closed"}
-    >
-      <form className={styles.formTag} onSubmit={handleSubmit}>
-        {/* ___HEADING_________ */}
-        <div className={styles.headingWrapper}>
-          <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
-            <HiX fontSize="15px" />
-          </div>
-          <p className={styles.HeadingText}>Add new card</p>
-        </div>
-        {/* ___CARD NUMBER__________ */}
-        <div className={styles.cardNoWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>Card number</p>
-          </div>
-          <div className={styles.inputDiv}>
-            <input
-              ref={cardNoInputRef}
-              required
-              name="cardNo"
-              className={styles.inputField}
-              type="text"
-              minLength="15"
-              maxLength="16"
-              placeholder="Enter 15 - 16 digit card number"
-              value={cardData.cardNo}
-              onChange={(e) =>
-                setCardData({ ...cardData, cardNo: e.target.value })
-              }
-            />
-          </div>
-        </div>
-        <div className={styles.bankNameWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>Bank</p>
-          </div>
-          <div className={styles.inputDiv}>
-            <input
-              ref={bankInputRef}
-              required
-              name="bank"
-              className={styles.inputField}
-              type="text"
-              placeholder="Issuing bank"
-              value={cardData.bank}
-              onChange={(e) =>
-                setCardData({ ...cardData, bank: e.target.value })
-              }
-            />
-          </div>
-        </div>
+    <AnimatePresence>
+      {formMode === true && (
+        <motion.div
+          className={styles.formComponent}
+          initial={{ scale: 0 }}
+          variants={variants}
+          animate={{
+            scale: 1,
+            transition: {
+              duration: 0.2,
+            },
+          }}
+          exit={{
+            scale: 0,
+            transition: {
+              duration: 0.2,
+            },
+          }}
+        >
+          <form className={styles.formTag} onSubmit={handleSubmit}>
+            {/* ___HEADING_________ */}
+            <div className={styles.headingWrapper}>
+              <div className={btnStyles.cancelBtnDiv} onClick={fromToggle}>
+                <HiX fontSize="15px" />
+              </div>
+              <p className={styles.HeadingText}>Add new card</p>
+            </div>
+            {/* ___CARD NUMBER__________ */}
+            <div className={styles.cardNoWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>Card number</p>
+              </div>
+              <div className={styles.inputDiv}>
+                <input
+                  ref={cardNoInputRef}
+                  required
+                  name="cardNo"
+                  className={styles.inputField}
+                  type="text"
+                  minLength="15"
+                  maxLength="16"
+                  placeholder="Enter 15 - 16 digit card number"
+                  value={cardData.cardNo}
+                  onChange={(e) =>
+                    setCardData({ ...cardData, cardNo: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            <div className={styles.bankNameWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>Bank</p>
+              </div>
+              <div className={styles.inputDiv}>
+                <input
+                  ref={bankInputRef}
+                  required
+                  name="bank"
+                  className={styles.inputField}
+                  type="text"
+                  placeholder="Issuing bank"
+                  value={cardData.bank}
+                  onChange={(e) =>
+                    setCardData({ ...cardData, bank: e.target.value })
+                  }
+                />
+              </div>
+            </div>
 
-        {/* ___EXPIRY DATE__________ */}
-        <div className={styles.expiryDateWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>Expiry date</p>
-          </div>
-          <div className={styles.inputDiv}>
-            <input
-              className={styles.inputField}
-              required
-              ref={expiryInputRef}
-              name="expiry"
-              type="text"
-              value={cardData.expiry}
-              placeholder="MM / YY"
-              maxLength="5"
-              minLength="5"
-              onChange={handleDateChange}
-              // (e) =>
-              //  setCardData({ ...cardData, expiry: e.target.value })
-              //  ,
-            />
-          </div>
-        </div>
-        {/* ___CVV__________ */}
-        <div className={styles.cvvWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>CVV</p>
-          </div>
-          <div className={styles.inputDiv}>
-            <input
-              ref={cvvInputRef}
-              className={styles.inputField}
-              required
-              name="cvv"
-              type="text"
-              minLength="3"
-              maxLength="4"
-              placeholder="000"
-              value={cardData.cvv}
-              onChange={(e) =>
-                setCardData({ ...cardData, cvv: e.target.value })
-              }
-            />
-          </div>
-        </div>
-        {/* ___CARDHOLDER__________ */}
-        <div className={styles.cardHolderWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>Cardholder name</p>
-          </div>
-          <div className={styles.inputDiv}>
-            <input
-              ref={userInputRef}
-              className={styles.inputField}
-              required
-              type="text"
-              name="user"
-              placeholder="Enter cardholders full name"
-              value={cardData.user}
-              onChange={(e) =>
-                setCardData({ ...cardData, user: e.target.value })
-              }
-            />
-          </div>
-        </div>
-        {/* ___BUTTON_________ */}
-        <div className={styles.buttonWrapper}>
-          <motion.button
-            whileTap={{ scale: 0.95 }}
-            type="submit"
-            onClick={confirmSave}
-            disabled={process.inProcess ? true : false}
-          >
-            {process.inProcess === true ? (
-              <CircleSpinner size={15} color="white" loading={true} />
-            ) : (
-              <p>{btnText}</p>
-            )}
-          </motion.button>
-        </div>
-      </form>
-    </motion.div>
+            {/* ___EXPIRY DATE__________ */}
+            <div className={styles.expiryDateWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>Expiry date</p>
+              </div>
+              <div className={styles.inputDiv}>
+                <input
+                  className={styles.inputField}
+                  required
+                  ref={expiryInputRef}
+                  name="expiry"
+                  type="text"
+                  value={cardData.expiry}
+                  placeholder="MM / YY"
+                  maxLength="5"
+                  minLength="5"
+                  onChange={handleDateChange}
+                  // (e) =>
+                  //  setCardData({ ...cardData, expiry: e.target.value })
+                  //  ,
+                />
+              </div>
+            </div>
+            {/* ___CVV__________ */}
+            <div className={styles.cvvWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>CVV</p>
+              </div>
+              <div className={styles.inputDiv}>
+                <input
+                  ref={cvvInputRef}
+                  className={styles.inputField}
+                  required
+                  name="cvv"
+                  type="text"
+                  minLength="3"
+                  maxLength="4"
+                  placeholder="000"
+                  value={cardData.cvv}
+                  onChange={(e) =>
+                    setCardData({ ...cardData, cvv: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            {/* ___CARDHOLDER__________ */}
+            <div className={styles.cardHolderWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>Cardholder name</p>
+              </div>
+              <div className={styles.inputDiv}>
+                <input
+                  ref={userInputRef}
+                  className={styles.inputField}
+                  required
+                  type="text"
+                  name="user"
+                  placeholder="Enter cardholders full name"
+                  value={cardData.user}
+                  onChange={(e) =>
+                    setCardData({ ...cardData, user: e.target.value })
+                  }
+                />
+              </div>
+            </div>
+            {/* ___BUTTON_________ */}
+            <div className={styles.buttonWrapper}>
+              <motion.button
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                onClick={confirmSave}
+                disabled={process.inProcess ? true : false}
+              >
+                {process.inProcess === true ? (
+                  <CircleSpinner size={15} color="white" loading={true} />
+                ) : (
+                  <p>{btnText}</p>
+                )}
+              </motion.button>
+            </div>
+          </form>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 export default CardForm;

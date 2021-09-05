@@ -5,7 +5,7 @@ import { addNewDoc } from "../../actions/documentsAction";
 import styles from "../../css/document/docFormNew.module.css";
 import { HiX } from "react-icons/hi";
 import { Icon } from "@iconify/react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import axios from "axios";
 
 const variants = {
@@ -14,7 +14,6 @@ const variants = {
     scale: 1,
   },
   closed: {
-    // opacity: 0.5,
     scale: 0,
   },
 };
@@ -66,73 +65,84 @@ const DocForm = ({ formMode, setFormMode }) => {
   };
 
   return (
-    <motion.div
-      initial={false}
-      variants={variants}
-      animate={formMode ? "open" : "closed"}
-      transition={{ duration: 0.1 }}
-      className={styles.formComponent}
-    >
-      <form className={styles.formTag} onSubmit={handleFormSubmit}>
-        <div className={styles.cancelBtnDiv} onClick={formToggle}>
-          <HiX fontSize="15px" />
-        </div>
-        <div className={styles.headingWrapper}>
-          <p className={styles.heading1}>Upload your file</p>
-          <p className={styles.heading2}>File should be image</p>
-        </div>
-        {/* ___________________________________ */}
-        <div className={styles.uploadImgWrapper}>
-          {/* <div className={styles.uploadContainer}> */}
-          <label htmlFor="file">
-            {previewImg ? (
-              <div className={styles.imgPreviewContainer}>
-                <img src={previewImg} alt="doc" />
-              </div>
-            ) : (
-              <div className={styles.uploadContainer}>
-                <Icon icon="bi:folder-fill" className={styles.folderIcon} />
-                <p>Click to choose file</p>
-              </div>
-            )}
-          </label>
-          <input
-            type="file"
-            id="file"
-            className={styles.imgFileInput}
-            onChange={handleChange}
-          />
-          {/* </div> */}
-        </div>
+    <AnimatePresence>
+      {formMode === true && (
+        <motion.div
+        initial={{ scale: 0 }}
+        variants={variants}
+        animate={{
+          scale: 1,
+          transition: {
+            duration: 0.2
+          },
+        }}
+        exit={{ scale: 0 ,transition: {
+          duration: 0.2
+        },}}
+          className={styles.formComponent}
+        >
+          <form className={styles.formTag} onSubmit={handleFormSubmit}>
+            <div className={styles.cancelBtnDiv} onClick={formToggle}>
+              <HiX fontSize="15px" />
+            </div>
+            <div className={styles.headingWrapper}>
+              <p className={styles.heading1}>Upload your file</p>
+              <p className={styles.heading2}>File should be image</p>
+            </div>
+            {/* ___________________________________ */}
+            <div className={styles.uploadImgWrapper}>
+              {/* <div className={styles.uploadContainer}> */}
+              <label htmlFor="file">
+                {previewImg ? (
+                  <div className={styles.imgPreviewContainer}>
+                    <img src={previewImg} alt="doc" />
+                  </div>
+                ) : (
+                  <div className={styles.uploadContainer}>
+                    <Icon icon="bi:folder-fill" className={styles.folderIcon} />
+                    <p>Click to choose file</p>
+                  </div>
+                )}
+              </label>
+              <input
+                type="file"
+                id="file"
+                className={styles.imgFileInput}
+                onChange={handleChange}
+              />
+              {/* </div> */}
+            </div>
 
-        {/* ___________________________________ */}
-        <div className={styles.titleWrapper}>
-          <div className={styles.labelDiv}>
-            <p className={styles.labelText}>Image title</p>
-          </div>
+            {/* ___________________________________ */}
+            <div className={styles.titleWrapper}>
+              <div className={styles.labelDiv}>
+                <p className={styles.labelText}>Image title</p>
+              </div>
 
-          <div className={styles.inputDiv}>
-            <input
-              className={styles.inputField}
-              required
-              type="text"
-              id="name"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className={styles.buttonWrapper}>
-          <motion.button whileTap={{ scale: 0.95 }} type="submit">
-            <Icon
-              icon="eva:arrow-circle-up-outline"
-              color="white"
-              className={styles.btnIcon}
-            />
-            <p>Upload</p>
-          </motion.button>
-        </div>
-      </form>
-    </motion.div>
+              <div className={styles.inputDiv}>
+                <input
+                  className={styles.inputField}
+                  required
+                  type="text"
+                  id="name"
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </div>
+            </div>
+            <div className={styles.buttonWrapper}>
+              <motion.button whileTap={{ scale: 0.95 }} type="submit">
+                <Icon
+                  icon="eva:arrow-circle-up-outline"
+                  color="white"
+                  className={styles.btnIcon}
+                />
+                <p>Upload</p>
+              </motion.button>
+            </div>
+          </form>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 

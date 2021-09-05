@@ -82,7 +82,7 @@ const ContentDisplay = ({
   // console.log(activitiesArray);
   return (
     <div className={styles.contentDisplay}>
-        {/* <div className={styles.lazySuspenseFallBackDiv}>
+      {/* <div className={styles.lazySuspenseFallBackDiv}>
             <CircleSpinner size={12} color="gray" loading={true} />
           </div> */}
       {searchResultArray.length > 0 && fieldLength > 0 ? (
@@ -95,7 +95,6 @@ const ContentDisplay = ({
           setMaximizeOrNot={setMaximizeOrNot}
           showHeaderFooter={showHeaderFooter}
           setShowHeaderFooter={setShowHeaderFooter}
- 
         />
       ) : null}
 
@@ -167,7 +166,6 @@ const ContentDisplay = ({
                 favoritesLoginsArray={favoritesLoginsArray}
                 setImageData={setImageData}
                 setMaximizeOrNot={setMaximizeOrNot}
-            
               />
             )}
           />
