@@ -26,32 +26,23 @@ const initialState = {};
 //   );
 // }
 
-
-
-
-
-
-
-
-
+export const store = createStore(
+  rootReducer,
+  initialState,
+  compose(applyMiddleware(thunk))
+);
 
 // export const store = createStore(
 //   rootReducer,
 //   initialState,
-//   compose(applyMiddleware(thunk))
+//   compose(
+//     applyMiddleware(thunk),
+//     window.__REDUX_DEVTOOLS_EXTENSION__ &&
+//       window.__REDUX_DEVTOOLS_EXTENSION__({
+//         latency: 0,
+//       })
+//   )
 // );
-
-export const store = createStore(
-  rootReducer,
-  initialState,
-  compose(
-    applyMiddleware(thunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ &&
-      window.__REDUX_DEVTOOLS_EXTENSION__({
-        latency: 0,
-      })
-  )
-);
 
 // export default store;
 
